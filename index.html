@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Food Delivery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="30" src="images/logo.png" alt="Logo">
+                <h1>KhanaDotCom</h1>
+            </div>
+            <input type="text" placeholder="Search Food" class="searchbar">
+            <button class="menu-toggle" id="menu-toggle"><img class="Profile" src="images/Profile.jpg" alt=""></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><img src="images/Cart.png" alt=""><a href="">Cart</a> </li>
+                <li><img src="images/Order.png" alt=""><a href="order.html">Orders</a> </li>
+                <li><img src="images/Profile.jpg" alt=""><a href="">Profile</a> </li>
+                <li><img src="images/Help.webp" alt=""><a href="t&c.html">Help/Support</a> </li>
+                <li><img src="images/Login.png" alt=""><a href="">SignUp/LogIn</a> </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+
+            <!-- Category Slider -->
+            <div class="slider">
+                Slider Of Categories
+            </div>
+
+            <!-- Shipping BEnifits -->
+            <div class="shipping">
+                <div>24*7 Delivery</div>
+                <div>₹50 Delivery</div>
+                <div>Fast Delivery</div>
+                <div>24*7 Delivery</div>
+            </div>
+            <!-- Categories -->
+            <div class="Category">
+                <div class="burger">Details Of Categories</div>
+                <div class="burger">Details Of Categories</div>
+                <div class="burger">Details Of Categories</div>
+                <div class="burger">Details Of Categories</div>
+                <div class="burger">Details Of Categories</div>
+                <div class="burger">Details Of Categories</div>
+            </div>
+
+            <!-- Offer Slider -->
+            <div class="slider">
+                Slider Of Offers
+            </div>
+
+            <!-- Products -->
+            <div class="products">
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+                <div class="product">Product</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Home Food Delivery</p>
+    </footer>
+    <script>
+             document.getElementById('menu-toggle').addEventListener('click', function () {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+
+</html>

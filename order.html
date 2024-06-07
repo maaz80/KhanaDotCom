@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="order-summary-container">
+        <header class="header">
+            <h1>Order Summary</h1>
+        </header>
+        <section class="order-details">
+            <h2>Order Details</h2>
+            <p><strong>Customer: </strong> <span id="customer-name"> </span></p>
+            <p><strong>Email: </strong><span id="customer-email"> </span> </p>
+            <p><strong>Phone: </strong><span id="customer-number"> </span> </p>
+            <p><strong>Address: </strong><span id="customer-address"> </span> </p>
+            <p><strong>Order Date: </strong><span id="order-date"> </span></p>
+            <p><strong>Time Ago: </strong><span id="time-ago"> </span></p>
+        </section>
+        <section class="order-items">
+            <h2>Items</h2>
+            <div class="Details">
+                <div>
+                    <p><strong>Item:</strong> Pizza</p>
+                    <p><strong>Quantity:</strong> 2</p>
+                    <p><strong>Price:</strong> ₹200.00</p>
+                </div>
+                <img class="item-img" src="images/FoodLogo.png" alt="Logo">
+            </div>
+            <div class="Details">
+                <div>
+                    <p><strong>Item:</strong> Burger</p>
+                    <p><strong>Quantity:</strong> 2</p>
+                    <p><strong>Price:</strong> ₹100.00</p>
+                </div>
+                <img class="item-img" src="images/logo.png" alt="">
+            </div>
+            <div class="Details">
+                <div>
+                    <p><strong>Item:</strong> Soda</p>
+                    <p><strong>Quantity:</strong> 2</p>
+                    <p><strong>Price:</strong> ₹60.00</p>
+                </div>
+                <img class="item-img" src="images/logo.png" alt="">
+            </div>
+        </section>
+        <section class="order-pricing">
+            <h2>Pricing Summary</h2>
+            <p><strong>Subtotal:</strong> ₹360.00</p>
+            <p><strong>Tax (5%):</strong> ₹10.80</p>
+            <p class="finalprice"><strong>Total:</strong> ₹370.80</p>
+        </section>
+    </div>
+    <script src="js/order.js"></script>
+</body>
+
+</html>

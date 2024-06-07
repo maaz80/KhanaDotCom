@@ -1,0 +1,378 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: gray;
+}
+
+header {
+    background-color: #16a290;
+    color: #fff;
+}
+nav{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5px;
+}
+.logo{
+    display: flex ;
+    align-items: center;
+    gap: 3px;
+}
+.logo img{
+    border-radius: 10px;
+}
+.logo h1{
+    font-size: 17px;
+}
+.searchbar{
+    width: 42%;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    padding: 1px 5px;
+}
+.searchbar::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+/* Navigation menu styles */
+nav ul {
+    display: none;
+    position: absolute;
+    top: 31px;
+    right: 0;
+    background-color: white;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+}
+
+nav ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 10px; /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+nav ul li:hover {
+    background-color: lightgray;
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+nav ul li a:hover{
+    transform: scale(1.1);
+    color: white;
+}
+.menu-toggle{
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 22px;
+}
+
+nav ul.show {
+    display: flex;
+}
+.Profile{
+    width: 20px;
+    height: 20px;
+   filter: invert();
+   padding-top: 5px;
+
+}
+li img{
+    width: 20px;
+    height: 20px;
+}
+
+.slider{
+    width: 100%;
+    margin: auto;
+    border-radius: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+main {
+    padding: 1em;
+}
+
+.shipping{
+    width: 100%;
+    display: flex ;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+    font-size: 10px;
+
+}
+.shipping div{
+    border: 1px solid red ;
+    padding: 9px;
+    border-radius: 10px;
+}
+.Category{
+    width: 100%;
+    margin: auto;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.burger{
+    width: 47%;
+    border: 1px solid gray;
+    height: 220px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.products{
+    width: 100%;
+    margin: auto;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.product{
+    width: 47%;
+    border: 1px solid gray;
+    height: 220px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.items{
+    width: 100%;
+    margin: auto;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.item{
+    width: 47%;
+    border: 1px solid gray;
+    height: 220px;
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.item button a{
+    text-decoration: none;
+    color: black;
+}
+.item button{
+    background-color: gray;
+    padding: 5px 14px;
+    border-radius: 3px;
+}
+h2{
+    text-align: center;
+}
+
+.menu{
+    text-align: center;
+    font-size: 52px;
+    margin-top: -21px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.main h2{
+    background-color: gray;
+    border-radius: 3px;
+}
+footer {
+    background-color: #16a290;
+    color: #fff;
+    text-align: center;
+    position: sticky;
+    width: 100%;
+    bottom: 0;
+}
+.order-summary-container {
+    background-color: #fff;
+    
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.order-details{
+    font-size: small;
+    padding: 0 20px;
+}
+.order-details p{
+    margin-bottom: -10px;
+}
+
+ .order-items {
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+.order-pricing{
+    padding-left: 17px;
+}
+.order-pricing h2{
+    width: 90%;
+    border-bottom:2px solid #ddd ;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+.finalprice{
+    width: 90%;
+    border-top:2px solid #ddd ;
+    margin-top: 10px;
+    padding-top: 5px;
+
+}
+
+.order-details h2, .order-items h2 {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.Details {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.item-img{
+    width: 25%;
+}
+
+
+.Details:last-child {
+    border-bottom: none;
+}
+
+.Details p {
+    margin: 10px 0;
+    display: flex;
+}
+
+.order-pricing p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.order-pricing p:last-child {
+    font-size: 1.2em;
+    color: #333;
+}
+
+
+@media screen and (min-width: 700px) {
+    .item-img{
+        width: 15%;
+    }
+    nav{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .logo h1{
+        font-size: 22px;
+    }
+    .items{
+        width: 85%;
+        gap: 50px;
+    }
+    .item{
+        width: 25%;
+    }
+    .menu{
+        font-size: 100px;
+        margin-top: -30px;
+    }
+    .slider{
+        width: 85%;
+    }
+    .shipping{
+        width: 85%;
+        font-size: 17px;
+    }
+    .Category{
+        width: 85%;
+        gap: 50px;
+    }
+    .burger{
+        width: 25%;
+    }
+    .products{
+        width: 85%;
+        gap: 50px;
+    }
+    .product{
+        width: 25%;
+    }
+    .order-details{
+        font-size: medium;
+        padding: 0 20px;
+    }
+    nav ul {
+        width: 10vw;
+        top: 46px;
+    }
+    .Profile{
+        width: 30px;
+        height: 30px;
+    }
+   
+    .searchbar{
+        width: 60%;
+        padding: 7px 5px;
+    }
+}

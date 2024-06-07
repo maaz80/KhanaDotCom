@@ -1,0 +1,165 @@
+/* t&c.css*/
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 0px;
+}
+
+/* Style the container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: #16a290;
+    color: #fff;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 10px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.logo img {
+    border-radius: 10px;
+}
+
+.logo h1 {
+    font-size: 17px;
+}
+
+/* Navigation menu styles */
+nav ul {
+    display: none;
+    position: absolute;
+    top: 46px;
+    right: 0;
+    background-color: white;
+    width: 40vw;
+    box-shadow: -4px 5px 10px lightblue;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 17px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid gray;
+    display: inline-block;
+}
+.menu-toggle{
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 22px;
+}
+
+nav ul.show {
+    display: flex;
+}
+
+/* Content styles */
+
+.content h2 {
+    font-size: 1.5em;
+    margin: 20px 0 10px;
+}
+
+.content p, .content ul {
+    margin-bottom: 20px;
+}
+
+.content ul {
+    list-style: disc inside;
+    padding-left: 20px;
+}
+
+/* Responsive styles */
+@media screen and (min-width: 700px) {
+    header {
+        background-color: #16a290;
+        color: #fff;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .logo img {
+        border-radius: 10px;
+    }
+
+    .logo h1 {
+        font-size: 27px;
+    }
+    
+    nav ul {
+        position: static;
+        background-color: transparent;
+        width: auto;
+        box-shadow: none;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        padding: 0;
+        display: flex; /* Ensure the menu is displayed on larger screens */
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        border: none;
+        font-size: 16px;
+        color: inherit;
+        transition: color 0.3s, transform 0.3s; /* Smooth transition for color and scale */
+    }
+
+    nav ul li a:hover {
+        color: #333;
+        transform: scale(1.1); /* Apply the scaling effect */
+    }
+    .menu-toggle{
+        display: none;
+    }
+}

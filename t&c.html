@@ -16,11 +16,16 @@
                 <img width="30" src="images/logo.png" alt="Logo">
                 <h1>Terms and Conditions</h1>
             </div>
-           
+
             <button class="menu-toggle" id="menu-toggle"><img class="Profile" src="images/Profile.jpg" alt=""></button>
             <ul id="nav-menu" class="mobile-menu">
                 <li><img src="images/Menu.webp" alt=""><a href="menu.html">Menu</a> </li>
-                <li><img src="images/Cart.png" alt=""><a href="">Cart</a> </li>
+                <li>
+                    <div class="cart-box">
+                    <img src="images/Cart.png" alt="">
+                    <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                <a href="">Cart</a> </li>
                 <li><img src="images/Order.png" alt=""><a href="order.html">Orders</a> </li>
                 <li><img src="images/Profile.jpg" alt=""><a href="">Profile</a> </li>
                 <li><img src="images/Help.webp" alt=""><a href="t&c.html">Help/Support</a> </li>
@@ -99,13 +104,7 @@
                 resolution of any disputes.</p>
         </section>
     </div>
-    <script>
-    
-document.getElementById('menu-toggle').addEventListener('click', function () {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show');
-});
-    </script>
+   <script src="js/script.js"></script>
 </body>
 
 </html>

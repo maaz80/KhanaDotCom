@@ -116,7 +116,20 @@ li img{
     width: 20px;
     height: 20px;
 }
-
+/* Cart */
+.cart-box{
+    position: relative;
+}
+.item-In-Cart{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    color: white;
+    border-radius: 20%;
+    font-size: 8px;
+    padding: 0px 2px;
+}
 /* Content styles */
 /* Style the container */
 .container {

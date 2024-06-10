@@ -117,8 +117,9 @@ li img{
     right: 0;
     bottom: 0;
     background-color: red;
+    color: white;
     border-radius: 20%;
-    font-size: 10px;
+    font-size: 8px;
     padding: 0px 2px;
 }
 .slider{

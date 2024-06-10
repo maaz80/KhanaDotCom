@@ -1,7 +1,9 @@
 /* t&c.css*/
-body, h1, h2, p, ul {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* Style the body */
@@ -13,18 +15,15 @@ body {
     padding: 0px;
 }
 
-/* Style the container */
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
 header {
     background-color: #16a290;
     color: #fff;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 /* Navigation styles */
@@ -34,7 +33,9 @@ nav {
     justify-content: space-between;
     padding: 7px 10px;
     position: relative;
+    width: 100%;
 }
+
 
 .logo {
     display: flex;
@@ -54,24 +55,44 @@ nav {
 nav ul {
     display: none;
     position: absolute;
-    top: 46px;
+    top: 31px;
     right: 0;
     background-color: white;
     width: 40vw;
-    box-shadow: -4px 5px 10px lightblue;
     list-style: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    padding: 17px 0;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 10px 5px 20px black;
 }
+
+nav ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 10px; /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+nav ul li:hover {
+    background-color: lightgray;
+}
+
 
 nav ul li a {
     text-decoration: none;
     color: black;
-    border-bottom: 1px solid gray;
     display: inline-block;
+}
+nav ul li a:hover{
+    transform: scale(1.1);
 }
 .menu-toggle{
     background-color: transparent;
@@ -83,8 +104,28 @@ nav ul li a {
 nav ul.show {
     display: flex;
 }
+.Profile{
+    width: 20px;
+    height: 20px;
+   filter: invert();
+   padding-top: 5px;
+   display: block;
+
+}
+li img{
+    width: 20px;
+    height: 20px;
+}
 
 /* Content styles */
+/* Style the container */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 .content h2 {
     font-size: 1.5em;
@@ -129,37 +170,39 @@ nav ul.show {
         font-size: 27px;
     }
     
-    nav ul {
-        position: static;
-        background-color: transparent;
-        width: auto;
-        box-shadow: none;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 10px;
-        padding: 0;
-        display: flex; /* Ensure the menu is displayed on larger screens */
-    }
+    
+nav ul {
+    position: absolute;
+    background-color: white;
+    color: black;
+    width: 10vw;
+    top: 58px;
+    box-shadow: none;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    display: none; /* Ensure the menu is displayed on larger screens */
+}
 
-    nav ul li {
-        display: inline-block;
-        margin-right: 10px;
-    }
+nav ul li {
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+    gap: 6px;
+}
 
-    nav ul li a {
-        text-decoration: none;
-        border: none;
-        font-size: 16px;
-        color: inherit;
-        transition: color 0.3s, transform 0.3s; /* Smooth transition for color and scale */
-    }
+nav ul li a {
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    color: inherit;
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for color and scale */
+}
 
-    nav ul li a:hover {
-        color: #333;
-        transform: scale(1.1); /* Apply the scaling effect */
-    }
-    .menu-toggle{
-        display: none;
-    }
+nav ul li a:hover {
+    color: #333;
+    transform: scale(1.1); /* Apply the scaling effect */
+}
+
+
 }

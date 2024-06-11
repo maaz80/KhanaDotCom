@@ -51,6 +51,15 @@ document.getElementById('paymentform').addEventListener('submit', function(event
         alert("Please fill at least one payment option.");
     }
 });
+const validatePayment=()=>{
+    const Card = document.getElementById('Card').value;
+    const Expiry = document.getElementById('Expiry').value;
+    const cvv = document.getElementById('cvv').value;
+    const upi = document.getElementById('upi').value;
+    const Cod = document.getElementById('Cod').checked;
+    
+    return (Card && Expiry && cvv)  || upi ||Cod;
+    }
 
 function getSelectedPaymentOption() {
     if (document.getElementById('Card').value && document.getElementById('Expiry').value && document.getElementById('cvv').value) {

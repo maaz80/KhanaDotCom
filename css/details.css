@@ -195,7 +195,7 @@ li img {
     
 }
 .paymentInput {
-    width: 300px;
+    width: 284px;
     margin-left: 5px;
     display: flex;
     gap: 10px;
@@ -224,7 +224,7 @@ li img {
 }
 
 .nextbutton {
-    padding: 5px 146px;
+    padding: 5px 128px;
     margin-left: 4px;
     border-radius: 5px;
     border: 1px solid gray;
@@ -233,7 +233,7 @@ li img {
     color: white;
 }
 .orderbutton {
-    padding: 5px 129px;
+    padding: 5px 118px;
     margin-left: 4px;
     border-radius: 5px;
     border: 1px solid gray;
@@ -312,6 +312,9 @@ li img {
     }
     .Expiry , .cvv{
         width: 60px;
+    }
+    .nextbutton {
+        padding: 5px 145px;
     }
     
 }

@@ -167,19 +167,49 @@ li img {
     margin-bottom: 70px;
     margin-top: -66px;
 }
+.paymentInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 70px;
+    margin-top: 16px;
+}
 
 .inputs h1 {
+    text-align: center;
+}
+.paymentInputs h1 ,h2{
     text-align: center;
 }
 
 .input {
     width: 289px;
     margin-left: 5px;
+}
 
+.paymentDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    
+}
+.paymentInput {
+    width: 300px;
+    margin-left: 5px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.upi{
+    width: 300px;
+}
+.Expiry , .cvv{
+    width: 40px;
 }
 
 .custdetails {
-    width: 100%;
+    width: 97%;
     padding: 5px 0;
     border-radius: 5px;
     padding-left: 10px;
@@ -193,6 +223,15 @@ li img {
     align-items: center;
 }
 
+.nextbutton {
+    padding: 5px 146px;
+    margin-left: 4px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 17px;
+    background-color: #16a290;
+    color: white;
+}
 .orderbutton {
     padding: 5px 129px;
     margin-left: 4px;
@@ -201,6 +240,7 @@ li img {
     font-size: 17px;
     background-color: #16a290;
     color: white;
+    margin-top: 40px;
 }
 
 @media screen and (min-width: 700px) {
@@ -267,4 +307,11 @@ li img {
         transform: scale(1.1);
         /* Apply the scaling effect */
     }
+    .upi{
+        width: 300px;
+    }
+    .Expiry , .cvv{
+        width: 60px;
+    }
+    
 }

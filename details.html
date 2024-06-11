@@ -16,16 +16,17 @@
                 <img width="30" src="images/logo.png" alt="Logo">
                 <h1>KhanaDotCom</h1>
             </div>
-            
+
             <button class="menu-toggle" id="menu-toggle"><img class="Profile" src="images/Profile.jpg" alt=""></button>
             <ul id="nav-menu" class="mobile-menu">
                 <li><img src="images/Menu.webp" alt=""><a href="menu.html">Menu</a> </li>
                 <li>
                     <div class="cart-box">
-                    <img src="images/Cart.png" alt="">
-                    <span class="item-In-Cart" id="itemincart">0</span>
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
                     </div>
-                <a href="">Cart</a> </li>
+                    <a href="">Cart</a>
+                </li>
                 <li><img src="images/Order.png" alt=""><a href="order.html">Orders</a> </li>
                 <li><img src="images/Profile.jpg" alt=""><a href="">Profile</a> </li>
                 <li><img src="images/Help.webp" alt=""><a href="t&c.html">Help/Support</a> </li>
@@ -39,7 +40,7 @@
             Item Details Here
         </div>
         <div class="order">
-            <form id="orderForm">
+            <form id="orderForm" >
                 <div class="inputs">
                     <h1>Order Details</h1>
                     <div class="input">
@@ -60,12 +61,38 @@
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="orderbutton">Order</button>
+                    <button type="submit" id="next" class="nextbutton">Next</button>
+                </div>
+            </form>
+            <form id="paymentform" style="display: none;">
+                <div class="paymentInputs">
+                    <h1>Payment Details</h1>
+                    <div class="paymentDetails">
+                        <div>Credit/Debit Card</div>
+                        <div class="paymentInput">
+                            <input id="Card" class="Card" type="number" placeholder="Card Number">
+                            <input id="Expiry" class="Expiry" type="number" placeholder="D.O.E">
+                            <input id="cvv" class="cvv" type="number" placeholder="CVV">
+                        </div>
+                    </div>
+                    <h2>OR</h2>
+                    <div class="paymentInput">
+                        <div>UPI</div>
+                        <input id="upi" class="upi" type="text" placeholder="UPI ID">
+                    </div>
+                    <h2>OR</h2>
+                    <div class="paymentInput">
+                        <div>Cash On Delivery</div>
+                        <input id="Cod" type="checkbox">
+                    </div>
+                    <div>
+                        <button type="submit" class="orderbutton">Order</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
-    <script src="js/details.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

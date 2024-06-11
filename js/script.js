@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.textContent = 'Remove from Cart';
                 button.setAttribute('data-added-to-cart', 'true');
             } else {
-                cartCount--;
+               cartCount--;
                 button.textContent = 'Add to Cart';
                 button.setAttribute('data-added-to-cart', 'false');
             }
@@ -35,12 +35,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Details.js
-document.getElementById('orderForm').addEventListener('submit', function(event) {
+document.getElementById('next').addEventListener('click',function(event){
     event.preventDefault();
-    submitdetails();
+    document.getElementById('orderForm').style.display="none"
+    document.getElementById('paymentform').style.display="block"
+    })
+
+    
+document.getElementById('paymentform').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const paymentOption = getSelectedPaymentOption();
+    if (validatePayment()) {
+        submitdetails(paymentOption);
+    } else {
+        alert("Please fill at least one payment option.");
+    }
 });
 
-function submitdetails() {
+function getSelectedPaymentOption() {
+    if (document.getElementById('Card').value && document.getElementById('Expiry').value && document.getElementById('cvv').value) {
+        return 'Credit/Debit Card';
+    } else if (document.getElementById('upi').value) {
+        return 'UPI';
+    } else if (document.getElementById('Cod').checked) {
+        return 'Cash On Delivery';
+    }
+}
+
+
+function submitdetails(paymentOption) {
     const name = document.getElementById("name").value;
     const number = document.getElementById("number").value;
     const email = document.getElementById("email").value;
@@ -51,7 +74,56 @@ function submitdetails() {
     localStorage.setItem('number', number);
     localStorage.setItem('email', email);
     localStorage.setItem('address', address);
-    localStorage.setItem('orderDate', orderDate); // Store the order date and time
+    localStorage.setItem('orderDate', orderDate); 
+    localStorage.setItem('paymentOption', paymentOption); 
 
     window.location.href = "order.html";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to disable other payment options
+    function disableOtherPaymentOptions(input) {
+        const Card = document.getElementById('Card');
+        const Expiry = document.getElementById('Expiry');
+        const cvv = document.getElementById('cvv');
+        const upi = document.getElementById('upi');
+        const Cod = document.getElementById('Cod');
+        
+        if (input === Card||input === Expiry || input === cvv) {
+            upi.disabled = Cod.disabled = input.value;
+        
+        } else if (input === upi) {
+            Card.disabled = Expiry.disabled = cvv.disabled = input.value;
+            Cod.disabled = input.value;
+        } else if (input === Cod) {
+            Card.disabled = Expiry.disabled = cvv.disabled = upi.disabled = input.checked;
+        }
+    }
+
+    // Event listeners for input fields
+    const Card = document.getElementById('Card');
+    const Expiry = document.getElementById('Expiry');
+    const cvv = document.getElementById('cvv');
+    const upi = document.getElementById('upi');
+    const Cod = document.getElementById('Cod');
+
+    Card.addEventListener('input', function() {
+        disableOtherPaymentOptions(this);
+    });
+
+    Expiry.addEventListener('input', function() {
+        disableOtherPaymentOptions(this);
+    });
+
+    cvv.addEventListener('input', function() {
+        disableOtherPaymentOptions(this);
+    });
+
+    upi.addEventListener('input', function() {
+        disableOtherPaymentOptions(this);
+    });
+
+    Cod.addEventListener('change', function() {
+        disableOtherPaymentOptions(this);
+    });
+});

@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const number = localStorage.getItem('number');
     const email = localStorage.getItem('email');
     const address = localStorage.getItem('address');
+    const payment= localStorage.getItem('paymentOption'); 
     const orderDate = new Date(localStorage.getItem('orderDate'));
 
     document.getElementById("customer-name").textContent = name;
     document.getElementById("customer-email").textContent = email;
     document.getElementById("customer-number").textContent = number;
     document.getElementById("customer-address").textContent = address;
+    document.getElementById("payment-mode").textContent = payment;
     document.getElementById("order-date").textContent = orderDate.toLocaleString();
 
     // Calculate and display how long ago the order was placed

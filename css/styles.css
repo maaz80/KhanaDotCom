@@ -12,6 +12,11 @@ header {
     background-color: #16a290;
     color: #fff;
 }
+.heading{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 nav{
     /* display: flex ; */
     align-items: center;
@@ -62,6 +67,8 @@ nav{
 .dropdown{
     display: flex;
     justify-content: space-between;
+    background-color: #76e1d3;
+    align-items: center;
 }
 
 .dropdown ul li {

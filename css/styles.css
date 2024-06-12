@@ -62,7 +62,7 @@ nav{
     align-items: center;
     border-radius: 5px;
     padding-left: 0px;
-    box-shadow: 10px 5px 20px black;
+    box-shadow: 6px 5px 12px black;
 }
 .dropdown{
     display: flex;
@@ -78,7 +78,7 @@ nav{
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 10px; /* Adjust this value as needed */
+    padding-left: 5px; /* Adjust this value as needed */
     border-radius: 5px;
     box-sizing: border-box; /* Ensure padding is included in width */
     text-align: var(150px);
@@ -134,7 +134,7 @@ li img{
     align-items: center;
     border-radius: 5px;
     padding-left: 0px;
-    box-shadow: -5px 5px 20px black;
+    box-shadow: -6px 5px 12px black;
 
 }
 .filters ol li{
@@ -477,12 +477,15 @@ footer p {
         padding: 0 20px;
     }
     .dropdown ul {
-        width: 10vw;
+        width: 20vw;
         top: 72px;
         left: 40px;
     }
+    .dropdown ul li{
+        padding-left: 10px;
+    }
     .filters ol{
-        width: 10vw;
+        width: 20vw;
         top: 72px;
         right: 70px;
     }
@@ -497,5 +500,13 @@ footer p {
     }
     .footer-section {
         animation-range: entry 0 cover 10%;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .dropdown ul {
+        width: 10vw;
+    }
+    .filters ol{
+        width: 10vw;
     }
 }

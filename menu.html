@@ -17,22 +17,35 @@
                 <h1>KhanaDotCom</h1>
             </div>
             <input type="text" placeholder="Search Food" class="searchbar">
-            <button class="menu-toggle" id="menu-toggle"><img class="Profile" src="images/Profile.jpg" alt=""></button>
-            <ul id="nav-menu" class="mobile-menu">
-                <li><img src="images/Menu.webp" alt=""><a href="menu.html">Menu</a> </li>
-                <li>
-                    <div class="cart-box">
+        </nav>
+    </header>
+
+    <div class="dropdown">
+        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+        <ul id="nav-menu" class="mobile-menu">
+            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+            <li>
+                <div class="cart-box">
                     <img src="images/Cart.png" alt="">
                     <span class="item-In-Cart" id="itemincart">0</span>
                 </div>
-                    <a href="">Cart</a> </li>
-                <li><img src="images/Order.png" alt=""><a href="order.html">Orders</a> </li>
-                <li><img src="images/Profile.jpg" alt=""><a href="">Profile</a> </li>
-                <li><img src="images/Help.webp" alt=""><a href="t&c.html">Help/Support</a> </li>
-                <li><img src="images/Login.png" alt=""><a href="">SignUp/LogIn</a> </li>
-            </ul>
-        </nav>
-    </header>
+                <a href="">Cart</a>
+            </li>
+            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+            <li><a href=""><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+            <li><a href=""><img src="images/Login.png" alt="">SignUp/LogIn</a> </li>
+        </ul>
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba</li>
+                <li>Most Rated</li>
+                <li>Chinese Retro</li>
+                <li>Subway</li>
+            </ol>
+        </div>
+    </div>
     <main>
         <section class="main">
             <h1 class="menu">Menu</h1>

@@ -13,14 +13,14 @@ header {
     color: #fff;
 }
 nav{
-    display: flex ;
+    /* display: flex ; */
     align-items: center;
-    justify-content: space-between;
     padding-left: 5px;
 }
 .logo{
     display: flex ;
     align-items: center;
+    justify-content: space-between;
     gap: 3px;
 }
 .logo img{
@@ -85,11 +85,13 @@ nav{
 .dropdown ul li a {
     text-decoration: none;
     color: black;
-    display: inline-block;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
 }
-.dropdown ul li a:hover{
-    transform: scale(1.1);
-}
+
 .menu-toggle{
     background-color: transparent;
     border: none;
@@ -125,7 +127,7 @@ li img{
     align-items: center;
     border-radius: 5px;
     padding-left: 0px;
-    box-shadow: 10px 5px 20px black;
+    box-shadow: -5px 5px 20px black;
 
 }
 .filters ol li{
@@ -209,7 +211,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 70px;
+    gap: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -234,26 +236,6 @@ main {
         scale: 1;
     }
 }
-.products{
-    width: 100%;
-    margin: auto;
-    display: flex ;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.product{
-    width: 47%;
-    border: 1px solid gray;
-    height: 220px;
-    text-align: center;
-    border-radius: 20px;
-}
-
 .items{
     width: 100%;
     margin: auto;
@@ -316,12 +298,16 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
 }
 
 .footer-section {
     flex: 1;
     min-width: 200px;
     margin: 10px;
+    animation: view linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
 }
 
 .footer-section h2 {
@@ -349,6 +335,7 @@ footer p {
     margin-top: 20px;
     font-size: 0.9em;
 }
+
 
 .order-summary-container {
     background-color: #fff;
@@ -464,9 +451,9 @@ footer p {
         width: 85%;
         font-size: 17px;
     }
-    .Category{
+    .category{
         width: 85%;
-        gap: 50px;
+        gap: 70px;
     }
     .burger{
         width: 25%;
@@ -484,7 +471,7 @@ footer p {
     }
     .dropdown ul {
         width: 10vw;
-        top: 92px;
+        top: 72px;
         left: 40px;
     }
     .filters ol{
@@ -500,5 +487,8 @@ footer p {
     .searchbar{
         width: 60%;
         padding: 7px 5px;
+    }
+    .footer-section {
+        animation-range: entry 0 cover 10%;
     }
 }

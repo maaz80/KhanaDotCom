@@ -16,30 +16,42 @@
                 <img width="30" src="images/logo.png" alt="Logo">
                 <h1>KhanaDotCom</h1>
             </div>
-            <input type="text" placeholder="Search Food" class="searchbar">
-            <button class="menu-toggle" id="menu-toggle"><img class="Profile" src="images/Profile.jpg" alt=""></button>
-            <ul id="nav-menu" class="mobile-menu">
-                <li><img src="images/Menu.webp" alt=""><a href="menu.html">Menu</a> </li>
-                <li>
-                    <div class="cart-box">
-                    <img src="images/Cart.png" alt="">
-                    <span class="item-In-Cart" id="itemincart">0</span>
-                    </div>
-                <a href="">Cart</a> </li>
-                <li><img src="images/Order.png" alt=""><a href="order.html">Orders</a> </li>
-                <li><img src="images/Profile.jpg" alt=""><a href="">Profile</a> </li>
-                <li><img src="images/Help.webp" alt=""><a href="t&c.html">Help/Support</a> </li>
-                <li><img src="images/Login.png" alt=""><a href="">SignUp/LogIn</a> </li>
-            </ul>
         </nav>
     </header>
+
+    <div class="dropdown">
+        <button class="menu-toggle" id="menu-toggle"><img class="Profile" src="images/Profile.jpg" alt=""></button>
+        <ul id="nav-menu" class="mobile-menu">
+            <li><img src="images/Menu.webp" alt=""><a href="menu.html">Menu</a> </li>
+            <li>
+                <div class="cart-box">
+                    <img src="images/Cart.png" alt="">
+                    <span class="item-In-Cart" id="itemincart">0</span>
+                </div>
+                <a href="">Cart</a>
+            </li>
+            <li><img src="images/Order.png" alt=""><a href="order.html">Orders</a> </li>
+            <li><img src="images/Profile.jpg" alt=""><a href="">Profile</a> </li>
+            <li><img src="images/Help.webp" alt=""><a href="t&c.html">Help/Support</a> </li>
+            <li><img src="images/Login.png" alt=""><a href="">SignUp/LogIn</a> </li>
+        </ul>
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba</li>
+                <li>Most Rated</li>
+                <li>Chinese Retro</li>
+                <li>Subway</li>
+            </ol>
+        </div>
+    </div>
 
     <main>
         <section>
 
             <!-- Category Slider -->
             <div class="slider">
-                Slider Of Categories
+                Slider Of Offers
             </div>
 
             <!-- Shipping BEnifits -->
@@ -50,37 +62,39 @@
                 <div>24*7 Delivery</div>
             </div>
             <!-- Categories -->
-            <div class="Category">
-                <div class="burger">Details Of Categories</div>
-                <div class="burger">Details Of Categories</div>
-                <div class="burger">Details Of Categories</div>
-                <div class="burger">Details Of Categories</div>
-                <div class="burger">Details Of Categories</div>
-                <div class="burger">Details Of Categories</div>
+            <div class="category" id="category">
+                <!-- Initial items will be loaded here -->
             </div>
 
-            <!-- Offer Slider -->
-            <div class="slider">
-                Slider Of Offers
-            </div>
+            <!-- Loader -->
+            <div id="loader" class="loader">Loading...</div>
 
-            <!-- Products -->
-            <div class="products">
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-                <div class="product">Product</div>
-            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Home Food Delivery</p>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>About</h2>
+                <p>Information about KhanaDotCom, the services we offer, and our mission.</p>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact</h2>
+                <p>Email: support@khanadotcom.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-section social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/LinkedIn.webp" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/Insta.webp" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="images/FB.webp" alt="Facebook"></a>
+            </div>
+            <div class="footer-section privacy">
+                <h2>Privacy Policy</h2>
+                <p><a href="privacy.html">Read our Privacy Policy</a></p>
+            </div>
+        </div>
+        <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
     </footer>
     <script src="js/script.js"></script>
 </body>

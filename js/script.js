@@ -2,7 +2,13 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('show');
 });
+document.getElementById('filter-toggle').addEventListener('click', function () {
+    const filterMenu = document.getElementById('filter-menu');
+    filterMenu.classList.toggle('show');
+});
 
+
+// Menu.html
 document.addEventListener('DOMContentLoaded', () => {
     // Load the cart count from local storage
     let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
@@ -30,6 +36,54 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('cartCount', cartCount);
         });
     });
+});
+
+// index.html
+// Add this to your script.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const categoryContainer = document.getElementById("category");
+    const loader = document.getElementById("loader");
+
+    let currentPage = 1;
+    const itemsPerPage = 6;
+    const maxItems = 50;
+
+    // Function to load items
+    function loadItems(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = Math.min(start + itemsPerPage, maxItems);
+        
+        for (let i = start; i < end; i++) {
+            const div = document.createElement("div");
+            div.className = "burger";
+            div.textContent = "Top rated restaurant " + (i + 1);
+            categoryContainer.appendChild(div);
+        }
+        
+        // Hide the loader if the maximum number of items is reached
+        if (end >= maxItems) {
+            loader.style.display = "none";
+            observer.disconnect();
+        }
+    }
+
+    // Initial load
+    loadItems(currentPage);
+
+    // Observer to load more items
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                currentPage++;
+                loadItems(currentPage);
+            }
+        });
+    }, {
+        rootMargin: "0px 0px 100px 0px"
+    });
+
+    observer.observe(loader);
 });
 
 

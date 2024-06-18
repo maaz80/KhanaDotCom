@@ -5,23 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Home Food Delivery</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <div class="heading">
-                <img width="30" src="images/logo.png" alt="Logo">
-                <h1>KhanaDotCom</h1>
-            </div>
-                <input type="text" placeholder="Search Food" class="searchbar">
-                <div>SignUp/Login</div>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav>
+        <div class="logo">
+            <img width="30" src="images/logo.png" alt="Logo">
+            <h1>KhanaDotCom</h1>
+            <div class="signlog">
+            <button class="login"><a href="login.html">LogIn</a></button>
+            <div class="signupdrop">
+                <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                <ul  id="sign-menu" class="sign-menu">
+                    <li><a href="customer.html">Customer Login</a></li>
+                    <li><a href="deliverylogin.html">Delivery Person</a></li>
+                    <li><a href="restaurantlogin.html">Restaurant</a></li>
+                </ul>
+           </div>
+        </div>
+        </div>
+    </nav>
+</header>
 
     <div class="dropdown">
         <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
@@ -35,126 +42,152 @@
                 <a href="">Cart</a>
             </li>
             <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
-            <li><a href=""><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
             <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
             <li><a href=""><img src="images/Login.png" alt="">SignUp/LogIn</a> </li>
         </ul>
         <div class="filters">
             <button class="filter-toggle" id="filter-toggle">Filters</button>
             <ol id="filter-menu" class="filter-menu">
-                <li>Dhaba</li>
-                <li>Most Rated</li>
-                <li>Chinese Retro</li>
-                <li>Subway</li>
+                <li>Dhaba <input type="checkbox"></li>
+                <li>Most Rated <input type="checkbox"></li>
+                <li>Chinese Retro <input type="checkbox"></li>
+                <li>Subway <input type="checkbox"></li>
             </ol>
         </div>
     </div>
     <main>
-        <section class="main">
-            <h1 class="menu">Menu</h1>
-            <h2>Friess</h2>
-            <div class="FrenchFries items">
-                <div class="fries item">
-                    <div>Fries</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="fries item">
-                    <div>Fries</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="fries item">
-                    <div>Fries</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="fries item">
-                    <div>Fries</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="fries item">
-                    <div>Fries</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="fries item">
-                    <div>Fries</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
+        <aside class="filters">
+          <h2>All Cuisines A-Z</h2>
+          <ul>
+            <li>
+              <input type="checkbox" id="american" /><label for="american"
+                >American (1)</label
+              >
+            </li>
+            <li>
+              <input type="checkbox" id="burgers" /><label for="burgers"
+                >Burgers (2)</label
+              >
+            </li>
+            <li>
+              <input type="checkbox" id="chinese" /><label for="chinese"
+                >Chinese (9)</label
+              >
+            </li>
+            <!-- Add more cuisines as needed -->
+            <li><a href="#">+ More</a></li>
+          </ul>
+          <h2>Offers</h2>
+          <ul>
+            <li>
+              <input type="checkbox" id="offer1" /><label for="offer1"
+                >Set menu ₹20 and under</label
+              >
+            </li>
+            <li>
+              <input type="checkbox" id="offer2" /><label for="offer2"
+                >Set menu ₹30 and under</label
+              >
+            </li>
+            <!-- Add more offers as needed -->
+          </ul>
+        </aside>
+        <section class="restaurant-list">
+          <h1 class="text">Open Restaurants</h1>
+          <div class="restaurant-item">
+            <img
+              src="https://img.freepik.com/free-photo/side-view-dinner-background-with-delicious-pancakes-honey-chocolate-raspberry-conifer-cone-black-background_140725-141562.jpg?size=626&ext=jpg&uid=R100225231&ga=GA1.1.1287577530.1694759978&semt=sph"
+              alt="Restaurant Image" />
+            <div class="restaurant-info">
+              <h3>Shri Krishna Resturent</h3>
+              <p>Varansi,Indian</p>
+              <p>Opens at 09:30 PM</p>
+              <p>Min. Order: ₹42.00 | Delivery Fee: ₹0.00</p>
+              <p><strong>Delivery: 20% OFF | Collection: 25% OFF</strong></p>
             </div>
-
-            <h2>Pizza</h2>
-            <div class="Pizzas items">
-                <div class="pizza item">
-                    <div>Pizza</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="pizza item">
-                    <div>Pizza</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="pizza item">
-                    <div>Pizza</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="pizza item">
-                    <div>Pizza</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="pizza item">
-                    <div>Pizza</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="pizza item">
-                    <div>Pizza</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
+            <button class="cart cart-count">Add to Cart</button>
+            <button><a href="details.html">Details</a></button>
+          </div>
+          <!-- Repeat the above block for each restaurant -->
+          <div class="restaurant-item">
+            <img
+              src="https://img.freepik.com/free-photo/drinks-glasses-new-year-eve-celebration_23-2150901946.jpg?size=626&ext=jpg&uid=R100225231&ga=GA1.1.1287577530.1694759978&semt=sph"
+              alt="Restaurant Image" />
+            <div class="restaurant-info">
+              <h3>Ananda Restaurant</h3>
+              <p>Lucknow, Indian</p>
+              <p>Opens at 10:30 PM</p>
+              <p>Min. Order: ₹52.00 | Delivery Fee: ₹0.00</p>
+              <p><strong>Delivery: 15% OFF | Collection: 20% OFF</strong></p>
             </div>
-
-            <h2>Dosa</h2>
-            <div class="Dosas items">
-                <div class="dosa item">
-                    <div>Dosa</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="dosa item">
-                    <div>Dosa</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="dosa item">
-                    <div>Dosa</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="dosa item">
-                    <div>Dosa</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="dosa item">
-                    <div>Dosa</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
-                <div class="dosa item">
-                    <div>Dosa</div>
-                    <button class="item-details"><a href="details.html">Details</a></button>
-                    <button class="cart cart-count">Add to Cart</button>
-                </div>
+            <button class="cart cart-count">Add to Cart</button>
+            <button><a href="details.html">Details</a></button>
+          </div>
+  
+          <div class="restaurant-item">
+            <img
+              src="https://img.freepik.com/free-photo/top-view-raw-dough-pasta-with-vegetables-seasonings-brown-table-dough-raw-food-pasta-meal_140725-79849.jpg?size=626&ext=jpg&uid=R100225231&ga=GA1.1.1287577530.1694759978&semt=sph"
+              alt="Restaurant Image" />
+            <div class="restaurant-info">
+              <h3>The Den Resturent & Cafe</h3>
+              <p>Agra , Indian</p>
+              <p>Opens at 11:30 PM</p>
+              <p>Min. Order: ₹80.00 | Delivery Fee: ₹0.00</p>
+              <p><strong>Delivery: 20% OFF | Collection: 20% OFF</strong></p>
             </div>
+  
+            <button class="cart cart-count">Add to Cart</button>
+            <button><a href="details.html">Details</a></button>
+          </div>
+  
+          <div class="restaurant-item">
+            <img
+              src="https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209251.jpg?t=st=1717477693~exp=1717481293~hmac=0c57699d276d7c903fc41b6c5414ad25b14bcf5561980a6973451893e45c18e3&w=996"
+              alt="Restaurant Image" />
+            <div class="restaurant-info">
+              <h3>The Natural Veg Family Resturent</h3>
+              <p>Mau,Indian</p>
+              <p>Opens at 10:00 PM</p>
+              <p>Min. Order: ₹42.00 | Delivery Fee: ₹0.00</p>
+              <p><strong>Delivery: 15% OFF | Collection: 20% OFF</strong></p>
+            </div>
+            <button class="cart cart-count">Add to Cart</button>
+            <button><a href="details.html">Details</a></button>
+          </div>
+  
+          <div class="restaurant-item">
+            <img
+              src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380"
+              alt="Restaurant Image" />
+            <div class="restaurant-info">
+              <h3>Aryans Resturent</h3>
+              <p>Bareilly,Indian</p>
+              <p>Opens at 11:00 PM</p>
+              <p>Min. Order: ₹65.00 | Delivery Fee: ₹0.00</p>
+              <p><strong>Delivery: 35% OFF | Collection: 20% OFF</strong></p>
+            </div>
+            <button class="cart cart-count">Add to Cart</button>
+            <button><a href="details.html">Details</a></button>
+          </div>
+  
+          <div class="restaurant-item">
+            <img
+              src="https://img.freepik.com/free-photo/interior-restaurant-design_1409-7341.jpg?t=st=1717478064~exp=1717481664~hmac=8d46f4d3e466983049c48800793a0f44fb597988f531612133a35c6df0747608&w=996"
+              alt="Restaurant Image" />
+            <div class="restaurant-info">
+              <h3>City Point Resturent</h3>
+              <p>Delhi,Indian</p>
+              <p>Opens at 11:30 PM</p>
+              <p>Min. Order: ₹72.00 | Delivery Fee: ₹0.00</p>
+              <p><strong>Delivery: 25% OFF | Collection: 20% OFF</strong></p>
+            </div>
+            <button class="cart cart-count">Add to Cart</button>
+            <button><a href="details.html">Details</a></button>
+          </div>
         </section>
-    </main>
+      </main>
+  
     <footer>
         <div class="footer-container">
             <div class="footer-section about">

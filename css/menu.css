@@ -1,0 +1,474 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #caf0f8;
+  }
+  
+  header {
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 2px;
+      background-color: #16a290;
+  }
+  strong {
+    color: #8d99ae;
+  }
+  
+  main {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .filters-toggle {
+    color: white;
+  }
+  
+  .filters h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .filters ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .filters li {
+    margin-bottom: 10px;
+  }
+  
+  .filters input {
+    margin-right: 10px;
+  }
+  
+  .filters a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .filters a:hover {
+    text-decoration: underline;
+  }
+  
+  .restaurant-list {
+    width: 75%;
+    padding: 1px 10px;
+  }
+  
+  .restaurant-list h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .restaurant-item {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  .restaurant-item img {
+    width: 200px;
+    height: 130px;
+    margin-right: 20px;
+    border-radius: 5px;
+  }
+  
+  .restaurant-info {
+    flex-grow: 1;
+  }
+  
+  .restaurant-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .restaurant-info p {
+    margin: 5px 0;
+  }
+  
+  .button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    margin: 40px 30px;
+  }
+  
+  .restaurant-info button:hover {
+    background-color: #c0392b;
+  }
+  .text {
+    font-size: xx-large;
+    text-align: center;
+    background-color: #22577a;
+    padding: 15px;
+    border-radius: 5px;
+    color: #f5edef;
+  }
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav {
+    /* display: flex ; */
+    align-items: center;
+    padding-left: 5px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.logo img {
+    border-radius: 10px;
+}
+
+.logo h1 {
+    font-size: 17px;
+}
+/* Navigation menu styles */
+.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 53px;
+    left: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    background-color: #76e1d3;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.dropdown ul li:hover {
+    background-color: lightgray;
+}
+
+
+.dropdown ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+}
+
+.dropdown ul.show {
+    display: flex;
+}
+
+.Profile {
+    width: 20px;
+    height: 20px;
+    padding-top: 5px;
+
+}
+
+li img {
+    width: 20px;
+    height: 20px;
+}
+.signlog{
+  display: flex;
+}
+
+.signupdrop ul {
+  display: none;
+  position: absolute;
+  top: 53px;
+  right: 26px;
+  background-color: white;
+  color: black;
+  width: 40vw;
+  list-style: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding-left: 0px;
+  box-shadow: 6px 5px 12px black;
+}
+.signupdrop{
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  align-items: center;
+}
+.signupdrop ul li {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0px;
+  padding-left: 5px; /* Adjust this value as needed */
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in width */
+  text-align: var(150px);
+}
+.signupdrop ul li a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: start;
+  gap: 9px;
+  align-items: center;
+  width: 100%;
+}
+.signupdrop ul li:hover {
+  background-color: lightgray;
+}
+.signup-toggle{
+  background-color: transparent;
+  border: none;
+  color:white;
+  font-size: 17px;
+}
+.signupdrop ul.show {
+  display: flex;
+}
+
+
+.filters ol {
+    display: none;
+    position: absolute;
+    top: 62px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: -6px 5px 12px black;
+
+}
+
+.filters ol li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 10px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.filters ol li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.filter-toggle {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 17px;
+}
+
+.filters ol.show {
+    display: flex;
+}
+
+.filters ol li:hover {
+    background-color: lightgray;
+}
+
+.login {
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+}
+
+.login a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Cart */
+.cart-box {
+    position: relative;
+}
+
+.item-In-Cart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    color: white;
+    border-radius: 20%;
+    font-size: 8px;
+    padding: 0px 2px;
+}
+
+
+.Profile {
+    width: 30px;
+    height: 30px;
+}
+
+.searchbar {
+    width: 60%;
+    padding: 7px 5px;
+}
+.cart{
+    background-color: #22577a;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+}
+.footer-section {
+    animation-range: entry 0 cover 10%;
+}
+
+footer {
+    background-color: #16a290;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    animation: view linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+.footer-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-section img {
+    width: 30px;
+    margin: 5px;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+@media screen and (min-width: 700px) {
+ 
+  .dropdown ul {
+      width: 20vw;
+      top: 72px;
+      left: 40px;
+  }
+  .dropdown ul li{
+      padding-left: 10px;
+  }
+  .filters ol{
+      width: 20vw;
+      top: 72px;
+      right: 70px;
+  }
+  .signupdrop ul{
+      width: 20vw;
+      top: 72px;
+      right: 70px;
+  }
+  .Profile{
+      width: 30px;
+      height: 30px;
+  }
+ 
+  .footer-section {
+      animation-range: entry 0 cover 10%;
+  }
+}
+@media screen and (min-width: 1300px) {
+    .dropdown ul {
+        width: 10vw;
+    }
+
+    .filters ol {
+        width: 10vw;
+    }
+    .signupdrop ul {
+        width: 10vw;
+    }
+}
+  

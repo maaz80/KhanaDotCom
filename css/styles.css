@@ -21,7 +21,7 @@ nav{
     /* display: flex ; */
     align-items: center;
     padding-left: 5px;
-}
+    }
 .logo{
     display: flex ;
     align-items: center;
@@ -119,6 +119,65 @@ li img{
     width: 20px;
     height: 20px;
 }
+.signlog{
+    display: flex;
+}
+.signupdrop ul {
+    display: none;
+    position: absolute;
+    top: 53px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+.signupdrop{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+}
+.signupdrop ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px; /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+.signupdrop ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+.signupdrop ul li:hover {
+    background-color: lightgray;
+}
+.signup-toggle{
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 17px;
+}
+
+.signupdrop ul.show {
+    display: flex;
+}
 
 .filters ol{
     display: none;
@@ -165,6 +224,18 @@ li img{
 }
 .filters ol li:hover{
     background-color: lightgray;
+}
+
+.login{
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+  
+}
+.login a{
+    text-decoration: none;
+    color: white;
+  
 }
 
 
@@ -489,6 +560,11 @@ footer p {
         top: 72px;
         right: 70px;
     }
+    .signupdrop ul{
+        width: 20vw;
+        top: 72px;
+        right: 70px;
+    }
     .Profile{
         width: 30px;
         height: 30px;
@@ -507,6 +583,9 @@ footer p {
         width: 10vw;
     }
     .filters ol{
+        width: 10vw;
+    }
+    .signupdrop ul{
         width: 10vw;
     }
 }

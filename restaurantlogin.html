@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Join Us Form</title>
+    <link rel="stylesheet" href="css/restaurent.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Join Our Platform</h2>
+      <form action="submit_form.php" method="post">
+        <div class="form-group">
+          <label for="restaurantName">Restaurant Name</label>
+          <input
+            type="text"
+            id="restaurantName"
+            name="restaurantName"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea type="text" id="address" name="address" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="Logo">Logo</label>
+          <input type="file" id="logo" name="logo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="menu">Menu Management</label>
+          <input type="text" id="menu" name="menu" required />
+        </div>
+
+        <div class="form-group">
+          <label for="management">Order Management</label>
+          <input type="text" id="city" name="city" required />
+        </div>
+        <div class="form-group">
+          <label for="hour">Operating Hours</label>
+          <input type="number" id="hour" name="hour" required />
+        </div>
+
+        <div class="form-group">
+          <label for="country">Delivery Options</label>
+          <select id="country" name="country" required>
+            <option value="">Select type of Delivery</option>
+            <option value="in-houuse">In-houuse Delivary</option>
+            <option value="use Platform">
+              Use Platform's Delivery Personel
+            </option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bank">Bank Account Number</label>
+          <input type="number" id="bank" name="bank" required />
+        </div>
+
+        <div class="form-group">
+          <label for="Permotion">Permotion & Discount Management</label>
+          <input type="number" id="permotion" name="permotion" required />
+        </div>
+
+        <div class="form-group">
+          <label for="joinDate">Joining Date</label>
+          <input type="date" id="joinDate" name="joinDate" required />
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

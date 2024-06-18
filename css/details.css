@@ -10,45 +10,50 @@ body {
 header {
     background-color: #16a290;
     color: #fff;
-    height: 46px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
 }
-
-/* Navigation styles */
-nav {
+.heading{
     display: flex;
+    align-items: center;
+    gap: 5px;
+}
+nav{
+    /* display: flex ; */
+    align-items: center;
+    padding-left: 5px;
+    }
+.logo{
+    display: flex ;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 10px;
-    position: relative;
-    width: 100%;
-}
-
-
-.logo {
-    display: flex;
-    align-items: center;
     gap: 3px;
 }
-
-.logo img {
+.logo img{
     border-radius: 10px;
 }
-
-.logo h1 {
+.logo h1{
     font-size: 17px;
+}
+.searchbar{
+    width: 42%;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    padding: 1px 5px;
+}
+.searchbar::placeholder{
+    color: white;
+    opacity: 0.7;
 }
 
 /* Navigation menu styles */
-nav ul {
+.dropdown ul {
     display: none;
     position: absolute;
-    top: 39px;
-    right: 0;
+    top: 53px;
+    left: 26px;
     background-color: white;
+    color: black;
     width: 40vw;
     list-style: none;
     flex-direction: column;
@@ -56,63 +61,185 @@ nav ul {
     align-items: center;
     border-radius: 5px;
     padding-left: 0px;
-    box-shadow: 10px 5px 20px black;
+    box-shadow: 6px 5px 12px black;
+}
+.dropdown{
+    display: flex;
+    justify-content: space-between;
+    background-color: #76e1d3;
+    align-items: center;
 }
 
-nav ul li {
+.dropdown ul li {
     width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 10px;
-    /* Adjust this value as needed */
+    padding-left: 5px; /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box;
-    /* Ensure padding is included in width */
+    box-sizing: border-box; /* Ensure padding is included in width */
     text-align: var(150px);
 }
 
-nav ul li:hover {
+.dropdown ul li:hover {
     background-color: lightgray;
 }
 
 
-nav ul li a {
+.dropdown ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-toggle{
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 22px;
+}
+
+.dropdown ul.show {
+    display: flex;
+}
+.Profile{
+    width: 20px;
+    height: 20px;
+   padding-top: 5px;
+
+}
+li img{
+    width: 20px;
+    height: 20px;
+}
+.signlog{
+    display: flex;
+}
+.signupdrop ul {
+    display: none;
+    position: absolute;
+    top: 53px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+.signupdrop{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+}
+.signupdrop ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px; /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+.signupdrop ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+.signupdrop ul li:hover {
+    background-color: lightgray;
+}
+.signup-toggle{
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 17px;
+}
+.login{
+    font-size: 17px;
+}
+.signupdrop ul.show {
+    display: flex;
+}
+
+
+.filters ol{
+    display: none;
+    position: absolute;
+    top: 62px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: -6px 5px 12px black;
+
+}
+.filters ol li{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 10px; /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+.filters ol li a {
     text-decoration: none;
     color: black;
     display: inline-block;
 }
-
-nav ul li a:hover {
-    transform: scale(1.1);
-}
-
-.menu-toggle {
+.filter-toggle{
     background-color: transparent;
     border: none;
-    color: white;
-    font-size: 22px;
+    color:black;
+    font-size: 17px;
 }
-
-nav ul.show {
+.filters ol.show {
     display: flex;
 }
-
-.Profile {
-    width: 20px;
-    height: 20px;
-    filter: invert();
-    padding-top: 5px;
-    display: block;
-
+.filters ol li:hover{
+    background-color: lightgray;
 }
 
-li img {
-    width: 20px;
-    height: 20px;
+.login{
+    background-color: transparent;
+    border: none;
+
 }
+.login a{
+    text-decoration: none;
+    color: white;
+ 
+}
+
+
 /* Cart */
 .cart-box{
     position: relative;
@@ -122,12 +249,11 @@ li img {
     right: 0;
     bottom: 0;
     background-color: red;
-    border-radius: 20%;
     color: white;
+    border-radius: 20%;
     font-size: 8px;
     padding: 0px 2px;
 }
-
 .Details {
     width: 90%;
     border: 1px solid gray;
@@ -272,41 +398,7 @@ li img {
         font-size: 27px;
     }
 
-    nav ul {
-        position: absolute;
-        background-color: white;
-        color: black;
-        width: 10vw;
-        top: 58px;
-        box-shadow: none;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0;
-        display: none;
-        /* Ensure the menu is displayed on larger screens */
-    }
-
-    nav ul li {
-        display: flex;
-        margin-right: 10px;
-        margin-left: 10px;
-        gap: 6px;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        border: none;
-        font-size: 16px;
-        color: inherit;
-        transition: color 0.3s, transform 0.3s;
-        /* Smooth transition for color and scale */
-    }
-
-    nav ul li a:hover {
-        color: #333;
-        transform: scale(1.1);
-        /* Apply the scaling effect */
-    }
+  
     .upi{
         width: 300px;
     }
@@ -316,5 +408,46 @@ li img {
     .nextbutton {
         padding: 5px 145px;
     }
-    
+    .dropdown ul {
+        width: 20vw;
+        top: 72px;
+        left: 40px;
+    }
+    .dropdown ul li{
+        padding-left: 10px;
+    }
+    .filters ol{
+        width: 20vw;
+        top: 72px;
+        right: 70px;
+    }
+    .signupdrop ul{
+        width: 20vw;
+        top: 72px;
+        right: 70px;
+    }
+    .Profile{
+        width: 30px;
+        height: 30px;
+    }
+   
+    .searchbar{
+        width: 60%;
+        padding: 7px 5px;
+    }
+    .footer-section {
+        animation-range: entry 0 cover 10%;
+    }
 }
+@media screen and (min-width: 1300px) {
+    .dropdown ul {
+        width: 10vw;
+    }
+    .filters ol{
+        width: 10vw;
+    }
+    .signupdrop ul{
+        width: 10vw;
+    }
+}
+    

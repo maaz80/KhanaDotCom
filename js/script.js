@@ -6,6 +6,10 @@ document.getElementById('filter-toggle').addEventListener('click', function () {
     const filterMenu = document.getElementById('filter-menu');
     filterMenu.classList.toggle('show');
 });
+document.getElementById('signup-toggle').addEventListener('click', function () {
+    const SignupMenu = document.getElementById('sign-menu');
+    SignupMenu.classList.toggle('show');
+});
 
 
 // Menu.html
@@ -18,14 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = document.querySelectorAll('.cart-count');
     addToCartButtons.forEach(button => {
         let addedToCart = button.getAttribute('data-added-to-cart') === 'true';
-        
+
         button.addEventListener('click', () => {
             if (!addedToCart) {
                 cartCount++;
                 button.textContent = 'Remove from Cart';
                 button.setAttribute('data-added-to-cart', 'true');
             } else {
-               cartCount--;
+                cartCount--;
                 button.textContent = 'Add to Cart';
                 button.setAttribute('data-added-to-cart', 'false');
             }
@@ -39,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // index.html
-// Add this to your script.js
 
 document.addEventListener("DOMContentLoaded", () => {
     const categoryContainer = document.getElementById("category");
@@ -53,14 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadItems(page) {
         const start = (page - 1) * itemsPerPage;
         const end = Math.min(start + itemsPerPage, maxItems);
-        
+
         for (let i = start; i < end; i++) {
             const div = document.createElement("div");
             div.className = "burger";
             div.textContent = "Top rated restaurant " + (i + 1);
             categoryContainer.appendChild(div);
         }
-        
+
         // Hide the loader if the maximum number of items is reached
         if (end >= maxItems) {
             loader.style.display = "none";
@@ -89,14 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Details.js
-document.getElementById('next').addEventListener('click',function(event){
+document.getElementById('next').addEventListener('click', function (event) {
     event.preventDefault();
-    document.getElementById('orderForm').style.display="none"
-    document.getElementById('paymentform').style.display="block"
-    })
+    document.getElementById('orderForm').style.display = "none"
+    document.getElementById('paymentform').style.display = "block"
+})
 
-    
-document.getElementById('paymentform').addEventListener('submit', function(event) {
+
+document.getElementById('paymentform').addEventListener('submit', function (event) {
     event.preventDefault();
     const paymentOption = getSelectedPaymentOption();
     if (validatePayment()) {
@@ -105,15 +108,15 @@ document.getElementById('paymentform').addEventListener('submit', function(event
         alert("Please fill at least one payment option.");
     }
 });
-const validatePayment=()=>{
+const validatePayment = () => {
     const Card = document.getElementById('Card').value;
     const Expiry = document.getElementById('Expiry').value;
     const cvv = document.getElementById('cvv').value;
     const upi = document.getElementById('upi').value;
     const Cod = document.getElementById('Cod').checked;
-    
-    return (Card && Expiry && cvv)  || upi ||Cod;
-    }
+
+    return (Card && Expiry && cvv) || upi || Cod;
+}
 
 function getSelectedPaymentOption() {
     if (document.getElementById('Card').value && document.getElementById('Expiry').value && document.getElementById('cvv').value) {
@@ -137,13 +140,13 @@ function submitdetails(paymentOption) {
     localStorage.setItem('number', number);
     localStorage.setItem('email', email);
     localStorage.setItem('address', address);
-    localStorage.setItem('orderDate', orderDate); 
-    localStorage.setItem('paymentOption', paymentOption); 
+    localStorage.setItem('orderDate', orderDate);
+    localStorage.setItem('paymentOption', paymentOption);
 
     window.location.href = "order.html";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Function to disable other payment options
     function disableOtherPaymentOptions(input) {
         const Card = document.getElementById('Card');
@@ -151,10 +154,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const cvv = document.getElementById('cvv');
         const upi = document.getElementById('upi');
         const Cod = document.getElementById('Cod');
-        
-        if (input === Card||input === Expiry || input === cvv) {
+
+        if (input === Card || input === Expiry || input === cvv) {
             upi.disabled = Cod.disabled = input.value;
-        
+
         } else if (input === upi) {
             Card.disabled = Expiry.disabled = cvv.disabled = input.value;
             Cod.disabled = input.value;
@@ -170,23 +173,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const upi = document.getElementById('upi');
     const Cod = document.getElementById('Cod');
 
-    Card.addEventListener('input', function() {
+    Card.addEventListener('input', function () {
         disableOtherPaymentOptions(this);
     });
 
-    Expiry.addEventListener('input', function() {
+    Expiry.addEventListener('input', function () {
         disableOtherPaymentOptions(this);
     });
 
-    cvv.addEventListener('input', function() {
+    cvv.addEventListener('input', function () {
         disableOtherPaymentOptions(this);
     });
 
-    upi.addEventListener('input', function() {
+    upi.addEventListener('input', function () {
         disableOtherPaymentOptions(this);
     });
 
-    Cod.addEventListener('change', function() {
+    Cod.addEventListener('change', function () {
         disableOtherPaymentOptions(this);
     });
 });

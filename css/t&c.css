@@ -19,9 +19,6 @@ header {
 
 /* Navigation styles */
 nav {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
     padding: 7px 10px;
     position: relative;
     width: 100%;
@@ -323,9 +320,6 @@ li img{
     }
 
     nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         padding-left: 10px;
         padding-right: 10px;
     }

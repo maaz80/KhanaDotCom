@@ -259,7 +259,11 @@
             background-color: transparent;
             border: none;
             color: white;
-            font-size: 17px;
+            font-size: 10px;
+        }
+        .signup-toggle a{
+            text-decoration: none;
+            color: white;
         }
 
         .signupdrop ul.show {
@@ -324,7 +328,7 @@
         .login {
             background-color: transparent;
             border: none;
-            font-size: 17px;
+            font-size: 10px;
         }
 
         .login a {
@@ -351,7 +355,7 @@
 
         @media screen and (min-width: 700px) {
             .signupdrop ul {
-                width: 20vw;  
+                width: 20vw;
                 top: 72px;
                 right: 70px;
             }
@@ -377,6 +381,13 @@
                 height: 30px;
             }
 
+            .login {
+                font-size: 17px;
+            }
+
+            .signup-toggle {
+                font-size: 17px;
+            }
 
             .footer-section {
                 animation-range: entry 0 cover 10%;
@@ -408,12 +419,8 @@
                 <div class="signlog">
                     <button class="login"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
-                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
-                        <ul id="sign-menu" class="sign-menu">
-                            <li><a href="customer.html">Customer Login</a></li>
-                            <li><a href="deliverylogin.html">Delivery Person</a></li>
-                            <li><a href="restaurantlogin.html">Restaurant</a></li>
-                        </ul>
+                        <button class="signup-toggle" id="signup-toggle"><a href="customer.html">SignUp</a></button>
+                     
                     </div>
                 </div>
             </div>
@@ -454,37 +461,37 @@
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <button type="submit">Login</button>
             </form>
-            <a href="register.html" class="register-link">Don't have an account? Register here</a>
+            <a href="customer.html" class="register-link">Don't have an account? Register here</a>
         </div>
     </div>
     <script>
 
-document.getElementById('menu-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show');
-});
-document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    const filterMenu = document.getElementById('filter-menu');
-    filterMenu.classList.toggle('show');
-});
-document.getElementById('signup-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    const SignupMenu = document.getElementById('sign-menu');
-    SignupMenu.classList.toggle('show');
-});
-document.addEventListener('click', function (event) {
-    const navMenu = document.getElementById("nav-menu");
-    const filterMenu = document.getElementById('filter-menu');
-    const SignupMenu = document.getElementById('sign-menu');
+        document.getElementById('menu-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('show');
+        });
+        document.getElementById('filter-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            const filterMenu = document.getElementById('filter-menu');
+            filterMenu.classList.toggle('show');
+        });
+        document.getElementById('signup-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            const SignupMenu = document.getElementById('sign-menu');
+            SignupMenu.classList.toggle('show');
+        });
+        document.addEventListener('click', function (event) {
+            const navMenu = document.getElementById("nav-menu");
+            const filterMenu = document.getElementById('filter-menu');
+            const SignupMenu = document.getElementById('sign-menu');
 
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
-        navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
-    }
-})
+            if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+                navMenu.classList.remove("show");
+                filterMenu.classList.remove("show");
+                SignupMenu.classList.remove("show");
+            }
+        })
 
 
 

@@ -10,7 +10,7 @@ body {
     justify-content: space-between;
     align-items: center;
     color: white;
-    padding: 10px 2px;
+    /* padding: 10px 2px; */
       background-color: #16a290;
   }
   strong {
@@ -273,7 +273,7 @@ li img {
   background-color: transparent;
   border: none;
   color:white;
-  font-size: 17px;
+  font-size: 10px;
 }
 .signupdrop ul.show {
   display: flex;
@@ -337,7 +337,7 @@ li img {
 .login {
     background-color: transparent;
     border: none;
-    font-size: 17px;
+    font-size: 10px;
 }
 
 .login a {
@@ -459,6 +459,12 @@ footer p {
   .footer-section {
       animation-range: entry 0 cover 10%;
   }
+  .login{
+    font-size: 17px;
+   }
+   .signup-toggle{
+    font-size: 17px;
+   }
 }
 @media screen and (min-width: 1300px) {
     .dropdown ul {

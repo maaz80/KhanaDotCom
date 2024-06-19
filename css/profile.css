@@ -171,10 +171,7 @@ li img{
     background-color: transparent;
     border: none;
     color:white;
-    font-size: 17px;
-}
-.login{
-    font-size: 17px;
+    font-size: 10px;
 }
 .signupdrop ul.show {
     display: flex;
@@ -233,7 +230,7 @@ z-index: 100;
 .login{
     background-color: transparent;
     border: none;
-font-size: 17px;
+font-size: 10px;
 }
 .login a{
     text-decoration: none;
@@ -386,6 +383,12 @@ font-size: 17px;
     .footer-section {
         animation-range: entry 0 cover 10%;
     }
+    .login{
+        font-size: 17px;
+       }
+       .signup-toggle{
+        font-size: 17px;
+       }
   }
   @media screen and (min-width: 1300px) {
       .dropdown ul {

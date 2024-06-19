@@ -6,8 +6,6 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
-
 header {
     background-color: #16a290;
     color: #fff;
@@ -19,7 +17,7 @@ header {
 
 /* Navigation styles */
 nav {
-    padding: 7px 10px;
+    padding: 7px 2px;
     position: relative;
     width: 100%;
 }
@@ -62,6 +60,7 @@ nav {
     justify-content: space-between;
     background-color: #76e1d3;
     align-items: center;
+    z-index: 100;
 }
 
 .dropdown ul li {
@@ -173,7 +172,9 @@ li img{
 .signupdrop ul.show {
     display: flex;
 }
-
+.filter-toggle{
+z-index: 100;
+}
 
 .filters ol{
     display: none;
@@ -225,7 +226,7 @@ li img{
 .login{
     background-color: transparent;
     border: none;
-
+font-size: 17px;
 }
 .login a{
     text-decoration: none;
@@ -314,31 +315,6 @@ li img{
 
 /* Responsive styles */
 @media screen and (min-width: 700px) {
-    header {
-        background-color: #16a290;
-        color: #fff;
-    }
-
-    nav {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 3px;
-    }
-
-    .logo img {
-        border-radius: 10px;
-    }
-
-    .logo h1 {
-        font-size: 27px;
-    }
-    
     .dropdown ul {
         width: 20vw;
         top: 72px;
@@ -356,15 +332,6 @@ li img{
         width: 20vw;
         top: 72px;
         right: 70px;
-    }
-    .Profile{
-        width: 30px;
-        height: 30px;
-    }
-   
-
-    .footer-section {
-        animation-range: entry 0 cover 10%;
     }
 }
 @media screen and (min-width: 1300px) {

@@ -1,11 +1,18 @@
-/* t&c.css*/
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background: #f4f4f4;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
 header {
     background-color: #16a290;
     color: #fff;
@@ -233,6 +240,7 @@ font-size: 17px;
     color: white;
  
 }
+
 /* Cart */
 .cart-box{
     position: relative;
@@ -247,73 +255,111 @@ font-size: 17px;
     font-size: 8px;
     padding: 0px 2px;
 }
-/* Content styles */
-/* Style the container */
-.container {
-    max-width: 800px;
-    margin: auto;
+
+.profile {
     background: #fff;
     padding: 20px;
+    margin: 0px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.content h2 {
-    font-size: 1.5em;
-    margin: 20px 0 10px;
-}
-
-.content p, .content ul {
+.profile h2 {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.content ul {
-    list-style: disc inside;
-    padding-left: 20px;
-}
-.contact {
-    background-color:  #16a290;
-    color: white;
-    padding: 10px 0;
+.profile-picture {
     text-align: center;
-}
-.semicontainer {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    max-width: 900px;
-}
-.contact-form {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 15px 0;
-}
-.contact-form h2 {
-    margin: 0 0 15px;
-}
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.contact-form button {
-    background: #16a290;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.contact-form button:hover {
-    background: #1d756a;
+    margin-bottom: 20px;
+    align-content: center;
 }
 
-/* Responsive styles */
+.profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    
+}
+
+.profile-section {
+    margin-bottom: 20px;
+}
+
+.profile-section h3 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.profile-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.profile-section .row label {
+    flex: 1;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.profile-section .row input,
+.profile-section .row textarea,
+.profile-section .row select {
+    flex: 2;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.profile-section .row select {
+    width: 100%;
+}
+
+.profile-section button {
+    background:  #16a290;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 4px;
+}
+
+.profile-section button:hover {
+    background:  #12695e;
+}
+
+.order-history,
+.favorite-restaurants {
+    list-style: none;
+    padding: 0;
+}
+
+.order-history li,
+.favorite-restaurants li {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+    .profile-section .row label {
+        flex: 0 0 150px;
+    }
+
+    .profile-section .row input,
+    .profile-section .row textarea,
+    .profile-section .row select {
+        flex: 1;
+    }
+}
 @media screen and (min-width: 700px) {
+ 
     .dropdown ul {
         width: 20vw;
         top: 72px;
@@ -332,16 +378,25 @@ font-size: 17px;
         top: 72px;
         right: 70px;
     }
-}
-@media screen and (min-width: 1300px) {
-    .dropdown ul {
-        width: 10vw;
+    .Profile{
+        width: 30px;
+        height: 30px;
     }
-    .filters ol{
-        width: 10vw;
+   
+    .footer-section {
+        animation-range: entry 0 cover 10%;
     }
-    .signupdrop ul{
-        width: 10vw;
-    }
-}
+  }
+  @media screen and (min-width: 1300px) {
+      .dropdown ul {
+          width: 10vw;
+      }
+  
+      .filters ol {
+          width: 10vw;
+      }
+      .signupdrop ul {
+          width: 10vw;
+      }
+  }
     

@@ -5,143 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-        }
-
-        .container {
-            width: 90%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        header {
-            background: #16a290;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: #77aaff 3px solid;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        .profile {
-            background: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .profile h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-picture {
-            text-align: center;
-            margin-bottom: 20px;
-            align-content: center;
-        }
-
-        .profile-picture img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            
-        }
-
-        .profile-section {
-            margin-bottom: 20px;
-        }
-
-        .profile-section h3 {
-            margin-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
-
-        .profile-section .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-
-        .profile-section .row label {
-            flex: 1;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .profile-section .row input,
-        .profile-section .row textarea,
-        .profile-section .row select {
-            flex: 2;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .profile-section .row select {
-            width: 100%;
-        }
-
-        .profile-section button {
-            background:  #16a290;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto 0;
-            border-radius: 4px;
-        }
-
-        .profile-section button:hover {
-            background:  #12695e;
-        }
-
-        .order-history,
-        .favorite-restaurants {
-            list-style: none;
-            padding: 0;
-        }
-
-        .order-history li,
-        .favorite-restaurants li {
-            background: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-        }
-
-        @media (min-width: 600px) {
-            .profile-section .row label {
-                flex: 0 0 150px;
-            }
-
-            .profile-section .row input,
-            .profile-section .row textarea,
-            .profile-section .row select {
-                flex: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="30" src="images/logo.png" alt="Logo">
+                <h1>KhanaDotCom</h1>
+                <div class="signlog">
+                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer Login</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dropdown">
+        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+        <ul id="nav-menu" class="mobile-menu">
+            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+            <li>
+                <div class="cart-box">
+                    <img src="images/Cart.png" alt="">
+                    <span class="item-In-Cart" id="itemincart">0</span>
+                </div>
+                <a href="">Cart</a>
+            </li>
+            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+        </ul>
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba <input type="checkbox"></li>
+                <li>Most Rated <input type="checkbox"></li>
+                <li>Chinese Retro <input type="checkbox"></li>
+                <li>Subway <input type="checkbox"></li>
+            </ol>
+        </div>
+    </div>
+
     <div class="container">
-        <header>
-            <h1>User Profile</h1>
-        </header>
         <section class="profile">
             <h2>Profile Information</h2>
             <div class="profile-picture">
@@ -233,83 +148,7 @@
         </section>
     </div>
 
-    <script>
-        function saveProfile() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const creditCardNumber = document.getElementById('credit-card-number').value;
-            const creditCardName = document.getElementById('credit-card-name').value;
-            const creditCardExpiry = document.getElementById('credit-card-expiry').value;
-            const creditCardCvv = document.getElementById('credit-card-cvv').value;
-            const billingAddress = document.getElementById('billing-address').value;
-            const paypal = document.getElementById('paypal').value;
-            const dietaryPreferences = Array.from(document.getElementById('dietary-preferences').selectedOptions).map(option => option.value);
-
-            const profileData = {
-                name,
-                email,
-                phone,
-                address,
-                creditCard: {
-                    number: creditCardNumber,
-                    name: creditCardName,
-                    expiry: creditCardExpiry,
-                    cvv: creditCardCvv,
-                    billingAddress
-                },
-                paypal,
-                dietaryPreferences,
-                profilePicture: document.getElementById('profile-picture-input').files[0]
-            };
-
-            // Save profile data to local storage (or send to server)
-            localStorage.setItem('profileData', JSON.stringify(profileData));
-            alert('Profile saved successfully!');
-        }
-
-        function loadProfile() {
-            const profileData = JSON.parse(localStorage.getItem('profileData'));
-
-            if (profileData) {
-                document.getElementById('name').value = profileData.name;
-                document.getElementById('email').value = profileData.email;
-                document.getElementById('phone').value = profileData.phone;
-                document.getElementById('address').value = profileData.address;
-                document.getElementById('credit-card-number').value = profileData.creditCard.number;
-                document.getElementById('credit-card-name').value = profileData.creditCard.name;
-                document.getElementById('credit-card-expiry').value = profileData.creditCard.expiry;
-                document.getElementById('credit-card-cvv').value = profileData.creditCard.cvv;
-                document.getElementById('billing-address').value = profileData.creditCard.billingAddress;
-                document.getElementById('paypal').value = profileData.paypal;
-
-                profileData.dietaryPreferences.forEach(preference => {
-                    document.querySelector(`#dietary-preferences option[value="${preference}"]`).selected = true;
-                });
-
-                // Load profile picture if available
-                if (profileData.profilePicture) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('profile-picture').src = e.target.result;
-                    };
-                    reader.readAsDataURL(new Blob([profileData.profilePicture]));
-                }
-            }
-        }
-
-        document.getElementById('profile-picture-input').addEventListener('change', function(event) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('profile-picture').src = e.target.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        });
-
-        document.addEventListener('DOMContentLoaded', loadProfile);
-        
-    </script>
+    <script src="js/profile.js"></script>
 </body>
 
 </html>

@@ -44,7 +44,7 @@
             <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
             <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
             <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-            <li><a href=""><img src="images/Login.png" alt="">SignUp/LogIn</a> </li>
+            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
         </ul>
         <div class="filters">
             <button class="filter-toggle" id="filter-toggle">Filters</button>
@@ -116,20 +116,34 @@
         </div>
     </div>
     <script>
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('show');
-        });
+document.getElementById('menu-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show');
+});
+document.getElementById('filter-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    const filterMenu = document.getElementById('filter-menu');
+    filterMenu.classList.toggle('show');
+});
+document.getElementById('signup-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    const SignupMenu = document.getElementById('sign-menu');
+    SignupMenu.classList.toggle('show');
+});
+document.addEventListener('click', function (event) {
+    const navMenu = document.getElementById("nav-menu");
+    const filterMenu = document.getElementById('filter-menu');
+    const SignupMenu = document.getElementById('sign-menu');
 
-        document.getElementById('filter-toggle').addEventListener('click', function () {
-            const filterMenu = document.getElementById('filter-menu');
-            filterMenu.classList.toggle('show');
-        });
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+        navMenu.classList.remove("show");
+        filterMenu.classList.remove("show");
+        SignupMenu.classList.remove("show");
+    }
+})
 
-        document.getElementById('signup-toggle').addEventListener('click', function () {
-            const SignupMenu = document.getElementById('sign-menu');
-            SignupMenu.classList.toggle('show');
-        });
+
 
         // Details.js
         document.getElementById('next').addEventListener('click', function (event) {

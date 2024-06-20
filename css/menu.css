@@ -298,19 +298,18 @@ li img {
 
 }
 
-.filters ol li {
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 9px;
-    padding: 10px 0px;
-    padding-left: 10px;
-    /* Adjust this value as needed */
-    border-radius: 5px;
-    box-sizing: border-box;
-    /* Ensure padding is included in width */
-    text-align: var(150px);
+.filters ol li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0px;
+  padding-left: 10px; /* Adjust this value as needed */
+  padding-right: 10px; /* Adjust this value as needed */
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in width */
+  text-align: var(150px);
 }
 
 .filters ol li a {

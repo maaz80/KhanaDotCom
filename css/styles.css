@@ -67,6 +67,7 @@ nav{
     border-radius: 5px;
     padding-left: 0px;
     box-shadow: 6px 5px 12px black;
+    z-index: 10;
 }
 .dropdown{
     display: flex;

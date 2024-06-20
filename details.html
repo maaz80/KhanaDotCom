@@ -83,7 +83,7 @@
                         <input type="text" placeholder="Address" id="address" class="custdetails" required>
                     </div>
                 </div>
-                <div>
+                <div class="nextcont">
                     <button type="submit" id="next" class="nextbutton">Next</button>
                 </div>
             </form>
@@ -92,7 +92,7 @@
                     <h1>Payment Details</h1>
                     <div class="paymentDetails">
                         <div>Credit/Debit Card</div>
-                        <div class="paymentInput">
+                        <div class="cardInput">
                             <input id="Card" class="Card" type="number" placeholder="Card Number">
                             <input id="Expiry" class="Expiry" type="number" placeholder="D.O.E">
                             <input id="cvv" class="cvv" type="number" placeholder="CVV">
@@ -108,7 +108,7 @@
                         <div>Cash On Delivery</div>
                         <input id="Cod" type="checkbox">
                     </div>
-                    <div>
+                    <div class="ordercont">
                         <button type="submit" class="orderbutton">Order</button>
                     </div>
                 </div>
@@ -147,10 +147,17 @@ document.addEventListener('click', function (event) {
 
         // Details.js
         document.getElementById('next').addEventListener('click', function (event) {
-            event.preventDefault();
-            document.getElementById('orderForm').style.display = "none"
-            document.getElementById('paymentform').style.display = "block"
-        })
+        event.preventDefault();
+        const orderForm = document.getElementById('orderForm');
+
+        if (orderForm.checkValidity()) {
+            document.getElementById('orderForm').style.display = "none";
+            document.getElementById('paymentform').style.display = "block";
+        } else {
+            // This will trigger the default validation error messages
+            orderForm.reportValidity();
+        }
+    });
 
         // Menu.html
         document.addEventListener('DOMContentLoaded', () => {

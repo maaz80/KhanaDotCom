@@ -13,17 +13,16 @@ document.getElementById('signup-toggle').addEventListener('click', function (eve
     const SignupMenu = document.getElementById('sign-menu');
     SignupMenu.classList.toggle('show');
 });
-document.addEventListener('click' , function(event){
+document.addEventListener('click', function (event) {
     const navMenu = document.getElementById("nav-menu");
     const filterMenu = document.getElementById('filter-menu');
     const SignupMenu = document.getElementById('sign-menu');
 
-    if(!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)){
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
         navMenu.classList.remove("show");
         filterMenu.classList.remove("show");
         SignupMenu.classList.remove("show");
     }
-
 })
 
 
@@ -115,7 +114,7 @@ function loadProfile() {
         // Load profile picture if available
         if (profileData.profilePicture) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('profile-picture').src = e.target.result;
             };
             reader.readAsDataURL(new Blob([profileData.profilePicture]));
@@ -123,9 +122,9 @@ function loadProfile() {
     }
 }
 
-document.getElementById('profile-picture-input').addEventListener('change', function(event) {
+document.getElementById('profile-picture-input').addEventListener('change', function (event) {
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         document.getElementById('profile-picture').src = e.target.result;
     };
     reader.readAsDataURL(event.target.files[0]);

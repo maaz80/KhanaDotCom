@@ -314,6 +314,10 @@ li img {
     margin: auto;
 }
 
+#orderForm {
+    width: 100%;
+}
+
 .inputs {
     display: flex;
     flex-direction: column;
@@ -323,13 +327,18 @@ li img {
     margin-top: -66px;
 }
 
+.Card {
+    width: 70%;
+}
+
 .paymentInputs {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-bottom: 70px;
-    margin-top: 16px;
+    margin: auto;
 }
 
 .inputs h1 {
@@ -342,32 +351,48 @@ h2 {
 }
 
 .input {
-    width: 289px;
-    margin-left: 5px;
+    width: 93%;
+    margin: auto;
+}
+
+.nextcont {
+    width: 100%;
+    display: flex;
+}
+.ordercont{
+    width: 100%;
+    display: flex; 
+    justify-content: center;
 }
 
 .paymentDetails {
     display: flex;
     flex-direction: column;
     gap: 7px;
-
+    margin: auto;
+    width: 95%;
 }
 
 .paymentInput {
-    width: 284px;
-    margin-left: 5px;
+    width: 95%;
     display: flex;
     gap: 10px;
     justify-content: space-between;
 }
+.cardInput{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
 
+}
 .upi {
-    width: 300px;
+    width: 95%;
 }
 
 .Expiry,
 .cvv {
-    width: 40px;
+    width: 15%;
 }
 
 .custdetails {
@@ -386,8 +411,8 @@ h2 {
 }
 
 .nextbutton {
-    padding: 5px 128px;
-    margin-left: 4px;
+    width: 93%;
+    margin: auto;
     border-radius: 5px;
     border: 1px solid gray;
     font-size: 17px;
@@ -396,8 +421,7 @@ h2 {
 }
 
 .orderbutton {
-    padding: 5px 118px;
-    margin-left: 4px;
+    width: 95%;
     border-radius: 5px;
     border: 1px solid gray;
     font-size: 17px;
@@ -419,13 +443,15 @@ h2 {
         width: 29%;
     }
 
-    .orderbutton {
-        padding: 5px 150px;
+    #orderForm {
+        width: 100%;
     }
 
-    .input {
-        width: 325px;
+    #paymentform {
+        width: 100%;
+        margin: auto;
     }
+
 
     .inputs {
         margin-top: -10px;
@@ -437,16 +463,7 @@ h2 {
 
 
     .upi {
-        width: 300px;
-    }
-
-    .Expiry,
-    .cvv {
-        width: 60px;
-    }
-
-    .nextbutton {
-        padding: 5px 145px;
+        width: 95%;
     }
 
     .dropdown ul {

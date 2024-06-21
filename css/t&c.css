@@ -55,7 +55,8 @@ nav {
     padding-left: 0px;
     box-shadow: 6px 5px 12px black;
 }
-.dropdown{
+
+.dropdown {
     display: flex;
     justify-content: space-between;
     background-color: #76e1d3;
@@ -70,9 +71,11 @@ nav {
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 5px; /* Adjust this value as needed */
+    padding-left: 5px;
+    /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
     text-align: var(150px);
 }
 
@@ -91,29 +94,33 @@ nav {
     width: 100%;
 }
 
-.menu-toggle{
+.menu-toggle {
     background-color: transparent;
     border: none;
-    color:white;
+    color: white;
     font-size: 22px;
 }
 
 .dropdown ul.show {
     display: flex;
 }
-.Profile{
+
+.Profile {
     width: 20px;
     height: 20px;
-   padding-top: 5px;
+    padding-top: 5px;
 
 }
-li img{
+
+li img {
     width: 20px;
     height: 20px;
 }
-.signlog{
+
+.signlog {
     display: flex;
 }
+
 .signupdrop ul {
     display: none;
     position: absolute;
@@ -130,12 +137,14 @@ li img{
     padding-left: 0px;
     box-shadow: 6px 5px 12px black;
 }
-.signupdrop{
+
+.signupdrop {
     display: flex;
     justify-content: space-between;
     background-color: transparent;
     align-items: center;
 }
+
 .signupdrop ul li {
     width: 100%;
     display: flex;
@@ -143,11 +152,14 @@ li img{
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 5px; /* Adjust this value as needed */
+    padding-left: 5px;
+    /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
     text-align: var(150px);
 }
+
 .signupdrop ul li a {
     text-decoration: none;
     color: black;
@@ -157,24 +169,27 @@ li img{
     align-items: center;
     width: 100%;
 }
+
 .signupdrop ul li:hover {
     background-color: lightgray;
 }
-.signup-toggle{
+
+.signup-toggle {
     background-color: transparent;
     border: none;
-    color:white;
+    color: white;
     font-size: 10px;
 }
 
 .signupdrop ul.show {
     display: flex;
 }
-.filter-toggle{
-z-index: 100;
+
+.filter-toggle {
+    z-index: 100;
 }
 
-.filters ol{
+.filters ol {
     display: none;
     position: absolute;
     top: 62px;
@@ -191,52 +206,63 @@ z-index: 100;
     box-shadow: -6px 5px 12px black;
 
 }
-.filters ol li{
+
+.filters ol li {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 10px; /* Adjust this value as needed */
-    padding-right: 10px; /* Adjust this value as needed */
+    padding-left: 10px;
+    /* Adjust this value as needed */
+    padding-right: 10px;
+    /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
     text-align: var(150px);
 }
+
 .filters ol li a {
     text-decoration: none;
     color: black;
     display: inline-block;
 }
-.filter-toggle{
+
+.filter-toggle {
     background-color: transparent;
     border: none;
-    color:black;
+    color: black;
     font-size: 17px;
 }
+
 .filters ol.show {
     display: flex;
 }
-.filters ol li:hover{
+
+.filters ol li:hover {
     background-color: lightgray;
 }
 
-.login{
+.login {
     background-color: transparent;
     border: none;
-font-size: 10px;
+    font-size: 10px;
 }
-.login a{
+
+.login a {
     text-decoration: none;
     color: white;
- 
+
 }
+
 /* Cart */
-.cart-box{
+.cart-box {
     position: relative;
 }
-.item-In-Cart{
+
+.item-In-Cart {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -246,6 +272,7 @@ font-size: 10px;
     font-size: 8px;
     padding: 0px 2px;
 }
+
 /* Content styles */
 /* Style the container */
 .container {
@@ -260,7 +287,8 @@ font-size: 10px;
     margin: 20px 0 10px;
 }
 
-.content p, .content ul {
+.content p,
+.content ul {
     margin-bottom: 20px;
 }
 
@@ -268,37 +296,48 @@ font-size: 10px;
     list-style: disc inside;
     padding-left: 20px;
 }
+
 .contact {
-    background-color:  #16a290;
+    background-color: #16a290;
     color: white;
     padding: 10px 0;
     text-align: center;
 }
+
 .semicontainer {
-    width: 80%;
+    width: 100%;
     margin: auto;
     overflow: hidden;
     max-width: 900px;
 }
+
 .contact-form {
     background: white;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 15px 0;
 }
+
 .contact-form h2 {
     margin: 0 0 15px;
 }
+
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    width: 100%;
+    width: 91%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 7px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+.contact-form {
+    width: 100%;
+    margin: 0px -19px;
+}
+
+
 .contact-form button {
     background: #16a290;
     color: white;
@@ -307,6 +346,7 @@ font-size: 10px;
     cursor: pointer;
     border-radius: 5px;
 }
+
 .contact-form button:hover {
     background: #1d756a;
 }
@@ -318,35 +358,58 @@ font-size: 10px;
         top: 72px;
         left: 40px;
     }
-    .dropdown ul li{
+
+    .dropdown ul li {
         padding-left: 10px;
     }
-    .filters ol{
+
+    .filters ol {
         width: 20vw;
         top: 72px;
         right: 70px;
     }
-    .signupdrop ul{
+
+    .signupdrop ul {
         width: 20vw;
         top: 72px;
         right: 70px;
     }
-    .login{
+
+    .login {
         font-size: 17px;
-       }
-       .signup-toggle{
+    }
+
+    .signup-toggle {
         font-size: 17px;
-       }
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .semicontainer {
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
 }
+
 @media screen and (min-width: 1300px) {
     .dropdown ul {
         width: 10vw;
     }
-    .filters ol{
+
+    .filters ol {
         width: 10vw;
     }
-    .signupdrop ul{
+
+    .signupdrop ul {
         width: 10vw;
     }
 }
-    

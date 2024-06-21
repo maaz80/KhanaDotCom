@@ -1,225 +1,128 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #caf0f8;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  
-  header {
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    /* padding: 10px 2px; */
-      background-color: #16a290;
-  }
-  strong {
-    color: #8d99ae;
-  }
-  
-  main {
-    display: flex;
-    padding: 20px;
-  }
-  
-  .filters-toggle {
-    color: white;
-  }
-  
-  .filters h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  .filters ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .filters li {
-    margin-bottom: 10px;
-  }
-  
-  .filters input {
-    margin-right: 10px;
-  }
-  
-  .filters a {
-    color: blue;
-    text-decoration: none;
-  }
-  
-  .filters a:hover {
-    text-decoration: underline;
-  }
-  
-  .restaurant-list {
-    width: 75%;
-    padding: 1px 10px;
-  }
-  
-  .restaurant-list h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-  
-  .restaurant-item {
-    display: flex;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: white;
-  }
-  
-  .restaurant-item img {
-    width: 200px;
-    height: 130px;
-    margin-right: 20px;
-    border-radius: 5px;
-  }
-  
-  .restaurant-info {
-    flex-grow: 1;
-  }
-  
-  .restaurant-info h3 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  
-  .restaurant-info p {
-    margin: 5px 0;
-  }
-  
-  .button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 40px;
-    margin: 40px 30px;
-  }
-  
-  .restaurant-info button:hover {
-    background-color: #c0392b;
-  }
-  .text {
-    font-size: xx-large;
-    text-align: center;
-    background-color: #22577a;
-    padding: 15px;
-    border-radius: 5px;
-    color: #f5edef;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #caf0f8;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 
+header {
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  /* padding: 10px 2px; */
+  background-color: #16a290;
+}
+strong {
+  color: #8d99ae;
+}
+
+.filters-toggle {
+  color: white;
+}
 .heading {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 nav {
-    /* display: flex ; */
-    align-items: center;
-    padding-left: 5px;
+  /* display: flex ; */
+  align-items: center;
+  padding-left: 5px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
 }
 
 .logo img {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .logo h1 {
-    font-size: 17px;
+  font-size: 17px;
 }
 /* Navigation menu styles */
 .dropdown ul {
-    display: none;
-    position: absolute;
-    top: 53px;
-    left: 26px;
-    background-color: white;
-    color: black;
-    width: 40vw;
-    list-style: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    padding-left: 0px;
-    box-shadow: 6px 5px 12px black;
+  display: none;
+  position: absolute;
+  top: 53px;
+  left: 26px;
+  background-color: white;
+  color: black;
+  width: 40vw;
+  list-style: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding-left: 0px;
+  box-shadow: 6px 5px 12px black;
 }
 
 .dropdown {
-    display: flex;
-    justify-content: space-between;
-    background-color: #76e1d3;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #76e1d3;
+  align-items: center;
+  width: 100%;
 }
 
 .dropdown ul li {
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 9px;
-    padding: 10px 0px;
-    padding-left: 5px;
-    /* Adjust this value as needed */
-    border-radius: 5px;
-    box-sizing: border-box;
-    /* Ensure padding is included in width */
-    text-align: var(150px);
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0px;
+  padding-left: 5px;
+  /* Adjust this value as needed */
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* Ensure padding is included in width */
+  text-align: var(150px);
 }
 
 .dropdown ul li:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
-
 .dropdown ul li a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    justify-content: start;
-    gap: 9px;
-    align-items: center;
-    width: 100%;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: start;
+  gap: 9px;
+  align-items: center;
+  width: 100%;
 }
 
 .menu-toggle {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 22px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
 }
 
 .dropdown ul.show {
-    display: flex;
+  display: flex;
 }
 
 .Profile {
-    width: 20px;
-    height: 20px;
-    padding-top: 5px;
-
+  width: 20px;
+  height: 20px;
+  padding-top: 5px;
 }
 
 li img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
-.signlog{
+.signlog {
   display: flex;
 }
 
@@ -239,7 +142,7 @@ li img {
   padding-left: 0px;
   box-shadow: 6px 5px 12px black;
 }
-.signupdrop{
+.signupdrop {
   display: flex;
   justify-content: space-between;
   background-color: transparent;
@@ -269,212 +172,596 @@ li img {
 .signupdrop ul li:hover {
   background-color: lightgray;
 }
-.signup-toggle{
+.signup-toggle {
   background-color: transparent;
   border: none;
-  color:white;
+  color: white;
   font-size: 10px;
 }
 .signupdrop ul.show {
   display: flex;
 }
 
-
 .filters ol {
-    display: none;
-    position: absolute;
-    top: 62px;
-    right: 26px;
-    background-color: white;
-    color: black;
-    width: 40vw;
-    list-style: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    padding-left: 0px;
-    box-shadow: -6px 5px 12px black;
-
+  display: none;
+  position: absolute;
+  top: 62px;
+  right: 26px;
+  background-color: white;
+  color: black;
+  width: 40vw;
+  list-style: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding-left: 0px;
+  box-shadow: -6px 5px 12px black;
+}
+strong {
+  color: #8d99ae;
 }
 
-.filters ol li{
+.filters-toggle {
+  color: white;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+nav {
+  align-items: center;
+  padding-left: 5px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+}
+
+.logo img {
+  border-radius: 10px;
+}
+
+.logo h1 {
+  font-size: 17px;
+}
+
+.filters ol li {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   gap: 9px;
   padding: 10px 0px;
-  padding-left: 10px; /* Adjust this value as needed */
-  padding-right: 10px; /* Adjust this value as needed */
+  padding-left: 10px;
   border-radius: 5px;
-  box-sizing: border-box; /* Ensure padding is included in width */
-  text-align: var(150px);
+  box-sizing: border-box;
 }
 
 .filters ol li a {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
 }
 
 .filter-toggle {
-    background-color: transparent;
-    border: none;
-    color: black;
-    font-size: 17px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 17px;
 }
 
 .filters ol.show {
-    display: flex;
+  display: flex;
 }
 
 .filters ol li:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .login {
-    background-color: transparent;
-    border: none;
-    font-size: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 10px;
 }
 
 .login a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
-
 
 /* Cart */
 .cart-box {
-    position: relative;
+  position: relative;
 }
 
 .item-In-Cart {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background-color: red;
-    color: white;
-    border-radius: 20%;
-    font-size: 8px;
-    padding: 0px 2px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  color: white;
+  border-radius: 20%;
+  font-size: 8px;
+  padding: 0px 2px;
 }
-
-
 .Profile {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .searchbar {
-    width: 60%;
-    padding: 7px 5px;
+  width: 100%;
+  padding: 7px 5px;
 }
-.cart{
-    background-color: #22577a;
-    border-radius: 10px;
-    width: 80px;
-    height: 40px;
-}
+
 .footer-section {
-    animation-range: entry 0 cover 10%;
+  animation-range: entry 0 cover 10%;
 }
 
 footer {
-    background-color: #16a290;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
+  background-color: #16a290;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-    animation: view linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 40%;
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+  animation: view linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
 }
 
 .footer-section h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .footer-section p,
 .footer-section a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 1em;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1em;
 }
 
 .footer-section a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer-section img {
-    width: 30px;
-    margin: 5px;
+  width: 30px;
+  margin: 5px;
 }
 
 footer p {
-    margin-top: 20px;
-    font-size: 0.9em;
+  margin-top: 20px;
+  font-size: 0.9em;
 }
 
 @media screen and (min-width: 700px) {
- 
+  main {
+    flex-direction: row;
+  }
+  .restaurant-list {
+    width: 50%;
+  }
+  .restaurant-item {
+    flex-direction: row;
+  }
+  .searchbar {
+    width: 60%;
+  }
   .dropdown ul {
-      width: 20vw;
-      top: 72px;
-      left: 40px;
+    width: 40vw;
   }
-  .dropdown ul li{
-      padding-left: 10px;
+  .signupdrop ul {
+    width: 40vw;
   }
-  .filters ol{
-      width: 20vw;
-      top: 72px;
-      right: 70px;
+  .filters ol {
+    width: 40vw;
   }
-  .signupdrop ul{
-      width: 20vw;
-      top: 72px;
-      right: 70px;
-  }
-  .Profile{
-      width: 30px;
-      height: 30px;
-  }
- 
   .footer-section {
-      animation-range: entry 0 cover 10%;
+    animation-range: entry 0 cover 10%;
   }
-  .login{
+  .login {
     font-size: 17px;
-   }
-   .signup-toggle{
+  }
+  .signup-toggle {
     font-size: 17px;
-   }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .dropdown ul {
+    width: 20vw;
+  }
+  .signupdrop ul {
+    width: 20vw;
+  }
+  .filters ol {
+    width: 20vw;
+  }
+}
+
+.filters ol li {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0px;
+  padding-left: 10px;
+  /* Adjust this value as needed */
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* Ensure padding is included in width */
+  text-align: var(150px);
+}
+
+.filters ol li a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+
+.filter-toggle {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 17px;
+}
+
+.filters ol.show {
+  display: flex;
+}
+
+.filters ol li:hover {
+  background-color: lightgray;
+}
+
+.login {
+  background-color: transparent;
+  border: none;
+  font-size: 10px;
+}
+
+.login a {
+  text-decoration: none;
+  color: white;
+}
+
+.Profile {
+  width: 30px;
+  height: 30px;
+}
+
+.searchbar {
+  width: 60%;
+  padding: 7px 5px;
+}
+
+.footer-section {
+  animation-range: entry 0 cover 10%;
+}
+
+footer {
+  background-color: #16a290;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+  animation: view linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
+}
+
+.footer-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-section img {
+  width: 30px;
+  margin: 5px;
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+@media screen and (min-width: 700px) {
+  .dropdown ul {
+    width: 20vw;
+    top: 72px;
+    left: 40px;
+  }
+  .dropdown ul li {
+    padding-left: 10px;
+  }
+  .filters ol {
+    width: 20vw;
+    top: 72px;
+    right: 70px;
+  }
+  .signupdrop ul {
+    width: 20vw;
+    top: 72px;
+    right: 70px;
+  }
+  .Profile {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-section {
+    animation-range: entry 0 cover 10%;
+  }
+  .login {
+    font-size: 17px;
+  }
+  .signup-toggle {
+    font-size: 17px;
+  }
 }
 @media screen and (min-width: 1300px) {
-    .dropdown ul {
-        width: 10vw;
-    }
+  .dropdown ul {
+    width: 10vw;
+  }
 
-    .filters ol {
-        width: 10vw;
-    }
-    .signupdrop ul {
-        width: 10vw;
-    }
+  .filters ol {
+    width: 10vw;
+  }
+  .signupdrop ul {
+    width: 10vw;
+  }
 }
-  
+
+/* New css add for the menu */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #caf0f8;
+}
+
+main {
+  display: flex;
+  padding: 20px;
+gap: 10px;
+}
+
+.sidefilters {
+  width: 19%;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-right: 1px solid #ddd;
+}
+
+.sidefilters h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.sidefilters ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidefilters li {
+  margin-bottom: 10px;
+}
+
+.sidefilters input {
+  margin-right: 10px;
+}
+
+.sidefilters a {
+  color: blue;
+  text-decoration: none;
+}
+
+.sidefilters a:hover {
+  text-decoration: underline;
+}
+
+.restaurant-list {
+  width: 79%;
+  margin-top: -25px;
+}
+
+.restaurant-list h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.restaurant-item {
+  display: flex;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.restaurant-item img {
+  width: 200px;
+  height: 130px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.restaurant-info {
+  flex-grow: 1;
+}
+
+.restaurant-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.restaurant-info p {
+  margin: 5px 0;
+}
+
+.button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  margin: 40px 30px;
+}
+.button a{
+  text-decoration: none;
+  color: white;
+}
+
+.cart {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  margin: 40px 30px;
+}
+
+.restaurant-info button:hover {
+  background-color: #c0392b;
+}
+
+.text {
+  font-size: xx-large;
+  text-align: center;
+  background-color: #22577a;
+  padding: 15px;
+  border-radius: 5px;
+  color: #f5edef;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .sidefilters {
+    width: 25%;
+  }
+
+  .restaurant-item img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .restaurant-info h3 {
+    font-size: 1em;
+  }
+
+  .restaurant-info p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .sidefilters {
+    width: 90%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+
+  .restaurant-list {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .restaurant-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .restaurant-item img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 10px 0;
+  }
+
+  .restaurant-info {
+    text-align: center;
+  }
+
+  .button,
+  .cart {
+    margin: 10px 5px;
+    width: 100%;
+    max-width: 150px;
+  }
+  .button{
+    width: 93%;
+  }
+
+  .text {
+    font-size: large;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidefilters h2,
+  .restaurant-list h2 {
+    font-size: 1em;
+  }
+
+  .restaurant-info h3 {
+    font-size: 1em;
+  }
+
+  .restaurant-info p {
+    font-size: 0.8em;
+  }
+
+  .text {
+    font-size: medium;
+  }
+}

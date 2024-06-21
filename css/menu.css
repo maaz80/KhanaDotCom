@@ -470,7 +470,16 @@ footer {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
+@keyframes view {
+  from{
+      opacity: 0.6;
+      scale: 0.5;
+  }
+  to{
+      opacity: 1;
+      scale: 1;
+  }
+}
 .footer-section {
   flex: 1;
   min-width: 200px;
@@ -619,6 +628,7 @@ gap: 10px;
   padding: 10px;
   border-radius: 5px;
   background-color: white;
+  
 }
 
 .restaurant-item img {

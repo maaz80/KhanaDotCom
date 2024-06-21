@@ -12,29 +12,65 @@ header {
     background-color: #16a290;
     color: #fff;
 }
-.heading{
+
+.heading {
     display: flex;
     align-items: center;
     gap: 5px;
 }
-nav{
+
+.ChatBot {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    border-radius: 50%;
+}
+
+.bot-toggle {
+    border-radius: 50%;
+    background-color: #76e1d3;
+    height: 38px;
+}
+
+.ChatBot-Box {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+    box-shadow: 6px 5px 12px black;
+    z-index: 10;
+    bottom: 47px;
+    right: 24px;
+    height: 364px;
+    width: 246px;
+}
+
+.ChatBot-Box.show {
+    display: flex;
+}
+
+nav {
     /* display: flex ; */
     align-items: center;
     padding-left: 5px;
-    }
-.logo{
-    display: flex ;
+}
+
+.logo {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 3px;
 }
-.logo img{
+
+.logo img {
     border-radius: 10px;
 }
-.logo h1{
+
+.logo h1 {
     font-size: 17px;
 }
-.searchbar{
+
+.searchbar {
     width: 42%;
     border: 1px solid white;
     border-radius: 6px;
@@ -42,11 +78,13 @@ nav{
     color: white;
     padding: 1px 5px;
 }
-.searchbar::placeholder{
+
+.searchbar::placeholder {
     color: white;
     opacity: 0.7;
 }
-.loader{
+
+.loader {
     text-align: center;
     margin-top: 50px;
 }
@@ -69,7 +107,8 @@ nav{
     box-shadow: 6px 5px 12px black;
     z-index: 10;
 }
-.dropdown{
+
+.dropdown {
     display: flex;
     justify-content: space-between;
     background-color: #76e1d3;
@@ -83,9 +122,11 @@ nav{
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 5px; /* Adjust this value as needed */
+    padding-left: 5px;
+    /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
     text-align: var(150px);
 }
 
@@ -104,29 +145,33 @@ nav{
     width: 100%;
 }
 
-.menu-toggle{
+.menu-toggle {
     background-color: transparent;
     border: none;
-    color:white;
+    color: white;
     font-size: 22px;
 }
 
 .dropdown ul.show {
     display: flex;
 }
-.Profile{
+
+.Profile {
     width: 20px;
     height: 20px;
-   padding-top: 5px;
+    padding-top: 5px;
 
 }
-li img{
+
+li img {
     width: 20px;
     height: 20px;
 }
-.signlog{
+
+.signlog {
     display: flex;
 }
+
 .signupdrop ul {
     display: none;
     position: absolute;
@@ -143,12 +188,14 @@ li img{
     padding-left: 0px;
     box-shadow: 6px 5px 12px black;
 }
-.signupdrop{
+
+.signupdrop {
     display: flex;
     justify-content: space-between;
     background-color: transparent;
     align-items: center;
 }
+
 .signupdrop ul li {
     width: 100%;
     display: flex;
@@ -156,11 +203,14 @@ li img{
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 5px; /* Adjust this value as needed */
+    padding-left: 5px;
+    /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
     text-align: var(150px);
 }
+
 .signupdrop ul li a {
     text-decoration: none;
     color: black;
@@ -170,13 +220,15 @@ li img{
     align-items: center;
     width: 100%;
 }
+
 .signupdrop ul li:hover {
     background-color: lightgray;
 }
-.signup-toggle{
+
+.signup-toggle {
     background-color: transparent;
     border: none;
-    color:white;
+    color: white;
     font-size: 10px;
 }
 
@@ -184,7 +236,7 @@ li img{
     display: flex;
 }
 
-.filters ol{
+.filters ol {
     display: none;
     position: absolute;
     top: 62px;
@@ -201,55 +253,65 @@ li img{
     box-shadow: -6px 5px 12px black;
 
 }
-.filters ol li{
+
+.filters ol li {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 9px;
     padding: 10px 0px;
-    padding-left: 10px; /* Adjust this value as needed */
-    padding-right: 10px; /* Adjust this value as needed */
+    padding-left: 10px;
+    /* Adjust this value as needed */
+    padding-right: 10px;
+    /* Adjust this value as needed */
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
     text-align: var(150px);
 }
+
 .filters ol li a {
     text-decoration: none;
     color: black;
     display: inline-block;
 }
-.filter-toggle{
+
+.filter-toggle {
     background-color: transparent;
     border: none;
-    color:black;
+    color: black;
     font-size: 17px;
 }
+
 .filters ol.show {
     display: flex;
 }
-.filters ol li:hover{
+
+.filters ol li:hover {
     background-color: lightgray;
 }
 
-.login{
+.login {
     background-color: transparent;
     border: none;
     font-size: 10px;
-  
+
 }
-.login a{
+
+.login a {
     text-decoration: none;
     color: white;
-  
+
 }
 
 
 /* Cart */
-.cart-box{
+.cart-box {
     position: relative;
 }
-.item-In-Cart{
+
+.item-In-Cart {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -259,7 +321,8 @@ li img{
     font-size: 8px;
     padding: 0px 2px;
 }
-.slider{
+
+.slider {
     width: 100%;
     margin: auto;
     border-radius: 20px;
@@ -268,13 +331,14 @@ li img{
     text-align: center;
     border: 1px solid black;
 }
+
 main {
     padding: 1em;
 }
 
-.shipping{
+.shipping {
     width: 100%;
-    display: flex ;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     text-align: center;
@@ -283,15 +347,17 @@ main {
     font-size: 10px;
 
 }
-.shipping div{
-    border: 1px solid red ;
+
+.shipping div {
+    border: 1px solid red;
     padding: 9px;
     border-radius: 10px;
 }
-.category{
+
+.category {
     width: 100%;
     margin: auto;
-    display: flex ;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -299,7 +365,8 @@ main {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.burger{
+
+.burger {
     width: 47%;
     border: 1px solid gray;
     height: 220px;
@@ -311,19 +378,21 @@ main {
 }
 
 @keyframes view {
-    from{
+    from {
         opacity: 0.6;
         scale: 0.5;
     }
-    to{
+
+    to {
         opacity: 1;
         scale: 1;
     }
 }
-.items{
+
+.items {
     width: 100%;
     margin: auto;
-    display: flex ;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -332,7 +401,7 @@ main {
     margin-bottom: 30px;
 }
 
-.item{
+.item {
     width: 47%;
     border: 1px solid gray;
     height: 220px;
@@ -344,20 +413,23 @@ main {
     align-items: center;
     gap: 10px;
 }
-.item button a{
+
+.item button a {
     text-decoration: none;
     color: black;
 }
-.item button{
+
+.item button {
     background-color: gray;
     padding: 5px 14px;
     border-radius: 3px;
 }
-h2{
+
+h2 {
     text-align: center;
 }
 
-.menu{
+.menu {
     text-align: center;
     font-size: 52px;
     margin-top: -21px;
@@ -365,10 +437,11 @@ h2{
     text-decoration: underline;
 }
 
-.main h2{
+.main h2 {
     background-color: gray;
     border-radius: 3px;
 }
+
 /* Add this to your styles.css */
 
 footer {
@@ -437,36 +510,42 @@ footer p {
     align-items: center;
     justify-content: center;
 }
-.order-details{
+
+.order-details {
     font-size: small;
     padding: 0 20px;
 }
-.order-details p{
+
+.order-details p {
     margin-bottom: -10px;
 }
 
- .order-items {
+.order-items {
     margin-bottom: 20px;
     padding: 0 20px;
 }
-.order-pricing{
+
+.order-pricing {
     padding-left: 17px;
 }
-.order-pricing h2{
+
+.order-pricing h2 {
     width: 90%;
-    border-bottom:2px solid #ddd ;
+    border-bottom: 2px solid #ddd;
     margin-bottom: 10px;
     padding-bottom: 5px;
 }
-.finalprice{
+
+.finalprice {
     width: 90%;
-    border-top:2px solid #ddd ;
+    border-top: 2px solid #ddd;
     margin-top: 10px;
     padding-top: 5px;
 
 }
 
-.order-details h2, .order-items h2 {
+.order-details h2,
+.order-items h2 {
     margin-bottom: 10px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
@@ -477,9 +556,10 @@ footer p {
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
-    
+
 }
-.item-img{
+
+.item-img {
     width: 25%;
 }
 
@@ -505,93 +585,129 @@ footer p {
 
 
 @media screen and (min-width: 700px) {
-    .item-img{
+    .item-img {
         width: 15%;
     }
 
-    .logo h1{
+    .logo h1 {
         font-size: 22px;
     }
-    .items{
+
+    .items {
         width: 85%;
         gap: 50px;
     }
-    .item{
+
+    .item {
         width: 25%;
     }
-    .menu{
+
+    .menu {
         font-size: 100px;
         margin-top: -30px;
     }
-    .slider{
+
+    .slider {
         width: 85%;
     }
-    .shipping{
+
+    .shipping {
         width: 85%;
         font-size: 17px;
     }
-    .category{
+
+    .category {
         width: 85%;
         gap: 70px;
     }
-    .burger{
+
+    .burger {
         width: 25%;
     }
-    .products{
+
+    .products {
         width: 85%;
         gap: 50px;
     }
-    .product{
+
+    .product {
         width: 25%;
     }
-    .order-details{
+
+    .order-details {
         font-size: medium;
         padding: 0 20px;
     }
+
     .dropdown ul {
         width: 20vw;
         top: 72px;
         left: 40px;
     }
-    .dropdown ul li{
+
+    .dropdown ul li {
         padding-left: 10px;
     }
-    .filters ol{
+
+    .filters ol {
         width: 20vw;
         top: 72px;
         right: 70px;
     }
-    .signupdrop ul{
+
+    .signupdrop ul {
         width: 20vw;
         top: 72px;
         right: 70px;
     }
-    .Profile{
+
+    .Profile {
         width: 30px;
         height: 30px;
     }
-   .login{
-    font-size: 17px;
-   }
-   .signup-toggle{
-    font-size: 17px;
-   }
-    .searchbar{
+
+    .login {
+        font-size: 17px;
+    }
+
+    .signup-toggle {
+        font-size: 17px;
+    }
+
+    .searchbar {
         width: 70%;
         padding: 7px 5px;
     }
+
     .footer-section {
         animation-range: entry 0 cover 10%;
     }
+    .ChatBot {
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+    }
+    .bot-toggle {
+        border-radius: 50%;
+        height: 38px;
+    }
+    .ChatBot-Box {
+        right: 45px;
+        height: 430px;
+        width: 350px;
+    }
 }
+
 @media screen and (min-width: 1300px) {
     .dropdown ul {
         width: 10vw;
     }
-    .filters ol{
+
+    .filters ol {
         width: 10vw;
     }
-    .signupdrop ul{
+
+    .signupdrop ul {
         width: 10vw;
     }
 }

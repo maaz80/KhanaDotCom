@@ -15,6 +15,35 @@ header {
     width: 100%;
 }
 
+.ChatBot {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    border-radius: 50%;
+}
+
+.bot-toggle {
+    border-radius: 50%;
+    background-color: #76e1d3;
+    height: 38px;
+}
+
+.ChatBot-Box {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+    box-shadow: 6px 5px 12px black;
+    z-index: 10;
+    bottom: 47px;
+    right: 24px;
+    height: 364px;
+    width: 246px;
+}
+
+.ChatBot-Box.show {
+    display: flex;
+}
 /* Navigation styles */
 nav {
     padding: 7px 2px;
@@ -396,6 +425,20 @@ li img {
         width: 100%;
         margin: auto;
         overflow: hidden;
+    }
+    .ChatBot {
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+    }
+    .bot-toggle {
+        border-radius: 50%;
+        height: 38px;
+    }
+    .ChatBot-Box {
+        right: 45px;
+        height: 430px;
+        width: 350px;
     }
 
 }

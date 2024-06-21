@@ -1,12 +1,14 @@
 const navMenu = document.getElementById('nav-menu');
 const filterMenu = document.getElementById('filter-menu');
 const SignupMenu = document.getElementById('sign-menu');
+const ChatBot = document.getElementById('ChatBot-Box');
 
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
     navMenu.classList.toggle('show');
     filterMenu.classList.remove("show");
     SignupMenu.classList.remove("show");
+    ChatBot.classList.remove("show")
 });
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
@@ -14,6 +16,7 @@ document.getElementById('filter-toggle').addEventListener('click', function (eve
     filterMenu.classList.toggle('show');
     navMenu.classList.remove("show");
     SignupMenu.classList.remove("show");
+    ChatBot.classList.remove("show")
 });
 
 document.getElementById('signup-toggle').addEventListener('click', function (event) {
@@ -21,17 +24,28 @@ document.getElementById('signup-toggle').addEventListener('click', function (eve
     SignupMenu.classList.toggle('show');
     navMenu.classList.remove("show");
     filterMenu.classList.remove("show");
+    ChatBot.classList.remove("show")
+});
+document.getElementById('bot-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    ChatBot.classList.toggle("show")
+    SignupMenu.classList.remove('show');
+    navMenu.classList.remove("show");
+    filterMenu.classList.remove("show");
+    
 });
 
 document.addEventListener('click', function (event) {
     const navMenu = document.getElementById("nav-menu");
     const filterMenu = document.getElementById('filter-menu');
     const SignupMenu = document.getElementById('sign-menu');
+    const ChatBot = document.getElementById('ChatBot-Box');
 
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
         navMenu.classList.remove("show");
         filterMenu.classList.remove("show");
         SignupMenu.classList.remove("show");
+        ChatBot.classList.remove("show")
     }
 })
 

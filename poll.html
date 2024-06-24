@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Food Delivery</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+    <title>Food Poll</title>
+    <link rel="stylesheet" href="css/poll.css">
 </head>
 
 <body>
@@ -47,7 +46,6 @@
             <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
             <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
             <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
-            <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
         </ul>
         <div class="filters">
             <button class="filter-toggle" id="filter-toggle">Filters</button>
@@ -59,63 +57,14 @@
             </ol>
         </div>
     </div>
-    <!-- ChatBot -->
-     <div class="ChatBot">
-        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png" alt="Chat"></button>
-    <iframe class="ChatBot-Box" id="ChatBot-Box"  src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
-</div>
 
-    <main>
-        <section>
+    <div class="poll-container">
+        <div id="poll-list"></div>
+    </div>
+    <div><button class="poll-button" id="poll-button">Submit all</button></div>
 
-            <!-- Category Slider -->
-            <div class="slider">
-                Slider Of Offers
-            </div>
+    <script src="js/poll.js"></script>
 
-            <!-- Shipping BEnifits -->
-            <div class="shipping">
-                <div>24*7 Delivery</div>
-                <div>₹50 Delivery</div>
-                <div>Fast Delivery</div>
-                <div>24*7 Delivery</div>
-            </div>
-            <!-- Categories -->
-            <div class="category" id="category">
-                <!-- Initial items will be loaded here -->
-            </div>
-
-            <!-- Loader -->
-            <div id="loader" class="loader">Loading...</div>
-
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section about">
-                <h2>About</h2>
-                <p>Information about KhanaDotCom, the services we offer, and our mission.</p>
-            </div>
-            <div class="footer-section contact">
-                <h2>Contact</h2>
-                <p>Email: support@khanadotcom.com</p>
-                <p>Phone: +123-456-7890</p>
-            </div>
-            <div class="footer-section social-media">
-                <h2>Social Media</h2>
-                <a href="https://www.linkedin.com" target="_blank"><img src="images/LinkedIn.webp" alt="LinkedIn"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="images/Insta.webp" alt="Instagram"></a>
-                <a href="https://www.facebook.com" target="_blank"><img src="images/FB.webp" alt="Facebook"></a>
-            </div>
-            <div class="footer-section privacy">
-                <h2>Privacy Policy</h2>
-                <p><a href="privacy.html">Read our Privacy Policy</a></p>
-            </div>
-        </div>
-        <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
-    </footer>
-    <script src="js/script.js"></script>
+    </script>
 </body>
-
 </html>

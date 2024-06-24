@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;display: flex; justify-content: center; align-items: center; height: 640px; }
+        .admin-container { width: 80%; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        .form-group button { padding: 10px 20px; background-color: #007BFF; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+        .form-group button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Create a Poll</h2>
+        <div class="form-group">
+            <label for="poll-question">Poll Question</label>
+            <input type="text" id="poll-question">
+        </div>
+        <div class="form-group">
+            <label for="poll-options">Poll Options (one per line)</label>
+            <textarea id="poll-options" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <button onclick="createPoll()">Create Poll</button>
+        </div>
+    </div>
+
+    <script>
+        function createPoll() {
+            const question = document.getElementById('poll-question').value.trim();
+            const options = document.getElementById('poll-options').value.split('\n').map(opt => opt.trim()).filter(opt => opt !== '');
+
+            if (question && options.length > 0) {
+                const pollData = { question, options, id: Date.now() };
+                const polls = JSON.parse(localStorage.getItem('polls')) || [];
+                polls.push(pollData);
+                localStorage.setItem('polls', JSON.stringify(polls));
+                alert('Poll created successfully!');
+                document.getElementById('poll-question').value = '';
+                document.getElementById('poll-options').value = '';
+            } else {
+                alert('Please enter a question and at least one option.');
+            }
+        }
+    </script>
+</body>
+</html>

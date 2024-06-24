@@ -1,3 +1,4 @@
+// Function to load polls
 function loadPolls() {
     const polls = JSON.parse(localStorage.getItem('polls')) || [];
     const pollList = document.getElementById('poll-list');
@@ -24,63 +25,72 @@ function loadPolls() {
             optionsContainer.appendChild(optionElement);
         });
 
-      
-        const submitButton= document.getElementById("poll-button")
-        submitButton.onclick = () => submitPoll(poll.id);
-
         pollElement.appendChild(questionElement);
         pollElement.appendChild(optionsContainer);
-        pollElement.appendChild(submitButton);
 
         pollList.appendChild(pollElement);
     });
+
+    const submitButton = document.getElementById('poll-button');
+    submitButton.addEventListener('click', submitAllPolls);
 }
 
-function submitPoll(pollId) {
-    const selectedOptions = Array.from(document.querySelectorAll(`input[name="poll-${pollId}"]:checked`)).map(option => option.value);
-    if (selectedOptions.length > 0) {
-        alert('Poll Submitted.');
-    } else {
-        alert('Please select one option in each.');
-    }
+// Function to submit all polls
+function submitAllPolls() {
+    const polls = JSON.parse(localStorage.getItem('polls')) || [];
+    const selectedPolls = [];
+
+    polls.forEach(poll => {
+        const selectedOptions = Array.from(document.querySelectorAll(`input[name="poll-${poll.id}"]:checked`)).map(option => option.value);
+        selectedPolls.push({ pollId: poll.id, selectedOptions: selectedOptions });
+    });
+
+    // Store selected polls in sessionStorage for displaying in poll-result.html
+    sessionStorage.setItem('selectedPolls', JSON.stringify(selectedPolls));
+
+    // Redirect to poll-result.html
+    window.location.href = 'poll-result.html';
 }
 
-window.onload = loadPolls;
+// Load polls when the page loads
+window.onload = function () {
+    loadPolls();
+};
+
 
 const navMenu = document.getElementById('nav-menu');
 const filterMenu = document.getElementById('filter-menu');
 const SignupMenu = document.getElementById('sign-menu');
-const ChatBot = document.getElementById('ChatBot-Box');
 
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
-event.stopPropagation();
-navMenu.classList.toggle('show');
-filterMenu.classList.remove("show");
-SignupMenu.classList.remove("show");
+    event.stopPropagation();
+    navMenu.classList.toggle('show');
+    filterMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
 });
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
-event.stopPropagation();
-filterMenu.classList.toggle('show');
-navMenu.classList.remove("show");
-SignupMenu.classList.remove("show");
+    event.stopPropagation();
+    filterMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
 });
 
 document.getElementById('signup-toggle').addEventListener('click', function (event) {
-event.stopPropagation();
-SignupMenu.classList.toggle('show');
-navMenu.classList.remove("show");
-filterMenu.classList.remove("show");
+    event.stopPropagation();
+    SignupMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    filterMenu.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
-const navMenu = document.getElementById("nav-menu");
-const filterMenu = document.getElementById('filter-menu');
-const SignupMenu = document.getElementById('sign-menu');
+    const navMenu = document.getElementById("nav-menu");
+    const filterMenu = document.getElementById('filter-menu');
+    const SignupMenu = document.getElementById('sign-menu');
 
-if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) ) {
-navMenu.classList.remove("show");
-filterMenu.classList.remove("show");
-SignupMenu.classList.remove("show");
-}
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+        navMenu.classList.remove("show");
+        filterMenu.classList.remove("show");
+        SignupMenu.classList.remove("show");
+    }
 })

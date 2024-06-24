@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: #16a290;
+        }
+
+        .poll-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .poll-question {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .poll-answer {
+            margin-bottom: 10px;
+        }
+
+        .poll-answer p {
+            font-size: 12px;
+        }
+
+        .searchbar {
+            width: 42%;
+            border: 1px solid white;
+            border-radius: 6px;
+            background-color: transparent;
+            color: white;
+            padding: 1px 5px;
+        }
+
+        .searchbar::placeholder {
+            color: white;
+            opacity: 0.7;
+        }
+
+        header {
+            background-color: #16a290;
+            color: #fff;
+        }
+
+        .heading {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav {
+            /* display: flex ; */
+            align-items: center;
+            padding-left: 5px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3px;
+        }
+
+        .logo img {
+            border-radius: 10px;
+        }
+
+        .logo h1 {
+            font-size: 17px;
+        }
+
+
+        /* Navigation menu styles */
+        .dropdown ul {
+            display: none;
+            position: absolute;
+            top: 53px;
+            left: 26px;
+            background-color: white;
+            color: black;
+            width: 40vw;
+            list-style: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            padding-left: 0px;
+            box-shadow: 6px 5px 12px black;
+            z-index: 10;
+        }
+
+        .dropdown {
+            display: flex;
+            justify-content: space-between;
+            background-color: #76e1d3;
+            align-items: center;
+        }
+
+        .dropdown ul li {
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 0px;
+            padding-left: 5px;
+            /* Adjust this value as needed */
+            border-radius: 5px;
+            box-sizing: border-box;
+            /* Ensure padding is included in width */
+            text-align: var(150px);
+        }
+
+        .dropdown ul li:hover {
+            background-color: lightgray;
+        }
+
+
+        .dropdown ul li a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            justify-content: start;
+            gap: 9px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .menu-toggle {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 22px;
+        }
+
+        .dropdown ul.show {
+            display: flex;
+        }
+
+        .Profile {
+            width: 20px;
+            height: 20px;
+            padding-top: 5px;
+
+        }
+
+        li img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .signlog {
+            display: flex;
+        }
+
+        .signupdrop ul {
+            display: none;
+            position: absolute;
+            top: 53px;
+            right: 26px;
+            background-color: white;
+            color: black;
+            width: 40vw;
+            list-style: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            padding-left: 0px;
+            box-shadow: 6px 5px 12px black;
+        }
+
+        .signupdrop {
+            display: flex;
+            justify-content: space-between;
+            background-color: transparent;
+            align-items: center;
+        }
+
+        .signupdrop ul li {
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 0px;
+            padding-left: 5px;
+            /* Adjust this value as needed */
+            border-radius: 5px;
+            box-sizing: border-box;
+            /* Ensure padding is included in width */
+            text-align: var(150px);
+        }
+
+        .signupdrop ul li a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            justify-content: start;
+            gap: 9px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .signupdrop ul li:hover {
+            background-color: lightgray;
+        }
+
+        .signup-toggle {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 10px;
+        }
+
+        .signupdrop ul.show {
+            display: flex;
+        }
+
+        .filters ol {
+            display: none;
+            position: absolute;
+            top: 62px;
+            right: 26px;
+            background-color: white;
+            color: black;
+            width: 40vw;
+            list-style: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            padding-left: 0px;
+            box-shadow: -6px 5px 12px black;
+
+        }
+
+        .filters ol li {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 0px;
+            padding-left: 10px;
+            /* Adjust this value as needed */
+            padding-right: 10px;
+            /* Adjust this value as needed */
+            border-radius: 5px;
+            box-sizing: border-box;
+            /* Ensure padding is included in width */
+            text-align: var(150px);
+        }
+
+        .filters ol li a {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+        }
+
+        .filter-toggle {
+            background-color: transparent;
+            border: none;
+            color: black;
+            font-size: 17px;
+        }
+
+        .filters ol.show {
+            display: flex;
+        }
+
+        .filters ol li:hover {
+            background-color: lightgray;
+        }
+
+        .login {
+            background-color: transparent;
+            border: none;
+            font-size: 10px;
+
+        }
+
+        .login a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Cart */
+        .cart-box {
+            position: relative;
+        }
+
+        .item-In-Cart {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-color: red;
+            color: white;
+            border-radius: 20%;
+            font-size: 8px;
+            padding: 0px 2px;
+        }
+
+        @media screen and (min-width: 700px) {
+
+            .dropdown ul {
+                width: 20vw;
+                top: 72px;
+                left: 40px;
+            }
+
+            .dropdown ul li {
+                padding-left: 10px;
+            }
+
+            .filters ol {
+                width: 20vw;
+                top: 72px;
+                right: 70px;
+            }
+
+            .signupdrop ul {
+                width: 20vw;
+                top: 72px;
+                right: 70px;
+            }
+
+            .Profile {
+                width: 30px;
+                height: 30px;
+            }
+
+            .login {
+                font-size: 17px;
+            }
+
+            .signup-toggle {
+                font-size: 17px;
+            }
+
+            .searchbar {
+                width: 70%;
+                padding: 7px 5px;
+            }
+        }
+
+        @media screen and (min-width: 1300px) {
+            .dropdown ul {
+                width: 10vw;
+            }
+
+            .filters ol {
+                width: 10vw;
+            }
+
+            .signupdrop ul {
+                width: 10vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="30" src="images/logo.png" alt="Logo">
+                <h1>KhanaDotCom</h1>
+                <input type="text" placeholder="search" class="searchbar">
+                <div class="signlog">
+                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dropdown">
+        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+        <ul id="nav-menu" class="mobile-menu">
+            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+            <li>
+                <div class="cart-box">
+                    <img src="images/Cart.png" alt="">
+                    <span class="item-In-Cart" id="itemincart">0</span>
+                </div>
+                <a href="">Cart</a>
+            </li>
+            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+        </ul>
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba <input type="checkbox"></li>
+                <li>Most Rated <input type="checkbox"></li>
+                <li>Chinese Retro <input type="checkbox"></li>
+                <li>Subway <input type="checkbox"></li>
+            </ol>
+        </div>
+    </div>
+
+    <h2>Poll Results</h2>
+    <div class="poll-container" id="poll-results-container">
+        <!-- Results will be dynamically added here -->
+    </div>
+
+    <script>
+        // Retrieve selected polls from sessionStorage
+        const selectedPolls = JSON.parse(sessionStorage.getItem('selectedPolls')) || [];
+
+        // Display poll results
+        const pollResultsContainer = document.getElementById('poll-results-container');
+        selectedPolls.forEach((poll, index) => {
+            const pollData = JSON.parse(localStorage.getItem('polls')).find(p => p.id === poll.pollId);
+            const pollElement = document.createElement('div');
+            pollElement.className = 'poll-question';
+            pollElement.innerHTML = `<p><strong>${index + 1}. ${pollData.question}</strong></p>`;
+
+            const answerElement = document.createElement('div');
+            answerElement.className = 'poll-answer';
+            answerElement.innerHTML = `<p>Your selected answer(s): ${poll.selectedOptions.join(', ')}</p>`;
+
+            pollElement.appendChild(answerElement);
+            pollResultsContainer.appendChild(pollElement);
+        });
+
+
+        const navMenu = document.getElementById('nav-menu');
+        const filterMenu = document.getElementById('filter-menu');
+        const SignupMenu = document.getElementById('sign-menu');
+        const ChatBot = document.getElementById('ChatBot-Box');
+
+        document.getElementById('menu-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            navMenu.classList.toggle('show');
+            filterMenu.classList.remove("show");
+            SignupMenu.classList.remove("show");
+        });
+
+        document.getElementById('filter-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            filterMenu.classList.toggle('show');
+            navMenu.classList.remove("show");
+            SignupMenu.classList.remove("show");
+        });
+
+        document.getElementById('signup-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            SignupMenu.classList.toggle('show');
+            navMenu.classList.remove("show");
+            filterMenu.classList.remove("show");
+        });
+
+        document.addEventListener('click', function (event) {
+            const navMenu = document.getElementById("nav-menu");
+            const filterMenu = document.getElementById('filter-menu');
+            const SignupMenu = document.getElementById('sign-menu');
+
+            if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+                navMenu.classList.remove("show");
+                filterMenu.classList.remove("show");
+                SignupMenu.classList.remove("show");
+            }
+        })
+    </script>
+</body>
+
+</html>

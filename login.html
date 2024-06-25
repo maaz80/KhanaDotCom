@@ -28,6 +28,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
+            margin-top: 120px;
 
         }
 
@@ -74,8 +75,10 @@
         header {
             background-color: #16a290;
             color: #fff;
-            width: 100%;
             margin-top: 0px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
         }
 
         .heading {
@@ -432,35 +435,36 @@
                 </div>
             </div>
         </nav>
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="">Cart</a>
+                </li>
+                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+            </ul>
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
+        </div>
     </header>
 
-    <div class="dropdown">
-        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
-        <ul id="nav-menu" class="mobile-menu">
-            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
-            <li>
-                <div class="cart-box">
-                    <img src="images/Cart.png" alt="">
-                    <span class="item-In-Cart" id="itemincart">0</span>
-                </div>
-                <a href="">Cart</a>
-            </li>
-            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
-            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
-            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
-        </ul>
-        <div class="filters">
-            <button class="filter-toggle" id="filter-toggle">Filters</button>
-            <ol id="filter-menu" class="filter-menu">
-                <li>Dhaba <input type="checkbox"></li>
-                <li>Most Rated <input type="checkbox"></li>
-                <li>Chinese Retro <input type="checkbox"></li>
-                <li>Subway <input type="checkbox"></li>
-            </ol>
-        </div>
-    </div>
     <div class="main">
         <div class="login-container">
             <h2>Login</h2>

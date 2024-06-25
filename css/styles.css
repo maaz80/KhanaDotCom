@@ -11,6 +11,10 @@ body {
 header {
     background-color: #16a290;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
 }
 
 .heading {
@@ -71,16 +75,16 @@ nav {
 }
 
 .searchbar {
-    width: 42%;
-    border: 1px solid white;
-    border-radius: 6px;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 3px;
     background-color: transparent;
-    color: white;
+    color: black;
     padding: 1px 5px;
 }
 
 .searchbar::placeholder {
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: 0.7;
 }
 
@@ -93,7 +97,7 @@ nav {
 .dropdown ul {
     display: none;
     position: absolute;
-    top: 53px;
+    top: 68px;
     left: 26px;
     background-color: white;
     color: black;
@@ -175,7 +179,7 @@ li img {
 .signupdrop ul {
     display: none;
     position: absolute;
-    top: 53px;
+    top: 32px;
     right: 26px;
     background-color: white;
     color: black;
@@ -239,7 +243,7 @@ li img {
 .filters ol {
     display: none;
     position: absolute;
-    top: 62px;
+    top: 68px;
     right: 26px;
     background-color: white;
     color: black;
@@ -457,6 +461,9 @@ footer {
     flex-wrap: wrap;
 
 }
+section{
+    margin-top: 82px;
+}
 
 .footer-section {
     flex: 1;
@@ -500,6 +507,7 @@ footer p {
     max-width: 600px;
     width: 100%;
     margin: auto;
+    margin-top: 92px;
 }
 
 .header {
@@ -608,7 +616,7 @@ footer p {
     }
 
     .slider {
-        width: 85%;
+        width: 74%;
     }
 
     .shipping {
@@ -641,7 +649,7 @@ footer p {
 
     .dropdown ul {
         width: 20vw;
-        top: 72px;
+        top: 82px;
         left: 40px;
     }
 
@@ -651,13 +659,13 @@ footer p {
 
     .filters ol {
         width: 20vw;
-        top: 72px;
+        top: 82px;
         right: 70px;
     }
 
     .signupdrop ul {
         width: 20vw;
-        top: 72px;
+        top: 46px;
         right: 70px;
     }
 
@@ -676,7 +684,7 @@ footer p {
 
     .searchbar {
         width: 70%;
-        padding: 7px 5px;
+        padding: 4px 5px;
     }
 
     .footer-section {
@@ -695,6 +703,12 @@ footer p {
         right: 45px;
         height: 430px;
         width: 350px;
+    }
+    section{
+        margin-top: 108px;
+    }
+    .order-summary-container{
+        margin-top: 120px;
     }
 }
 

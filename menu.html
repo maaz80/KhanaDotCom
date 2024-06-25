@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu - Home Food Delivery</title>
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon" />
-  </head>
 
-  <body>
-    <header>
-      <nav>
-        <div class="logo">
-          <img width="30" src="images/logo.png" alt="Logo" />
-          <h1>KhanaDotCom</h1>
-          <div class="signlog">
-            <button class="login"><a href="login.html">LogIn</a></button>
-            <div class="signupdrop">
-              <button class="signup-toggle" id="signup-toggle">SignUp</button>
-              <ul id="sign-menu" class="sign-menu">
-                <li><a href="customer.html">Customer Login</a></li>
-                <li><a href="deliverylogin.html">Delivery Person</a></li>
-                <li><a href="restaurantlogin.html">Restaurant</a></li>
-              </ul>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu - Home Food Delivery</title>
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img width="30" src="images/logo.png" alt="Logo" />
+        <h1>KhanaDotCom</h1>
+        <div class="signlog">
+          <button class="login"><a href="login.html">LogIn</a></button>
+          <div class="signupdrop">
+            <button class="signup-toggle" id="signup-toggle">SignUp</button>
+            <ul id="sign-menu" class="sign-menu">
+              <li><a href="customer.html">Customer Login</a></li>
+              <li><a href="deliverylogin.html">Delivery Person</a></li>
+              <li><a href="restaurantlogin.html">Restaurant</a></li>
+            </ul>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
     <div class="dropdown">
       <button class="menu-toggle" id="menu-toggle">
@@ -51,14 +51,10 @@
           <a href="order.html"><img src="images/Order.png" alt="" />Orders</a>
         </li>
         <li>
-          <a href="profile.html"
-            ><img src="images/Profile.jpg" alt="" />Profile</a
-          >
+          <a href="profile.html"><img src="images/Profile.jpg" alt="" />Profile</a>
         </li>
         <li>
-          <a href="t&c.html"
-            ><img src="images/Help.webp" alt="" />Help/Support</a
-          >
+          <a href="t&c.html"><img src="images/Help.webp" alt="" />Help/Support</a>
         </li>
         <li>
           <a href="login.html"><img src="images/Login.png" alt="" />LogIn</a>
@@ -74,24 +70,21 @@
         </ol>
       </div>
     </div>
-    <main>
+  </header>
+
+  <main>
+    <div class="menu-container">
       <aside class="sidefilters">
         <h2>All Cuisines A-Z</h2>
         <ul>
           <li>
-            <input type="checkbox" id="american" /><label for="american"
-              >American (1)</label
-            >
+            <input type="checkbox" id="american" /><label for="american">American (1)</label>
           </li>
           <li>
-            <input type="checkbox" id="burgers" /><label for="burgers"
-              >Burgers (2)</label
-            >
+            <input type="checkbox" id="burgers" /><label for="burgers">Burgers (2)</label>
           </li>
           <li>
-            <input type="checkbox" id="chinese" /><label for="chinese"
-              >Chinese (9)</label
-            >
+            <input type="checkbox" id="chinese" /><label for="chinese">Chinese (9)</label>
           </li>
           <!-- Add more cuisines as needed -->
           <li><a href="#">+ More</a></li>
@@ -99,14 +92,10 @@
         <h2>Offers</h2>
         <ul>
           <li>
-            <input type="checkbox" id="offer1" /><label for="offer1"
-              >Set menu ₹20 and under</label
-            >
+            <input type="checkbox" id="offer1" /><label for="offer1">Set menu ₹20 and under</label>
           </li>
           <li>
-            <input type="checkbox" id="offer2" /><label for="offer2"
-              >Set menu ₹30 and under</label
-            >
+            <input type="checkbox" id="offer2" /><label for="offer2">Set menu ₹30 and under</label>
           </li>
           <!-- Add more offers as needed -->
         </ul>
@@ -204,42 +193,37 @@
           <button class="button"><a href="details.html">Details</a></button>
         </div>
       </section>
-    </main>
-
-    <footer>
-      <div class="footer-container">
-        <div class="footer-section about">
-          <h2>About</h2>
-          <p>
-            Information about KhanaDotCom, the services we offer, and our
-            mission.
-          </p>
-        </div>
-        <div class="footer-section contact">
-          <h2>Contact</h2>
-          <p>Email: support@khanadotcom.com</p>
-          <p>Phone: +123-456-7890</p>
-        </div>
-        <div class="footer-section social-media">
-          <h2>Social Media</h2>
-          <a href="https://www.linkedin.com" target="_blank"
-            ><img src="images/LinkedIn.webp" alt="LinkedIn"
-          /></a>
-          <a href="https://www.instagram.com" target="_blank"
-            ><img src="images/Insta.webp" alt="Instagram"
-          /></a>
-          <a href="https://www.facebook.com" target="_blank"
-            ><img src="images/FB.webp" alt="Facebook"
-          /></a>
-        </div>
-        <div class="footer-section privacy">
-          <h2>Privacy Policy</h2>
-          <p><a href="privacy.html">Read our Privacy Policy</a></p>
-        </div>
       </div>
-      <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
-    </footer>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+  </main>
 
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h2>About</h2>
+        <p>
+          Information about KhanaDotCom, the services we offer, and our
+          mission.
+        </p>
+      </div>
+      <div class="footer-section contact">
+        <h2>Contact</h2>
+        <p>Email: support@khanadotcom.com</p>
+        <p>Phone: +123-456-7890</p>
+      </div>
+      <div class="footer-section social-media">
+        <h2>Social Media</h2>
+        <a href="https://www.linkedin.com" target="_blank"><img src="images/LinkedIn.webp" alt="LinkedIn" /></a>
+        <a href="https://www.instagram.com" target="_blank"><img src="images/Insta.webp" alt="Instagram" /></a>
+        <a href="https://www.facebook.com" target="_blank"><img src="images/FB.webp" alt="Facebook" /></a>
+      </div>
+      <div class="footer-section privacy">
+        <h2>Privacy Policy</h2>
+        <p><a href="privacy.html">Read our Privacy Policy</a></p>
+      </div>
+    </div>
+    <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

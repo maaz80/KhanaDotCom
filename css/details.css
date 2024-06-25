@@ -10,6 +10,9 @@ body {
 header {
     background-color: #16a290;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .heading {
@@ -57,7 +60,7 @@ nav {
 .dropdown ul {
     display: none;
     position: absolute;
-    top: 53px;
+    top: 68px;
     left: 26px;
     background-color: white;
     color: black;
@@ -203,7 +206,7 @@ li img {
 .filters ol {
     display: none;
     position: absolute;
-    top: 62px;
+    top: 68px;
     right: 26px;
     background-color: white;
     color: black;
@@ -467,7 +470,7 @@ h2 {
 
     .dropdown ul {
         width: 20vw;
-        top: 72px;
+        top: 82px;
         left: 40px;
     }
 
@@ -477,13 +480,13 @@ h2 {
 
     .filters ol {
         width: 20vw;
-        top: 72px;
+        top: 82px;
         right: 70px;
     }
 
     .signupdrop ul {
         width: 20vw;
-        top: 72px;
+        top: 46px;
         right: 70px;
     }
 

@@ -28,19 +28,18 @@
                 </div>
             </div>
         </nav>
-    </header>
-
-    <div class="dropdown">
-        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
-        <ul id="nav-menu" class="mobile-menu">
-            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
-            <li>
-                <div class="cart-box">
-                    <img src="images/Cart.png" alt="">
-                    <span class="item-In-Cart" id="itemincart">0</span>
-                </div>
-                <a href="">Cart</a>
+        
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="">Cart</a>
             </li>
             <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
             <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
@@ -58,9 +57,10 @@
             </ol>
         </div>
     </div>
-
+</header>
+    
     <div class="order-summary-container">
-        <section class="order-details">
+        <div class="order-details">
 
             <h2>Order Details</h2>
             <p><strong>Customer: </strong> <span id="customer-name"> </span></p>
@@ -70,8 +70,8 @@
             <p><strong>Order Date: </strong><span id="order-date"> </span></p>
             <p><strong>Time Ago: </strong><span id="time-ago"> </span></p>
             <p><strong>Payment Mode: </strong><span id="payment-mode"> </span></p>
-        </section>
-        <section class="order-items">
+        </div>
+        <div class="order-items">
             <h2>Items</h2>
             <div class="Details">
                 <div>
@@ -97,13 +97,13 @@
                 </div>
                 <img class="item-img" src="images/logo.png" alt="">
             </div>
-        </section>
-        <section class="order-pricing">
+        </div>
+        <div class="order-pricing">
             <h2>Pricing Summary</h2>
             <p><strong>Subtotal:</strong> ₹360.00</p>
             <p><strong>Tax (5%):</strong> ₹10.80</p>
             <p class="finalprice"><strong>Total:</strong> ₹370.80</p>
-        </section>
+        </div>
     </div>
     <script src="js/order.js"></script>
 </body>

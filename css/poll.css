@@ -32,7 +32,7 @@ body {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #76e1d3;
+    background-color: #16a290;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -40,7 +40,7 @@ body {
 }
 
 .poll-button:hover {
-    background-color: #16a290;
+    background-color: #76e1d3;
 }
 
 .searchbar {
@@ -60,6 +60,9 @@ body {
 header {
     background-color: #16a290;
     color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
 .heading {

@@ -9,10 +9,9 @@ body {
 header {
     background-color: #16a290;
     color: #fff;
-    height: 46px;
-    display: flex;
-    align-items: center;
+    position: fixed;
     width: 100%;
+    z-index: 100;
 }
 
 .ChatBot {
@@ -310,7 +309,9 @@ li img {
     background: #fff;
     padding: 20px;
 }
-
+.content{
+    margin-top: 88px;
+}
 .content h2 {
     font-size: 1.5em;
     margin: 20px 0 10px;

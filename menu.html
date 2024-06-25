@@ -100,6 +100,7 @@
           <!-- Add more offers as needed -->
         </ul>
       </aside>
+      
       <section class="restaurant-list">
         <h1 class="text">Open Restaurants</h1>
         <div class="restaurant-item">
@@ -113,7 +114,7 @@
             <p>Min. Order: ₹42.00 | Delivery Fee: ₹0.00</p>
             <p><strong>Delivery: 20% OFF | Collection: 25% OFF</strong></p>
           </div>
-          <button class="cart cart-count">Add to Cart</button>
+          <button class="cart cart-count" data-added-to-cart="false">Add to Cart</button>
           <button class="button"><a href="details.html">Details</a></button>
         </div>
         <!-- Repeat the above block for each restaurant -->
@@ -128,7 +129,7 @@
             <p>Min. Order: ₹52.00 | Delivery Fee: ₹0.00</p>
             <p><strong>Delivery: 15% OFF | Collection: 20% OFF</strong></p>
           </div>
-          <button class="cart cart-count">Add to Cart</button>
+          <button class="cart cart-count" data-added-to-cart="false">Add to Cart</button>
           <button class="button"><a href="details.html">Details</a></button>
         </div>
 
@@ -144,7 +145,7 @@
             <p><strong>Delivery: 20% OFF | Collection: 20% OFF</strong></p>
           </div>
 
-          <button class="cart cart-count">Add to Cart</button>
+          <button class="cart cart-count" data-added-to-cart="false">Add to Cart</button>
           <button class="button"><a href="details.html">Details</a></button>
         </div>
 
@@ -159,7 +160,7 @@
             <p>Min. Order: ₹42.00 | Delivery Fee: ₹0.00</p>
             <p><strong>Delivery: 15% OFF | Collection: 20% OFF</strong></p>
           </div>
-          <button class="cart cart-count">Add to Cart</button>
+          <button class="cart cart-count" data-added-to-cart="false">Add to Cart</button>
           <button class="button"><a href="details.html">Details</a></button>
         </div>
 
@@ -174,7 +175,7 @@
             <p>Min. Order: ₹65.00 | Delivery Fee: ₹0.00</p>
             <p><strong>Delivery: 35% OFF | Collection: 20% OFF</strong></p>
           </div>
-          <button class="cart cart-count">Add to Cart</button>
+          <button class="cart cart-count" data-added-to-cart="false">Add to Cart</button>
           <button class="button"><a href="details.html">Details</a></button>
         </div>
 
@@ -189,7 +190,7 @@
             <p>Min. Order: ₹72.00 | Delivery Fee: ₹0.00</p>
             <p><strong>Delivery: 25% OFF | Collection: 20% OFF</strong></p>
           </div>
-          <button class="cart cart-count">Add to Cart</button>
+          <button class="cart cart-count" data-added-to-cart="false">Add to Cart</button>
           <button class="button"><a href="details.html">Details</a></button>
         </div>
       </section>
@@ -223,7 +224,78 @@
     </div>
     <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
   </footer>
-  <script src="js/script.js"></script>
+  <script >
+    
+const navMenu = document.getElementById('nav-menu');
+const filterMenu = document.getElementById('filter-menu');
+const SignupMenu = document.getElementById('sign-menu');
+
+document.getElementById('menu-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    navMenu.classList.toggle('show');
+    filterMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+});
+
+document.getElementById('filter-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    filterMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+});
+
+document.getElementById('signup-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    SignupMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    filterMenu.classList.remove("show");
+});
+
+document.addEventListener('click', function (event) {
+    const navMenu = document.getElementById("nav-menu");
+    const filterMenu = document.getElementById('filter-menu');
+    const SignupMenu = document.getElementById('sign-menu');
+
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+        navMenu.classList.remove("show");
+        filterMenu.classList.remove("show");
+        SignupMenu.classList.remove("show");
+    }
+})
+
+
+
+
+// Menu.html
+document.addEventListener('DOMContentLoaded', () => {
+// Load the cart count from local storage
+let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
+const cartCounterElement = document.getElementById('itemincart');
+cartCounterElement.textContent = cartCount;
+
+const addToCartButtons = document.querySelectorAll('.cart-count');
+addToCartButtons.forEach(button => {
+let addedToCart = button.getAttribute('data-added-to-cart') === 'true';
+
+button.addEventListener('click', () => {
+    if (!addedToCart) {
+        cartCount++;
+        button.textContent = 'Remove from Cart';
+        button.setAttribute('data-added-to-cart', 'true');
+    } else {
+        cartCount--;
+        button.textContent = 'Add to Cart';
+        button.setAttribute('data-added-to-cart', 'false');
+    }
+    addedToCart = !addedToCart;
+
+    // Update the cart count in the DOM and local storage
+    cartCounterElement.textContent = cartCount;
+    localStorage.setItem('cartCount', cartCount);
+});
+});
+});
+  </script>
 </body>
 
 </html>

@@ -70,7 +70,7 @@ nav {
 .dropdown ul {
     display: none;
     position: absolute;
-    top: 53px;
+    top: 68px;
     left: 26px;
     background-color: white;
     color: black;
@@ -152,7 +152,7 @@ li img {
 .signupdrop ul {
     display: none;
     position: absolute;
-    top: 53px;
+    top: 32px;
     right: 26px;
     background-color: white;
     color: black;
@@ -220,7 +220,7 @@ li img {
 .filters ol {
     display: none;
     position: absolute;
-    top: 62px;
+    top: 68px;
     right: 26px;
     background-color: white;
     color: black;
@@ -385,7 +385,7 @@ li img {
 @media screen and (min-width: 700px) {
     .dropdown ul {
         width: 20vw;
-        top: 72px;
+        top: 82px;
         left: 40px;
     }
 
@@ -395,13 +395,13 @@ li img {
 
     .filters ol {
         width: 20vw;
-        top: 72px;
+        top: 82px;
         right: 70px;
     }
 
     .signupdrop ul {
         width: 20vw;
-        top: 72px;
+        top: 46px;
         right: 70px;
     }
 

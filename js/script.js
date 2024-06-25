@@ -52,35 +52,6 @@ document.addEventListener('click', function (event) {
 
 
 
-// Menu.html
-document.addEventListener('DOMContentLoaded', () => {
-    // Load the cart count from local storage
-    let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
-    const cartCounterElement = document.getElementById('itemincart');
-    cartCounterElement.textContent = cartCount;
-
-    const addToCartButtons = document.querySelectorAll('.cart-count');
-    addToCartButtons.forEach(button => {
-        let addedToCart = button.getAttribute('data-added-to-cart') === 'true';
-
-        button.addEventListener('click', () => {
-            if (!addedToCart) {
-                cartCount++;
-                button.textContent = 'Remove from Cart';
-                button.setAttribute('data-added-to-cart', 'true');
-            } else {
-                cartCount--;
-                button.textContent = 'Add to Cart';
-                button.setAttribute('data-added-to-cart', 'false');
-            }
-            addedToCart = !addedToCart;
-
-            // Update the cart count in the DOM and local storage
-            cartCounterElement.textContent = cartCount;
-            localStorage.setItem('cartCount', cartCount);
-        });
-    });
-});
 
 // index.html
 

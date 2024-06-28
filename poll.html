@@ -61,7 +61,12 @@
         <div class="poll-container">
         <div id="poll-list"></div>
     </div>
-    <div><button class="poll-button" id="poll-button">Submit all</button></div>
+    <div class="pagination">
+        <button id="previous-page" onclick="changePage(-1)">Previous Page</button>
+        <button class="poll-button" id="poll-button">Submit all</button>
+        <button id="next-page" onclick="changePage(1)">Next Page</button>
+    </div>
+    <div></div>
 
     <script src="js/poll.js"></script>
 

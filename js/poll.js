@@ -1,4 +1,7 @@
 // Function to load polls
+const POLLS_PER_PAGE = 3;
+let currentPage = 0;
+
 function loadPolls() {
     const polls = JSON.parse(localStorage.getItem('polls')) || [];
     const pollList = document.getElementById('poll-list');
@@ -9,7 +12,11 @@ function loadPolls() {
         return;
     }
 
-    polls.forEach((poll, index) => {
+    const start = currentPage * POLLS_PER_PAGE;
+    const end = start + POLLS_PER_PAGE;
+    const currentPolls = polls.slice(start, end);
+
+    currentPolls.forEach((poll, index) => {
         const pollElement = document.createElement('div');
         pollElement.className = 'poll';
 
@@ -31,8 +38,16 @@ function loadPolls() {
         pollList.appendChild(pollElement);
     });
 
-    const submitButton = document.getElementById('poll-button');
-    submitButton.addEventListener('click', submitAllPolls);
+    document.getElementById('previous-page').disabled = currentPage === 0;
+    document.getElementById('next-page').disabled = end >= polls.length;
+
+    // Update page title
+    const pageTitle = document.getElementById('page-title');
+    pageTitle.textContent = `Polls Page ${currentPage + 1}`;
+
+    // Update URL
+    const newUrl = `${window.location.pathname}?page=${currentPage + 1}`;
+    history.pushState({ page: currentPage + 1 }, '', newUrl);
 }
 
 // Function to submit all polls
@@ -52,45 +67,71 @@ function submitAllPolls() {
     window.location.href = 'poll-result.html';
 }
 
-// Load polls when the page loads
+// Function to change page
+function changePage(direction) {
+    currentPage += direction;
+    loadPolls();
+}
+
+// Function to get query parameter by name
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
 window.onload = function () {
+    const pageParam = getQueryParam('page');
+    currentPage = pageParam ? parseInt(pageParam, 10) - 1 : 0;
     loadPolls();
 };
 
+window.onpopstate = function (event) {
+    if (event.state) {
+        currentPage = event.state.page - 1;
+        loadPolls();
+    }
+};
 
-const navMenu = document.getElementById('nav-menu');
-const filterMenu = document.getElementById('filter-menu');
-const SignupMenu = document.getElementById('sign-menu');
-
+// Event listeners for menu toggles
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
+    const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('show');
-    filterMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
+    document.getElementById('filter-menu').classList.remove('show');
+    document.getElementById('sign-menu').classList.remove('show');
 });
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
+    const filterMenu = document.getElementById('filter-menu');
     filterMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
+    document.getElementById('nav-menu').classList.remove('show');
+    document.getElementById('sign-menu').classList.remove('show');
 });
 
 document.getElementById('signup-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
+    const SignupMenu = document.getElementById('sign-menu');
     SignupMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    filterMenu.classList.remove("show");
+    document.getElementById('nav-menu').classList.remove('show');
+    document.getElementById('filter-menu').classList.remove('show');
 });
 
+// Close menus when clicking outside
 document.addEventListener('click', function (event) {
-    const navMenu = document.getElementById("nav-menu");
+    const navMenu = document.getElementById('nav-menu');
     const filterMenu = document.getElementById('filter-menu');
     const SignupMenu = document.getElementById('sign-menu');
 
     if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
-        navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
+        navMenu.classList.remove('show');
+        filterMenu.classList.remove('show');
+        SignupMenu.classList.remove('show');
     }
-})
+});
+
+// Event listener for submit button
+const submitButton = document.getElementById('poll-button');
+if (submitButton) {
+    submitButton.addEventListener('click', submitAllPolls);
+}

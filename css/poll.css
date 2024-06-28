@@ -59,6 +59,31 @@ body {
     opacity: 0.7;
 }
 
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    margin: auto;
+    gap: 6px;
+}
+.pagination button {
+    background-color: #16a290;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pagination button:disabled {
+    background-color: #ccc;
+}
+.pagination button:hover:not(:disabled) {
+    background-color: #76e1d3;
+}
+#previous-page , #next-page{
+    width: 63%;
+}
+
 header {
     background-color: #16a290;
     color: #fff;
@@ -367,6 +392,13 @@ li img {
     .searchbar {
         width: 70%;
         padding: 7px 5px;
+    }
+    .pagination {
+        width: 82%;
+        gap: 30px;
+    }
+    #previous-page , #next-page{
+        width: 14%;
     }
 }
 

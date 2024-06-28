@@ -97,6 +97,26 @@
             background-color: #76e1d3;
         }
 
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 8px 16px;
+            background-color: #16a290;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: #76e1d3;
+        }
+
         /* Modal styles */
         .modal {
             display: none;
@@ -155,6 +175,7 @@
         <hr>
         <h2>Manage Polls</h2>
         <div id="poll-list"></div>
+        <div class="pagination" id="pagination"></div>
     </div>
 
     <!-- Modal for displaying messages -->
@@ -166,24 +187,34 @@
     </div>
 
     <script>
+        let currentPage = 1;
+        const pollsPerPage = 5; // Adjust as needed
+
         // Function to load polls from localStorage
         function loadPolls() {
             const polls = JSON.parse(localStorage.getItem('polls')) || [];
             const pollList = document.getElementById('poll-list');
+            const pagination = document.getElementById('pagination');
             pollList.innerHTML = '';
+            pagination.innerHTML = '';
 
             if (polls.length === 0) {
                 pollList.innerHTML = '<p>No polls available.</p>';
                 return;
             }
 
-            polls.forEach((poll, index) => {
+            // Pagination logic
+            const startIndex = (currentPage - 1) * pollsPerPage;
+            const endIndex = startIndex + pollsPerPage;
+            const currentPolls = polls.slice(startIndex, endIndex);
+
+            currentPolls.forEach((poll, index) => {
                 const pollElement = document.createElement('div');
                 pollElement.className = 'poll';
 
                 const questionElement = document.createElement('div');
                 questionElement.className = 'poll-question';
-                questionElement.innerText = `${index + 1}. ${poll.question}`;
+                questionElement.innerText = `${startIndex + index + 1}. ${poll.question}`;
 
                 const optionsElement = document.createElement('div');
                 optionsElement.className = 'poll-options';
@@ -215,6 +246,21 @@
 
                 pollList.appendChild(pollElement);
             });
+
+            // Pagination controls
+            const totalPages = Math.ceil(polls.length / pollsPerPage);
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                if (i === currentPage) {
+                    button.disabled = true;
+                }
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    loadPolls();
+                });
+                pagination.appendChild(button);
+            }
         }
 
         // Function to create a new poll

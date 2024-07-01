@@ -1,142 +1,127 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Details</title>
-    <style>
-        /* General styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header styles */
-        header {
-            background-color: #16a290;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            top: 0;
-        }
-        h1{
-            text-align: center;
-        }
-
-        /* Main content styles */
-        main {
-            padding: 20px 0;
-        }
-
-        #pdfDetails {
-            max-width: 800px;
-            margin: 100px auto 20px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #pdfDetails h2 {
-            color: #16a290;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        #pdfDetails h3 {
-            color: #555;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        #pdfDetails p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        #pdfDetails a {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #16a290;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        #pdfDetails a:hover {
-            background-color: #76e1d3;
-        }
-
-
-        #pdfDetails .download-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #16a290;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        #pdfDetails .download-link:hover {
-            background-color: #76e1d3;
-        }
-
-        @media screen and (max-width: 768px) {
-            #pdfDetails {
-                padding: 10px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            #pdfDetails {
-                margin: 80px auto 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/pdf.css">
 </head>
-
 <body>
-    <h1>PDF Details</h1>
-    <div id="pdfDetails">
-        <h2 id="title"></h2>
-        <h3 id="subtitle"></h3>
-        <p id="description"></p>
-        <a id="downloadLink" href="" download>Download PDF</a>
-    </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="30" src="images/logo.png" alt="Logo">
+                <h1>KhanaDotCom</h1>
+                <div class="signlog">
+                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="">Cart</a>
+                </li>
+                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+            </ul>
+
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="pdf-details" id="pdfDetails">
+            <h2 id="title"></h2>
+            <h3 id="subtitle"></h3>
+            <p id="description"></p>
+            <a id="downloadButton" class="pdf-download" href="#" download>Download</a>
+        </div>
+    </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const params = new URLSearchParams(window.location.search);
-            const pdfId = parseInt(params.get('id'));
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const index = urlParams.get('index');
+            const pdfs = JSON.parse(localStorage.getItem('pdfs')) || [];
 
-            let pdfs = JSON.parse(localStorage.getItem('pdfs')) || [];
-
-            if (pdfs.length > 0 && pdfId >= 0 && pdfId < pdfs.length) {
-                const pdf = pdfs[pdfId];
+            if (index !== null && pdfs[index]) {
+                const pdf = pdfs[index];
                 document.getElementById('title').textContent = pdf.title;
                 document.getElementById('subtitle').textContent = pdf.subtitle;
                 document.getElementById('description').textContent = pdf.description;
-                document.getElementById('downloadLink').href = pdf.pdfData;
-                document.getElementById('downloadLink').download = pdf.fileName;
+                document.getElementById('downloadButton').href = pdf.pdfData;
+                document.getElementById('downloadButton').download = pdf.fileName;
             } else {
                 document.getElementById('pdfDetails').textContent = 'PDF details not found.';
             }
         });
+
+        
+const navMenu = document.getElementById('nav-menu');
+const filterMenu = document.getElementById('filter-menu');
+const SignupMenu = document.getElementById('sign-menu');
+
+document.getElementById('menu-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    navMenu.classList.toggle('show');
+    filterMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+});
+
+document.getElementById('filter-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    filterMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+});
+
+document.getElementById('signup-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    SignupMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    filterMenu.classList.remove("show");
+});
+
+document.addEventListener('click', function (event) {
+    const navMenu = document.getElementById("nav-menu");
+    const filterMenu = document.getElementById('filter-menu');
+    const SignupMenu = document.getElementById('sign-menu');
+
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+        navMenu.classList.remove("show");
+        filterMenu.classList.remove("show");
+        SignupMenu.classList.remove("show");
+    }
+})
     </script>
 </body>
-
 </html>

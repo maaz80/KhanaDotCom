@@ -98,46 +98,48 @@
             }
         })
 
-        document.addEventListener('DOMContentLoaded', function () {
-            let pdfs = JSON.parse(localStorage.getItem('pdfs')) || [];
-            let pdfList = document.getElementById('pdfList');
+        document.addEventListener('DOMContentLoaded', function() {
+    let pdfs = JSON.parse(localStorage.getItem('pdfs')) || [];
+    let pdfList = document.getElementById('pdfList');
 
-            if (pdfs.length > 0) {
-                pdfs.forEach(function (pdf, index) {
-                    let pdfDiv = document.createElement('div');
-                    pdfDiv.classList.add('pdf');
+    if (pdfs.length > 0) {
+        pdfs.forEach(function(pdf, index) {
+            let pdfDiv = document.createElement('div');
+            pdfDiv.classList.add('pdf');
+            pdfDiv.setAttribute('data-index', index);
 
-                    // Create a link for each PDF card
-                    let pdfLink = document.createElement('a');
-                    pdfLink.href = `pdf-details.html?id=${index}`;
-                    pdfLink.classList.add('pdf-link');
-                    pdfDiv.appendChild(pdfLink);
-                    
-                    let title = document.createElement('h2');
-                    title.textContent = pdf.title;
-                    pdfLink.appendChild(title);
-                    
-                    let subtitle = document.createElement('h3');
-                    subtitle.textContent = pdf.subtitle;
-                    pdfLink.appendChild(subtitle);
+            let title = document.createElement('h2');
+            title.textContent = pdf.title;
+            pdfDiv.appendChild(title);
 
-                    let description = document.createElement('p');
-                    description.textContent = pdf.description;
-                    pdfDiv.appendChild(description);
-                    
-                    let downloadLink = document.createElement('a');
-                    downloadLink.href = pdf.pdfData;
-                    downloadLink.download = pdf.fileName;
-                    downloadLink.classList.add('pdf-download');
-                    downloadLink.textContent = 'Download PDF';
-                    pdfDiv.appendChild(downloadLink);
+            let subtitle = document.createElement('h3');
+            subtitle.textContent = pdf.subtitle;
+            pdfDiv.appendChild(subtitle);
 
-                    pdfList.appendChild(pdfDiv);
-                });
-            } else {
-                pdfList.textContent = 'No PDFs found.';
-            }
+            let description = document.createElement('p');
+            description.textContent = pdf.description;
+            pdfDiv.appendChild(description);
+
+            let detailsButton = document.createElement('button');
+            detailsButton.textContent = "Details";
+            detailsButton.classList.add("pdf-detailsbut")
+            detailsButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                window.location.href = `pdf-details.html?index=${index}`;
+            });
+            pdfDiv.appendChild(detailsButton);
+
+            pdfDiv.addEventListener('click', function() {
+                window.location.href = `pdf-details.html?index=${index}`;
+            });
+
+            pdfList.appendChild(pdfDiv);
         });
+    } else {
+        pdfList.textContent = 'No PDFs found.';
+    }
+});
+
     </script>
 </body>
 

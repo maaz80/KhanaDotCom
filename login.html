@@ -430,7 +430,6 @@
                     <button class="login"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
                         <button class="signup-toggle" id="signup-toggle"><a href="customer.html">SignUp</a></button>
-
                     </div>
                 </div>
             </div>
@@ -439,8 +438,8 @@
         <div class="dropdown">
             <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
             <ul id="nav-menu" class="mobile-menu">
-                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a></li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a></li>
                 <li>
                     <div class="cart-box">
                         <img src="images/Cart.png" alt="">
@@ -448,10 +447,10 @@
                     </div>
                     <a href="">Cart</a>
                 </li>
-                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
-                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
-                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-                <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a></li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a></li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a></li>
+                <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a></li>
             </ul>
             <div class="filters">
                 <button class="filter-toggle" id="filter-toggle">Filters</button>
@@ -468,7 +467,7 @@
     <div class="main">
         <div class="login-container">
             <h2>Login</h2>
-            <form>
+            <form id="login-form">
                 <input type="text" id="username" name="username" placeholder="Username" required>
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <button type="submit">Login</button>
@@ -477,47 +476,71 @@
         </div>
     </div>
     <script>
-
         const navMenu = document.getElementById('nav-menu');
         const filterMenu = document.getElementById('filter-menu');
-        const SignupMenu = document.getElementById('sign-menu');
+        const signupMenu = document.getElementById('sign-menu');
 
         document.getElementById('menu-toggle').addEventListener('click', function (event) {
             event.stopPropagation();
             navMenu.classList.toggle('show');
             filterMenu.classList.remove("show");
-            SignupMenu.classList.remove("show");
+            if (signupMenu) signupMenu.classList.remove("show");
         });
 
         document.getElementById('filter-toggle').addEventListener('click', function (event) {
             event.stopPropagation();
             filterMenu.classList.toggle('show');
             navMenu.classList.remove("show");
-            SignupMenu.classList.remove("show");
+            if (signupMenu) signupMenu.classList.remove("show");
         });
 
         document.getElementById('signup-toggle').addEventListener('click', function (event) {
             event.stopPropagation();
-            SignupMenu.classList.toggle('show');
+            if (signupMenu) signupMenu.classList.toggle('show');
             navMenu.classList.remove("show");
             filterMenu.classList.remove("show");
         });
 
         document.addEventListener('click', function (event) {
-            const navMenu = document.getElementById("nav-menu");
-            const filterMenu = document.getElementById('filter-menu');
-            const SignupMenu = document.getElementById('sign-menu');
-
-            if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
-                navMenu.classList.remove("show");
-                filterMenu.classList.remove("show");
-                SignupMenu.classList.remove("show");
+            if ((!navMenu || !navMenu.contains(event.target)) &&
+                (!filterMenu || !filterMenu.contains(event.target)) &&
+                (!signupMenu || !signupMenu.contains(event.target))) {
+                if (navMenu) navMenu.classList.remove("show");
+                if (filterMenu) filterMenu.classList.remove("show");
+                if (signupMenu) signupMenu.classList.remove("show");
             }
-        })
+        });
 
+        // Handle form submission
+        document.getElementById('login-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
 
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
+            try {
+                const response = await fetch('http://172.212.90.112:8000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Login successful:', data);
+                    alert('Login successful');
+                    // Redirect to another page or update the UI
+                } else {
+                    console.error('Login failed:', response.statusText);
+                    alert('Login failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('Failed to connect to the server. Please try again later.');
+            }
+        });
     </script>
 </body>
-
 </html>

@@ -1,130 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Details Form</title>
-    <link rel="stylesheet" href="css/customer.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-          <div class="logo">
-              <img width="30" src="images/logo.png" alt="Logo">
-              <h1>KhanaDotCom</h1>
-              <div class="signlog">
-                  <button class="login"><a href="login.html">LogIn</a></button>
-                  <div class="signupdrop">
-                      <button class="signup-toggle" id="signup-toggle"><a href="customer.html">SignUp</a></button>
+    <link rel="stylesheet" href="css/customer.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img width="30" src="images/logo.png" alt="Logo">
+            <h1>KhanaDotCom</h1>
+            <div class="signlog">
+                <button class="login"><a href="login.html">LogIn</a></button>
+                <div class="signupdrop">
+                    <button class="signup-toggle" id="signup-toggle"><a href="customer.html">SignUp</a></button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-                  </div>
-              </div>
-          </div>
-      </nav>
-
-      <div class="dropdown">
-          <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
-          <ul id="nav-menu" class="mobile-menu">
-              <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-              <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
-              <li>
-                  <div class="cart-box">
-                      <img src="images/Cart.png" alt="">
-                      <span class="item-In-Cart" id="itemincart">0</span>
-                  </div>
-                  <a href="">Cart</a>
-              </li>
-              <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
-              <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
-              <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-              <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
-          </ul>
-          <div class="filters">
-              <button class="filter-toggle" id="filter-toggle">Filters</button>
-              <ol id="filter-menu" class="filter-menu">
-                  <li>Dhaba <input type="checkbox"></li>
-                  <li>Most Rated <input type="checkbox"></li>
-                  <li>Chinese Retro <input type="checkbox"></li>
-                  <li>Subway <input type="checkbox"></li>
-              </ol>
-          </div>
-      </div>
-  </header>
-
-    <div class="form-container">
-      <h2>Customer Details Form</h2>
-      <form action="submit_form.php" method="post">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+    <div class="dropdown">
+        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+        <ul id="nav-menu" class="mobile-menu">
+            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+            <li>
+                <div class="cart-box">
+                    <img src="images/Cart.png" alt="">
+                    <span class="item-In-Cart" id="itemincart">0</span>
+                </div>
+                <a href="">Cart</a>
+            </li>
+            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+        </ul>
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba <input type="checkbox"></li>
+                <li>Most Rated <input type="checkbox"></li>
+                <li>Chinese Retro <input type="checkbox"></li>
+                <li>Subway <input type="checkbox"></li>
+            </ol>
         </div>
-        <div class="form-group">
-          <label for="address">Delivery Address</label>
-          <textarea id="address" name="address" required></textarea>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone OR Email</label>
-          <input type="tel" id="phone" name="phone" required />
-        </div>
-        <div class="form-group">
-          <label for="payment">Payment Information</label>
-          <input id="payment" name="payment" required />
-        </div>
-        <div class="form-group">
-          <label for="orderhistory">Order History</label>
-          <input type="text" id="orderhistory" name="orderhistory" required />
-        </div>
-        <div class="form-group">
-          <label for="favorite">Favorite Items</label>
-          <input type="text" id="favorite" name="favorite" required />
-        </div>
-        <div class="form-group">
-          <label for="dietary">Dietary Preferences</label>
-          <input type="text" id="dietary" name="dietary" required />
-        </div>
-        <div class="form-group">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
     </div>
-    <script >
-      const navMenu = document.getElementById('nav-menu');
-const filterMenu = document.getElementById('filter-menu');
-const SignupMenu = document.getElementById('sign-menu');
+</header>
 
-document.getElementById('menu-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    navMenu.classList.toggle('show');
-    filterMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-});
+<div class="form-container">
+    <h2>Customer Details Form</h2>
+    <form id="customerForm" action="submit_form.php" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Delivery Address</label>
+            <textarea id="address" name="address" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone OR Email</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="payment">Payment Information</label>
+            <input id="payment" name="payment" required>
+        </div>
+        <div class="form-group">
+            <label for="orderhistory">Order History</label>
+            <input type="text" id="orderhistory" name="orderhistory" required>
+        </div>
+        <div class="form-group">
+            <label for="favorite">Favorite Items</label>
+            <input type="text" id="favorite" name="favorite" required>
+        </div>
+        <div class="form-group">
+            <label for="dietary">Dietary Preferences</label>
+            <input type="text" id="dietary" name="dietary" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
 
-document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    filterMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-});
-
-document.getElementById('signup-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    SignupMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    filterMenu.classList.remove("show");
-});
-
-document.addEventListener('click', function (event) {
-    const navMenu = document.getElementById("nav-menu");
+<script>
+    const navMenu = document.getElementById('nav-menu');
     const filterMenu = document.getElementById('filter-menu');
-    const SignupMenu = document.getElementById('sign-menu');
 
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+    document.getElementById('menu-toggle').addEventListener('click', function (event) {
+        event.stopPropagation();
+        navMenu.classList.toggle('show');
+        filterMenu.classList.remove("show");
+    });
+
+    document.getElementById('filter-toggle').addEventListener('click', function (event) {
+        event.stopPropagation();
+        filterMenu.classList.toggle('show');
+        navMenu.classList.remove("show");
+    });
+
+    document.getElementById('signup-toggle').addEventListener('click', function (event) {
+        event.stopPropagation();
         navMenu.classList.remove("show");
         filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
-    }
-})
+    });
 
-    </script>
-  </body>
+    document.addEventListener('click', function (event) {
+        if (!navMenu.contains(event.target) && !filterMenu.contains(event.target)) {
+            navMenu.classList.remove("show");
+            filterMenu.classList.remove("show");
+        }
+    });
+
+    document.getElementById('customerForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        const formData = new FormData(this);
+        fetch('http://172.212.90.112:8000/login', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success - perhaps redirect or show a success message
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Handle error - show error message
+        });
+    });
+</script>
+
+</body>
 </html>

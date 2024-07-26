@@ -427,7 +427,7 @@
                 <img width="30" src="images/logo.png" alt="Logo">
                 <h1>KhanaDotCom</h1>
                 <div class="signlog">
-                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <!-- <button class="login"><a href="login.html">LogIn</a></button> -->
                     <div class="signupdrop">
                         <button class="signup-toggle" id="signup-toggle"><a href="customer.html">SignUp</a></button>
                     </div>
@@ -475,6 +475,7 @@
             <a href="customer.html" class="register-link">Don't have an account? SignUp</a>
         </div>
     </div>
+
     <script>
         const navMenu = document.getElementById('nav-menu');
         const filterMenu = document.getElementById('filter-menu');
@@ -511,6 +512,7 @@
             }
         });
 
+     
         // Handle form submission
         document.getElementById('login-form').addEventListener('submit', async function (event) {
             event.preventDefault();
@@ -519,7 +521,7 @@
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('http://172.212.90.112:8000/login', {
+                const response = await fetch('http://13.201.28.236:8000/login', { // Update the endpoint as needed
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -530,11 +532,12 @@
                 if (response.ok) {
                     const data = await response.json();
                     console.log('Login successful:', data);
+                    localStorage.setItem('authToken', data.token); 
                     alert('Login successful');
-                    // Redirect to another page or update the UI
+                    
                 } else {
-                    console.error('Login failed:', response.statusText);
-                    alert('Login failed. Please try again.');
+                    const errorData = await response.json();
+                    alert('Login failed: ' + (errorData.message || 'Unknown error'));
                 }
             } catch (error) {
                 console.error('Fetch error:', error);
@@ -543,4 +546,5 @@
         });
     </script>
 </body>
+
 </html>

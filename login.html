@@ -2,553 +2,233 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            height: 100vh;
-        }
-
-        .main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 85%;
-        }
-
-        .login-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-            margin-top: 120px;
-
-        }
-
-        .login-container h2 {
-            margin: 0 0 20px;
-            color: #333;
-        }
-
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .login-container button {
-            background: #16a290;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .login-container button:hover {
-            background: #2c8b7e;
-        }
-
-        .login-container .register-link {
-            display: block;
-            margin-top: 15px;
-            color: #16a290;
-            text-decoration: none;
-        }
-
-        .login-container .register-link:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            background-color: #16a290;
-            color: #fff;
-            margin-top: 0px;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
-
-        .heading {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        nav {
-            /* display: flex ; */
-            align-items: center;
-            padding-left: 5px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 3px;
-        }
-
-        .logo img {
-            border-radius: 10px;
-        }
-
-        .logo h1 {
-            font-size: 17px;
-        }
-
-        .searchbar {
-            width: 42%;
-            border: 1px solid white;
-            border-radius: 6px;
-            background-color: transparent;
-            color: white;
-            padding: 1px 5px;
-        }
-
-        .searchbar::placeholder {
-            color: white;
-            opacity: 0.7;
-        }
-
-        /* Navigation menu styles */
-        .dropdown ul {
-            display: none;
-            position: absolute;
-            top: 53px;
-            left: 26px;
-            background-color: white;
-            color: black;
-            width: 40vw;
-            list-style: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-            padding-left: 0px;
-            box-shadow: 6px 5px 12px black;
-        }
-
-        .dropdown {
-            display: flex;
-            justify-content: space-between;
-            background-color: #76e1d3;
-            align-items: center;
-            width: 100%;
-        }
-
-        .dropdown ul li {
-            width: 100%;
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            gap: 9px;
-            padding: 10px 0px;
-            padding-left: 5px;
-            /* Adjust this value as needed */
-            border-radius: 5px;
-            box-sizing: border-box;
-            /* Ensure padding is included in width */
-            text-align: var(150px);
-        }
-
-        .dropdown ul li:hover {
-            background-color: lightgray;
-        }
-
-
-        .dropdown ul li a {
-            text-decoration: none;
-            color: black;
-            display: flex;
-            justify-content: start;
-            gap: 9px;
-            align-items: center;
-            width: 100%;
-        }
-
-        .menu-toggle {
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 22px;
-        }
-
-        .dropdown ul.show {
-            display: flex;
-        }
-
-        .Profile {
-            width: 20px;
-            height: 20px;
-            padding-top: 5px;
-
-        }
-
-        li img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .signlog {
-            display: flex;
-        }
-
-        .signupdrop ul {
-            display: none;
-            position: absolute;
-            top: 53px;
-            right: 26px;
-            background-color: white;
-            color: black;
-            width: 40vw;
-            list-style: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-            padding-left: 0px;
-            box-shadow: 6px 5px 12px black;
-        }
-
-        .signupdrop {
-            display: flex;
-            justify-content: space-between;
-            background-color: transparent;
-            align-items: center;
-        }
-
-        .signupdrop ul li {
-            width: 100%;
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            gap: 9px;
-            padding: 10px 0px;
-            padding-left: 5px;
-            /* Adjust this value as needed */
-            border-radius: 5px;
-            box-sizing: border-box;
-            /* Ensure padding is included in width */
-            text-align: var(150px);
-        }
-
-        .signupdrop ul li a {
-            text-decoration: none;
-            color: black;
-            display: flex;
-            justify-content: start;
-            gap: 9px;
-            align-items: center;
-            width: 100%;
-        }
-
-        .signupdrop ul li:hover {
-            background-color: lightgray;
-        }
-
-        .signup-toggle {
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 10px;
-        }
-
-        .signup-toggle a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .signupdrop ul.show {
-            display: flex;
-        }
-
-
-        .filters ol {
-            display: none;
-            position: absolute;
-            top: 62px;
-            right: 26px;
-            background-color: white;
-            color: black;
-            width: 40vw;
-            list-style: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-            padding-left: 0px;
-            box-shadow: -6px 5px 12px black;
-
-        }
-
-        .filters ol li {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 9px;
-            padding: 10px 0px;
-            padding-left: 10px;
-            /* Adjust this value as needed */
-            padding-right: 10px;
-            /* Adjust this value as needed */
-            border-radius: 5px;
-            box-sizing: border-box;
-            /* Ensure padding is included in width */
-            text-align: var(150px);
-        }
-
-        .filters ol li a {
-            text-decoration: none;
-            color: black;
-            display: inline-block;
-        }
-
-        .filter-toggle {
-            background-color: transparent;
-            border: none;
-            color: black;
-            font-size: 17px;
-        }
-
-        .filters ol.show {
-            display: flex;
-        }
-
-        .filters ol li:hover {
-            background-color: lightgray;
-        }
-
-        .login {
-            background-color: transparent;
-            border: none;
-            font-size: 10px;
-        }
-
-        .login a {
-            text-decoration: none;
-            color: white;
-        }
-
-
-        /* Cart */
-        .cart-box {
-            position: relative;
-        }
-
-        .item-In-Cart {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            background-color: red;
-            color: white;
-            border-radius: 20%;
-            font-size: 8px;
-            padding: 0px 2px;
-        }
-
-        @media screen and (min-width: 700px) {
-            .signupdrop ul {
-                width: 20vw;
-                top: 72px;
-                right: 70px;
-            }
-
-            .dropdown ul {
-                width: 20vw;
-                top: 72px;
-                left: 40px;
-            }
-
-            .dropdown ul li {
-                padding-left: 10px;
-            }
-
-            .filters ol {
-                width: 20vw;
-                top: 72px;
-                right: 70px;
-            }
-
-            .Profile {
-                width: 30px;
-                height: 30px;
-            }
-
-            .login {
-                font-size: 17px;
-            }
-
-            .signup-toggle {
-                font-size: 17px;
-            }
-
-            .footer-section {
-                animation-range: entry 0 cover 10%;
-            }
-
-            .main {
-                height: 78%;
-            }
-        }
-
-        @media screen and (min-width: 1300px) {
-            .dropdown ul {
-                width: 10vw;
-            }
-
-            .filters ol {
-                width: 10vw;
-            }
-
-            .signupdrop ul {
-                width: 10vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img width="30" src="images/logo.png" alt="Logo">
+                <img width="30" src="images/logo.png" alt="Logo" />
                 <h1>KhanaDotCom</h1>
                 <div class="signlog">
-                    <!-- <button class="login"><a href="login.html">LogIn</a></button> -->
+                    <button class="login"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
-                        <button class="signup-toggle" id="signup-toggle"><a href="customer.html">SignUp</a></button>
+                        <button class="signup-toggle" id="signup-toggle">
+                            <a href="customer.html">SignUp</a>
+                        </button>
                     </div>
                 </div>
             </div>
         </nav>
 
         <div class="dropdown">
-            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <button class="menu-toggle" id="menu-toggle">
+                <img src="images/Menu.webp" alt="" width="27" />
+            </button>
             <ul id="nav-menu" class="mobile-menu">
-                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a></li>
-                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a></li>
+                <li>
+                    <a href="index.html"><img src="images/Home.png" alt="" />Home</a>
+                </li>
+                <li>
+                    <a href="menu.html"><img src="images/Menu.webp" alt="" />Menu</a>
+                </li>
                 <li>
                     <div class="cart-box">
-                        <img src="images/Cart.png" alt="">
+                        <img src="images/Cart.png" alt="" />
                         <span class="item-In-Cart" id="itemincart">0</span>
                     </div>
                     <a href="">Cart</a>
                 </li>
-                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a></li>
-                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a></li>
-                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a></li>
-                <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a></li>
+                <li>
+                    <a href="order.html"><img src="images/Order.png" alt="" />Orders</a>
+                </li>
+                <li>
+                    <a href="profile.html"><img src="images/Profile.jpg" alt="" />Profile</a>
+                </li>
+                <li>
+                    <a href="t&c.html"><img src="images/Help.webp" alt="" />Help/Support</a>
+                </li>
+                <li>
+                    <a href="login.html"><img src="images/Login.png" alt="" />LogIn</a>
+                </li>
             </ul>
             <div class="filters">
                 <button class="filter-toggle" id="filter-toggle">Filters</button>
                 <ol id="filter-menu" class="filter-menu">
-                    <li>Dhaba <input type="checkbox"></li>
-                    <li>Most Rated <input type="checkbox"></li>
-                    <li>Chinese Retro <input type="checkbox"></li>
-                    <li>Subway <input type="checkbox"></li>
+                    <li>Dhaba <input type="checkbox" /></li>
+                    <li>Most Rated <input type="checkbox" /></li>
+                    <li>Chinese Retro <input type="checkbox" /></li>
+                    <li>Subway <input type="checkbox" /></li>
                 </ol>
             </div>
         </div>
     </header>
 
     <div class="main">
+        <!-- Login Container -->
         <div class="login-container">
             <h2>Login</h2>
             <form id="login-form">
-                <input type="text" id="email" name="email" placeholder="email" required />
+                <input type="text" id="email" name="email" placeholder="Email" required />
                 <input type="password" id="password" name="password" placeholder="Password" required />
                 <button type="submit">Login</button>
             </form>
-            <a href="customer.html" class="register-link">Don't have an account? SignUp</a> </div>
+            <a href="#" id="forgot-password" class="register-link">Forgot your password?</a>
+            <a href="customer.html" class="register-link">Don't have an account? SignUp</a>
         </div>
 
-        <script>
-            const navMenu = document.getElementById('nav-menu');
-            const filterMenu = document.getElementById('filter-menu');
-            const signupMenu = document.getElementById('sign-menu');
+        <!-- Password Reset Container -->
+        <div class="password-reset-container">
+            <h2>Reset Password</h2>
+            <form id="password-reset-form">
+                <input type="email" id="reset-email" name="reset-email" placeholder="Enter your email" required />
+                <button type="submit">Send Reset Link</button>
+            </form>
+            <a href="#" id="back-to-login" class="register-link">Back to Login</a>
+        </div>
+    </div>
 
-            document.getElementById('menu-toggle').addEventListener('click', function (event) {
-                event.stopPropagation();
-                navMenu.classList.toggle('show');
-                filterMenu.classList.remove("show");
+
+    <script>
+        const navMenu = document.getElementById("nav-menu");
+        const filterMenu = document.getElementById("filter-menu");
+        const signupMenu = document.getElementById("sign-menu");
+
+        document.getElementById("menu-toggle").addEventListener("click", function (event) {
+            event.stopPropagation();
+            navMenu.classList.toggle("show");
+            filterMenu.classList.remove("show");
+            if (signupMenu) signupMenu.classList.remove("show");
+        });
+
+        document.getElementById("filter-toggle").addEventListener("click", function (event) {
+            event.stopPropagation();
+            filterMenu.classList.toggle("show");
+            navMenu.classList.remove("show");
+            if (signupMenu) signupMenu.classList.remove("show");
+        });
+
+        document.getElementById("signup-toggle").addEventListener("click", function (event) {
+            event.stopPropagation();
+            if (signupMenu) signupMenu.classList.toggle("show");
+            navMenu.classList.remove("show");
+            filterMenu.classList.remove("show");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (
+                (!navMenu || !navMenu.contains(event.target)) &&
+                (!filterMenu || !filterMenu.contains(event.target)) &&
+                (!signupMenu || !signupMenu.contains(event.target))
+            ) {
+                if (navMenu) navMenu.classList.remove("show");
+                if (filterMenu) filterMenu.classList.remove("show");
                 if (signupMenu) signupMenu.classList.remove("show");
-            });
+            }
+        });
 
-            document.getElementById('filter-toggle').addEventListener('click', function (event) {
-                event.stopPropagation();
-                filterMenu.classList.toggle('show');
-                navMenu.classList.remove("show");
-                if (signupMenu) signupMenu.classList.remove("show");
-            });
 
-            document.getElementById('signup-toggle').addEventListener('click', function (event) {
-                event.stopPropagation();
-                if (signupMenu) signupMenu.classList.toggle('show');
-                navMenu.classList.remove("show");
-                filterMenu.classList.remove("show");
-            });
+        // Handle form submission for login
+        document.getElementById("login-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-            document.addEventListener('click', function (event) {
-                if ((!navMenu || !navMenu.contains(event.target)) &&
-                    (!filterMenu || !filterMenu.contains(event.target)) &&
-                    (!signupMenu || !signupMenu.contains(event.target))) {
-                    if (navMenu) navMenu.classList.remove("show");
-                    if (filterMenu) filterMenu.classList.remove("show");
-                    if (signupMenu) signupMenu.classList.remove("show");
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        const response = await fetch("http://13.201.28.236:8000/login/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const responseText = await response.text(); // Read the response as text
+        console.log("Raw response:", responseText); // Log the raw response text
+
+        if (response.ok) {
+            const data = JSON.parse(responseText); // Parse text as JSON
+            console.log("Parsed data:", data); // Log the parsed data
+
+            if (data.token) {
+                localStorage.setItem("authToken", data.token); // Save the token to local storage
+                console.log("Token stored:", data.token); // Log the token for debugging
+                alert("Login successful");
+                window.location.href = '/dashboard'; // Example redirection
+            } else {
+                console.error("Token not found in response:", data);
+                alert("Login successful but no token found in response");
+            }
+        } else {
+            console.error("Login failed:", responseText);
+            alert(`Login failed: ${responseText}`);
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+        alert("Failed to connect to the server. Please try again later.");
+    }
+});
+
+
+        // Handle form submission for password reset
+        document.getElementById("password-reset-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("reset-email").value;
+            const token = localStorage.getItem("authToken"); // Get the token from local storage
+
+            if (!token) {
+                alert("No authentication token found. Please log in first.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://13.201.28.236:8000/password-reset/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ email }),
+                });
+
+                const responseText = await response.text(); // Read the response as text
+
+                if (response.ok) {
+                    const data = JSON.parse(responseText); // Parse text as JSON
+                    alert(data.success);
+                    document.querySelector(".password-reset-container").style.display = "none";
+                    document.querySelector(".login-container").style.display = "block";
+                } else {
+                    console.error("Password reset failed:", responseText);
+                    alert(`Password reset failed: ${responseText}`);
                 }
-            });
+            } catch (error) {
+                console.error("Fetch error:", error);
+                alert("Failed to connect to the server. Please try again later.");
+            }
+        });
 
+        // Show password reset form and hide login form
+        document.getElementById("forgot-password").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.querySelector(".login-container").style.display = "none";
+            document.querySelector(".password-reset-container").style.display = "block";
+        });
 
-            // Handle form submission
-            document.getElementById('login-form').addEventListener('submit', async function (event) {
-                event.preventDefault();
+        // Show login form and hide password reset form
+        document.getElementById("back-to-login").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.querySelector(".password-reset-container").style.display = "none";
+            document.querySelector(".login-container").style.display = "block";
+        });
 
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-
-                try {
-                    const response = await fetch('http://13.201.28.236:8000/login/', { // Update the endpoint as needed
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email: email,
-                            password: password,
-                        }),
-
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        console.log('Login successful:', data);
-                        alert('Login successful');
-
-                    } else {
-                        console.error("Login failed:", response.statusText);
-                        alert('Login failed:  Please try again later.');
-                    }
-                } catch (error) {
-                    console.error('Fetch error:', error);
-                    alert('Failed to connect to the server. Please try again later.');
-                }
-            });
-
-
-        </script>
+    </script>
 </body>
 
 </html>

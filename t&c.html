@@ -141,7 +141,7 @@
             <div class="semicontainer">
                 <div class="contact-form">
                     <h2>Get in Touch</h2>
-                    <form>
+                    <form id="contact-forms">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
 
@@ -210,8 +210,6 @@ document.addEventListener('click', function (event) {
     }
 })
 
-
-
         // Menu.html
         document.addEventListener('DOMContentLoaded', () => {
             // Load the cart count from local storage
@@ -240,6 +238,35 @@ document.addEventListener('click', function (event) {
                     localStorage.setItem('cartCount', cartCount);
                 });
             });
+        });
+          // Handle form submission
+          document.getElementById('contact-forms').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                const response = await fetch('http://13.201.28.236:8000/contact/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    alert(data.message);
+                } else {
+                    console.error('Failed to send message:', response.statusText);
+                    alert('Failed to send message. Please try again.');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('Failed to connect to the server. Please try again later.');
+            }
         });
     </script>
 </body>

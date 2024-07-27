@@ -1,0 +1,469 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+}
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-top: 120px;
+}
+
+.login-container h2 {
+    margin: 0 0 20px;
+    color: #333;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button {
+    background: #16a290;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background: #2c8b7e;
+}
+
+.login-container .register-link {
+    display: block;
+    margin-top: 15px;
+    color: #16a290;
+    text-decoration: none;
+}
+
+.login-container .register-link:hover {
+    text-decoration: underline;
+}
+
+header {
+    background-color: #16a290;
+    color: #fff;
+    margin-top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+nav {
+    /* display: flex ; */
+    align-items: center;
+    padding-left: 5px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.logo img {
+    border-radius: 10px;
+}
+
+.logo h1 {
+    font-size: 17px;
+}
+
+.searchbar {
+    width: 42%;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    padding: 1px 5px;
+}
+
+.searchbar::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+/* Navigation menu styles */
+.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 53px;
+    left: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    background-color: #76e1d3;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.dropdown ul li:hover {
+    background-color: lightgray;
+}
+
+.dropdown ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+}
+
+.dropdown ul.show {
+    display: flex;
+}
+
+.Profile {
+    width: 20px;
+    height: 20px;
+    padding-top: 5px;
+}
+
+li img {
+    width: 20px;
+    height: 20px;
+}
+
+.signlog {
+    display: flex;
+}
+
+.signupdrop ul {
+    display: none;
+    position: absolute;
+    top: 53px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+
+.signupdrop {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+}
+
+.signupdrop ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.signupdrop ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+
+.signupdrop ul li:hover {
+    background-color: lightgray;
+}
+
+.signup-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 10px;
+}
+
+.signup-toggle a {
+    text-decoration: none;
+    color: white;
+}
+
+.signupdrop ul.show {
+    display: flex;
+}
+
+.filters ol {
+    display: none;
+    position: absolute;
+    top: 62px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: -6px 5px 12px black;
+}
+
+.filters ol li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 10px;
+    /* Adjust this value as needed */
+    padding-right: 10px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.filters ol li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.filter-toggle {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 17px;
+}
+
+.filters ol.show {
+    display: flex;
+}
+
+.filters ol li:hover {
+    background-color: lightgray;
+}
+
+.login {
+    background-color: transparent;
+    border: none;
+    font-size: 10px;
+}
+
+.login a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Cart */
+.cart-box {
+    position: relative;
+}
+
+.item-In-Cart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    color: white;
+    border-radius: 20%;
+    font-size: 8px;
+    padding: 0px 2px;
+}
+
+@media screen and (min-width: 700px) {
+    .signupdrop ul {
+        width: 20vw;
+        top: 72px;
+        right: 70px;
+    }
+
+    .dropdown ul {
+        width: 20vw;
+        top: 72px;
+        left: 40px;
+    }
+
+    .dropdown ul li {
+        padding-left: 10px;
+    }
+
+    .filters ol {
+        width: 20vw;
+        top: 72px;
+        right: 70px;
+    }
+
+    .Profile {
+        width: 30px;
+        height: 30px;
+    }
+
+    .login {
+        font-size: 17px;
+    }
+
+    .signup-toggle {
+        font-size: 17px;
+    }
+
+    .footer-section {
+        animation-range: entry 0 cover 10%;
+    }
+
+    .main {
+        height: 78%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .dropdown ul {
+        width: 10vw;
+    }
+
+    .filters ol {
+        width: 10vw;
+    }
+
+    .signupdrop ul {
+        width: 10vw;
+    }
+}
+
+/* Password-reset */
+.login-container,
+.password-reset-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    display: none;
+    /* Hide both containers by default */
+}
+
+.login-container {
+    display: block;
+    /* Show the login form by default */
+}
+
+.login-container h2,
+.password-reset-container h2 {
+    margin: 0 0 20px;
+    color: #333;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.password-reset-container input[type="email"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container button,
+.password-reset-container button {
+    background: #16a290;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-container button:hover,
+.password-reset-container button:hover {
+    background: #2c8b7e;
+}
+
+.login-container .register-link,
+.password-reset-container .register-link {
+    display: block;
+    margin-top: 15px;
+    color: #16a290;
+    text-decoration: none;
+}
+
+.login-container .register-link:hover,
+.password-reset-container .register-link:hover {
+    text-decoration: underline;
+}

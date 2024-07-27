@@ -1,48 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Details</title>
-    <link rel="stylesheet" href="css/pdf.css">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <nav>
             <div class="logo">
                 <img width="30" src="images/logo.png" alt="Logo">
                 <h1>KhanaDotCom</h1>
+                <div class="signlog">
+                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </nav>
-    </header>
-
-    <main>
-        <div class="pdf-details" id="pdfDetails">
-            <h2 id="title"></h2>
-            <h3 id="subtitle"></h3>
-            <p id="description"></p>
-            <a id="downloadButton" class="pdf-download" href="#" download>Download</a>
+        
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="">Cart</a>
+            </li>
+            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+        </ul>
+        
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba <input type="checkbox"></li>
+                <li>Most Rated <input type="checkbox"></li>
+                <li>Chinese Retro <input type="checkbox"></li>
+                <li>Subway <input type="checkbox"></li>
+            </ol>
         </div>
-    </main>
+    </div>
+</header>
+    
+    <div class="order-summary-container">
+        <div class="order-details">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const index = urlParams.get('index');
-            const pdfs = JSON.parse(localStorage.getItem('pdfs')) || [];
-
-            if (index !== null && pdfs[index]) {
-                const pdf = pdfs[index];
-                document.getElementById('title').textContent = pdf.title;
-                document.getElementById('subtitle').textContent = pdf.subtitle;
-                document.getElementById('description').textContent = pdf.description;
-                document.getElementById('downloadButton').href = pdf.pdfData;
-                document.getElementById('downloadButton').download = pdf.fileName;
-            } else {
-                document.getElementById('pdfDetails').textContent = 'PDF details not found.';
-            }
-        });
-    </script>
+            <h2>Order Details</h2>
+            <p><strong>Customer: </strong> <span id="customer-name"> </span></p>
+            <p><strong>Email: </strong><span id="customer-email"> </span> </p>
+            <p><strong>Phone: </strong><span id="customer-number"> </span> </p>
+            <p><strong>Address: </strong><span id="customer-address"> </span> </p>
+            <p><strong>Order Date: </strong><span id="order-date"> </span></p>
+            <p><strong>Time Ago: </strong><span id="time-ago"> </span></p>
+            <p><strong>Payment Mode: </strong><span id="payment-mode"> </span></p>
+        </div>
+        <div class="order-items">
+            <h2>Items</h2>
+            <div class="Details">
+                <div>
+                    <p><strong>Item:</strong> Pizza</p>
+                    <p><strong>Quantity:</strong> 2</p>
+                    <p><strong>Price:</strong> ₹200.00</p>
+                </div>
+                <img class="item-img" src="images/FoodLogo.png" alt="Logo">
+            </div>
+            <div class="Details">
+                <div>
+                    <p><strong>Item:</strong> Burger</p>
+                    <p><strong>Quantity:</strong> 2</p>
+                    <p><strong>Price:</strong> ₹100.00</p>
+                </div>
+                <img class="item-img" src="images/logo.png" alt="">
+            </div>
+            <div class="Details">
+                <div>
+                    <p><strong>Item:</strong> Soda</p>
+                    <p><strong>Quantity:</strong> 2</p>
+                    <p><strong>Price:</strong> ₹60.00</p>
+                </div>
+                <img class="item-img" src="images/logo.png" alt="">
+            </div>
+        </div>
+        <div class="order-pricing">
+            <h2>Pricing Summary</h2>
+            <p><strong>Subtotal:</strong> ₹360.00</p>
+            <p><strong>Tax (5%):</strong> ₹10.80</p>
+            <p class="finalprice"><strong>Total:</strong> ₹370.80</p>
+        </div>
+    </div>
+    <script src="js/order.js"></script>
 </body>
+
 </html>

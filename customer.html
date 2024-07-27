@@ -120,7 +120,7 @@
         event.preventDefault(); // Prevent the default form submission
         
         const formData = new FormData(this);
-        fetch('http://172.212.90.112:8000/login', {
+        fetch('http://13.201.28.236:8000/signup/', {
             method: 'POST',
             body: formData
         })
@@ -132,11 +132,12 @@
         })
         .then(data => {
             console.log('Success:', data);
-            // Handle success - perhaps redirect or show a success message
+            alert('Signup successful! You can now log in.');
+            window.location.href = 'login.html'; // Redirect to login page
         })
         .catch((error) => {
             console.error('Error:', error);
-            // Handle error - show error message
+            alert('Signup failed: Please try again later.');
         });
     });
 </script>

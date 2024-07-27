@@ -131,56 +131,81 @@
             }
         });
 
+        // API
+        const tokenApiUrl = 'http://13.201.28.236:8000/token/';
 
-        // Handle form submission for login
+        async function getToken(email, password) {
+            try {
+                const response = await fetch(tokenApiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const responseText = await response.text();
+                console.log("Token response:", responseText);
+
+                if (response.ok) {
+                    const tokenData = JSON.parse(responseText);
+                    if (tokenData.access && tokenData.refresh) {
+                        localStorage.setItem("accessToken", tokenData.access);
+                        localStorage.setItem("refreshToken", tokenData.refresh);
+                        console.log("Tokens stored:", tokenData.access, tokenData.refresh);
+                        return tokenData.access;
+                    } else {
+                        throw new Error("Access token or refresh token not found in token API response.");
+                    }
+                } else {
+                    throw new Error(`Token API call failed: ${responseText}`);
+                }
+            } catch (error) {
+                console.error("Token retrieval error:", error);
+                alert("Failed to retrieve token. Please check your credentials and try again.");
+            }
+        }
+
+
         document.getElementById("login-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-    try {
-        const response = await fetch("http://13.201.28.236:8000/login/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
+            try {
+                const token = await getToken(email, password);
+
+                if (token) {
+                    const loginResponse = await fetch("http://13.201.28.236:8000/login/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ email, password }),
+                    });
+
+                    const loginResponseText = await loginResponse.text();
+                    console.log("Login response:", loginResponseText);
+
+                    if (loginResponse.ok) {
+                        window.location.href = '/dashboard';
+                    } else {
+                        console.error("Login failed:", loginResponseText);
+                        alert(`Login failed: ${loginResponseText}`);
+                    }
+                }
+            } catch (error) {
+                console.error("Login error:", error);
+                alert("Failed to log in. Please try again later.");
+            }
         });
 
-        const responseText = await response.text(); // Read the response as text
-        console.log("Raw response:", responseText); // Log the raw response text
-
-        if (response.ok) {
-            const data = JSON.parse(responseText); // Parse text as JSON
-            console.log("Parsed data:", data); // Log the parsed data
-
-            if (data.token) {
-                localStorage.setItem("authToken", data.token); // Save the token to local storage
-                console.log("Token stored:", data.token); // Log the token for debugging
-                alert("Login successful");
-                window.location.href = '/dashboard'; // Example redirection
-            } else {
-                console.error("Token not found in response:", data);
-                alert("Login successful but no token found in response");
-            }
-        } else {
-            console.error("Login failed:", responseText);
-            alert(`Login failed: ${responseText}`);
-        }
-    } catch (error) {
-        console.error("Fetch error:", error);
-        alert("Failed to connect to the server. Please try again later.");
-    }
-});
-
-
-        // Handle form submission for password reset
         document.getElementById("password-reset-form").addEventListener("submit", async function (event) {
             event.preventDefault();
 
             const email = document.getElementById("reset-email").value;
-            const token = localStorage.getItem("authToken"); // Get the token from local storage
+            const token = localStorage.getItem("accessToken");
 
             if (!token) {
                 alert("No authentication token found. Please log in first.");
@@ -197,10 +222,11 @@
                     body: JSON.stringify({ email }),
                 });
 
-                const responseText = await response.text(); // Read the response as text
+                const responseText = await response.text();
+                console.log("Password reset response:", responseText);
 
                 if (response.ok) {
-                    const data = JSON.parse(responseText); // Parse text as JSON
+                    const data = JSON.parse(responseText);
                     alert(data.success);
                     document.querySelector(".password-reset-container").style.display = "none";
                     document.querySelector(".login-container").style.display = "block";
@@ -209,25 +235,22 @@
                     alert(`Password reset failed: ${responseText}`);
                 }
             } catch (error) {
-                console.error("Fetch error:", error);
+                console.error("Password reset error:", error);
                 alert("Failed to connect to the server. Please try again later.");
             }
         });
 
-        // Show password reset form and hide login form
         document.getElementById("forgot-password").addEventListener("click", function (event) {
             event.preventDefault();
             document.querySelector(".login-container").style.display = "none";
             document.querySelector(".password-reset-container").style.display = "block";
         });
 
-        // Show login form and hide password reset form
         document.getElementById("back-to-login").addEventListener("click", function (event) {
             event.preventDefault();
             document.querySelector(".password-reset-container").style.display = "none";
             document.querySelector(".login-container").style.display = "block";
         });
-
     </script>
 </body>
 

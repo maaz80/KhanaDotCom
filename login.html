@@ -142,7 +142,6 @@
         });
 
         // API URLs
-   
         const tokenApiUrl = 'http://13.201.28.236:8000/token/';
         const passwordResetApiUrl = 'http://13.201.28.236:8000/password-reset/';
         const passwordResetConfirmApiUrl = (uidb64, token) => `http://13.201.28.236:8000/password-reset-confirm/${uidb64}/${token}/`;
@@ -203,7 +202,7 @@
                         return;
                     }
 
-                    window.location.href = '/dashboard';
+                    window.location.href = '/index.html';
                 }
             } catch (error) {
                 console.error("Login error:", error);
@@ -216,19 +215,12 @@
             event.preventDefault();
 
             const email = document.getElementById("reset-email").value;
-            const token = localStorage.getItem("accessToken");
-
-            if (!token) {
-                alert("No authentication token found. Please log in first.");
-                return;
-            }
 
             try {
                 const response = await fetch(passwordResetApiUrl, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
                     },
                     body: JSON.stringify({ email }),
                 });

@@ -50,6 +50,71 @@ document.addEventListener('click', function (event) {
 })
 
 
+//menupage
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchRestaurants();
+  });
+  
+  async function fetchRestaurants() {
+    try {
+      const response = await fetch('http://13.201.28.236:8000/restaurants/', {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMDU4OTI1LCJpYXQiOjE3MjMwMDg1MjUsImp0aSI6ImNmNjBlMDlkYmU1ZTQyMWQ4NDk4YjRlZjM3MTI5NjNiIiwidXNlcl9pZCI6NDl9.Hqxv2MvueJ5XUzc5EGfKHy_h7DQgf99wBhsu36B2_J4'
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      displayRestaurants(data);
+    } catch (error) {
+      console.error('Failed to fetch restaurants:', error);
+    }
+  }
+  
+  function displayRestaurants(restaurants) {
+    const categoryElement = document.getElementById('category');
+    if (!categoryElement) {
+      console.error('Category element not found in the DOM');
+      return;
+    }
+  
+    categoryElement.innerHTML = '';
+    restaurants.forEach(restaurant => {
+      const div = document.createElement('div');
+      div.classList.add('restaurant-item');
+      div.innerHTML = `
+        <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+        <h3>${restaurant.name}</h3>
+      `;
+      categoryElement.appendChild(div);
+    });
+  }
+  function displayRestaurants(restaurants) {
+    const categoryElement = document.getElementById('category');
+    if (!categoryElement) {
+      console.error('Category element not found in the DOM');
+      return;
+    }
+  
+    const baseURL = 'http://13.201.28.236:8000'; // Replace with your base URL
+    categoryElement.innerHTML = '';
+    restaurants.forEach(restaurant => {
+      const div = document.createElement('div');
+      div.classList.add('restaurant-item');
+      div.innerHTML = `
+        <img src="${baseURL + restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+        <h3>${restaurant.name}</h3>
+      `;
+      categoryElement.appendChild(div);
+    });
+  }
+  
+
 
 
 

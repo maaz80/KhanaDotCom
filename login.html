@@ -15,7 +15,7 @@
                 <img width="30" src="images/logo.png" alt="Logo" />
                 <h1>KhanaDotCom</h1>
                 <div class="signlog">
-                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <button class="login loginButton" ><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
                         <button class="signup-toggle" id="signup-toggle">
                             <a href="customer.html">SignUp</a>
@@ -52,8 +52,8 @@
                 <li>
                     <a href="t&c.html"><img src="images/Help.webp" alt="" />Help/Support</a>
                 </li>
-                <li>
-                    <a href="login.html"><img src="images/Login.png" alt="" />LogIn</a>
+                <li >
+                    <a href="login.html" ><img src="images/Login.png" alt="" /><span class="loginButton">Login</span></a>
                 </li>
             </ul>
             <div class="filters">
@@ -102,7 +102,7 @@
             <input type="hidden" id="token" name="token" />
         </div>
     </div>
-
+<script src="js/auth.js"></script>
     <script>
         const navMenu = document.getElementById("nav-menu");
         const filterMenu = document.getElementById("filter-menu");
@@ -140,6 +140,9 @@
                 if (signupMenu) signupMenu.classList.remove("show");
             }
         });
+
+      
+
 
         // API URLs
         const tokenApiUrl = 'http://13.201.28.236:8000/token/';
@@ -201,7 +204,7 @@
                         alert(`Login failed: ${loginResponseText}`);
                         return;
                     }
-
+                    localStorage.setItem('isLoggedIn', 'true')
                     window.location.href = '/index.html';
                 }
             } catch (error) {
@@ -270,7 +273,7 @@
         }
 
         // Reset Confirmation
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
             const uidb64 = urlParams.get('uidb64');
             const token = urlParams.get('token');
@@ -282,7 +285,7 @@
                 document.querySelector(".login-container").style.display = "none";
                 document.querySelector(".password-reset-confirm-container").style.display = "block";
 
-                document.getElementById("password-reset-confirm-form").addEventListener("submit", async function(event) {
+                document.getElementById("password-reset-confirm-form").addEventListener("submit", async function (event) {
                     event.preventDefault();
                     const newPassword = document.getElementById("new-password").value;
                     await resetPasswordConfirm(uidb64, token, newPassword);
@@ -305,4 +308,5 @@
         });
     </script>
 </body>
+
 </html>

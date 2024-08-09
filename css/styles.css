@@ -83,6 +83,7 @@ nav {
     padding: 1px 5px;
 }
 
+
 .searchbar::placeholder {
     color: rgb(0, 0, 0);
     opacity: 0.7;
@@ -338,13 +339,6 @@ li img {
 
 main {
     padding: 1em;
-}
-
-/* Restaurant fetch */
-.restaurant-item {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px 0;
 }
 
 .shipping {
@@ -732,3 +726,15 @@ footer p {
         width: 10vw;
     }
 }
+.restaurant-item {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .restaurant-image {
+    max-width: 100%;
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+  }
+  

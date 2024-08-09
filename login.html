@@ -145,9 +145,9 @@
 
 
         // API URLs
-        const tokenApiUrl = 'https://13.201.28.236:8000/token/';
-        const passwordResetApiUrl = 'https://13.201.28.236:8000/password-reset/';
-        const passwordResetConfirmApiUrl = (uidb64, token) => `https://13.201.28.236:8000/password-reset-confirm/${uidb64}/${token}/`;
+        const tokenApiUrl = 'http://13.201.28.236:8000/token/';
+        const passwordResetApiUrl = 'http://13.201.28.236:8000/password-reset/';
+        const passwordResetConfirmApiUrl = (uidb64, token) => `http://13.201.28.236:8000/password-reset-confirm/${uidb64}/${token}/`;
 
         // Function to get and store tokens
         async function getToken(email, password) {
@@ -189,7 +189,7 @@
                 const token = await getToken(email, password);
 
                 if (token) {
-                    const loginResponse = await fetch("https://13.201.28.236:8000/login/", {
+                    const loginResponse = await fetch("http://13.201.28.236:8000/login/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

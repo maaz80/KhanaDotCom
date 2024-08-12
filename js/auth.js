@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loginButtons.forEach((loginButton) => {
         if (isLoggedIn === "true") {
-            loginButton.innerHTML = '<a href="#" class="logoutLink">LogOut</a>';
+            loginButton.innerHTML = '<a href="#" class="logoutLink">Logout</a>';
         } else {
-            loginButton.innerHTML = '<a href="login.html">LogIn</a>';
+            loginButton.innerHTML = '<a href="login.html">Login</a>';
         }
     });
 
@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".logoutLink").forEach((logoutLink) => {
         logoutLink.addEventListener("click", function (event) {
             event.preventDefault();
-            localStorage.setItem("isLoggedIn", "false"); // Set login state to false
+            localStorage.setItem("isLoggedIn", "false");
+            localStorage.removeItem("accessToken"); 
+            localStorage.removeItem("userRole"); 
 
             // Reset button text to "Login" after logging out
             loginButtons.forEach((loginButton) => {

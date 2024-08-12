@@ -1,4 +1,9 @@
 /* styles.css */
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -70,8 +75,17 @@ nav {
     border-radius: 10px;
 }
 
-.logo h1 {
-    font-size: 17px;
+.navlogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+}
+
+.logo span {
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .searchbar {
@@ -82,7 +96,9 @@ nav {
     color: black;
     padding: 1px 5px;
 }
-
+input[type="search"] {
+    outline: none;
+}
 
 .searchbar::placeholder {
     color: rgb(0, 0, 0);
@@ -99,10 +115,10 @@ nav {
     display: none;
     position: absolute;
     top: 68px;
-    left: 26px;
+    left: 0px;
     background-color: white;
     color: black;
-    width: 40vw;
+    width: 170px;
     list-style: none;
     flex-direction: column;
     justify-content: center;
@@ -184,7 +200,7 @@ li img {
     right: 26px;
     background-color: white;
     color: black;
-    width: 40vw;
+    width: 170px;
     list-style: none;
     flex-direction: column;
     justify-content: center;
@@ -234,7 +250,7 @@ li img {
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .signupdrop ul.show {
@@ -248,7 +264,7 @@ li img {
     right: 26px;
     background-color: white;
     color: black;
-    width: 40vw;
+    width: 170px;
     list-style: none;
     flex-direction: column;
     justify-content: center;
@@ -300,7 +316,7 @@ li img {
 .login {
     background-color: transparent;
     border: none;
-    font-size: 10px;
+    font-size: 15px;
 
 }
 
@@ -462,7 +478,8 @@ footer {
     flex-wrap: wrap;
 
 }
-section{
+
+section {
     margin-top: 82px;
 }
 
@@ -598,7 +615,7 @@ footer p {
         width: 15%;
     }
 
-    .logo h1 {
+    .logo span {
         font-size: 22px;
     }
 
@@ -649,7 +666,7 @@ footer p {
     }
 
     .dropdown ul {
-        width: 20vw;
+        width: 170px;
         top: 82px;
         left: 40px;
     }
@@ -659,13 +676,13 @@ footer p {
     }
 
     .filters ol {
-        width: 20vw;
+        width: 170px;
         top: 82px;
         right: 70px;
     }
 
     .signupdrop ul {
-        width: 20vw;
+        width: 170px;
         top: 46px;
         right: 70px;
     }
@@ -680,7 +697,7 @@ footer p {
     }
 
     .signup-toggle {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .searchbar {
@@ -691,50 +708,43 @@ footer p {
     .footer-section {
         animation-range: entry 0 cover 10%;
     }
+
     .ChatBot {
         bottom: 20px;
         right: 20px;
         border-radius: 50%;
     }
+
     .bot-toggle {
         border-radius: 50%;
         height: 38px;
     }
+
     .ChatBot-Box {
         right: 45px;
         height: 430px;
         width: 350px;
     }
-    section{
+
+    section {
         margin-top: 108px;
     }
-    .order-summary-container{
+
+    .order-summary-container {
         margin-top: 120px;
     }
 }
 
-@media screen and (min-width: 1300px) {
-    .dropdown ul {
-        width: 10vw;
-    }
 
-    .filters ol {
-        width: 10vw;
-    }
 
-    .signupdrop ul {
-        width: 10vw;
-    }
-}
 .restaurant-item {
     text-align: center;
     margin: 10px;
-  }
-  
-  .restaurant-image {
+}
+
+.restaurant-image {
     max-width: 100%;
     width: 100px;
     height: auto;
     border-radius: 8px;
-  }
-  
+}

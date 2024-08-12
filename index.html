@@ -7,15 +7,19 @@
     <title>Home Food Delivery</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
-    
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
-<body>
+<body class="poppins-regular">
     <header>
         <nav>
             <div class="logo">
+                <div class="navlogo">
                 <img width="30" src="images/logo.png" alt="Logo">
-                <h1>KhanaDotCom</h1>
+                <span>KhanaDotCom</span>
+            </div>
                 
                 <div class="signlog">
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
@@ -50,7 +54,7 @@
             <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a> </li>
             <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
         </ul>
-        <input type="text" placeholder="search" class="searchbar">
+        <input type="search" placeholder="search" class="searchbar poppins-regular"  tabindex="-1">
         <div class="filters">
             <button class="filter-toggle" id="filter-toggle">Filters</button>
             <ol id="filter-menu" class="filter-menu">

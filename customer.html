@@ -57,8 +57,16 @@
         <h2>Customer Details Form</h2>
         <form id="customerForm" onsubmit="handleSubmit(event)">
             <div class="form-group">
+                <label for="username">UserName</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" id="phone_number" name="phone_number" required>
             </div>
             <div class="form-group">
                 <label for="address">Delivery Address</label>
@@ -75,24 +83,9 @@
             <div class="form-group">
                 <label for="user_type">User Type</label>
                 <select id="user_type" name="user_type" required>
-                    <option value="">Select User Type</option>
-                    <option value="restaurant_owner">Restaurant Owner</option>
-                    <option value="delivery_person">Delivery Person</option>
+                    <option value="user">User</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="payment">Payment Information</label>
-                <input id="payment" name="payment" required>
-            </div>
-            <div class="form-group">
-                <label for="orderhistory">Order History</label>
-                <input type="text" id="orderhistory" name="orderhistory" required>
-            </div>
-            <div class="form-group">
-                <label for="favorite">Favorite Items</label>
-                <input type="text" id="favorite" name="favorite" required>
-            </div>
-
             <div class="form-group">
                 <button type="submit">Submit</button>
             </div>
@@ -134,15 +127,13 @@
             const formData = new FormData(event.target);
 
             const data = {
+                username: formData.get('username'),
                 name: formData.get('name'),
                 address: formData.get('address'),
-                phone: formData.get('phone'),
+                email: formData.get('email'),
+                phone_number: formData.get('phone_number'),
                 password: formData.get('password'),
-                user_type: formData.get('user_type'),
-                payment: formData.get('payment'),
-                orderhistory: formData.get('orderhistory'),
-                payment: formData.get('payment'),
-
+                user_type: formData.get('user_type')
             };
 
             try {
@@ -152,7 +143,9 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(data),
+                    
                 });
+                console.log(data);
 
                 if (!response.ok) {
                     const errorText = await response.text();

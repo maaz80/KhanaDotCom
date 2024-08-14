@@ -7,14 +7,25 @@
     <title>Order Summary</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/Font.css" />
+    <style>
+        #ChatBot-Box{
+            visibility: hidden;
+        }
+    </style>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
-<body>
+<body class="poppins-regular">
     <header>
         <nav>
             <div class="logo">
-                <img width="30" src="images/logo.png" alt="Logo">
-                <h1>KhanaDotCom</h1>
+                <div class="navlogo">
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span>KhanaDotCom</span>
+                </div>
                 <div class="signlog">
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
@@ -103,6 +114,7 @@
             <p><strong>Subtotal:</strong> ₹360.00</p>
             <p><strong>Tax (5%):</strong> ₹10.80</p>
             <p class="finalprice"><strong>Total:</strong> ₹370.80</p>
+            <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
         </div>
     </div>
     <script src="js/auth.js"></script>

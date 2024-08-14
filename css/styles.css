@@ -1,10 +1,4 @@
 /* styles.css */
-.poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -468,13 +462,13 @@ h2 {
 footer {
     background-color: #16a290;
     color: #fff;
-    padding: 20px 0;
+    padding-bottom: 20px;
     text-align: center;
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 
 }
@@ -485,8 +479,9 @@ section {
 
 .footer-section {
     flex: 1;
-    min-width: 200px;
-    margin: 10px;
+    min-width: 52px;
+    font-size: 8px;
+    margin: 3px;
     animation: view linear;
     animation-timeline: view();
     animation-range: entry 0 cover 40%;
@@ -509,13 +504,16 @@ section {
 }
 
 .footer-section img {
-    width: 30px;
-    margin: 5px;
+    width: 19px;
+    margin: 1px;
 }
 
 footer p {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 0.9em;
+}
+.privacy{
+    min-width: 88px;
 }
 
 
@@ -667,8 +665,8 @@ footer p {
 
     .dropdown ul {
         width: 170px;
-        top: 82px;
-        left: 40px;
+        top: 69px;
+        left: 20px;
     }
 
     .dropdown ul li {
@@ -677,14 +675,14 @@ footer p {
 
     .filters ol {
         width: 170px;
-        top: 82px;
-        right: 70px;
+        top: 69px;
+        right: 20px;
     }
 
     .signupdrop ul {
         width: 170px;
-        top: 46px;
-        right: 70px;
+        top: 34px;
+        right: 30px;
     }
 
     .Profile {
@@ -697,7 +695,7 @@ footer p {
     }
 
     .signup-toggle {
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .searchbar {
@@ -707,7 +705,15 @@ footer p {
 
     .footer-section {
         animation-range: entry 0 cover 10%;
-    }
+            min-width: 200px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .footer-section img {
+            width: 30px;
+            margin: 5px;
+        }
+        
 
     .ChatBot {
         bottom: 20px;

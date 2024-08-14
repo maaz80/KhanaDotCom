@@ -1,72 +1,3 @@
-const navMenu = document.getElementById('nav-menu');
-const filterMenu = document.getElementById('filter-menu');
-const SignupMenu = document.getElementById('sign-menu');
-
-document.getElementById('menu-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    navMenu.classList.toggle('show');
-    filterMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-});
-
-document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    filterMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-});
-
-document.getElementById('signup-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    SignupMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    filterMenu.classList.remove("show");
-});
-
-document.addEventListener('click', function (event) {
-    const navMenu = document.getElementById("nav-menu");
-    const filterMenu = document.getElementById('filter-menu');
-    const SignupMenu = document.getElementById('sign-menu');
-
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
-        navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
-    }
-})
-
-
-
-// Menu.html
-document.addEventListener('DOMContentLoaded', () => {
-    // Load the cart count from local storage
-    let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
-    const cartCounterElement = document.getElementById('itemincart');
-    cartCounterElement.textContent = cartCount;
-
-    const addToCartButtons = document.querySelectorAll('.cart-count');
-    addToCartButtons.forEach(button => {
-        let addedToCart = button.getAttribute('data-added-to-cart') === 'true';
-
-        button.addEventListener('click', () => {
-            if (!addedToCart) {
-                cartCount++;
-                button.textContent = 'Remove from Cart';
-                button.setAttribute('data-added-to-cart', 'true');
-            } else {
-                cartCount--;
-                button.textContent = 'Add to Cart';
-                button.setAttribute('data-added-to-cart', 'false');
-            }
-            addedToCart = !addedToCart;
-
-            // Update the cart count in the DOM and local storage
-            cartCounterElement.textContent = cartCount;
-            localStorage.setItem('cartCount', cartCount);
-        });
-    });
-});
-
 function saveProfile() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -141,3 +72,73 @@ document.getElementById('profile-picture-input').addEventListener('change', func
 });
 
 document.addEventListener('DOMContentLoaded', loadProfile);
+
+
+// Fetch Profile
+document.addEventListener("DOMContentLoaded", function () {
+    const profileContainer = document.querySelector('.profile');
+    const token = localStorage.getItem('accessToken');
+
+    if (!token) {
+        alert("You need to login first!");
+        window.location.href = "login.html";
+        return;
+    }
+
+    function fetchProfileData(url) {
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('name').value = data.name;
+                document.getElementById('email').value = data.email;
+                document.getElementById('phone').value = data.phone_number;
+                document.getElementById('address').value = data.address;
+            })
+            .catch(error => {
+                console.error('Error fetching profile data:', error);
+                alert('Failed to load profile data.');
+            });
+    }
+
+    // Fetch profile data to determine user role
+    fetch('http://13.201.28.236:8000/profile-user/', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Profile API call failed with status ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            let profileUrl = "";
+            const userType = data.user_type; // Assume user_type is available in the response
+            console.log(userType);
+
+            if (userType === "user") {
+                profileUrl = "http://13.201.28.236:8000/profile-user/";
+            } else if (userType === "restaurant_owner") {
+                profileUrl = "http://13.201.28.236:8000/profile-owner/";
+            } else if (userType === "delivery_person") {
+                profileUrl = "http://13.201.28.236:8000/profile-delivery-person/";
+            } else {
+                alert("Unauthorized user type!");
+                window.location.href = "login.html";
+                return;
+            }
+
+            fetchProfileData(profileUrl);
+        })
+        .catch(error => {
+            console.error('Error fetching user profile:', error);
+            alert('Failed to load user profile.');
+        });
+});

@@ -7,14 +7,20 @@
     <title>Details - Home Food Delivery</title>
     <link rel="stylesheet" href="css/details.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/Font.css" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
-<body>
+<body class="poppins-regular">
     <header>
         <nav>
             <div class="logo">
-                <img width="30" src="images/logo.png" alt="Logo">
-                <h1>KhanaDotCom</h1>
+                <div class="navlogo">
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span>KhanaDotCom</span>
+                </div>
                 <div class="signlog">
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
@@ -69,48 +75,49 @@
                     <h1>Order Details</h1>
                     <div class="input">
                         <div>Name</div>
-                        <input type="text" placeholder="Full Name" id="name" class="custdetails" required>
+                        <input type="text" placeholder="Full Name" id="name" class="custdetails poppins-regular" required>
                     </div>
                     <div class="input">
                         <div>Email ID</div>
-                        <input type="email" placeholder="Email" id="email" class="custdetails" required>
+                        <input type="email" placeholder="Email" id="email" class="custdetails poppins-regular" required>
                     </div>
                     <div class="input">
                         <div>Number</div>
-                        <input type="number" placeholder="Phone Number" id="number" class="custdetails" required>
+                        <input type="number" placeholder="Phone Number" id="number" class="custdetails poppins-regular" required>
                     </div>
                     <div class="input">
                         <div>Address</div>
-                        <input type="text" placeholder="Address" id="address" class="custdetails" required>
+                        <input type="text" placeholder="Address" id="address" class="custdetails poppins-regular" required>
                     </div>
                 </div>
                 <div class="nextcont">
-                    <button type="submit" id="next" class="nextbutton">Next</button>
+                    <button type="submit" id="next" class="nextbutton poppins-regular">Next</button>
                 </div>
             </form>
             <form id="paymentform" style="display: none;">
-                <div class="paymentInputs">
+                <div class="paymentInputs poppins-regular">
                     <h1>Payment Details</h1>
                     <div class="paymentDetails">
                         <div>Credit/Debit Card</div>
                         <div class="cardInput">
-                            <input id="Card" class="Card" type="number" placeholder="Card Number">
-                            <input id="Expiry" class="Expiry" type="number" placeholder="D.O.E">
-                            <input id="cvv" class="cvv" type="number" placeholder="CVV">
+                            <input id="Card" class="Card poppins-regular" type="number" placeholder="Card Number">
+                            <input id="Expiry" class="Expiry poppins-regular" type="number" placeholder="D.O.E">
+                            <input id="cvv" class="cvv poppins-regular" type="number" placeholder="CVV">
                         </div>
                     </div>
                     <h2>OR</h2>
                     <div class="paymentInput">
                         <div>UPI</div>
-                        <input id="upi" class="upi" type="text" placeholder="UPI ID">
+                        <input id="upi" class="upi poppins-regular" type="text" placeholder="UPI ID">
                     </div>
                     <h2>OR</h2>
                     <div class="paymentInput">
                         <div>Cash On Delivery</div>
-                        <input id="Cod" type="checkbox">
+                        <input id="Cod" type="checkbox" class="poppins-regular">
                     </div>
+                    <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
                     <div class="ordercont">
-                        <button type="submit" class="orderbutton">Order</button>
+                        <button type="submit" class="orderbutton poppins-regular">Order</button>
                     </div>
                 </div>
             </form>

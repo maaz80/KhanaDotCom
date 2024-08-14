@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/Font.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
@@ -242,83 +243,11 @@
       </div>
     </div>
     <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
+    <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
   </footer>
 
   <script src="js/auth.js"></script>
-  <script>
-
-    const navMenu = document.getElementById('nav-menu');
-    const filterMenu = document.getElementById('filter-menu');
-    const SignupMenu = document.getElementById('sign-menu');
-
-    document.getElementById('menu-toggle').addEventListener('click', function (event) {
-      event.stopPropagation();
-      navMenu.classList.toggle('show');
-      filterMenu.classList.remove("show");
-      SignupMenu.classList.remove("show");
-    });
-
-    document.getElementById('filter-toggle').addEventListener('click', function (event) {
-      event.stopPropagation();
-      filterMenu.classList.toggle('show');
-      navMenu.classList.remove("show");
-      SignupMenu.classList.remove("show");
-    });
-
-    document.getElementById('signup-toggle').addEventListener('click', function (event) {
-      event.stopPropagation();
-      SignupMenu.classList.toggle('show');
-      navMenu.classList.remove("show");
-      filterMenu.classList.remove("show");
-    });
-
-    document.addEventListener('click', function (event) {
-      const navMenu = document.getElementById("nav-menu");
-      const filterMenu = document.getElementById('filter-menu');
-      const SignupMenu = document.getElementById('sign-menu');
-
-      if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
-        navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
-      }
-    })
-
-
-
-
-    // Menu.html
-    document.addEventListener('DOMContentLoaded', () => {
-      // Load the cart count from local storage
-      let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
-      const cartCounterElement = document.getElementById('itemincart');
-      cartCounterElement.textContent = cartCount;
-
-      const addToCartButtons = document.querySelectorAll('.cart-count');
-      addToCartButtons.forEach(button => {
-        let buttonId = button.getAttribute('id')
-        let addedToCart = localStorage.getItem(`addedToCart-${buttonId}`) === 'true';
-
-        button.textContent = addedToCart ? 'Remove' : 'Cart'
-        button.addEventListener('click', () => {
-          if (!addedToCart) {
-            cartCount++;
-            button.textContent = 'Remove';
-            localStorage.setItem(`addedToCart-${buttonId}`, 'true')
-          } else {
-            cartCount--;
-            button.textContent = 'Cart';
-            localStorage.setItem(`addedToCart-${buttonId}`, "false")
-          }
-          addedToCart = !addedToCart;
-
-          // Update the cart count in the DOM and local storage
-          cartCounterElement.textContent = cartCount;
-          localStorage.setItem('cartCount', cartCount);
-        });
-      });
-    });
-  </script>
+  
 </body>
 
 </html>

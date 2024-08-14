@@ -5,16 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions</title>
-    <link rel="stylesheet" href="css/t&c.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/t&c.css">
+    <link rel="stylesheet" href="css/Font.css" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
-<body>
+<body class="poppins-regular">
     <header>
         <nav>
             <div class="logo">
-                <img width="30" src="images/logo.png" alt="Logo">
-                <h1>KhanaDotCom</h1>
+                <div class="navlogo">
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span>KhanaDotCom</span>
+                </div>
                 <div class="signlog">
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
@@ -58,14 +64,6 @@
             </div>
         </div>
     </header>
-
-    <!-- ChatBot -->
-    <div class="ChatBot">
-        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png"
-                alt="Chat"></button>
-        <iframe class="ChatBot-Box" id="ChatBot-Box"
-            src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
-    </div>
 
     <div class="container">
         <div class="content">
@@ -157,90 +155,12 @@
                 </div>
             </div>
         </div>
+        <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
     </div>
 
     <script src="js/auth.js"></script>
     <script>
-        const navMenu = document.getElementById('nav-menu');
-        const filterMenu = document.getElementById('filter-menu');
-        const SignupMenu = document.getElementById('sign-menu');
-        const ChatBot = document.getElementById('ChatBot-Box');
-
-        document.getElementById('menu-toggle').addEventListener('click', function (event) {
-            event.stopPropagation();
-            navMenu.classList.toggle('show');
-            filterMenu.classList.remove("show");
-            SignupMenu.classList.remove("show");
-            ChatBot.classList.remove("show")
-        });
-
-        document.getElementById('filter-toggle').addEventListener('click', function (event) {
-            event.stopPropagation();
-            filterMenu.classList.toggle('show');
-            navMenu.classList.remove("show");
-            SignupMenu.classList.remove("show");
-            ChatBot.classList.remove("show")
-        });
-
-        document.getElementById('signup-toggle').addEventListener('click', function (event) {
-            event.stopPropagation();
-            SignupMenu.classList.toggle('show');
-            navMenu.classList.remove("show");
-            filterMenu.classList.remove("show");
-            ChatBot.classList.remove("show")
-        });
-        document.getElementById('bot-toggle').addEventListener('click', function (event) {
-            event.stopPropagation();
-            ChatBot.classList.toggle("show")
-            SignupMenu.classList.remove('show');
-            navMenu.classList.remove("show");
-            filterMenu.classList.remove("show");
-
-        });
-
-        document.addEventListener('click', function (event) {
-            const navMenu = document.getElementById("nav-menu");
-            const filterMenu = document.getElementById('filter-menu');
-            const SignupMenu = document.getElementById('sign-menu');
-            const ChatBot = document.getElementById('ChatBot-Box');
-
-            if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
-                navMenu.classList.remove("show");
-                filterMenu.classList.remove("show");
-                SignupMenu.classList.remove("show");
-                ChatBot.classList.remove("show")
-            }
-        })
-
-        // Menu.html
-        document.addEventListener('DOMContentLoaded', () => {
-            // Load the cart count from local storage
-            let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
-            const cartCounterElement = document.getElementById('itemincart');
-            cartCounterElement.textContent = cartCount;
-
-            const addToCartButtons = document.querySelectorAll('.cart-count');
-            addToCartButtons.forEach(button => {
-                let addedToCart = button.getAttribute('data-added-to-cart') === 'true';
-
-                button.addEventListener('click', () => {
-                    if (!addedToCart) {
-                        cartCount++;
-                        button.textContent = 'Remove from Cart';
-                        button.setAttribute('data-added-to-cart', 'true');
-                    } else {
-                        cartCount--;
-                        button.textContent = 'Add to Cart';
-                        button.setAttribute('data-added-to-cart', 'false');
-                    }
-                    addedToCart = !addedToCart;
-
-                    // Update the cart count in the DOM and local storage
-                    cartCounterElement.textContent = cartCount;
-                    localStorage.setItem('cartCount', cartCount);
-                });
-            });
-        });
+      
         // Handle form submission
         document.getElementById('contact-forms').addEventListener('submit', async function (event) {
             event.preventDefault();

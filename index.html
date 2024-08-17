@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/Font.css" />
+    <link rel="stylesheet" href="css/HeadAndFoot.css" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="poppins-regular">
@@ -18,10 +19,10 @@
         <nav>
             <div class="logo">
                 <div class="navlogo">
-                <img width="30" src="images/logo.png" alt="Logo">
-                <span>KhanaDotCom</span>
-            </div>
-                
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span>KhanaDotCom</span>
+                </div>
+
                 <div class="signlog">
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
@@ -35,47 +36,56 @@
                 </div>
             </div>
         </nav>
-   
 
-    <div class="dropdown">
-        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
-        <ul id="nav-menu" class="mobile-menu">
-            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
-            <li>
-                <div class="cart-box">
-                    <img src="images/Cart.png" alt="">
-                    <span class="item-In-Cart" id="itemincart">0</span>
-                </div>
-                <a href="">Cart</a>
-            </li>
-            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
-            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
-            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-            <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a> </li>
-            <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
-        </ul>
-        <input type="search" placeholder="search" class="searchbar poppins-regular"  tabindex="-1">
-        <div class="filters">
-            <button class="filter-toggle" id="filter-toggle">Filters</button>
-            <ol id="filter-menu" class="filter-menu">
-                <li>Dhaba <input type="checkbox"></li>
-                <li>Most Rated <input type="checkbox"></li>
-                <li>Chinese Retro <input type="checkbox"></li>
-                <li>Subway <input type="checkbox"></li>
-            </ol>
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="">Cart</a>
+                </li>
+                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
+                </li>
+                <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
+            </ul>
+            <input type="search" placeholder="search" class="searchbar poppins-regular" tabindex="-1">
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
     <!-- ChatBot -->
-     <div class="ChatBot">
-        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png" alt="Chat"></button>
-    <iframe class="ChatBot-Box" id="ChatBot-Box"  src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
-</div>
+    <div class="ChatBot">
+        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png"
+                alt="Chat"></button>
+        <iframe class="ChatBot-Box" id="ChatBot-Box"
+            src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
+    </div>
 
     <main>
         <section>
-
+            <div id="logoutPopup" class="popup">
+                <div class="popup-content">
+                    <p>Do you really want to logout?</p>
+                    <button id="confirmLogout">Yes</button>
+                    <button id="cancelLogout">No</button>
+                </div>
+            </div>
             <!-- Category Slider -->
             <div class="slider">
                 Slider Of Offers
@@ -90,7 +100,17 @@
             </div>
 
             <!-- Restaurant -->
-             <div id="restaurant-list"></div>
+            <div id="restaurant-list"></div>
+            <!-- Modal HTML -->
+            <div id="restaurant-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modal-restaurant-name"></h2>
+                    <img id="modal-restaurant-image" src="" alt="Restaurant Image">
+                    <p id="modal-restaurant-description"></p>
+                </div>
+            </div>
+
             <!-- Categories -->
             <div class="category" id="category">
                 <!-- Initial items will be loaded here -->
@@ -111,9 +131,9 @@
             <div class="footer-section contact">
                 <h2>Contact</h2>
                 <div>
-                <p>Email: support@kdc.com</p>
-                <p>Phone: +123-456-7890</p>
-            </div>
+                    <p>Email: support@kdc.com</p>
+                    <p>Phone: +123-456-7890</p>
+                </div>
             </div>
             <div class="footer-section social-media">
                 <h2>Social Media</h2>

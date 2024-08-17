@@ -2,68 +2,87 @@
 
 
 //menupage
-
+const baseURL = 'http://13.201.28.236:8000'; // Define base URL here
 document.addEventListener('DOMContentLoaded', () => {
-    fetchRestaurants();
-  });
-  
-  async function fetchRestaurants() {
-    try {
+  fetchRestaurants();
+});
+
+async function fetchRestaurants() {
+  const token = localStorage.getItem('accessToken');
+
+  if (!token) {
+      console.error('No access token found');
+      return;
+  }
+
+
+  try {
       const response = await fetch('http://13.201.28.236:8000/restaurants/', {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMDU4OTI1LCJpYXQiOjE3MjMwMDg1MjUsImp0aSI6ImNmNjBlMDlkYmU1ZTQyMWQ4NDk4YjRlZjM3MTI5NjNiIiwidXNlcl9pZCI6NDl9.Hqxv2MvueJ5XUzc5EGfKHy_h7DQgf99wBhsu36B2_J4'
-        }
+          method: 'GET',
+          headers: {
+              'Authorization': `Bearer ${token}`
+          }
       });
-  
+
       if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
+          const errorText = await response.text(); // Read response body
+          throw new Error(`Network response was not ok: ${response.statusText} - ${errorText}`);
       }
-  
+
       const data = await response.json();
+      console.log('API Response:', data); // Log the response
       displayRestaurants(data);
-    } catch (error) {
+  } catch (error) {
       console.error('Failed to fetch restaurants:', error);
-    }
   }
-  
-  function displayRestaurants(restaurants) {
-    const categoryElement = document.getElementById('category');
-    if (!categoryElement) {
+}
+
+
+function displayRestaurants(restaurants) {
+  const categoryElement = document.getElementById('category');
+  if (!categoryElement) {
       console.error('Category element not found in the DOM');
       return;
-    }
-  
-    categoryElement.innerHTML = '';
-    restaurants.forEach(restaurant => {
+  }
+
+  const baseURL = 'http://13.201.28.236:8000'; // Replace with your base URL
+  categoryElement.innerHTML = '';
+  restaurants.forEach(restaurant => {
+    console.log('name URL:', baseURL + restaurant.address); // Log URL for debugging
       const div = document.createElement('div');
       div.classList.add('restaurant-item');
       div.innerHTML = `
-        <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
-        <h3>${restaurant.name}</h3>
+          <img src="${baseURL + restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+          <h3>${restaurant.name}</h3>
       `;
+      div.addEventListener('click', () => openModal(restaurant));
       categoryElement.appendChild(div);
-    });
-  }
-  function displayRestaurants(restaurants) {
-    const categoryElement = document.getElementById('category');
-    if (!categoryElement) {
-      console.error('Category element not found in the DOM');
-      return;
-    }
+  });
+}
+
+function openModal(restaurant) {
+  document.getElementById('modal-restaurant-name').innerText = restaurant.name || 'N/A';
+  document.getElementById('modal-restaurant-image').src = restaurant.image ? baseURL + restaurant.image : '';
+  document.getElementById('modal-restaurant-description').innerText = `Description: ${restaurant.description || 'N/A'}`;
   
-    const baseURL = 'http://13.201.28.236:8000'; // Replace with your base URL
-    categoryElement.innerHTML = '';
-    restaurants.forEach(restaurant => {
-      const div = document.createElement('div');
-      div.classList.add('restaurant-item');
-      div.innerHTML = `
-        <img src="${baseURL + restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
-        <h3>${restaurant.name}</h3>
-      `;
-      categoryElement.appendChild(div);
-    });
+  const modal = document.getElementById('restaurant-modal');
+  modal.style.display = "block";
+}
+
+document.querySelector('.close').addEventListener('click', () => {
+  const modal = document.getElementById('restaurant-modal');
+  modal.style.display = "none";
+});
+
+window.onclick = function(event) {
+  const modal = document.getElementById('restaurant-modal');
+  if (event.target === modal) {
+      modal.style.display = "none";
   }
+};
+
+
+
   
 
 
@@ -114,111 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     observer.observe(loader);
-});
-
-
-
-// Details.js
-document.getElementById('next').addEventListener('click', function (event) {
-    event.preventDefault();
-    document.getElementById('orderForm').style.display = "none"
-    document.getElementById('paymentform').style.display = "block"
-})
-
-
-document.getElementById('paymentform').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const paymentOption = getSelectedPaymentOption();
-    if (validatePayment()) {
-        submitdetails(paymentOption);
-    } else {
-        alert("Please fill at least one payment option.");
-    }
-});
-const validatePayment = () => {
-    const Card = document.getElementById('Card').value;
-    const Expiry = document.getElementById('Expiry').value;
-    const cvv = document.getElementById('cvv').value;
-    const upi = document.getElementById('upi').value;
-    const Cod = document.getElementById('Cod').checked;
-
-    return (Card && Expiry && cvv) || upi || Cod;
-}
-
-function getSelectedPaymentOption() {
-    if (document.getElementById('Card').value && document.getElementById('Expiry').value && document.getElementById('cvv').value) {
-        return 'Credit/Debit Card';
-    } else if (document.getElementById('upi').value) {
-        return 'UPI';
-    } else if (document.getElementById('Cod').checked) {
-        return 'Cash On Delivery';
-    }
-}
-
-
-function submitdetails(paymentOption) {
-    const name = document.getElementById("name").value;
-    const number = document.getElementById("number").value;
-    const email = document.getElementById("email").value;
-    const address = document.getElementById("address").value;
-    const orderDate = new Date().toISOString(); // Get the current date and time
-
-    localStorage.setItem('name', name);
-    localStorage.setItem('number', number);
-    localStorage.setItem('email', email);
-    localStorage.setItem('address', address);
-    localStorage.setItem('orderDate', orderDate);
-    localStorage.setItem('paymentOption', paymentOption);
-
-    window.location.href = "order.html";
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Function to disable other payment options
-    function disableOtherPaymentOptions(input) {
-        const Card = document.getElementById('Card');
-        const Expiry = document.getElementById('Expiry');
-        const cvv = document.getElementById('cvv');
-        const upi = document.getElementById('upi');
-        const Cod = document.getElementById('Cod');
-
-        if (input === Card || input === Expiry || input === cvv) {
-            upi.disabled = Cod.disabled = input.value;
-
-        } else if (input === upi) {
-            Card.disabled = Expiry.disabled = cvv.disabled = input.value;
-            Cod.disabled = input.value;
-        } else if (input === Cod) {
-            Card.disabled = Expiry.disabled = cvv.disabled = upi.disabled = input.checked;
-        }
-    }
-
-    // Event listeners for input fields
-    const Card = document.getElementById('Card');
-    const Expiry = document.getElementById('Expiry');
-    const cvv = document.getElementById('cvv');
-    const upi = document.getElementById('upi');
-    const Cod = document.getElementById('Cod');
-
-    Card.addEventListener('input', function () {
-        disableOtherPaymentOptions(this);
-    });
-
-    Expiry.addEventListener('input', function () {
-        disableOtherPaymentOptions(this);
-    });
-
-    cvv.addEventListener('input', function () {
-        disableOtherPaymentOptions(this);
-    });
-
-    upi.addEventListener('input', function () {
-        disableOtherPaymentOptions(this);
-    });
-
-    Cod.addEventListener('change', function () {
-        disableOtherPaymentOptions(this);
-    });
 });
 
 

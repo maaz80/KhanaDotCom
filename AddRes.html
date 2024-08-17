@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resturant Details Form</title>
     <link rel="stylesheet" href="css/Add-Res.css">
+    <link rel="stylesheet" href="css/HeadAndFoot.css">
     
 
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img width="30" src="images/logo.png" alt="Logo">
-                <h1>KhanaDotCom</h1>
+                <div class="navlogo">
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span>KhanaDotCom</span>
+                </div>
                 
                 <div class="signlog">
                     <button class="login"><a href="login.html">LogIn</a></button>
@@ -67,6 +70,13 @@
 </div>
             <div class="form-container">
                 <h2>Restaurant Details</h2>
+                <div id="logoutPopup" class="popup">
+                    <div class="popup-content">
+                        <p>Do you really want to logout?</p>
+                        <button id="confirmLogout">Yes</button>
+                        <button id="cancelLogout">No</button>
+                    </div>
+                </div>
                 <div id="responseMessage"></div>
                 <form id="restaurantForm" >
                     <div class="form-group">
@@ -90,15 +100,15 @@
                         <textarea id="description" name="description" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="phone_number">Restaurant GST </label>
-                        <input type="text" id="restaurant_gst" name="restaurant_gst" required>
+                        <label for="restaurant_GST">Restaurant GST </label>
+                        <input type="text" id="restaurant_GST" name="restaurant_GST" required>
                     </div>
                     <div class="form-group">
-                        <label for="profile-picture">Profile Picture</label>
+                        <label for="profile_pic">Profile Picture</label>
                         <input
                           type="file"
                           id="profile-picture"
-                          name="profile-picture"
+                          name="profile_pic"
                           accept="image/*"
                           required />
                       </div>
@@ -132,11 +142,10 @@
         </div>
         <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
     </footer>
-    <script src="js/auth.js"></script>
     <script>
-    
-//form
-document.getElementById('restaurantForm').addEventListener('submit', function (e) {
+        
+        //form
+        document.getElementById('restaurantForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const form = document.getElementById('restaurantForm');
@@ -148,7 +157,7 @@ document.getElementById('restaurantForm').addEventListener('submit', function (e
         return;
     }
 
-    fetch('http://13.201.28.236:8000/api/add-restaurant/', {
+    fetch('http://13.201.28.236:8000/add-restaurant/', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -174,7 +183,8 @@ document.getElementById('restaurantForm').addEventListener('submit', function (e
 });
 
 
-    </script>
+</script>
+<script src="js/auth.js"></script>
 </body>
 
 </html>

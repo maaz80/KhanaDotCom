@@ -1,8 +1,11 @@
-// Login button Change
 document.addEventListener("DOMContentLoaded", function () {
     const loginButtons = document.querySelectorAll(".loginButton");
-
     const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    // Popup elements
+    const logoutPopup = document.getElementById("logoutPopup");
+    const confirmLogoutButton = document.getElementById("confirmLogout");
+    const cancelLogoutButton = document.getElementById("cancelLogout");
 
     loginButtons.forEach((loginButton) => {
         if (isLoggedIn === "true") {
@@ -12,20 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Add event listeners for logout on each login/logout button
+    // Show popup on logout click
     document.querySelectorAll(".logoutLink").forEach((logoutLink) => {
         logoutLink.addEventListener("click", function (event) {
             event.preventDefault();
-            localStorage.setItem("isLoggedIn", "false");
-            localStorage.removeItem("accessToken"); 
-            localStorage.removeItem("userRole"); 
-
-            // Reset button text to "Login" after logging out
-            loginButtons.forEach((loginButton) => {
-                loginButton.innerHTML = '<a href="login.html">LogIn</a>';
-            });
-            window.location.href = "index.html";
+            logoutPopup.style.display = "block"; // Show the popup
         });
+    });
+
+    // Confirm logout
+    confirmLogoutButton.addEventListener("click", function () {
+        localStorage.setItem("isLoggedIn", "false");
+        localStorage.removeItem("accessToken"); 
+        localStorage.removeItem("userRole"); 
+
+        // Reset button text to "Login" after logging out
+        loginButtons.forEach((loginButton) => {
+            loginButton.innerHTML = '<a href="login.html">LogIn</a>';
+        });
+
+        // Redirect to home page
+        window.location.href = "index.html";
+    });
+
+    // Cancel logout
+    cancelLogoutButton.addEventListener("click", function () {
+        logoutPopup.style.display = "none"; // Hide the popup
     });
 });
 
@@ -80,9 +95,6 @@ document.addEventListener('click', function (event) {
         ChatBot.classList.remove("show")
     }
 })
-
-
-
 
 
 

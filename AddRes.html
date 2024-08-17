@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resturant Details Form</title>
+    <link rel="stylesheet" href="css/Add-Res.css">
+    
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="30" src="images/logo.png" alt="Logo">
+                <h1>KhanaDotCom</h1>
+                
+                <div class="signlog">
+                    <button class="login"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantsignup.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+   
+
+    <div class="dropdown">
+        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+        <ul id="nav-menu" class="mobile-menu">
+            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+            <li>
+                <div class="cart-box">
+                    <img src="images/Cart.png" alt="">
+                    <span class="item-In-Cart" id="itemincart">0</span>
+                </div>
+                <a href="">Cart</a>
+            </li>
+            <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
+            <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
+        </ul>
+        <input type="text" placeholder="search" class="searchbar">
+        <div class="filters">
+            <button class="filter-toggle" id="filter-toggle">Filters</button>
+            <ol id="filter-menu" class="filter-menu">
+                <li>Dhaba <input type="checkbox"></li>
+                <li>Most Rated <input type="checkbox"></li>
+                <li>Chinese Retro <input type="checkbox"></li>
+                <li>Subway <input type="checkbox"></li>
+            </ol>
+        </div>
+    </div>
+</header>
+    <!-- ChatBot -->
+     <div class="ChatBot">
+        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png" alt="Chat"></button>
+    <iframe class="ChatBot-Box" id="ChatBot-Box"  src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
+</div>
+            <div class="form-container">
+                <h2>Restaurant Details</h2>
+                <div id="responseMessage"></div>
+                <form id="restaurantForm" >
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="text" id="phone_number" name="phone_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Description</label>
+                        <textarea id="description" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Restaurant GST </label>
+                        <input type="text" id="restaurant_gst" name="restaurant_gst" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-picture">Profile Picture</label>
+                        <input
+                          type="file"
+                          id="profile-picture"
+                          name="profile-picture"
+                          accept="image/*"
+                          required />
+                      </div>
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+  
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>About</h2>
+                <p>Information about KhanaDotCom, the services we offer, and our mission.</p>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact</h2>
+                <p>Email: support@khanadotcom.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-section social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/LinkedIn.webp" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/Insta.webp" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="images/FB.webp" alt="Facebook"></a>
+            </div>
+            <div class="footer-section privacy">
+                <h2>Privacy Policy</h2>
+                <p><a href="privacy.html">Read our Privacy Policy</a></p>
+            </div>
+        </div>
+        <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
+    </footer>
+    <script src="js/auth.js"></script>
+    <script>
+    
+//form
+document.getElementById('restaurantForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = document.getElementById('restaurantForm');
+    const formData = new FormData(form);
+    const token = localStorage.getItem('accessToken');
+
+    if (!token) {
+        console.error('Token not found');
+        return;
+    }
+
+    fetch('http://13.201.28.236:8000/api/add-restaurant/', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const responseMessage = document.getElementById('responseMessage');
+        if (data.success) {
+            responseMessage.textContent = data.success;
+            responseMessage.style.color = 'green';
+        } else {
+            responseMessage.textContent = data.error;
+            responseMessage.style.color = 'red';
+        }
+    })
+    .catch(error => {
+        const responseMessage = document.getElementById('responseMessage');
+        responseMessage.textContent = `Error: ${error}`;
+        responseMessage.style.color = 'red';
+    });
+});
+
+
+    </script>
+</body>
+
+</html>

@@ -1,23 +1,11 @@
-/* styles.css */
+
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/KDCBG.jpg');
-    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* background-color: gray; */
 }
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.865); /* Adjust the color and opacity */
-    z-index: -1;
-}
-
 
 header {
     background-color: #16a290;
@@ -81,17 +69,8 @@ nav {
     border-radius: 10px;
 }
 
-.navlogo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 8px;
-}
-
-.logo span {
-    font-size: 16px;
-    font-weight: 700;
+.logo h1 {
+    font-size: 17px;
 }
 
 .searchbar {
@@ -102,18 +81,10 @@ nav {
     color: black;
     padding: 1px 5px;
 }
-input[type="search"] {
-    outline: none;
-}
 
 .searchbar::placeholder {
     color: rgb(0, 0, 0);
     opacity: 0.7;
-}
-
-.loader {
-    text-align: center;
-    margin-top: 50px;
 }
 
 /* Navigation menu styles */
@@ -121,10 +92,10 @@ input[type="search"] {
     display: none;
     position: absolute;
     top: 68px;
-    left: 0px;
+    left: 26px;
     background-color: white;
     color: black;
-    width: 170px;
+    width: 40vw;
     list-style: none;
     flex-direction: column;
     justify-content: center;
@@ -206,7 +177,7 @@ li img {
     right: 26px;
     background-color: white;
     color: black;
-    width: 170px;
+    width: 40vw;
     list-style: none;
     flex-direction: column;
     justify-content: center;
@@ -256,7 +227,7 @@ li img {
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 15px;
+    font-size: 10px;
 }
 
 .signupdrop ul.show {
@@ -270,7 +241,7 @@ li img {
     right: 26px;
     background-color: white;
     color: black;
-    width: 170px;
+    width: 40vw;
     list-style: none;
     flex-direction: column;
     justify-content: center;
@@ -322,7 +293,7 @@ li img {
 .login {
     background-color: transparent;
     border: none;
-    font-size: 15px;
+    font-size: 10px;
 
 }
 
@@ -332,6 +303,16 @@ li img {
 
 }
 
+.logout{
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+}
+.logout a{
+    text-decoration: none;
+    color: white;
+}
 
 /* Cart */
 .cart-box {
@@ -349,51 +330,10 @@ li img {
     padding: 0px 2px;
 }
 
-.slider {
-    width: 100%;
-    margin: auto;
-    border-radius: 20px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    text-align: center;
-    border: 1px solid black;
-    background-color: white;
-}
-
 main {
     padding: 1em;
 }
 
-.shipping {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    margin: auto;
-    padding-top: 30px;
-    font-size: 10px;
-
-}
-
-.shipping div {
-    border: 1px solid red;
-    padding: 9px;
-    border-radius: 10px;
-    background-color: white;
-}
-
-.category {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
 
 .burger {
     width: 47%;
@@ -401,7 +341,6 @@ main {
     height: 220px;
     text-align: center;
     border-radius: 20px;
-    background-color: white;
     animation: view linear;
     animation-timeline: view();
     animation-range: entry 0 cover 40%;
@@ -417,42 +356,6 @@ main {
         opacity: 1;
         scale: 1;
     }
-}
-
-.items {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.item {
-    width: 47%;
-    border: 1px solid gray;
-    height: 220px;
-    text-align: center;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.item button a {
-    text-decoration: none;
-    color: black;
-}
-
-.item button {
-    background-color: gray;
-    padding: 5px 14px;
-    border-radius: 3px;
 }
 
 h2 {
@@ -477,26 +380,25 @@ h2 {
 footer {
     background-color: #16a290;
     color: #fff;
-    padding-bottom: 20px;
+    padding: 20px 0;
     text-align: center;
+    width: 100%;
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 
 }
-
-section {
+section{
     margin-top: 82px;
 }
 
 .footer-section {
     flex: 1;
-    min-width: 52px;
-    font-size: 8px;
-    margin: 3px;
+    min-width: 200px;
+    margin: 10px;
     animation: view linear;
     animation-timeline: view();
     animation-range: entry 0 cover 40%;
@@ -519,26 +421,13 @@ section {
 }
 
 .footer-section img {
-    width: 19px;
-    margin: 1px;
+    width: 30px;
+    margin: 5px;
 }
 
 footer p {
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 0.9em;
-}
-.privacy{
-    min-width: 88px;
-}
-
-
-.order-summary-container {
-    background-color: #fff;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 100%;
-    margin: auto;
-    margin-top: 92px;
 }
 
 .header {
@@ -550,97 +439,17 @@ footer p {
     justify-content: center;
 }
 
-.order-details {
-    font-size: small;
-    padding: 0 20px;
-}
-
-.order-details p {
-    margin-bottom: -10px;
-}
-
-.order-items {
-    margin-bottom: 20px;
-    padding: 0 20px;
-}
-
-.order-pricing {
-    padding-left: 17px;
-}
-
-.order-pricing h2 {
-    width: 90%;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-}
-
-.finalprice {
-    width: 90%;
-    border-top: 2px solid #ddd;
-    margin-top: 10px;
-    padding-top: 5px;
-
-}
-
-.order-details h2,
-.order-items h2 {
-    margin-bottom: 10px;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-}
-
-.Details {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.item-img {
-    width: 25%;
-}
-
-
-.Details:last-child {
-    border-bottom: none;
-}
-
-.Details p {
-    margin: 10px 0;
-    display: flex;
-}
-
-.order-pricing p {
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-.order-pricing p:last-child {
-    font-size: 1.2em;
-    color: #333;
-}
-
 
 @media screen and (min-width: 700px) {
     .item-img {
         width: 15%;
     }
 
-    .logo span {
+    .logo h1 {
         font-size: 22px;
     }
 
-    .items {
-        width: 85%;
-        gap: 50px;
-    }
-
-    .item {
-        width: 25%;
-    }
-
+    
     .menu {
         font-size: 100px;
         margin-top: -30px;
@@ -650,38 +459,15 @@ footer p {
         width: 74%;
     }
 
-    .shipping {
-        width: 85%;
-        font-size: 17px;
-    }
-
-    .category {
-        width: 85%;
-        gap: 70px;
-    }
-
+    
     .burger {
         width: 25%;
     }
 
-    .products {
-        width: 85%;
-        gap: 50px;
-    }
-
-    .product {
-        width: 25%;
-    }
-
-    .order-details {
-        font-size: medium;
-        padding: 0 20px;
-    }
-
     .dropdown ul {
-        width: 170px;
-        top: 69px;
-        left: 20px;
+        width: 20vw;
+        top: 82px;
+        left: 40px;
     }
 
     .dropdown ul li {
@@ -689,15 +475,15 @@ footer p {
     }
 
     .filters ol {
-        width: 170px;
-        top: 69px;
-        right: 20px;
+        width: 20vw;
+        top: 82px;
+        right: 70px;
     }
 
     .signupdrop ul {
-        width: 170px;
-        top: 34px;
-        right: 30px;
+        width: 20vw;
+        top: 46px;
+        right: 70px;
     }
 
     .Profile {
@@ -720,52 +506,132 @@ footer p {
 
     .footer-section {
         animation-range: entry 0 cover 10%;
-            min-width: 200px;
-            font-size: 16px;
-            margin: 10px;
-        }
-        .footer-section img {
-            width: 30px;
-            margin: 5px;
-        }
-        
-
+    }
     .ChatBot {
         bottom: 20px;
         right: 20px;
         border-radius: 50%;
     }
-
     .bot-toggle {
         border-radius: 50%;
         height: 38px;
     }
-
     .ChatBot-Box {
         right: 45px;
         height: 430px;
         width: 350px;
     }
-
-    section {
+    section{
         margin-top: 108px;
     }
-
-    .order-summary-container {
+    .order-summary-container{
         margin-top: 120px;
     }
 }
 
+@media screen and (min-width: 1300px) {
+    .dropdown ul {
+        width: 10vw;
+    }
 
+    .filters ol {
+        width: 10vw;
+    }
 
+    .signupdrop ul {
+        width: 10vw;
+    }
+}
 .restaurant-item {
     text-align: center;
     margin: 10px;
-}
-
-.restaurant-image {
+  }
+  
+  .restaurant-image {
     max-width: 100%;
     width: 100px;
     height: auto;
     border-radius: 8px;
-}
+  }
+  .form-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+   
+    align-content: center;
+    margin: 90px 100px 0px 80px
+  }
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #16a290;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .form-group textarea {
+    resize: vertical;
+  }
+  .form-group button {
+    background-color: #16a290;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+  }
+  .form-group button:hover {
+    background-color: #126e62;
+  }
+  
+  @media (max-width: 700px) {
+  .form-container {
+    max-width: 100%;
+    padding: 15px;
+    margin-top: 94px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 8px;
+  }
+  .form-group button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}  
+  @media (max-width: 480px) {
+    .form-container {
+      max-width: 80%;
+      padding: 10px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 6px;
+    }
+    .form-group button {
+      padding: 8px;
+      font-size: 12px;
+    }
+  }
+  

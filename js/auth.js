@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".logoutLink").forEach((logoutLink) => {
         logoutLink.addEventListener("click", function (event) {
             event.preventDefault();
-            logoutPopup.style.display = "block"; // Show the popup
+            logoutPopup.style.display = "block"; 
         });
     });
 
@@ -34,13 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
             loginButton.innerHTML = '<a href="login.html">LogIn</a>';
         });
 
-        // Redirect to home page
         window.location.href = "index.html";
     });
 
     // Cancel logout
     cancelLogoutButton.addEventListener("click", function () {
-        logoutPopup.style.display = "none"; // Hide the popup
+        logoutPopup.style.display = "none"; 
     });
 });
 

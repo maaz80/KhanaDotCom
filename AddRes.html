@@ -43,7 +43,7 @@
                     <img src="images/Cart.png" alt="">
                     <span class="item-In-Cart" id="itemincart">0</span>
                 </div>
-                <a href="">Cart</a>
+                <a href="Cart.html">Cart</a>
             </li>
             <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
             <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
@@ -170,6 +170,7 @@
         if (data.success) {
             responseMessage.textContent = data.success;
             responseMessage.style.color = 'green';
+            console.log(data.restaurant_id)
         } else {
             responseMessage.textContent = data.error;
             responseMessage.style.color = 'red';

@@ -9,9 +9,7 @@
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/HeadAndFoot.css" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+   
 </head>
 
 <body class="poppins-regular">
@@ -48,7 +46,7 @@
                         <img src="images/Cart.png" alt="">
                         <span class="item-In-Cart" id="itemincart">0</span>
                     </div>
-                    <a href="">Cart</a>
+                    <a href="Cart.html">Cart</a>
                 </li>
                 <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
                 <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
@@ -82,14 +80,27 @@
             <div id="logoutPopup" class="popup">
                 <div class="popup-content">
                     <p>Do you really want to logout?</p>
-                    <button id="confirmLogout">Yes</button>
-                    <button id="cancelLogout">No</button>
+                    <button id="confirmLogout" class="poppins-regular">Yes</button>
+                    <button id="cancelLogout" class="poppins-regular">No</button>
                 </div>
             </div>
             <!-- Category Slider -->
             <div class="slider">
-                Slider Of Offers
-            </div>
+                <div class="slides">
+                  <!-- Slide 1 -->
+                  <div class="slide">
+                    <a href="#"><img src="images/Banner1.jpg" alt="Offer 1" /></a>
+                  </div>
+                  <!-- Slide 2 -->
+                  <div class="slide">
+                    <a href="#"> <img src="images/Banner2.jpg" alt="Offer 2" /></a>
+                  </div>
+                  <!-- Slide 3 -->
+                  <div class="slide">
+                    <a href="#"><img src="images/Banner3.jpg" alt="Offer 3" /></a>
+                  </div>
+                </div>
+              </div>
 
             <!-- Shipping BEnifits -->
             <div class="shipping">
@@ -106,8 +117,10 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2 id="modal-restaurant-name"></h2>
-                    <img id="modal-restaurant-image" src="" alt="Restaurant Image">
-                    <p id="modal-restaurant-description"></p>
+                    <div class="modal-details">
+                        <img id="modal-restaurant-image" src="" alt="Restaurant Image">
+                        <p id="modal-restaurant-description"></p>
+                    </div>
                 </div>
             </div>
 
@@ -124,10 +137,6 @@
 
     <footer>
         <div class="footer-container">
-            <div class="footer-section about">
-                <h2>About</h2>
-                <p>Information about KhanaDotCom, the services we offer, and our mission.</p>
-            </div>
             <div class="footer-section contact">
                 <h2>Contact</h2>
                 <div>

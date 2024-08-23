@@ -1,6 +1,5 @@
 /* styles.css */
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
     background-image: url('../images/KDCBG.jpg');
@@ -110,14 +109,37 @@ section{
 }
 .slider {
     width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
     margin: auto;
-    border-radius: 20px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    text-align: center;
-    border: 1px solid black;
-    background-color: white;
-}
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    height: 100px;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    filter: brightness(0.85);
+    transition: filter 0.5s ease-in-out;
+  }
+
+  .slide img:hover {
+    filter: brightness(1); /* Brightens image on hover */
+  }
 
 main {
     padding: 1em;
@@ -322,7 +344,28 @@ h2 {
     font-size: 1.2em;
     color: #333;
 }
+.restaurant-item {
+    text-align: center;
+    margin: 10px;
+}
 
+.restaurant-image {
+    max-width: 100%;
+    width: 240px;
+    height: 200px;
+    border-radius: 8px;
+}
+.modal-details{
+    display: flex;
+    gap: 20px;
+}
+#modal-restaurant-image{
+    height: 140px;
+    width: 200px;
+}
+#confirmLogout{
+    background-color: #76e1d3;
+}
 
 @media screen and (min-width: 700px) {
     .item-img {
@@ -341,10 +384,6 @@ h2 {
     .menu {
         font-size: 100px;
         margin-top: -30px;
-    }
-
-    .slider {
-        width: 74%;
     }
 
     .shipping {
@@ -397,20 +436,22 @@ h2 {
     }
 
     .order-summary-container {
-        margin-top: 120px;
+        margin-top: 80px;
+        padding-top: 20px;
     }
+    .slider {
+        border-radius: 25px;
+        max-width: 85%;
+      }
+    
+      .slide {
+        height: 150px;
+      }
+    
+      .slide img {
+        height: 200px;
+      }
 }
 
 
 
-.restaurant-item {
-    text-align: center;
-    margin: 10px;
-}
-
-.restaurant-image {
-    max-width: 100%;
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
-}

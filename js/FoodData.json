@@ -4,9 +4,9 @@
       "name": "Shri Krishna Restaurant",
       "location": "Varanasi, India",
       "openingTime": "09:30 PM",
-      "minimumOrder": 42.00,
+      "minimumOrder": "₹42.00",
       "currency": "INR",
-      "deliveryFee": 0.00,
+      "deliveryFee": "₹0.00",
       "discounts": {
           "delivery": "20% OFF",
           "collection": "25% OFF"
@@ -18,9 +18,9 @@
       "name": "The Spice Route",
       "location": "New Delhi, India",
       "openingTime": "11:00 AM",
-      "minimumOrder": 100.00,
+      "minimumOrder": "₹100.00",
       "currency": "INR",
-      "deliveryFee": 20.00,
+      "deliveryFee": "₹20.00",
       "discounts": {
           "delivery": "15% OFF",
           "collection": "10% OFF"
@@ -32,9 +32,9 @@
       "name": "Saffron Delight",
       "location": "Mumbai, India",
       "openingTime": "10:00 AM",
-      "minimumOrder": 150.00,
+      "minimumOrder": "₹150.00",
       "currency": "INR",
-      "deliveryFee": 30.00,
+      "deliveryFee": "₹30.00",
       "discounts": {
           "delivery": "10% OFF",
           "collection": "20% OFF"
@@ -46,9 +46,9 @@
       "name": "Taste of Tradition",
       "location": "Chennai, India",
       "openingTime": "08:00 AM",
-      "minimumOrder": 80.00,
+      "minimumOrder": "₹80.00",
       "currency": "INR",
-      "deliveryFee": 10.00,
+      "deliveryFee": "₹10.00",
       "discounts": {
           "delivery": "25% OFF",
           "collection": "15% OFF"
@@ -60,9 +60,9 @@
       "name": "Royal Feast",
       "location": "Kolkata, India",
       "openingTime": "07:00 PM",
-      "minimumOrder": 200.00,
+      "minimumOrder": "₹200.00",
       "currency": "INR",
-      "deliveryFee": 50.00,
+      "deliveryFee": "₹50.00",
       "discounts": {
           "delivery": "30% OFF",
           "collection": "20% OFF"

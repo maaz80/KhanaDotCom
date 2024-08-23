@@ -1,55 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head class="poppins-regular">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="shortcut icon" href="KhanaDotCom.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="css/Cart.css">
-    <link rel="stylesheet" href="css/Font.css" />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/Font.css">
+    <link rel="stylesheet" href="css/HeadAndFoot.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 </head>
 
 <body class="poppins-regular">
+    <header>
+        <nav class="poppins-regular">
+            <div class="logo">
+                <div class="navlogo">
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span >KhanaDotCom</span>
+                </div>
+
+                <div class="signlog">
+                    <button class="login loginButton"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="Cart">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="cart.html">Cart</a>
+                </li>
+                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
+                </li>
+                <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
+            </ul>
+            <input type="text" placeholder="search" class="searchbar poppins-regular">
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
+        </div>
+    </header>
     <main>
         <div class="cart">
-            <h2>Special Offers</h2>
+            <h2>Cart</h2>
             <div class="cart-items">
                 <div class="cart-item">
-                    <img src="https://source.unsplash.com/random/1600×500/?Pizza" alt="">
-                    <div class="details">
-                        <p>Chicken Cheese Pizza</p>
-                        <p>Price: $22.00</p>
-                        <p>Min 20% off - Grab Now!</p>
+                    <img src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380" alt="">
+                    <div class="detailsandbuttons">
+                        <div class="details">
+                            <p>Dominos</p>
+                            <p>Chicken Cheese Pizza</p>
+                            <p>Price: $22.00</p>
+                        </div>
+                        <div class="buttons">
+                            <div class="quantity-controls">
+                                <button class="decrease">-</button>
+                                <span class="quantity">0</span>
+                                <button class="increase">+</button>
+                            </div>
+                            <a href="details.html"><button class="order-button poppins-regular">Order</button></a>
+                        </div>
                     </div>
-                    <div class="quantity-controls">
-                        <button class="decrease">-</button>
-                        <span class="quantity">1</span>
-                        <button class="increase">+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="cart-item">
-                    <img src="https://source.unsplash.com/random/1600×500/?Pizza" alt="">
+                    <img src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380" alt="">
+                    <div class="detailsandbuttons">
                     <div class="details">
+                        <p>Pizza Hut</p>
                         <p>Paneer Pizza</p>
                         <p>Price: $17.00</p>
-                        <p>Min 20% off - Grab Now!</p>
                     </div>
-                    <div class="quantity-controls">
-                        <button class="decrease">-</button>
-                        <span class="quantity">1</span>
-                        <button class="increase">+</button>
+                    <div class="buttons">
+                        <div class="quantity-controls">
+                            <button class="decrease">-</button>
+                            <span class="quantity">0</span>
+                            <button class="increase">+</button>
+                        </div>
+                        <a href="details.html"><button class="order-button poppins-regular">Order</button></a>
                     </div>
-                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </div>
+        </div>
+        <div id="ChatBot-Box"><button id="bot-toggle"></button></div>
+        <!-- Not for use just to remove error -->
+        <div id="logoutPopup" class="popup">
+            <div class="popup-content">
+                <p>Do you really want to logout?</p>
+                <button id="confirmLogout" class="poppins-regular">Yes</button>
+                <button id="cancelLogout" class="poppins-regular">No</button>
+            </div>
+        </div>
     </main>
+    <footer>
+        <div class="footer-container">
+          
+            <div class="footer-section contact">
+                <h2>Contact</h2>
+                <p>Email: support@khanadotcom.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-section social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/LinkedIn.webp" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/Insta.webp" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="images/FB.webp" alt="Facebook"></a>
+            </div>
+            <div class="footer-section privacy">
+                <h2>Privacy Policy</h2>
+                <p><a href="privacy.html">Read our Privacy Policy</a></p>
+            </div>
+        </div>
+        <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
+    </footer>
 </body>
-<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartItems = document.querySelectorAll('.cart-item');
+
+        cartItems.forEach((item, index) => {
+            // Create a unique ID 
+            const itemId = `cartItem_${index}`;
+            let quantity = parseInt(localStorage.getItem(itemId)) || 1;
+
+            const increaseBtn = item.querySelector('.increase');
+            const decreaseBtn = item.querySelector('.decrease');
+            const quantityDisplay = item.querySelector('.quantity');
+            const priceDisplay = item.querySelector('.details p:nth-child(3)');
+            const orderButton = item.querySelector('.order-button');
+
+            const unitPrice = parseFloat(priceDisplay.textContent.replace('Price: $', ''));
+            quantityDisplay.textContent = quantity;
+            updatePrice();
+
+            function updateQuantity(newQuantity) {
+                // Make sure the quantity is not less than 0
+                quantity = Math.max(newQuantity, 1);
+                quantityDisplay.textContent = quantity;
+                localStorage.setItem(itemId, quantity);
+                updatePrice();
+            }
+
+            // Function to calculate and update the price display
+            function updatePrice() {
+                const calculatedPrice = unitPrice * quantity;
+                priceDisplay.textContent = `Price: $${calculatedPrice.toFixed(2)}`;
+            }
+
+            if (increaseBtn) {
+                increaseBtn.addEventListener('click', () => {
+                    updateQuantity(quantity + 1);
+                });
+            }
+
+            if (decreaseBtn) {
+                decreaseBtn.addEventListener('click', () => {
+                    updateQuantity(quantity - 1);
+                });
+            }
+
+            if (orderButton) {
+                orderButton.addEventListener('click', () => {
+                });
+            }
+        });
+    });
+
+</script>
 
 </html>

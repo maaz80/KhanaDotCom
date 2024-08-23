@@ -1,8 +1,5 @@
-
-
-
 //menupage
-const baseURL = 'http://13.201.28.236:8000'; // Define base URL here
+const baseURL = 'http://13.201.28.236:8000'; 
 document.addEventListener('DOMContentLoaded', () => {
   fetchRestaurants();
 });
@@ -17,7 +14,7 @@ async function fetchRestaurants() {
 
 
   try {
-      const response = await fetch('http://13.201.28.236:8000/restaurants/', {
+      const response = await fetch('http://13.201.28.236:8000/api/restaurants/', {
           method: 'GET',
           headers: {
               'Authorization': `Bearer ${token}`
@@ -25,12 +22,12 @@ async function fetchRestaurants() {
       });
 
       if (!response.ok) {
-          const errorText = await response.text(); // Read response body
+          const errorText = await response.text(); 
           throw new Error(`Network response was not ok: ${response.statusText} - ${errorText}`);
       }
 
       const data = await response.json();
-      console.log('API Response:', data); // Log the response
+      console.log('API Response:', data);
       displayRestaurants(data);
   } catch (error) {
       console.error('Failed to fetch restaurants:', error);
@@ -48,7 +45,7 @@ function displayRestaurants(restaurants) {
   const baseURL = 'http://13.201.28.236:8000'; // Replace with your base URL
   categoryElement.innerHTML = '';
   restaurants.forEach(restaurant => {
-    console.log('name URL:', baseURL + restaurant.address); // Log URL for debugging
+    console.log('Description URL:',  restaurant.description); // Log URL for debugging
       const div = document.createElement('div');
       div.classList.add('restaurant-item');
       div.innerHTML = `
@@ -84,9 +81,6 @@ window.onclick = function(event) {
 
 
   
-
-
-
 
 // index.html
 
@@ -135,5 +129,37 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(loader);
 });
 
+
+// Slider
+const slides = document.querySelector(".slides");
+const slideCount = document.querySelectorAll(".slide").length;
+let currentIndex = 0;
+let intervalId;
+
+function updateSlider() {
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function startAutoScroll() {
+  intervalId = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateSlider();
+  }, 3000); // Changes slide every 5 seconds
+}
+
+function pauseAutoScroll() {
+  clearInterval(intervalId);
+}
+
+function resumeAutoScroll() {
+  startAutoScroll();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  startAutoScroll();
+
+  slides.addEventListener("mouseover", pauseAutoScroll);
+  slides.addEventListener("mouseout", resumeAutoScroll);
+});
 
 

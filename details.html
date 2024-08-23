@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/HeadAndFoot.css" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="poppins-regular">
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="dropdown">
             <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
             <ul id="nav-menu" class="mobile-menu">
@@ -46,12 +46,13 @@
                         <img src="images/Cart.png" alt="">
                         <span class="item-In-Cart" id="itemincart">0</span>
                     </div>
-                    <a href="">Cart</a>
+                    <a href="Cart.html">Cart</a>
                 </li>
                 <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
                 <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
                 <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
+                </li>
             </ul>
             <div class="filters">
                 <button class="filter-toggle" id="filter-toggle">Filters</button>
@@ -64,19 +65,18 @@
             </div>
         </div>
     </header>
-        
-        
-        <div class="Details">
-            <div class="item-details" id="item-details">
-                
-            </div>
+
+
+    <div class="Details">
+        <div class="item-details" id="item-details"></div>
         <div class="order">
             <form id="orderForm">
                 <div class="inputs">
                     <h1>Order Details</h1>
                     <div class="input">
                         <div>Name</div>
-                        <input type="text" placeholder="Full Name" id="name" class="custdetails poppins-regular" required>
+                        <input type="text" placeholder="Full Name" id="name" class="custdetails poppins-regular"
+                            required>
                     </div>
                     <div class="input">
                         <div>Email ID</div>
@@ -84,11 +84,13 @@
                     </div>
                     <div class="input">
                         <div>Number</div>
-                        <input type="number" placeholder="Phone Number" id="number" class="custdetails poppins-regular" required>
+                        <input type="number" placeholder="Phone Number" id="number" class="custdetails poppins-regular"
+                            required>
                     </div>
                     <div class="input">
                         <div>Address</div>
-                        <input type="text" placeholder="Address" id="address" class="custdetails poppins-regular" required>
+                        <input type="text" placeholder="Address" id="address" class="custdetails poppins-regular"
+                            required>
                     </div>
                 </div>
                 <div class="nextcont">
@@ -116,12 +118,20 @@
                         <div>Cash On Delivery</div>
                         <input id="Cod" type="checkbox" class="poppins-regular">
                     </div>
-                    <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
                     <div class="ordercont">
                         <button type="submit" class="orderbutton poppins-regular">Order</button>
                     </div>
+                    <div id="ChatBot-Box"><button id="bot-toggle"></button></div>
+                    <!-- Not for use just to remove error -->
                 </div>
             </form>
+        </div>
+        <div id="logoutPopup" class="popup">
+            <div class="popup-content">
+                <p>Do you really want to logout?</p>
+                <button id="confirmLogout" class="poppins-regular">Yes</button>
+                <button id="cancelLogout" class="poppins-regular">No</button>
+            </div>
         </div>
     </div>
     <script src="js/auth.js"></script>

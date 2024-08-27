@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.log(data);
 
             // Find the item with the matching ID
-            const itemIDNumber = Number(itemID); // Convert to number if IDs are numeric
+            const itemIDNumber = Number(itemID);
             const itemData = data.find(item => item.id === itemIDNumber);
             
             console.log(itemData);

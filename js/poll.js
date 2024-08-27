@@ -92,44 +92,6 @@ window.onpopstate = function (event) {
     }
 };
 
-// Event listeners for menu toggles
-document.getElementById('menu-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show');
-    document.getElementById('filter-menu').classList.remove('show');
-    document.getElementById('sign-menu').classList.remove('show');
-});
-
-document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    const filterMenu = document.getElementById('filter-menu');
-    filterMenu.classList.toggle('show');
-    document.getElementById('nav-menu').classList.remove('show');
-    document.getElementById('sign-menu').classList.remove('show');
-});
-
-document.getElementById('signup-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    const SignupMenu = document.getElementById('sign-menu');
-    SignupMenu.classList.toggle('show');
-    document.getElementById('nav-menu').classList.remove('show');
-    document.getElementById('filter-menu').classList.remove('show');
-});
-
-// Close menus when clicking outside
-document.addEventListener('click', function (event) {
-    const navMenu = document.getElementById('nav-menu');
-    const filterMenu = document.getElementById('filter-menu');
-    const SignupMenu = document.getElementById('sign-menu');
-
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
-        navMenu.classList.remove('show');
-        filterMenu.classList.remove('show');
-        SignupMenu.classList.remove('show');
-    }
-});
-
 // Event listener for submit button
 const submitButton = document.getElementById('poll-button');
 if (submitButton) {

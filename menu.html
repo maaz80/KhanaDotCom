@@ -57,7 +57,7 @@
           <a href="Cart.html">Cart</a>
         </li>
         <li>
-          <a href="order.html"><img src="images/Order.png" alt="" />Orders</a>
+          <a href="OrderHistory.html"><img src="images/Order.png" alt="" />Orders</a>
         </li>
         <li>
           <a href="profile.html"><img src="images/Profile.jpg" alt="" />Profile</a>
@@ -152,7 +152,7 @@
     <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
   </footer>
 
-  <script src="js/auth.js"></script>
+
   <script>
     async function fetchFood() {
       try {
@@ -179,7 +179,7 @@
             <p><strong>Delivery: ${restaurant.discounts.delivery} | Collection: ${restaurant.discounts.collection}</strong></p>
           </div>
           <div class="buttonCont ">
-            <button class="cart cart-count poppins-regular" id="button2" data-added-to-cart="false">Cart</button>
+            <button class="cart cart-count poppins-regular" data-id='${restaurant.id}' data-added-to-cart="false">Cart</button>
             <button class='detailsbutton poppins-regular'><a href="details.html?id=${restaurant.id}">Details</a></button>
           </div>
         </div>`
@@ -191,6 +191,7 @@
     }
     fetchFood()
   </script>
+    <script src="js/auth.js"></script>
 </body>
 
 </html>

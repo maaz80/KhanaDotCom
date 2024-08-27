@@ -46,7 +46,7 @@
                     </div>
                     <a href="Cart.html">Cart</a>
                 </li>
-                <li><a href="order.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
                 <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
                 <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
                 <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
@@ -152,6 +152,13 @@
             </div>
             <div class="profile-section">
                 <button onclick="saveProfile()">Save Profile</button>
+            </div>
+            <div id="logoutPopup" class="popup">
+                <div class="popup-content">
+                    <p>Do you really want to logout?</p>
+                    <button id="confirmLogout" class="poppins-regular">Yes</button>
+                    <button id="cancelLogout" class="poppins-regular">No</button>
+                </div>
             </div>
             <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
         </section>

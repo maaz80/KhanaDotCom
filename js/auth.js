@@ -105,9 +105,14 @@ document.addEventListener('click', function (event) {
         cartCounterElement.textContent = cartCount;
   
         const addToCartButtons = document.querySelectorAll('.cart-count');
+
         addToCartButtons.forEach(button => {
-          let buttonId = button.getAttribute('id')
-          let addedToCart = localStorage.getItem(`addedToCart-${buttonId}`) === 'true';
+            let buttonId = button.getAttribute('data-id')
+            buttonId = Number(buttonId)
+            console.log(buttonId);
+            
+            let addedToCart = localStorage.getItem(`addedToCart-${buttonId}`) === 'true';
+            console.log(`Found ${addToCartButtons.length} cart buttons`);
   
           button.textContent = addedToCart ? 'Remove' : 'Cart'
           button.addEventListener('click', () => {

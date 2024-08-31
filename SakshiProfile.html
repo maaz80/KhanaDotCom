@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Owner Profile</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/Font.css" />
+    <style>
+      body {
+        margin: 20px;
+        background-color: #f2f6fc;
+        color: #69707a;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .nav {
+        display: flex;
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 20px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #69707a;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-bottom: 3px solid transparent;
+        font-size: 0.875rem;
+      }
+
+      .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #e5e5e5;
+        margin: 20px 0;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .col {
+        flex: 1;
+        width: 45rem;
+      }
+
+      .profile-picture {
+        max-width: 100%;
+      }
+
+      .profile-card,
+      .details-card {
+        background: #fff;
+        border-radius: 0.35rem;
+        box-shadow: 0 0.15rem 1.75rem rgba(33, 40, 50, 0.15);
+      }
+
+      .card-header {
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+        padding: 1rem 1.35rem;
+        font-weight: 500;
+      }
+
+      .card-body {
+        margin-left: 2rem;
+        padding: 1rem 1.35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+      }
+
+      .profile-card-body {
+        margin-left: 2rem;
+        padding: 1rem 1.35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .big_input {
+        width: 90%;
+        padding: 10px;
+        border-radius: 0.35rem;
+        border: 1px solid #c5ccd6;
+        font-size: 0.875rem;
+      }
+
+      .profile-image {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+
+      .help-text {
+        font-size: 0.875rem;
+        color: #69707a;
+        margin: 10px 0;
+      }
+
+      .upload-btn,
+      .save-btn {
+        background-color: #0061f2;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.875rem;
+      }
+
+      .upload-btn:hover,
+      .save-btn:hover {
+        background-color: #004bb5;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.875rem;
+      }
+
+      .form-control {
+        width: 80%;
+        padding: 10px;
+        border-radius: 0.35rem;
+        border: 1px solid #c5ccd6;
+        font-size: 0.875rem;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .col {
+        flex: 1;
+      }
+
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+
+        .profile-image {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .col {
+          width: 100%;
+        }
+
+        .profile-image {
+          width: 60px;
+          height: 60px;
+        }
+
+        .big_input,
+        .form-control {
+          width: 100%;
+        }
+
+        .upload-btn,
+        .save-btn {
+          width: 100%;
+          font-size: 0.875rem;
+          padding: 8px 10px;
+        }
+
+        .card-body {
+          margin-left: 0;
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Account page navigation-->
+      <nav class="nav">
+        <a class="nav-link active" href="#">Profile</a>
+        <a class="nav-link" href="#">Billing</a>
+        <a class="nav-link" href="#">Security</a>
+        <a class="nav-link" href="#">Notifications</a>
+      </nav>
+      <div class="row">
+        <div class="col profile-picture">
+          <!-- Profile picture card-->
+          <div class="card profile-card">
+            <div class="card-header">Profile Picture</div>
+            <div class="profile-card-body">
+              <!-- Profile picture image-->
+              <img
+                class="profile-image"
+                src="Profile photo.png"
+                alt="Profile Picture"
+              />
+              <!-- Profile picture help block-->
+              <div class="help-text">JPG or PNG no larger than 5 MB</div>
+              <!-- Profile picture upload button-->
+              <input
+                type="file"
+                id="profile-picture-input"
+                class="upload-btn"
+                accept="image/*"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col account-details">
+          <!-- Account details card-->
+          <div class="card details-card">
+            <div class="card-header">Account Details</div>
+            <div class="card-body">
+              <form>
+                <!-- Form Group (Username)-->
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input
+                    class="big_input"
+                    id="username"
+                    type="text"
+                    placeholder="Enter your username"
+                    value=""
+                  />
+                </div>
+                <!-- Form Group (Name)-->
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    class="big_input"
+                    id="name"
+                    type="text"
+                    placeholder="Enter your name"
+                    value=""
+                  />
+                </div>
+                <!-- Form Group (Email address)-->
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input
+                    class="big_input"
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email address"
+                    value=""
+                  />
+                </div>
+                <!-- Form Group (Phone number)-->
+                <div class="form-group">
+                  <label for="phone">Phone number</label>
+                  <input
+                    class="big_input"
+                    id="phone"
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    value=""
+                  />
+                </div>
+                <!-- Form Group (Address)-->
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input
+                    class="big_input"
+                    id="address"
+                    type="text"
+                    placeholder="Enter your address"
+                    value=""
+                  />
+                </div>
+                <!-- Form Group (user type)-->
+                <div class="form-group">
+                  <label for="user-type">User type</label>
+                  <input
+                    class="big_input"
+                    type="text"
+                    id="user-type"
+                    name="user-type"
+                    placeholder="User Type"
+                    value=""
+                  />
+                </div>
+                <!-- Form Group (Aadhaar Card Number)-->
+                <div class="form-group">
+                  <label for="aadhaar_card_number">Aadhaar Card Number</label>
+                  <input
+                    class="big_input"
+                    id="aadhaar_card_number"
+                    type="text"
+                    placeholder="Enter your Aadhaar card number"
+                    value=""
+                  />
+                </div>
+                <!-- Save changes button-->
+                <button
+                  class="btn save-btn"
+                  type="button"
+                  onclick="saveProfile()"
+                >
+                  Save changes
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+     document.addEventListener('DOMContentLoaded', () => {
+  // Function to fetch and display profile information
+  async function fetchProfile() {
+    try {
+      const token = localStorage.getItem('accessToken'); // Replace with your actual token
+      const response = await fetch('http://13.201.28.236:8000/profile-delivery-person/', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+
+      // Populate the profile fields
+      document.getElementById('username').value = data.username || '';
+      document.getElementById('name').value = data.name || '';
+      document.getElementById('email').value = data.email || '';
+      document.getElementById('phone').value = data.phone_number || '';
+      document.getElementById('address').value = data.address || '';
+      document.getElementById('user-type').value = data.user_type || '';
+      document.getElementById('aadhaar_card_number').value = data.aadhaar_card_number || '';
+
+    } catch (error) {
+      console.error('Error fetching profile data:', error);
+    }
+  }
+
+  fetchProfile();
+});
+
+    </script>
+    <script src="js/auth.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

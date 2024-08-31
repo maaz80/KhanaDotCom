@@ -2,21 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('../images/KDCBG.jpg');
-    position: relative;
+    background-color: rgba(251, 163, 0, 0.162);
 }
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.865); /* Adjust the color and opacity */
-    z-index: -1;
-}
-
 
 header {
     background-color: #16a290;
@@ -66,7 +53,7 @@ header {
 
 /* Modal Styles */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -74,8 +61,8 @@ header {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); 
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -83,13 +70,22 @@ header {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 80%;
     border-radius: 20px;
 }
-.modal-content img{
+
+.modal-content img {
     width: 100px;
 }
-
+#open-menu-button{
+    width: 80px;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 17px;
+    background-color: #16a290;
+    color: white;
+}
 .close {
     color: #aaa;
     float: right;
@@ -104,9 +100,85 @@ header {
     cursor: pointer;
 }
 
-section{
+#menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    height: 100vh;
+    gap: 15px;
+
+}
+
+#menu-modal {
+    background-color: white;
+    border-radius: 20px;
+    /* margin-top: 100px; */
+    padding-top: 50px;
+    width: 90%;
+    height: 90%;
+    margin-left: 50px;
+}
+
+.menu-item {
+    width: 150px;
+    height: 263px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    box-shadow: 2px 2px 12px black;
+}
+.details{
+    width: 90%;
+}
+.menu-item h1 {
+    font-size: 18px;
+    white-space: nowrap; 
+    overflow: hidden;   
+    text-overflow: ellipsis; /
+}
+
+.menu-item p {
+    font-size: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+.menu-item .price {
+    font-size: 18px;
+}
+
+.menu-item .imgcont {
+    width: 100%;
+    box-shadow: 2px 2px 8px gray;
+    height: 140px;
+    overflow: hidden; 
+    position: relative;
+    border-radius: 20px;
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    object-position: center;
+    padding: 0px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+section {
     margin-top: 82px;
 }
+
 .slider {
     width: 100%;
     max-width: 100%;
@@ -115,31 +187,32 @@ section{
     margin: auto;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
+}
 
-  .slides {
+.slides {
     display: flex;
     transition: transform 1s ease-in-out;
-  }
+}
 
-  .slide {
+.slide {
     min-width: 100%;
     box-sizing: border-box;
     position: relative;
     height: 100px;
-  }
+}
 
-  .slide img {
+.slide img {
     width: 100%;
     height: 100px;
     border-radius: 10px;
     filter: brightness(0.85);
     transition: filter 0.5s ease-in-out;
-  }
+}
 
-  .slide img:hover {
-    filter: brightness(1); /* Brightens image on hover */
-  }
+.slide img:hover {
+    filter: brightness(1);
+    /* Brightens image on hover */
+}
 
 main {
     padding: 1em;
@@ -344,6 +417,7 @@ h2 {
     font-size: 1.2em;
     color: #333;
 }
+
 .restaurant-item {
     text-align: center;
     margin: 10px;
@@ -355,15 +429,18 @@ h2 {
     height: 200px;
     border-radius: 8px;
 }
-.modal-details{
+
+.modal-details {
     display: flex;
     gap: 20px;
 }
-#modal-restaurant-image{
+
+#modal-restaurant-image {
     height: 140px;
     width: 200px;
 }
-#confirmLogout{
+
+#confirmLogout {
     background-color: #76e1d3;
 }
 
@@ -412,7 +489,7 @@ h2 {
     .order-details {
         font-size: medium;
         padding: 0 20px;
-    }       
+    }
 
     .ChatBot {
         bottom: 20px;
@@ -439,19 +516,17 @@ h2 {
         margin-top: 80px;
         padding-top: 20px;
     }
+
     .slider {
         border-radius: 25px;
         max-width: 73%;
-      }
-    
-      .slide {
+    }
+
+    .slide {
         height: 150px;
-      }
-    
-      .slide img {
+    }
+
+    .slide img {
         height: 200px;
-      }
+    }
 }
-
-
-

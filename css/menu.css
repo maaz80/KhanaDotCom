@@ -61,12 +61,12 @@ main {
   text-decoration: underline;
 }
 
-.restaurant-list {
+.menu-list {
   width: 79%;
 
 }
 
-.restaurant-list h2 {
+.menu-list h2 {
   font-size: 1.5em;
   margin-bottom: 20px;
 }
@@ -243,7 +243,7 @@ strong {
     margin-left: 0px;
   }
 
-  .restaurant-list {
+  .menu-list {
     width: 100%;
     margin-top: 7px;
     margin-right: 12px;
@@ -257,8 +257,8 @@ strong {
   }
 
   .restaurant-item img {
-    width: 33%;
-    height: auto;
+    width: 27%;
+    height: 50px;
   }
 
   .restaurant-info {
@@ -284,7 +284,7 @@ strong {
 @media (max-width: 480px) {
 
   .sidefilters h2,
-  .restaurant-list h2 {
+  .menu-list h2 {
     font-size: 1em;
   }
 

@@ -33,7 +33,7 @@
 
         .container {
             width: 100%;
-            margin-top: 120px;
+            margin-top: 100px;
         }
 
         #ChatBot-Box {
@@ -42,7 +42,7 @@
 
         .product-card {
             background-color: white;
-            width: 80%;
+            width: 90%;
             margin: auto;
             max-width: 90%;
             border: 1px solid #ccc;
@@ -61,22 +61,23 @@
 
         .product-header .product-date {
             font-size: 12px;
+            font-size: 9px;
         }
 
         .statuses {
             display: flex;
             justify-content: start;
             align-items: center;
-            gap: 10px;
-            width: 81%;
+            gap: 7px;
+            width: 95%;
             margin: auto;
-            font-size: 12px;
+            font-size: 8px;
             margin-bottom: 20px;
         }
 
         .status {
             border: 1px solid gray;
-            width: 90px;
+            width: 47px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -110,13 +111,13 @@
         }
 
         .product-image {
-            width: 60px;
+            width: 48px;
             border-radius: 8px;
         }
 
         .product-details {
             margin-left: 16px;
-            font-size: 14px
+            font-size: 11px
         }
 
         .product-details .product-id {
@@ -130,6 +131,32 @@
 
         .product-arrow {
             margin-top: 8px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .statuses {
+                width: 95%;
+                font-size: 12px;
+                gap: 10px;
+            }
+
+            .product-card {
+                width: 90%
+            }
+
+            .status {
+                width: 90px;
+            }
+
+            .container {
+                margin-top: 120px;
+            }
+            .product-image {
+            width: 60px;
+        }
+        .product-details {
+            font-size: 14px
+        }
         }
     </style>
 </head>

@@ -110,17 +110,17 @@
         </ul>
       </aside>
 
-      <section class="restaurant-list" id="restaurant-list">
-       
+      <section class="menu-list" id="menu-list">
+
       </section>
     </div>
     <div id="logoutPopup" class="popup">
       <div class="popup-content">
-          <p>Do you really want to logout?</p>
-          <button id="confirmLogout" class="poppins-regular">Yes</button>
-          <button id="cancelLogout" class="poppins-regular">No</button>
+        <p>Do you really want to logout?</p>
+        <button id="confirmLogout" class="poppins-regular">Yes</button>
+        <button id="cancelLogout" class="poppins-regular">No</button>
       </div>
-  </div>
+    </div>
   </main>
 
   <footer>
@@ -154,44 +154,79 @@
 
 
   <script>
-    async function fetchFood() {
-      try {
-        const response = await fetch('js/FoodData.json')
+// Fetch Menu
+const baseURL = 'http://13.201.28.236:8000';
+document.addEventListener('DOMContentLoaded',function(){
+  let URLParams = new URLSearchParams(window.location.search)
+  let restaurant_id = URLParams.get('restaurant_id')
+  if(restaurant_id){
+    fetchMenu(restaurant_id)
+  }else{
+    console.log('Restaurant id not found');
+    
+  }
+})
 
-        if (!response.ok) {
-          let error = await response.text();
-          throw new Error('Fetch the Data correctly')
-        }
-        let data = await response.json()
-          console.log(data);
-          let restaurantList = document.getElementById('restaurant-list')
-          data.forEach(restaurant => {
-            let restaurantItem =
-            ` <div class="restaurant-item">
-          <img
-            src=${restaurant.imageUrl}
-            alt="Restaurant Image" />
-          <div class="restaurant-info">
-            <h3>${restaurant.name}</h3>
-            <p>${restaurant.location}</p>
-            <p>Opens at ${restaurant.openingTime}</p>
-            <p>Min. Order: ${restaurant.minimumOrder} | Delivery Fee: ${restaurant.deliveryFee}</p>
-            <p><strong>Delivery: ${restaurant.discounts.delivery} | Collection: ${restaurant.discounts.collection}</strong></p>
-          </div>
-          <div class="buttonCont ">
-            <button class="cart cart-count poppins-regular" data-id='${restaurant.id}' data-added-to-cart="false">Cart</button>
-            <button class='detailsbutton poppins-regular'><a href="details.html?id=${restaurant.id}">Details</a></button>
-          </div>
-        </div>`
-        restaurantList.innerHTML += restaurantItem
-        })
-      } catch (error) {
-        throw new Error('Data me error aa gaya')
-      }
+
+async function fetchMenu(restaurant_id) {
+  localStorage.setItem('restaurant_id',restaurant_id)
+  console.log(restaurant_id);
+
+  try {
+    let responseMenu = await fetch(`http://13.201.28.236:8000/api/restaurants/${restaurant_id}/menu/`, {
+      method: 'GET'
+    });
+
+    if (!responseMenu.ok) {
+      let error = await responseMenu.text();
+      throw new Error(`The response was not okay: ${responseMenu.statusText} - ${error}`);
     }
-    fetchFood()
+
+    let menuItem = await responseMenu.json();
+    console.log(menuItem);
+
+    if (Array.isArray(menuItem) && menuItem.length > 0) {
+      displayMenu(menuItem);
+    } else {
+      console.error('Menu items not found or invalid data format');
+    }
+  } catch (error) {
+    console.error('There was a problem fetching the menu:', error.message);
+  }
+}
+
+function displayMenu(menuItem) {
+  const menuContainer = document.getElementById('menu-list');
+  if (!menuContainer) {
+    console.error('Menu container not found');
+    return;
+  }
+  menuContainer.innerHTML = '';
+  
+  menuItem.forEach(item => {
+    let restaurant_id = localStorage.getItem('restaurant_id')
+    let menuItemDiv = document.createElement('div');
+    menuItemDiv.classList.add('menu-item');
+    menuItemDiv.innerHTML =
+      `<div class="restaurant-item">
+          <img src="${baseURL + item.image}" alt="${item.name}" class="menu-item-image">
+          <div class="restaurant-info">
+            <h3>${item.name}</h3>
+            <p>Description: ${item.description}</p>
+            <p>Price: ₹${item.price}</p>
+          </div>
+          <div class="buttonCont">
+            <button class="cart cart-count poppins-regular" data-id='${item.id}' data-added-to-cart="false">Cart</button>
+            <button class='detailsbutton poppins-regular'><a href="details.html?restaurant_id=${restaurant_id}&itemID=${item.id}">Details</a></button>
+          </div>
+        </div>`;
+    menuContainer.appendChild(menuItemDiv);
+  });
+}
+
+
   </script>
-    <script src="js/auth.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 
 </html>

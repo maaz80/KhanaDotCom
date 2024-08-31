@@ -145,3 +145,65 @@
     </script>
   </body>
 </html>
+
+<!-- // details.js
+
+document.addEventListener('DOMContentLoaded', async function () {
+    try {
+        // Extract the item ID from the URL parameters
+        let urlParams = new URLSearchParams(window.location.search);
+        let itemID = urlParams.get('id');
+
+        if (itemID) {
+            // Fetch the data from the JSON file
+            let response = await fetch('js/FoodData.json');
+
+            if (!response.ok) {
+                let errorText = await response.text();
+                throw new Error('Fetch error: ' + errorText);
+            }
+
+            let data = await response.json();
+            console.log(data);
+
+            // Find the item with the matching ID
+            const itemIDNumber = Number(itemID);
+            const itemData = data.find(item => item.id === itemIDNumber);
+            
+            console.log(itemData);
+            
+
+            if (itemData) {
+                const itemDetailsCont = document.getElementById('item-details');
+                
+                // Construct HTML for the item details
+                let itemDetails = `
+                    <div class="restaurant-item">
+                        <img src="${itemData.imageUrl}" alt="${itemData.name}" />
+                        <div class="item-data">
+                            <h3>${itemData.name}</h3>
+                            <p>${itemData.location}</p>
+                            <p>Opens at ${itemData.openingTime}</p>
+                            <p>Min. Order: ${itemData.minimumOrder} | Delivery Fee: ${itemData.deliveryFee}</p>
+                            <p><strong>Delivery: ${itemData.discounts.delivery} | Collection: ${itemData.discounts.collection}</strong></p>
+                        </div>
+                    </div>
+                  
+                    `;
+                
+                // Set the HTML content of the item-details container
+                itemDetailsCont.innerHTML += itemDetails;
+            } else {
+                console.error('Item not found');
+                document.getElementById('item-details').innerText = 'Item not found';
+            }
+        } else {
+            console.error('No item ID provided');
+            document.getElementById('item-details').innerText = 'No item ID provided';
+        }
+    } catch (error) {
+        console.error('Error occurred: ' + error.message);
+        document.getElementById('item-details').innerText = 'An error occurred while fetching item details';
+    }
+}); -->
+

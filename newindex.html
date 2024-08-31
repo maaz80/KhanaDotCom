@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Food Delivery</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/newindex.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/HeadAndFoot.css" />
@@ -17,7 +17,7 @@
         <nav>
             <div class="logo">
                 <div class="navlogo">
-                    <img width="30" src="images/logo.png" alt="Logo">
+                    <img width="25" src="images/logo.png" alt="Logo">
                     <span>KhanaDotCom</span>
                 </div>
 
@@ -68,12 +68,12 @@
         </div>
     </header>
     <!-- ChatBot -->
-    <div class="ChatBot">
+    <!-- <div class="ChatBot">
         <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png"
                 alt="Chat"></button>
         <iframe class="ChatBot-Box" id="ChatBot-Box"
             src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
-    </div>
+    </div> -->
 
     <main>
         <section>
@@ -84,58 +84,41 @@
                     <button id="cancelLogout" class="poppins-regular">No</button>
                 </div>
             </div>
-            <!-- Category Slider -->
-            <div class="slider">
-                <div class="slides">
-                    <!-- Slide 1 -->
-                    <div class="slide">
-                        <a href="#"><img src="images/Banner1.jpg" alt="Offer 1" /></a>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="slide">
-                        <a href="#"> <img src="images/Banner2.jpg" alt="Offer 2" /></a>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="slide">
-                        <a href="#"><img src="images/Banner3.jpg" alt="Offer 3" /></a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Shipping BEnifits -->
-            <div class="shipping">
-                <div>24*7 Delivery</div>
-                <div>₹50 Delivery</div>
-                <div>Fast Delivery</div>
-                <div>24*7 Delivery</div>
-            </div>
-
-            <!-- Restaurant -->
-            <div id="restaurant-list"></div>
-            
-            <!-- Restaurant Modal HTML -->
-            <div id="restaurant-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2 id="modal-restaurant-name"></h2>
-                    <div class="modal-details">
-                        <img id="modal-restaurant-image" src="" alt="Restaurant Image">
-                        <p id="modal-restaurant-description"></p>
-                        <!-- Button to open the menu modal -->
-                        <button id="open-menu-button">Menu</button>
+            <!-- Main component -->
+            <div class="maincontent">
+                <img src="/images/platepng.png" alt="" width="100" class="plate">
+                <img src="/images/fork1.png" alt="" width="190" class="fork1">
+                <img src="/images/fork2.png" alt="" width="500" class="fork2">
+                <div class="textcontent">
+                    <h1>We serve the taste you love 🍔</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque laborum repudiandae modi,
+                        perspiciatis vero quidem impedit rem officiis fuga esse eaque neque libero et dignissimos vitae
+                        explicabo cumque facere pariatur sunt dolorem. Minima ab iusto facere. Adipisci placeat
+                        consequuntur quo excepturi! Nostrum in iusto quae id nihil incidunt odio aut.</p>
+                    <div class="buttons">
+                        <button class="button1 poppins-regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white"><path d="M280-80v-366q-51-14-85.5-56T160-600v-280h80v280h40v-280h80v280h40v-280h80v280q0 56-34.5 98T360-446v366h-80Zm400 0v-320H560v-280q0-83 58.5-141.5T760-880v800h-80Z"/></svg>
+                            Explore food
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg>
+                        </button>
+                        <button class="button2 poppins-regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+                            Search
+                        </button>
                     </div>
                 </div>
+                <div class="imgcontent">
+                    <img src="/images/logo.png" alt="">
+                </div>
+                <div class="categories">
+                    <div class="SubCategories"><img src="/images/Food.png" alt="" width="25"> Food</div>
+                    <div class="SubCategories"><img src="/images/Desert.png" alt="" width="25"> Desert</div>
+                    <div class="SubCategories"><img src="/images/Drink.png" alt="" width="25"> Drink</div>
+                    <div class="SubCategories"><img src="/images/Sweet.png" alt="" width="25"> Sweet</div>
+                    <div class="SubCategories"><img src="/images/Salad.png" alt="" width="25"> Salad</div>
+                </div>
             </div>
-
-          
-
-            <!-- Categories -->
-            <div class="category" id="category">
-                <!-- Initial items will be loaded here -->
-            </div>
-
-            <!-- Loader -->
-            <div id="loader" class="loader">Loading...</div>
 
         </section>
     </main>

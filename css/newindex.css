@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #16a290;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.plate{
+    position: absolute;
+    top: 100px ;
+    left: 20px;
+}
+.fork1{
+    position: absolute;
+    top: 60px ;
+    right: 200px;
+}
+.fork2{
+    position: absolute;
+    bottom: 10px ;
+}
+.maincontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    margin-top: 20px;
+}
+
+.textcontent {
+    width: 50%;
+
+}
+
+.textcontent p {
+    width: 70%;
+    font-size: 15px;
+}
+.buttons{
+    display: flex;
+}
+.textcontent .button1 {
+    background-color: #ea8b37;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.textcontent .button1:hover {
+    gap: 15px;
+    scale: 105%;
+}
+.textcontent .button2 {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.textcontent .button2:hover {
+    scale: 105%;
+}
+.textcontent .button2:hover {
+    background-color: #ea8b37;
+}
+
+.textcontent h1 {
+    font-size: 60px;
+}
+
+.imgcontent {
+    width: 50%;
+}
+
+.imgcontent img {
+    width: 70%;
+    margin-left: 100px;
+    margin-top: 70px;
+    opacity: 86%;
+}
+.categories{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 120px;
+}
+.SubCategories{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100px;
+    background-color: gainsboro;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.SubCategories:hover{
+    background: #ea8b37;
+
+}

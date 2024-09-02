@@ -1,372 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Owner Profile</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/Font.css" />
+    <title>User Profile</title>
     <style>
+        
+
       body {
-        margin: 20px;
-        background-color: #f2f6fc;
-        color: #69707a;
         font-family: Arial, sans-serif;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      .nav {
+        background-color: #f5f7fa;
         display: flex;
-        border-bottom: 1px solid #e5e5e5;
-        margin-bottom: 20px;
+        
+        height: 100%;
       }
-
-      .nav-link {
-        text-decoration: none;
-        color: #69707a;
-        padding: 10px 20px;
-        margin-right: 10px;
-        border-bottom: 3px solid transparent;
-        font-size: 0.875rem;
-      }
-
-      .nav-link.active {
-        color: #0061f2;
-        border-bottom-color: #0061f2;
-      }
-
-      .divider {
-        border: none;
-        border-top: 1px solid #e5e5e5;
-        margin: 20px 0;
-      }
-
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-
-      .col {
-        flex: 1;
-        width: 45rem;
-      }
-
-      .profile-picture {
-        max-width: 100%;
-      }
-
-      .profile-card,
-      .details-card {
-        background: #fff;
-        border-radius: 0.35rem;
-        box-shadow: 0 0.15rem 1.75rem rgba(33, 40, 50, 0.15);
-      }
-
-      .card-header {
-        background-color: rgba(33, 40, 50, 0.03);
-        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
-        padding: 1rem 1.35rem;
-        font-weight: 500;
-      }
-
-      .card-body {
-        margin-left: 2rem;
-        padding: 1rem 1.35rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-      }
-
-      .profile-card-body {
-        margin-left: 2rem;
-        padding: 1rem 1.35rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .big_input {
-        width: 90%;
-        padding: 10px;
-        border-radius: 0.35rem;
-        border: 1px solid #c5ccd6;
-        font-size: 0.875rem;
-      }
-
-      .profile-image {
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-      }
-
-      .help-text {
-        font-size: 0.875rem;
-        color: #69707a;
-        margin: 10px 0;
-      }
-
-      .upload-btn,
-      .save-btn {
-        background-color: #0061f2;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 0.875rem;
-      }
-
-      .upload-btn:hover,
-      .save-btn:hover {
-        background-color: #004bb5;
-      }
-
-      .form-group {
-        margin-bottom: 15px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 0.875rem;
-      }
-
-      .form-control {
-        width: 80%;
-        padding: 10px;
-        border-radius: 0.35rem;
-        border: 1px solid #c5ccd6;
-        font-size: 0.875rem;
-      }
-
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-
-      .col {
-        flex: 1;
-      }
-
-      @media (max-width: 768px) {
-        .row {
-          flex-direction: column;
+        
+        .profile-card,
+        .details-card {
+            background: #fff;
+            border-radius: 0.35rem;
+            box-shadow: 0 0.15rem 1.75rem rgba(33, 40, 50, 0.15);
+            padding: 1rem;
+            margin-bottom: 20px;
         }
 
-        .profile-image {
-          width: 80px;
-          height: 80px;
-        }
-      }
-
-      @media (max-width: 576px) {
-        .col {
-          width: 100%;
-        }
-
-        .profile-image {
-          width: 60px;
-          height: 60px;
-        }
-
-        .big_input,
-        .form-control {
-          width: 100%;
-        }
-
-        .upload-btn,
-        .save-btn {
-          width: 100%;
-          font-size: 0.875rem;
-          padding: 8px 10px;
+        .card-header {
+            background-color: rgba(33, 40, 50, 0.03);
+            border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+            padding: 1rem 1.35rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
         .card-body {
-          margin-left: 0;
-          padding: 1rem;
+            margin-left: 2rem;
+            padding: 1rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.875rem;
+        }
+
+        .form-control {
+            width: 80%;
+            padding: 10px;
+            border-radius: 0.35rem;
+            border: 1px solid #c5ccd6;
+            font-size: 0.875rem;
+        }
+
+        .form-control[readonly] {
+            background-color: #f9f9f9;
+            cursor: not-allowed;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #0061f2;
+            color: #fff;
+            border: none;
+            border-radius: 0.35rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0051d4;
+        }
+
+        @media (max-width: 768px) {
+            .card-body {
+                margin-left: 0;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-control {
+                width: 100%;
+            }
+
+            .card-body {
+                margin-left: 0;
+                padding: 1rem;
+            }
+        }
+        .container {
+        width: 90vw;
+        height: 85vh;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .image-section {
+        width: 30%;
+        text-align: center;
+        border: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin: 5px;
+        border-radius: 10px;
+        height: 350px;
+      }
+
+      .image-section img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+
+      .image-section input {
+        display: none;
+        padding-bottom: 10px;
+      }
+
+      .image-section label {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .form-section {
+        margin-top: 10px;
+        width: 70%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 5px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 15px;
+        background-color: #16a290;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+        padding: 0px 10px;
+      }
+
+      .form-group label {
+        color: #333;
+        font-weight: 12px;
+        padding: 1px;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 400px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        font-size: 14px;
+        margin-top: 2px;
+      }
+
+      .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .button-group {
+        font-size: bold;
+        margin-left: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          padding: 10px;
+          height: auto;
+        }
+
+        .image-section {
+          width: 100%;
+          border-right: none;
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+        }
+
+        .image-section img {
+          width: 100px;
+          height: 100px;
+        }
+
+        .form-section {
+          width: 100%;
+        }
+
+        .form-row {
+          flex-direction: column;
+        }
+
+        .form-group {
+          width: 100%;
         }
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+     
     <div class="container">
-      <!-- Account page navigation-->
-      <nav class="nav">
-        <a class="nav-link active" href="#">Profile</a>
-        <a class="nav-link" href="#">Billing</a>
-        <a class="nav-link" href="#">Security</a>
-        <a class="nav-link" href="#">Notifications</a>
-      </nav>
-      <div class="row">
-        <div class="col profile-picture">
-          <!-- Profile picture card-->
-          <div class="card profile-card">
-            <div class="card-header">Profile Picture</div>
-            <div class="profile-card-body">
-              <!-- Profile picture image-->
-              <img
-                class="profile-image"
-                src="Profile photo.png"
-                alt="Profile Picture"
-              />
-              <!-- Profile picture help block-->
-              <div class="help-text">JPG or PNG no larger than 5 MB</div>
-              <!-- Profile picture upload button-->
-              <input
-                type="file"
-                id="profile-picture-input"
-                class="upload-btn"
-                accept="image/*"
-              />
+       
+        <div class="image-section">
+            <div
+              style="
+                background-color: rgba(33, 40, 50, 0.03);
+                padding: 10px;
+                margin-bottom: 10px;
+              ">
+              <h4>Profile Picture</h4>
             </div>
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Profile Picture"
+              id="profileImage" />
+            <br />
+            <input type="file" id="imageUpload" accept="image/*" />
+            <label for="imageUpload">Upload new image</label>
           </div>
-        </div>
-        <div class="col account-details">
-          <!-- Account details card-->
-          <div class="card details-card">
+          <div class="form-section">
+        <div class="profile-card" id="profile-card">
             <div class="card-header">Account Details</div>
             <div class="card-body">
-              <form>
-                <!-- Form Group (Username)-->
-                <div class="form-group">
-                  <label for="username">Username</label>
-                  <input
-                    class="big_input"
-                    id="username"
-                    type="text"
-                    placeholder="Enter your username"
-                    value=""
-                  />
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" id="username" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" id="name" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input class="form-control" id="email" type="email" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number</label>
+                        <input class="form-control" id="phone" type="tel" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input class="form-control" id="address" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="user_type">User Type</label>
+                        <input class="form-control" id="user_type" type="text" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhaar_card_number">Aadhaar Card Number</label>
+                        <input class="form-control" id="aadhaar_card_number" type="text" />
+                    </div> 
+
+                    <div class="form-group">
+                        <label for="vehicle-details">Vehicle Details</label>
+                        <input class="form-control" id="vehicle-details" type="text" />
+                    </div>
+
+                    <button type="button" class="btn" onclick="updateProfile()">Update Profile</button>
                 </div>
-                <!-- Form Group (Name)-->
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input
-                    class="big_input"
-                    id="name"
-                    type="text"
-                    placeholder="Enter your name"
-                    value=""
-                  />
-                </div>
-                <!-- Form Group (Email address)-->
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input
-                    class="big_input"
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email address"
-                    value=""
-                  />
-                </div>
-                <!-- Form Group (Phone number)-->
-                <div class="form-group">
-                  <label for="phone">Phone number</label>
-                  <input
-                    class="big_input"
-                    id="phone"
-                    type="tel"
-                    placeholder="Enter your phone number"
-                    value=""
-                  />
-                </div>
-                <!-- Form Group (Address)-->
-                <div class="form-group">
-                  <label for="address">Address</label>
-                  <input
-                    class="big_input"
-                    id="address"
-                    type="text"
-                    placeholder="Enter your address"
-                    value=""
-                  />
-                </div>
-                <!-- Form Group (user type)-->
-                <div class="form-group">
-                  <label for="user-type">User type</label>
-                  <input
-                    class="big_input"
-                    type="text"
-                    id="user-type"
-                    name="user-type"
-                    placeholder="User Type"
-                    value=""
-                  />
-                </div>
-                <!-- Form Group (Aadhaar Card Number)-->
-                <div class="form-group">
-                  <label for="aadhaar_card_number">Aadhaar Card Number</label>
-                  <input
-                    class="big_input"
-                    id="aadhaar_card_number"
-                    type="text"
-                    placeholder="Enter your Aadhaar card number"
-                    value=""
-                  />
-                </div>
-                <!-- Save changes button-->
-                <button
-                  class="btn save-btn"
-                  type="button"
-                  onclick="saveProfile()"
-                >
-                  Save changes
-                </button>
-              </form>
+                </form>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <script>
-     document.addEventListener('DOMContentLoaded', () => {
-  // Function to fetch and display profile information
-  async function fetchProfile() {
-    try {
-      const token = localStorage.getItem('accessToken'); // Replace with your actual token
-      const response = await fetch('http://13.201.28.236:8000/profile-delivery-person/', {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
+        document.addEventListener("DOMContentLoaded", function () {
+            const token = localStorage.getItem("accessToken");
+            if (!token) {
+                alert("You need to login first!");
+                window.location.href = "login.html";
+                return;
+            }
+
+            fetchUserProfile(token);
+        });
+
+        function fetchUserProfile(token) {
+            fetch('http://13.201.28.236:8000/profile-user/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    
+                }
+            })
+            
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Profile API call failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(profileData => {
+                populateProfile(profileData);
+            })
+            .catch(error => {
+                console.error('Error fetching profile data:', error);
+                alert('Failed to fetch profile data.');
+            });
         }
-      });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+        function populateProfile(profileData) {
+            document.getElementById("username").value = profileData.username;
+            document.getElementById("name").value = profileData.name;
+            document.getElementById("email").value = profileData.email;
+            document.getElementById("phone").value = profileData.phone_number;
+            document.getElementById("address").value = profileData.address;
+            document.getElementById("user_type").value = profileData.user_type;
+            document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
 
-      const data = await response.json();
+            if (profileData.user_type === "delivery_person") {
+                document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
+               
+                document.getElementById("vehicle-details").value = profileData.vehicle_details || '';
+            } else {
+                document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
+                
+            }
+        }
 
-      // Populate the profile fields
-      document.getElementById('username').value = data.username || '';
-      document.getElementById('name').value = data.name || '';
-      document.getElementById('email').value = data.email || '';
-      document.getElementById('phone').value = data.phone_number || '';
-      document.getElementById('address').value = data.address || '';
-      document.getElementById('user-type').value = data.user_type || '';
-      document.getElementById('aadhaar_card_number').value = data.aadhaar_card_number || '';
+        function updateProfile() {
+            const token = localStorage.getItem("accessToken");
+            const userType = document.getElementById("user_type").value;
 
-    } catch (error) {
-      console.error('Error fetching profile data:', error);
-    }
-  }
+            let url;
+            let requestBody = {
+                username: document.getElementById("username").value,
+                name: document.getElementById("name").value,
+                phone_number: document.getElementById("phone").value,
+                address: document.getElementById("address").value,
+                aadhaar_card_number: document.getElementById("aadhaar_card_number").value,
+                
+            };
 
-  fetchProfile();
-});
+            if (userType === "restaurant_owner") {
+                url = "http://13.201.28.236:8000/update-profile-owner/";
+            } else if (userType === "delivery_person") {
+                url = "http://13.201.28.236:8000/update-profile-delivery-person/";
+                requestBody.vehicle_details = document.getElementById("vehicle-details").value;
+                requestBody.availability_status = true; // Example status, you might want to make this dynamic.
+            } else {
+                url = "http://13.201.28.236:8000/update-profile-user/";
+            }
 
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Update API call failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Profile updated successfully!');
+            })
+            .catch(error => {
+                console.error('Error updating profile:', error);
+                alert('Failed to update profile.');
+            });
+        }
     </script>
-    <script src="js/auth.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+</body>
 </html>

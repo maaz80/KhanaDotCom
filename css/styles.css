@@ -2,7 +2,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgba(251, 163, 0, 0.162);
 }
 
 header {
@@ -335,6 +334,8 @@ h2 {
     width: 100%;
     margin: auto;
     margin-top: 92px;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 10px gray;
 }
 
 .header {
@@ -362,6 +363,7 @@ h2 {
 
 .order-pricing {
     padding-left: 17px;
+    font-size: 12px;
 }
 
 .order-pricing h2 {
@@ -379,18 +381,20 @@ h2 {
 
 }
 
-.order-details h2,
+.order-details h1,
 .order-items h2 {
     margin-bottom: 10px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 .Details {
-    padding: 10px 0;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
+    font-size: 12px;
+    line-height: 10px;
 
 }
 
@@ -418,6 +422,10 @@ h2 {
     color: #333;
 }
 
+#restaurant-list {
+    display: flex;
+    justify-content: space-around;
+}
 .restaurant-item {
     text-align: center;
     margin: 10px;
@@ -446,7 +454,7 @@ h2 {
 
 @media screen and (min-width: 700px) {
     .item-img {
-        width: 15%;
+        width: 11%;
     }
 
     .items {
@@ -487,7 +495,7 @@ h2 {
     }
 
     .order-details {
-        font-size: medium;
+        font-size: 12px;
         padding: 0 20px;
     }
 
@@ -513,7 +521,7 @@ h2 {
     }
 
     .order-summary-container {
-        margin-top: 80px;
+        margin-top: 89px;
         padding-top: 20px;
     }
 

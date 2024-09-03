@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resturant Details Form</title>
     <link rel="stylesheet" href="css/Add-Res.css">
+    <link rel="stylesheet" href="css/Font.css">
     <link rel="stylesheet" href="css/HeadAndFoot.css">
-    
 
-<body>
+
+<body class="poppins-regular">
     <header>
         <nav>
             <div class="logo">
@@ -17,9 +18,14 @@
                     <img width="30" src="images/logo.png" alt="Logo">
                     <span>KhanaDotCom</span>
                 </div>
-                
+
                 <div class="signlog">
-                    <button class="login"><a href="login.html">LogIn</a></button>
+
+                    <!-- Restaurant Owner Dashboard -->
+                    <button style="visibility: hidden;"
+                        class="restaurant-owner-links poppins-regular">Dashboard</button>
+
+                    <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
                         <button class="signup-toggle" id="signup-toggle">SignUp</button>
                         <ul id="sign-menu" class="sign-menu">
@@ -31,99 +37,107 @@
                 </div>
             </div>
         </nav>
-   
 
-    <div class="dropdown">
-        <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
-        <ul id="nav-menu" class="mobile-menu">
-            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
-            <li>
-                <div class="cart-box">
-                    <img src="images/Cart.png" alt="">
-                    <span class="item-In-Cart" id="itemincart">0</span>
-                </div>
-                <a href="Cart.html">Cart</a>
-            </li>
-            <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
-            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
-            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-            <li><a href="login.html"><img src="images/Login.png" alt="">LogIn</a> </li>
-            <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
-        </ul>
-        <input type="text" placeholder="search" class="searchbar">
-        <div class="filters">
-            <button class="filter-toggle" id="filter-toggle">Filters</button>
-            <ol id="filter-menu" class="filter-menu">
-                <li>Dhaba <input type="checkbox"></li>
-                <li>Most Rated <input type="checkbox"></li>
-                <li>Chinese Retro <input type="checkbox"></li>
-                <li>Subway <input type="checkbox"></li>
-            </ol>
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="Cart.html">Cart</a>
+                </li>
+                <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
+                </li>
+                <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
+            </ul>
+            <input type="text" placeholder="search" class="searchbar">
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+    <!-- ChatBot -->
+    <div class="ChatBot">
+        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png"
+                alt="Chat"></button>
+        <iframe class="ChatBot-Box" id="ChatBot-Box"
+            src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
+    </div>
+
+    <!-- Restaurant-Owner-Dashboard  -->
+    <div class="restaurant-dashboard">
+        <div class="close-dash-cont">
+            <div class="first">--</div>
+            <div>Dashboard</div>
+            <span class="close-dash">&times;</span>
+        </div>
+        <div class="add-buttons-cont">
+            <button class="add-res poppins-regular"><a href="AddRes.html">Add Restaurant</a></button>
+            <button class="add-menu poppins-regular"><a href="AddMenu.html">Add Menu</a></button>
         </div>
     </div>
-</header>
-    <!-- ChatBot -->
-     <div class="ChatBot">
-        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png" alt="Chat"></button>
-    <iframe class="ChatBot-Box" id="ChatBot-Box"  src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
-</div>
-            <div class="form-container">
-                <h2>Restaurant Details</h2>
-                <div id="logoutPopup" class="popup">
-                    <div class="popup-content">
-                        <p>Do you really want to logout?</p>
-                        <button id="confirmLogout">Yes</button>
-                        <button id="cancelLogout">No</button>
-                    </div>
-                </div>
-                <div id="responseMessage"></div>
-                <form id="restaurantForm" >
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <textarea id="address" name="address" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone_number">Phone Number</label>
-                        <input type="text" id="phone_number" name="phone_number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Description</label>
-                        <textarea id="description" name="description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="restaurant_GST">Restaurant GST </label>
-                        <input type="text" id="restaurant_GST" name="restaurant_GST" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="profile_pic">Profile Picture</label>
-                        <input
-                          type="file"
-                          id="profile-picture"
-                          name="profile_pic"
-                          accept="image/*"
-                          required />
-                      </div>
-                    <div class="form-group">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
+
+    <div class="form-container main-content">
+        <h2>Restaurant Details</h2>
+        <div id="logoutPopup" class="popup">
+            <div class="popup-content">
+                <p>Do you really want to logout?</p>
+                <button id="confirmLogout">Yes</button>
+                <button id="cancelLogout">No</button>
             </div>
-  
+        </div>
+        <div id="responseMessage"></div>
+        <form id="restaurantForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" id="phone_number" name="phone_number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Description</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="restaurant_GST">Restaurant GST </label>
+                <input type="text" id="restaurant_GST" name="restaurant_GST" required>
+            </div>
+            <div class="form-group">
+                <label for="profile_pic">Profile Picture</label>
+                <input type="file" id="profile-picture" name="profile_pic" accept="image/*" required />
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
     <footer>
         <div class="footer-container">
-            <div class="footer-section about">
-                <h2>About</h2>
-                <p>Information about KhanaDotCom, the services we offer, and our mission.</p>
-            </div>
             <div class="footer-section contact">
                 <h2>Contact</h2>
                 <p>Email: support@khanadotcom.com</p>
@@ -143,49 +157,49 @@
         <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
     </footer>
     <script>
-        
+
         //form
         document.getElementById('restaurantForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+            e.preventDefault();
 
-    const form = document.getElementById('restaurantForm');
-    const formData = new FormData(form);
-    const token = localStorage.getItem('accessToken');
+            const form = document.getElementById('restaurantForm');
+            const formData = new FormData(form);
+            const token = localStorage.getItem('accessToken');
 
-    if (!token) {
-        console.error('Token not found');
-        return;
-    }
+            if (!token) {
+                console.error('Token not found');
+                return;
+            }
 
-    fetch('http://13.201.28.236:8000/add-restaurant/', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        const responseMessage = document.getElementById('responseMessage');
-        if (data.success) {
-            responseMessage.textContent = data.success;
-            responseMessage.style.color = 'green';
-            console.log(data.restaurant_id)
-        } else {
-            responseMessage.textContent = data.error;
-            responseMessage.style.color = 'red';
-        }
-    })
-    .catch(error => {
-        const responseMessage = document.getElementById('responseMessage');
-        responseMessage.textContent = `Error: ${error}`;
-        responseMessage.style.color = 'red';
-    });
-});
+            fetch('http://13.201.28.236:8000/add-restaurant/', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const responseMessage = document.getElementById('responseMessage');
+                    if (data.success) {
+                        responseMessage.textContent = data.success;
+                        responseMessage.style.color = 'green';
+                        console.log(data.restaurant_id)
+                    } else {
+                        responseMessage.textContent = data.error;
+                        responseMessage.style.color = 'red';
+                    }
+                })
+                .catch(error => {
+                    const responseMessage = document.getElementById('responseMessage');
+                    responseMessage.textContent = `Error: ${error}`;
+                    responseMessage.style.color = 'red';
+                });
+        });
 
 
-</script>
-<script src="js/auth.js"></script>
+    </script>
+    <script src="js/auth.js"></script>
 </body>
 
 </html>

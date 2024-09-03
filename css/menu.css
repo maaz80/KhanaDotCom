@@ -178,12 +178,8 @@ strong {
   width: 100%;
   flex-direction: row;
   display: flex;
+  min-height: 670px;
 }
-
-
-
-
-
 
 @keyframes view {
   from {

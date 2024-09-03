@@ -140,7 +140,7 @@ function startAutoScroll() {
   intervalId = setInterval(() => {
     currentIndex = (currentIndex + 1) % slideCount;
     updateSlider();
-  }, 3000); // Changes slide every 5 seconds
+  }, 2000); // Changes slide every 5 seconds
 }
 
 function pauseAutoScroll() {

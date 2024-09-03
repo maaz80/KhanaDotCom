@@ -22,8 +22,10 @@
                 </div>
 
                 <div class="signlog">
-                    <a href="AddRes.html" style="visibility: hidden;" class="restaurant-owner-links">Add Restaurant</a>
-                    <a href="AddMenu.html" style="visibility: hidden;" class="restaurant-owner-links">Add Menu</a>
+                    
+                    <!-- Restaurant Owner Dashboard -->
+                    <button style="visibility: hidden;" class="restaurant-owner-links poppins-regular">Dashboard</button>
+
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
                         <button class="signup-toggle" id="signup-toggle">SignUp</button>
@@ -69,6 +71,7 @@
             </div>
         </div>
     </header>
+
     <!-- ChatBot -->
     <div class="ChatBot">
         <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png"
@@ -77,8 +80,22 @@
             src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
     </div>
 
-    <main>
+    <!-- Restaurant-Owner-Dashboard  -->
+    <div class="restaurant-dashboard">
+        <div class="close-dash-cont">
+            <div class="first">--</div>
+            <div>Dashboard</div>
+            <span class="close-dash">&times;</span>
+        </div>
+        <div class="add-buttons-cont">
+            <button class="add-res poppins-regular"><a href="AddRes.html">Add Restaurant</a></button>
+            <button class="add-menu poppins-regular"><a href="AddMenu.html">Add Menu</a></button>
+        </div>
+    </div>
+
+    <main class="main-content">
         <section>
+            <!-- Logout Popup -->
             <div id="logoutPopup" class="popup">
                 <div class="popup-content">
                     <p>Do you really want to logout?</p>
@@ -86,6 +103,7 @@
                     <button id="cancelLogout" class="poppins-regular">No</button>
                 </div>
             </div>
+
             <!-- Category Slider -->
             <div class="slider">
                 <div class="slides">
@@ -114,7 +132,7 @@
 
             <!-- Restaurant -->
             <div id="restaurant-list"></div>
-            
+
             <!-- Restaurant Modal HTML -->
             <div id="restaurant-modal" class="modal">
                 <div class="modal-content">
@@ -129,7 +147,7 @@
                 </div>
             </div>
 
-          
+
 
             <!-- Categories -->
             <div class="category" id="category">

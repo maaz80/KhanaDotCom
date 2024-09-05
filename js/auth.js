@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const userType = data.user_type;
                         if (userType === 'restaurant_owner') {
                             const restaurantOwnerLinks = document.querySelector('.restaurant-owner-links');
-                            restaurantOwnerLinks.style.visibility = 'visible';
+                            restaurantOwnerLinks.style.display = 'flex';
                         }
                     })
                     .catch(error => {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Header Toggle Functionality
 const navMenu = document.getElementById('nav-menu');
-const filterMenu = document.getElementById('filter-menu');
+// const filterMenu = document.getElementById('filter-menu');
 const SignupMenu = document.getElementById('sign-menu');
 const ChatBot = document.getElementById('ChatBot-Box');
 
@@ -82,19 +82,19 @@ document.getElementById('menu-toggle').addEventListener('click', function (event
     ChatBot.classList.remove("show");
 });
 
-document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    filterMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-    ChatBot.classList.remove("show");
-});
+// document.getElementById('filter-toggle').addEventListener('click', function (event) {
+//     event.stopPropagation();
+//     filterMenu.classList.toggle('show');
+//     navMenu.classList.remove("show");
+//     SignupMenu.classList.remove("show");
+//     ChatBot.classList.remove("show");
+// });
 
 document.getElementById('signup-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
     SignupMenu.classList.toggle('show');
     navMenu.classList.remove("show");
-    filterMenu.classList.remove("show");
+    // filterMenu.classList.remove("show");
     ChatBot.classList.remove("show");
 });
 
@@ -103,7 +103,7 @@ document.getElementById('bot-toggle').addEventListener('click', function (event)
     ChatBot.classList.toggle("show");
     SignupMenu.classList.remove('show');
     navMenu.classList.remove("show");
-    filterMenu.classList.remove("show");
+    // filterMenu.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
@@ -116,36 +116,41 @@ document.addEventListener('click', function (event) {
 });
 
 // Cart Value Management
-document.addEventListener('DOMContentLoaded', () => {
-    let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
-    const cartCounterElement = document.getElementById('itemincart');
-    cartCounterElement.textContent = cartCount;
 
-    const addToCartButtons = document.querySelectorAll('.cart-count');
-
-    addToCartButtons.forEach(button => {
-        let buttonId = button.getAttribute('data-id');
-        buttonId = Number(buttonId);
-        let addedToCart = localStorage.getItem(`addedToCart-${buttonId}`) === 'true';
-
-        button.textContent = addedToCart ? 'Remove' : 'Cart';
-        button.addEventListener('click', () => {
-            if (!addedToCart) {
-                cartCount++;
-                button.textContent = 'Remove';
-                localStorage.setItem(`addedToCart-${buttonId}`, 'true');
-            } else {
-                cartCount--;
-                button.textContent = 'Cart';
-                localStorage.setItem(`addedToCart-${buttonId}`, 'false');
-            }
-            addedToCart = !addedToCart;
-
-            cartCounterElement.textContent = cartCount;
-            localStorage.setItem('cartCount', cartCount);
-        });
-    });
-});
+// Function to add item to the cart
+function addToCart(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (!cart.includes(itemId)) {
+      cart.push(itemId);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    updateCartCount();
+  }
+  
+  // Function to remove item from the cart
+  function removeFromCart(itemId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(id => id !== itemId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+  }
+  
+  // Function to update the cart count
+  function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCountElement = document.querySelector('.cart-count-number');
+    const itemInCartElement = document.getElementById('itemincart');
+    
+    if (cartCountElement) {
+      cartCountElement.textContent = cart.length;
+    }
+  
+    if (itemInCartElement) {
+      itemInCartElement.textContent = cart.length;
+    }
+  }
+  document.addEventListener('DOMContentLoaded', updateCartCount);
+  
 
 // Restaurant owner Dashboard toggle
 let Dashboard = document.querySelector('.restaurant-owner-links')

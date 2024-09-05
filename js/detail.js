@@ -38,7 +38,7 @@ async function fetchMenu(restaurant_id, itemID) {
                     <div class="item-data">
                         <h3>${itemData.name}</h3>
                         <p>${itemData.description}</p>
-                        <p>Price: ${itemData.price}</p>
+                        <p>Price: ₹${itemData.price}</p>
                     </div>
                 </div>
             `;

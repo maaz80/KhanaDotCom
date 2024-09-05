@@ -7,7 +7,8 @@
     <title>Cart</title>
     <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="css/Font.css">
-    <link rel="stylesheet" href="css/HeadAndFoot.css">
+    <link rel="stylesheet" href="css/NoFilterHead.css">
+    <!-- <link rel="stylesheet" href="css/HeadAndFoot.css"> -->
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 </head>
 
@@ -17,13 +18,13 @@
             <div class="logo">
                 <div class="navlogo">
                     <img width="30" src="images/logo.png" alt="Logo">
-                    <span >KhanaDotCom</span>
+                    <span>KhanaDotCom</span>
                 </div>
 
                 <div class="signlog">
 
                     <!-- Restaurant Owner Dashboard -->
-                    <button style="visibility: hidden;" class="restaurant-owner-links poppins-regular">Dashboard</button>
+                    <button class="restaurant-owner-links poppins-regular">Dashboard</button>
 
                     <button class="login loginButton"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
@@ -34,44 +35,39 @@
                             <li><a href="restaurantlogin.html">Restaurant</a></li>
                         </ul>
                     </div>
+                    <div class="dropdown">
+                        <button class="menu-toggle" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg"
+                                height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                            </svg></button>
+                        <ul id="nav-menu" class="mobile-menu">
+                            <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                            <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                            <li>
+                                <div class="cart-box">
+                                    <img src="images/Cart.png" alt="Cart">
+                                    <div class="item-In-Cart" id="itemincart">0</div>
+                                </div>
+                                <a href="cart.html">Cart</a>
+                            </li>
+                            <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                            <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                            <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                            <li><a href="login.html"><img src="images/Login.png" alt="">
+                                    <div class="loginButton">Login</div>
+                                </a>
+                            </li>
+                            <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
+                        </ul>
+
+                    </div>
                 </div>
             </div>
         </nav>
-
-        <div class="dropdown">
-            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
-            <ul id="nav-menu" class="mobile-menu">
-                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
-                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
-                <li>
-                    <div class="cart-box">
-                        <img src="images/Cart.png" alt="Cart">
-                        <span class="item-In-Cart" id="itemincart">0</span>
-                    </div>
-                    <a href="cart.html">Cart</a>
-                </li>
-                <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
-                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
-                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
-                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
-                </li>
-                <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
-            </ul>
-            <input type="text" placeholder="search" class="searchbar poppins-regular">
-            <div class="filters">
-                <button class="filter-toggle" id="filter-toggle">Filters</button>
-                <ol id="filter-menu" class="filter-menu">
-                    <li>Dhaba <input type="checkbox"></li>
-                    <li>Most Rated <input type="checkbox"></li>
-                    <li>Chinese Retro <input type="checkbox"></li>
-                    <li>Subway <input type="checkbox"></li>
-                </ol>
-            </div>
-        </div>
     </header>
 
-      <!-- Restaurant-Owner-Dashboard  -->
-      <div class="restaurant-dashboard">
+    <!-- Restaurant-Owner-Dashboard  -->
+    <div class="restaurant-dashboard">
         <div class="close-dash-cont">
             <div class="first">--</div>
             <div>Dashboard</div>
@@ -88,7 +84,8 @@
             <h2>Cart</h2>
             <div class="cart-items">
                 <div class="cart-item">
-                    <img src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380" alt="">
+                    <img src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380"
+                        alt="">
                     <div class="detailsandbuttons">
                         <div class="details">
                             <p>Dominos</p>
@@ -106,24 +103,25 @@
                     </div>
                 </div>
                 <div class="cart-item">
-                    <img src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380" alt="">
+                    <img src="https://img.freepik.com/free-photo/fresh-pasta-with-hearty-bolognese-parmesan-cheese-generated-by-ai_188544-9469.jpg?t=st=1717474040~exp=1717477640~hmac=fad183d5389c87856aedb49036f7aa570333f343328969699ee6fcf3f05ceb4a&w=1380"
+                        alt="">
                     <div class="detailsandbuttons">
-                    <div class="details">
-                        <p>Pizza Hut</p>
-                        <p>Paneer Pizza</p>
-                        <p>Price: $17.00</p>
-                    </div>
-                    <div class="buttons">
-                        <div class="quantity-controls">
-                            <button class="decrease">-</button>
-                            <span class="quantity">0</span>
-                            <button class="increase">+</button>
+                        <div class="details">
+                            <p>Pizza Hut</p>
+                            <p>Paneer Pizza</p>
+                            <p>Price: $17.00</p>
                         </div>
-                        <a href="details.html"><button class="order-button poppins-regular">Order</button></a>
+                        <div class="buttons">
+                            <div class="quantity-controls">
+                                <button class="decrease">-</button>
+                                <span class="quantity">0</span>
+                                <button class="increase">+</button>
+                            </div>
+                            <a href="details.html"><button class="order-button poppins-regular">Order</button></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div id="ChatBot-Box"><button id="bot-toggle"></button></div>
         <!-- Not for use just to remove error -->
@@ -137,7 +135,7 @@
     </main>
     <footer>
         <div class="footer-container">
-          
+
             <div class="footer-section contact">
                 <h2>Contact</h2>
                 <p>Email: support@khanadotcom.com</p>

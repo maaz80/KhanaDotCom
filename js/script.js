@@ -158,4 +158,81 @@ document.addEventListener("DOMContentLoaded", () => {
   slides.addEventListener("mouseout", resumeAutoScroll);
 });
 
+// Filter Dropdown 
+const filterMenu = document.getElementById('filter-menu');
 
+document.getElementById('filter-toggle').addEventListener('click', function (event) {
+    event.stopPropagation();
+    filterMenu.classList.toggle('show');
+    navMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+    ChatBot.classList.remove("show");
+});
+
+document.addEventListener('click', function (event) {
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
+        navMenu.classList.remove("show");
+        filterMenu.classList.remove("show");
+        SignupMenu.classList.remove("show");
+        ChatBot.classList.remove("show");
+    }
+});
+
+
+// Scroll restaurant by hand
+// const restaurantList = document.getElementById('restaurant-list');
+// let isDragging = false;
+// let startX;
+// let scrollLeft;
+
+// Mouse Down Event: When the user clicks to start dragging
+// restaurantList.addEventListener('mousedown', (e) => {
+//     isDragging = true;
+//     restaurantList.classList.add('active'); // Change cursor to grabbing
+//     startX = e.pageX - restaurantList.offsetLeft; // Get initial click position
+//     scrollLeft = restaurantList.scrollLeft; // Get current scroll position
+//     restaurantList.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
+// });
+
+// Mouse Up Event: When the user releases the mouse button
+// document.addEventListener('mouseup', () => {
+//     isDragging = false;
+//     restaurantList.classList.remove('active'); // Change cursor back to default
+//     restaurantList.style.scrollBehavior = 'smooth'; // Re-enable smooth scroll after drag
+// });
+
+// Mouse Leave Event: If the user drags the mouse out of the container
+// restaurantList.addEventListener('mouseleave', () => {
+//     isDragging = false;
+//     restaurantList.classList.remove('active');
+//     restaurantList.style.scrollBehavior = 'smooth';
+// });
+
+// Mouse Move Event: Move the list only if the mouse is clicked and held (dragging)
+// restaurantList.addEventListener('mousemove', (e) => {
+//     if (!isDragging) return; // Only execute if the mouse is clicked down
+//     e.preventDefault(); // Prevent default behavior (like text selection)
+//     const x = e.pageX - restaurantList.offsetLeft; // Current mouse position
+//     const walk = (x - startX) * 2; // Calculate how far the mouse moved
+//     restaurantList.scrollLeft = scrollLeft - walk; // Scroll based on movement
+// });
+
+// Handle touch events for mobile devices (similar to mouse events)
+// restaurantList.addEventListener('touchstart', (e) => {
+//     isDragging = true;
+//     startX = e.touches[0].pageX - restaurantList.offsetLeft;
+//     scrollLeft = restaurantList.scrollLeft;
+//     restaurantList.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
+// });
+
+// restaurantList.addEventListener('touchend', () => {
+//     isDragging = false;
+//     restaurantList.style.scrollBehavior = 'smooth'; // Re-enable smooth scroll
+// });
+
+// restaurantList.addEventListener('touchmove', (e) => {
+//     if (!isDragging) return;
+//     const x = e.touches[0].pageX - restaurantList.offsetLeft;
+//     const walk = (x - startX) * 2;
+//     restaurantList.scrollLeft = scrollLeft - walk;
+// });

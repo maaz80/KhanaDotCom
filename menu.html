@@ -11,9 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/Font.css" />
   <link rel="stylesheet" href="css/HeadAndFoot.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
 </head>
 
 <body class="poppins-regular">
@@ -25,9 +22,9 @@
           <span>KhanaDotCom</span>
         </div>
         <div class="signlog">
-          
-                    <!-- Restaurant Owner Dashboard -->
-                    <button style="visibility: hidden;" class="restaurant-owner-links poppins-regular">Dashboard</button>
+
+          <!-- Restaurant Owner Dashboard -->
+          <button class="restaurant-owner-links poppins-regular">Dashboard</button>
 
           <button class="login loginButton"><a href="login.html">LogIn</a></button>
           <div class="signupdrop">
@@ -73,6 +70,9 @@
           <a href="login.html"><img src="images/Login.png" alt="" /><span class="loginButton">Login</span></a>
         </li>
       </ul>
+
+      <input type="search" placeholder="search" class="searchbar poppins-regular" tabindex="-1">
+
       <div class="filters">
         <button class="filter-toggle" id="filter-toggle">Filters</button>
         <ol id="filter-menu" class="filter-menu">
@@ -85,17 +85,17 @@
     </div>
   </header>
 
-    <!-- Restaurant-Owner-Dashboard  -->
-    <div class="restaurant-dashboard">
-      <div class="close-dash-cont">
-          <div class="first">--</div>
-          <div>Dashboard</div>
-          <span class="close-dash">&times;</span>
-      </div>
-      <div class="add-buttons-cont">
-          <button class="add-res poppins-regular"><a href="AddRes.html">Add Restaurant</a></button>
-          <button class="add-menu poppins-regular"><a href="AddMenu.html">Add Menu</a></button>
-      </div>
+  <!-- Restaurant-Owner-Dashboard  -->
+  <div class="restaurant-dashboard">
+    <div class="close-dash-cont">
+      <div class="first">--</div>
+      <div>Dashboard</div>
+      <span class="close-dash">&times;</span>
+    </div>
+    <div class="add-buttons-cont">
+      <button class="add-res poppins-regular"><a href="AddRes.html">Add Restaurant</a></button>
+      <button class="add-menu poppins-regular"><a href="AddMenu.html">Add Menu</a></button>
+    </div>
   </div>
 
   <main class="main-content">
@@ -169,80 +169,7 @@
     <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
   </footer>
 
-
-  <script>
-// Fetch Menu
-const baseURL = 'http://13.201.28.236:8000';
-document.addEventListener('DOMContentLoaded',function(){
-  let URLParams = new URLSearchParams(window.location.search)
-  let restaurant_id = URLParams.get('restaurant_id')
-  if(restaurant_id){
-    fetchMenu(restaurant_id)
-  }else{
-    console.log('Restaurant id not found');
-    
-  }
-})
-
-
-async function fetchMenu(restaurant_id) {
-  localStorage.setItem('restaurant_id',restaurant_id)
-  console.log(restaurant_id);
-
-  try {
-    let responseMenu = await fetch(`http://13.201.28.236:8000/api/restaurants/${restaurant_id}/menu/`, {
-      method: 'GET'
-    });
-
-    if (!responseMenu.ok) {
-      let error = await responseMenu.text();
-      throw new Error(`The response was not okay: ${responseMenu.statusText} - ${error}`);
-    }
-
-    let menuItem = await responseMenu.json();
-    console.log(menuItem);
-
-    if (Array.isArray(menuItem) && menuItem.length > 0) {
-      displayMenu(menuItem);
-    } else {
-      console.error('Menu items not found or invalid data format');
-    }
-  } catch (error) {
-    console.error('There was a problem fetching the menu:', error.message);
-  }
-}
-
-function displayMenu(menuItem) {
-  const menuContainer = document.getElementById('menu-list');
-  if (!menuContainer) {
-    console.error('Menu container not found');
-    return;
-  }
-  menuContainer.innerHTML = '';
-  
-  menuItem.forEach(item => {
-    let restaurant_id = localStorage.getItem('restaurant_id')
-    let menuItemDiv = document.createElement('div');
-    menuItemDiv.classList.add('menu-item');
-    menuItemDiv.innerHTML =
-      `<div class="restaurant-item">
-          <img src="${baseURL + item.image}" alt="${item.name}" class="menu-item-image">
-          <div class="restaurant-info">
-            <h3>${item.name}</h3>
-            <p>Description: ${item.description}</p>
-            <p>Price: ₹${item.price}</p>
-          </div>
-          <div class="buttonCont">
-            <button class="cart cart-count poppins-regular" data-id='${item.id}' data-added-to-cart="false">Cart</button>
-            <button class='detailsbutton poppins-regular'><a href="details.html?restaurant_id=${restaurant_id}&itemID=${item.id}">Details</a></button>
-          </div>
-        </div>`;
-    menuContainer.appendChild(menuItemDiv);
-  });
-}
-
-
-  </script>
+  <script src="js/menu.js"></script>
   <script src="js/auth.js"></script>
 </body>
 

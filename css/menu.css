@@ -178,7 +178,7 @@ strong {
   width: 100%;
   flex-direction: row;
   display: flex;
-  min-height: 670px;
+  min-height: 630px;
 }
 
 @keyframes view {

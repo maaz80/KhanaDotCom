@@ -28,24 +28,6 @@ nav {
     font-weight: 700;
 }
 
-.searchbar {
-    width: 50%;
-    border: 1px solid black;
-    border-radius: 3px;
-    background-color: transparent;
-    color: black;
-    padding: 1px 5px;
-}
-
-input[type="search"] {
-    outline: none;
-}
-
-.searchbar::placeholder {
-    color: rgb(0, 0, 0);
-    opacity: 0.7;
-}
-
 .loader {
     text-align: center;
     margin-top: 50px;
@@ -55,8 +37,8 @@ input[type="search"] {
 .dropdown ul {
     display: none;
     position: absolute;
-    top: 68px;
-    left: 0px;
+    top: 31px;
+    right: 0px;
     background-color: white;
     color: black;
     width: 170px;
@@ -73,7 +55,6 @@ input[type="search"] {
 .dropdown {
     display: flex;
     justify-content: space-between;
-    background-color: #76e1d3;
     align-items: center;
 }
 
@@ -85,10 +66,8 @@ input[type="search"] {
     gap: 9px;
     padding: 10px 0px;
     padding-left: 5px;
-    /* Adjust this value as needed */
     border-radius: 5px;
     box-sizing: border-box;
-    /* Ensure padding is included in width */
     text-align: var(150px);
 }
 
@@ -112,6 +91,7 @@ input[type="search"] {
     border: none;
     color: white;
     font-size: 22px;
+    margin-top: 4px;
 }
 
 .dropdown ul.show {
@@ -132,6 +112,9 @@ li img {
 
 .signlog {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
 }
 
 .signupdrop ul {
@@ -154,7 +137,7 @@ li img {
 .signupdrop {
     display: flex;
     justify-content: space-between;
-    background-color: transparent;
+    background-color: #16a290;
     align-items: center;
 }
 
@@ -203,62 +186,6 @@ li img {
 
 .signupdrop ul.show {
     display: flex;
-}
-
-.filters ol {
-    display: none;
-    position: absolute;
-    top: 66px;
-    right: 8px;
-    background-color: white;
-    color: black;
-    width: 170px;
-    list-style: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    padding-left: 0px;
-    box-shadow: -6px 5px 12px black;
-
-}
-
-.filters ol li {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 9px;
-    padding: 10px 0px;
-    padding-left: 10px;
-    /* Adjust this value as needed */
-    padding-right: 10px;
-    /* Adjust this value as needed */
-    border-radius: 5px;
-    box-sizing: border-box;
-    /* Ensure padding is included in width */
-    text-align: var(150px);
-}
-
-.filters ol li a {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-}
-
-.filter-toggle {
-    background-color: transparent;
-    border: none;
-    color: black;
-    font-size: 17px;
-}
-
-.filters ol.show {
-    display: flex;
-}
-
-.filters ol li:hover {
-    background-color: lightgray;
 }
 
 .login {
@@ -412,7 +339,7 @@ footer p {
     border-radius: 20px;
     display: none;
     padding-bottom: 10px;
-    transition:  0.3s ease;
+    transition: 0.3s ease;
 }
 
 .close-dash-cont {
@@ -476,8 +403,8 @@ footer p {
 
     .dropdown ul {
         width: 170px;
-        top: 69px;
-        left: 20px;
+        top: 34px;
+        right: 0px;
     }
 
     .dropdown ul li {
@@ -488,6 +415,10 @@ footer p {
         width: 170px;
         top: 69px;
         right: 20px;
+    }
+
+    .signlog {
+        gap: 10px;
     }
 
     .signupdrop ul {
@@ -521,11 +452,6 @@ footer p {
 
     .signup-toggle {
         font-size: 17px;
-    }
-
-    .searchbar {
-        width: 70%;
-        padding: 4px 5px;
     }
 
     .footer-section {

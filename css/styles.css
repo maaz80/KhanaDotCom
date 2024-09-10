@@ -71,12 +71,17 @@ header {
     border: 1px solid #888;
     width: 80%;
     border-radius: 20px;
+    position: fixed;
+    left: 50%;
+    top: -100px;
+    translate: -50%;
 }
 
 .modal-content img {
     width: 100px;
 }
-#open-menu-button{
+
+#open-menu-button {
     width: 80px;
     margin: auto;
     border-radius: 5px;
@@ -85,6 +90,7 @@ header {
     background-color: #16a290;
     color: white;
 }
+
 .close {
     color: #aaa;
     float: right;
@@ -131,14 +137,16 @@ header {
     flex-direction: column;
     box-shadow: 2px 2px 12px black;
 }
-.details{
+
+.details {
     width: 90%;
 }
+
 .menu-item h1 {
     font-size: 18px;
-    white-space: nowrap; 
-    overflow: hidden;   
-    text-overflow: ellipsis; /
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;/
 }
 
 .menu-item p {
@@ -148,7 +156,7 @@ header {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    
+
 }
 
 .menu-item .price {
@@ -159,7 +167,7 @@ header {
     width: 100%;
     box-shadow: 2px 2px 8px gray;
     height: 140px;
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
     border-radius: 20px;
 }
@@ -427,9 +435,10 @@ h2 {
     white-space: nowrap;
     cursor: grab;
 }
+
 .restaurant-item {
     text-align: center;
-    animation: scroll-left 5s linear infinite;
+    animation: scroll-left 15s linear infinite;
     margin: 10px;
     background-color: white;
     border: 1px solid lightgray;
@@ -439,28 +448,34 @@ h2 {
 }
 
 @keyframes scroll-left {
-    0%{
-        transform:translateX((1%))
+    0% {
+        transform: translateX((1%))
     }
-    100%{
-        transform: translateX(-100%);
+
+    100% {
+        transform: translateX(-1000%);
     }
 }
 
-#restaurant-list:active{
+#restaurant-list:active {
     cursor: grabbing;
     animation-play-state: paused;
 }
-.restaurant-item h3{
+
+.restaurant-item h3 {
     background-color: lightgray;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 20%;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+    width: 100%;
+    font-size: 15px;
     display: flex;
     margin-top: -7px;
 }
+
 .restaurant-image {
     user-select: none;
     width: 140px;
@@ -483,6 +498,63 @@ h2 {
 #confirmLogout {
     background-color: #76e1d3;
 }
+
+/* Rating */
+.rating-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.rating-head {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.stars svg {
+    width: 40px;
+    height: 40px;
+    fill: none;
+    stroke: #ccc;
+    cursor: pointer;
+}
+
+.stars svg:hover,
+.stars svg.selected {
+    stroke: #FFD700;
+    fill: #FFD700;
+
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#submitBtn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+
 
 @media screen and (min-width: 700px) {
     .item-img {
@@ -568,12 +640,15 @@ h2 {
     .slide img {
         height: 200px;
     }
+
     .restaurant-item {
         height: 246px;
     }
-    .restaurant-item h3{
+
+    .restaurant-item h3 {
         height: 20%;
     }
+
     .restaurant-image {
         width: 240px;
         height: 200px;

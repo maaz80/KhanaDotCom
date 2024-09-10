@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     <style>
-        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
 
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f7fa;
-        display: flex;
-        
-        height: 100%;
-      }
-        
+            height: 100%;
+        }
+
         .profile-card,
         .details-card {
             background: #fff;
@@ -25,11 +25,12 @@
         }
 
         .card-header {
-            background-color: rgba(33, 40, 50, 0.03);
+            background-color:  #16a290;
             border-bottom: 1px solid rgba(33, 40, 50, 0.125);
             padding: 1rem 1.35rem;
             font-weight: 500;
             margin-bottom: 1rem;
+            color: #fff;
         }
 
         .card-body {
@@ -55,7 +56,7 @@
             width: 80%;
             padding: 10px;
             border-radius: 0.35rem;
-            border: 1px solid #c5ccd6;
+            border: 1px solid #f5f7fa;
             font-size: 0.875rem;
         }
 
@@ -66,7 +67,7 @@
 
         .btn {
             padding: 10px 20px;
-            background-color: #0061f2;
+            background-color: #16a290;
             color: #fff;
             border: none;
             border-radius: 0.35rem;
@@ -74,332 +75,490 @@
         }
 
         .btn:hover {
-            background-color: #0051d4;
+            background-color: #16a290;
         }
 
-        @media (max-width: 768px) {
-            .card-body {
-                margin-left: 0;
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .form-control {
-                width: 100%;
-            }
-
-            .card-body {
-                margin-left: 0;
-                padding: 1rem;
-            }
-        }
+       
         .container {
-        width: 90vw;
-        height: 85vh;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .image-section {
-        width: 30%;
-        text-align: center;
-        border: 1px solid #ddd;
-        padding-bottom: 20px;
-        margin: 5px;
-        border-radius: 10px;
-        height: 350px;
-      }
-
-      .image-section img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-      }
-
-      .image-section input {
-        display: none;
-        padding-bottom: 10px;
-      }
-
-      .image-section label {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .form-section {
-        margin-top: 10px;
-        width: 70%;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin: 5px;
-      }
-
-      h2 {
-        text-align: center;
-        margin-top: 15px;
-        background-color: #16a290;
-        padding: 10px;
-        border-radius: 5px;
-        color: white;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        width: 48%;
-        padding: 0px 10px;
-      }
-
-      .form-group label {
-        color: #333;
-        font-weight: 12px;
-        padding: 1px;
-      }
-
-      .form-group input,
-      .form-group select {
-        width: 400px;
-        padding: 8px;
-        border-radius: 5px;
-        border: 1px solid #ced4da;
-        font-size: 14px;
-        margin-top: 2px;
-      }
-
-      .form-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-
-      button {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        display: inline-block;
-        margin-right: 10px;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-
-      .button-group {
-        font-size: bold;
-        margin-left: 20px;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column;
-          padding: 10px;
-          height: auto;
+            width: 90vw;
+            height: 85vh;
+            display: flex;
+            justify-content: space-between;
         }
-
-        .image-section {
-          width: 100%;
-          border-right: none;
-          border-bottom: 1px solid #ddd;
-          padding-bottom: 10px;
-          margin-bottom: 10px;
-        }
-
-        .image-section img {
-          width: 100px;
-          height: 100px;
-        }
+       
 
         .form-section {
-          width: 100%;
+            margin-top: 10px;
+            width: 70%;
+            border: 1px solid#f5f7fa;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+       
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            padding: 0px 10px;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 12px;
+            padding: 1px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 300px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            font-size: 14px;
+            margin-top: 2px;
         }
 
         .form-row {
-          flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
-        .form-group {
-          width: 100%;
+        button {
+            background-color: #16a290;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 10px;
         }
-      }
+
+        button:hover {
+            background-color: #16a290;
+        }
+
+        .button-group {
+            font-size: bold;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+                height: auto;
+            }
+
+            .form-section {
+                width: 100%;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            .form-group {
+                width: 100%;
+            }
+        }
+
+        
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #16a290;
+            padding-top: 20px;
+        }
+
+        .sidebar img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .sidebar .username {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:#16a290;
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-size: 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sidebar button:hover {
+            background-color:#16a290;
+        }
+
+        .sidebar button.active {
+            background-color: #16a290;
+        }
+
+        .sidebar button i {
+            margin-right: 10px;
+        }
+
+        .sidebar button .dropdown-arrow {
+            margin-left: auto;
+            transition: transform 0.3s;
+        }
+
+        .sidebar button.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-container {
+            display: none;
+            background-color: #16a290;
+            padding-left: 8px;
+        }
+
+        .dropdown-container a {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+
+        .dropdown-container a:hover {
+            background-color:#16a290;
+        }
+        .container {
+            margin-left: 260px;
+            width: calc(100% - 260px);
+            padding: 20px;
+        }
+
+      
     </style>
 </head>
+
 <body>
-     
+
     <div class="container">
-       
-        <div class="image-section">
-            <div
-              style="
-                background-color: rgba(33, 40, 50, 0.03);
-                padding: 10px;
-                margin-bottom: 10px;
-              ">
-              <h4>Profile Picture</h4>
-            </div>
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Profile Picture"
-              id="profileImage" />
-            <br />
-            <input type="file" id="imageUpload" accept="image/*" />
-            <label for="imageUpload">Upload new image</label>
-          </div>
-          <div class="form-section">
-        <div class="profile-card" id="profile-card">
-            <div class="card-header">Account Details</div>
-            <div class="card-body">
-                <form id="profile-form">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input class="form-control" id="username" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input class="form-control" id="name" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input class="form-control" id="email" type="email" readonly />
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone number</label>
-                        <input class="form-control" id="phone" type="tel" />
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input class="form-control" id="address" type="text" />
-                    </div>
-                    <div class="form-group">
-                        <label for="user_type">User Type</label>
-                        <input class="form-control" id="user_type" type="text" readonly />
-                    </div>
-                    <div class="form-group">
-                        <label for="aadhaar_card_number">Aadhaar Card Number</label>
-                        <input class="form-control" id="aadhaar_card_number" type="text" />
-                    </div> 
-
-                    <div class="form-group">
-                        <label for="vehicle-details">Vehicle Details</label>
-                        <input class="form-control" id="vehicle-details" type="text" />
-                    </div>
-
-                    <button type="button" class="btn" onclick="updateProfile()">Update Profile</button>
-                </div>
-                </form>
-            </div>
+        <!-- Sidebar Section -->
+    <div class="sidebar">
+        <!-- Profile Picture and Name -->
+        <img src="https://via.placeholder.com/100" alt="Profile Picture" />
+        
+        <input class="form-control" id="fullname" type="text" readonly  style="background-color: #16a290; border-color: #16a290; color: #fff; text-align: center; font-size: large;"/>
+        <!-- Dropdown Buttons with Icons and Arrows -->
+        <button class="dropdown-btn">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Overview</a>
+            <a href="#">Stats</a>
+            <a href="#">Reports</a>
         </div>
+
+        <button class="dropdown-btn">
+            <i class="fas fa-shopping-cart"></i> Order
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">New Orders</a>
+            <a href="#">Order History</a>
+            <a href="#">Pending Orders</a>
+        </div>
+
+        <button class="dropdown-btn">
+            <i class="fas fa-utensils"></i> Menu
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">View Menu</a>
+            <a href="#">Edit Menu</a>
+            <a href="#">Add Item</a>
+        </div>
+        <div>
+          
+          <button id="changePasswordButton" class="btn" type="button" onclick="togglePasswordChange()" >Change Password</button>
+        </div>
+        
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const token = localStorage.getItem("accessToken");
-            if (!token) {
-                alert("You need to login first!");
-                window.location.href = "login.html";
-                return;
-            }
+        <div class="form-section">
+            <div class="profile-card" id="profile-card">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input class="form-control" id="username" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input class="form-control" id="name" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input class="form-control" id="email" type="email" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input class="form-control" id="phone" type="tel" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input class="form-control" id="address" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="user_type">User Type</label>
+                            <input class="form-control" id="user_type" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="aadhaar_card_number">Aadhaar Card Number</label>
+                            <input class="form-control" id="aadhaar_card_number" type="text" readonly />
+                        </div>
 
-            fetchUserProfile(token);
+                        <button type="button" class="btn" onclick="updateProfile()" style="font-size: medium; width: 200px;">Change Information</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Change Password Section -->
+<div id="change-password-section" style="display: none;">
+    <div class="profile-card">
+        <div class="card-header">Change Password</div>
+        <div class="card-body">
+            <form id="change-password-form">
+                <div class="form-group">
+                    <label for="current_password">Current password</label>
+                    <input class="form-control" id="current_password" type="password" />
+                </div>
+                <div class="form-group">
+                    <label for="new_password">New Password</label>
+                    <input class="form-control" id="new_password" type="password" />
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input class="form-control" id="confirm-password" type="password" />
+                </div>
+                <br>
+                <button type="button" class="btn" onclick="changePassword()">Save Password</button>
+            </form>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <script>
+ // JavaScript for Sidebar Dropdown Functionality
+ const dropdowns = document.querySelectorAll('.dropdown-btn');
+        dropdowns.forEach(button => {
+            button.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+            });
         });
 
-        function fetchUserProfile(token) {
-            fetch('http://13.201.28.236:8000/profile-user/', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`
+            //profile
+            let isEditing = false;
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const token = localStorage.getItem("accessToken");
+                if (!token) {
+                    alert("You need to login first!");
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                fetchUserProfile(token);
+            });
+
+            function fetchUserProfile(token) {
+                fetch('http://13.201.28.236:8000/profile-user/', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Profile API call failed with status ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(profileData => {
+                        populateProfile(profileData);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching profile data:', error);
+                        alert('Failed to fetch profile data.');
+                    });
+            }
+
+            function populateProfile(profileData) {
+                document.getElementById("username").value = profileData.username;
+                document.getElementById("name").value = profileData.name;
+                document.getElementById("fullname").value = profileData.name;
+                document.getElementById("email").value = profileData.email;
+                document.getElementById("phone").value = profileData.phone_number;
+                document.getElementById("address").value = profileData.address;
+                document.getElementById("user_type").value = profileData.user_type;
+                document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
+            }
+
+
+            function updateProfile() {
+                const fields = document.querySelectorAll('.form-control');
+                const updateButton = document.querySelector('.btn');
+
+                if (!isEditing) {
+                    // Enable editing by removing readonly attribute
+                    fields.forEach(field => {
+                        if (!field.hasAttribute('readonly') || field.id === 'email' || field.id === 'user_type') {
+                            return;
+                        }
+                        field.removeAttribute('readonly');
+                    });
+
                     
-                }
-            })
-            
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Profile API call failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(profileData => {
-                populateProfile(profileData);
-            })
-            .catch(error => {
-                console.error('Error fetching profile data:', error);
-                alert('Failed to fetch profile data.');
-            });
-        }
+                    isEditing = true;
+                } else {
+                    // Save the profile changes
+                    const token = localStorage.getItem("accessToken");
+                    const userType = document.getElementById("user_type").value;
 
-        function populateProfile(profileData) {
-            document.getElementById("username").value = profileData.username;
-            document.getElementById("name").value = profileData.name;
-            document.getElementById("email").value = profileData.email;
-            document.getElementById("phone").value = profileData.phone_number;
-            document.getElementById("address").value = profileData.address;
-            document.getElementById("user_type").value = profileData.user_type;
-            document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
+                    let url;
+                    let requestBody = {
+                        username: document.getElementById("username").value,
+                        name: document.getElementById("name").value,
+                        fullname: document.getElementById("fullname").value,
+                        phone_number: document.getElementById("phone").value,
+                        address: document.getElementById("address").value,
+                        aadhaar_card_number: document.getElementById("aadhaar_card_number").value,
+                    };
 
-            if (profileData.user_type === "delivery_person") {
-                document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
-               
-                document.getElementById("vehicle-details").value = profileData.vehicle_details || '';
-            } else {
-                document.getElementById("aadhaar_card_number").value = profileData.aadhaar_card_number;
-                
+                    if (userType === "restaurant_owner") {
+                        url = "http://13.201.28.236:8000/update-profile-owner/";
+                    } else if (userType === "delivery_person") {
+                        url = "http://13.201.28.236:8000/update-profile-delivery-person/";
+                        requestBody.vehicle_details = document.getElementById("vehicle-details").value;
+                    } else {
+                        url = "http://13.201.28.236:8000/update-profile-user/";
+                    }
+
+                    fetch(url, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(requestBody)
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Update API call failed with status ${response.status}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            alert('Profile updated successfully!');
+
+                            // Disable editing by adding readonly attribute back to all fields except email and user_type
+                            fields.forEach(field => {
+                                if (!field.hasAttribute('readonly') && field.id !== 'email' && field.id !== 'user_type') {
+                                    field.setAttribute('readonly', 'readonly');
+                                }
+                            });
+
+                           
+                            isEditing = false;
+                        })
+                        .catch(error => {
+                            console.error('Error updating profile:', error);
+                            alert('Failed to update profile.');
+                        });
+                }
             }
+//password change request
+            function togglePasswordChange() {
+    const profileCard = document.getElementById("profile-card");
+    const changePasswordSection = document.getElementById("change-password-section");
+    const changePasswordButton = document.getElementById("changePasswordButton");
+
+    if (changePasswordSection.style.display === "none") {
+        profileCard.style.display = "none";
+        changePasswordSection.style.display = "block";
+        changePasswordButton.textContent = "Cancel";
+    } else {
+        profileCard.style.display = "block";
+        changePasswordSection.style.display = "none";
+        changePasswordButton.textContent = "Change Password";
+    }
+}
+
+function changePassword() {
+    const token = localStorage.getItem("accessToken");
+    const current_password = document.getElementById("current_password").value;
+    const new_Password = document.getElementById("new_password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+
+    if (new_Password !== confirmPassword) {
+        alert("New password and confirm password do not match!");
+        return;
+    }
+
+    fetch("http://13.201.28.236:8000/change-password/", {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            current_password: current_password,
+            new_password: new_Password
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Password change failed with status ${response.status}`);
         }
+        return response.json();
+    })
+    .then(data => {
+        alert('Password changed successfully!');
+        togglePasswordChange();  // Return to Account Details view
+    })
+    .catch(error => {
+        console.error('Error changing password:', error);
+        alert('Failed to change password.');
+    });
+}
 
-        function updateProfile() {
-            const token = localStorage.getItem("accessToken");
-            const userType = document.getElementById("user_type").value;
-
-            let url;
-            let requestBody = {
-                username: document.getElementById("username").value,
-                name: document.getElementById("name").value,
-                phone_number: document.getElementById("phone").value,
-                address: document.getElementById("address").value,
-                aadhaar_card_number: document.getElementById("aadhaar_card_number").value,
-                
-            };
-
-            if (userType === "restaurant_owner") {
-                url = "http://13.201.28.236:8000/update-profile-owner/";
-            } else if (userType === "delivery_person") {
-                url = "http://13.201.28.236:8000/update-profile-delivery-person/";
-                requestBody.vehicle_details = document.getElementById("vehicle-details").value;
-                requestBody.availability_status = true; // Example status, you might want to make this dynamic.
-            } else {
-                url = "http://13.201.28.236:8000/update-profile-user/";
-            }
-
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestBody)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Update API call failed with status ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                alert('Profile updated successfully!');
-            })
-            .catch(error => {
-                console.error('Error updating profile:', error);
-                alert('Failed to update profile.');
-            });
-        }
-    </script>
+        </script>
 </body>
+</body>
+
 </html>

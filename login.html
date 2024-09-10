@@ -88,9 +88,9 @@
         <div class="login-container">
             <h2>Login</h2>
             <form id="login-form">
-                <input type="text" id="email" name="email" placeholder="Email" required />
+                <input type="text" id="email" name="email" placeholder="Email" class="poppins-regular" required />
                 <input type="password" id="password" name="password" placeholder="Password" required />
-                <button type="submit">Login</button>
+                <button type="submit" class="poppins-regular">Login</button>
             </form>
             <a href="#" id="forgot-password" class="register-link">Forgot password?</a>
             <a href="customer.html" class="register-link">Don't have an account? SignUp</a>
@@ -179,7 +179,7 @@
                         console.log("Login successful, token:", token);
                         localStorage.setItem('isLoggedIn', 'true')
                         
-                        window.location.href = '/profile.html';
+                        window.location.href = '/index.html';
                     }
                 } catch (error) {
                     console.error("Login error:", error);

@@ -107,9 +107,8 @@ document.getElementById('bot-toggle').addEventListener('click', function (event)
 });
 
 document.addEventListener('click', function (event) {
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
+    if (!navMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
         navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
         SignupMenu.classList.remove("show");
         ChatBot.classList.remove("show");
     }

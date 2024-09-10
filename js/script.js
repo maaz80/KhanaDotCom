@@ -74,8 +74,29 @@ window.onclick = function (event) {
   }
 };
 
+// Rating
+const stars = document.querySelectorAll('#star-rating .star');
+let selectedRating = 0;
 
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        selectedRating = star.getAttribute('data-value');
+        
+        // Reset star colors
+        stars.forEach(s => s.classList.remove('selected'));
+        
+        // Highlight selected stars
+        for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.add('selected');
+        }
+    });
+});
 
+document.getElementById('submitBtn').addEventListener('click', () => {
+    const reviewText = document.getElementById('review').value;
+    console.log(`Rating: ${selectedRating} stars`);
+    console.log(`Review: ${reviewText}`);
+});
 
 
 // index.html

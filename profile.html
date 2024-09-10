@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/NoFilterHead.css" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="poppins-regular">
@@ -67,8 +67,8 @@
         </nav>
     </header>
 
-      <!-- Restaurant-Owner-Dashboard  -->
-      <div class="restaurant-dashboard">
+    <!-- Restaurant-Owner-Dashboard  -->
+    <div class="restaurant-dashboard">
         <div class="close-dash-cont">
             <div class="first">--</div>
             <div>Dashboard</div>
@@ -80,111 +80,235 @@
         </div>
     </div>
 
-    <div class="container main-content">
-        <section class="profile">
-            <h2>Profile Information</h2>
-            <div class="profile-picture">
-                <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profile-picture"><br>
-                <input class="poppins-regular" type="file" accept="image/*" id="profile-picture-input">
-
-            </div>
-            <div class="profile-section">
-                <h3>Contact Information</h3>
-                <div class="row">
-                    <label for="name">Name:</label>
-                    <input class="poppins-regular" type="text" id="name">
+ <!-- Change Password Section -->
+ <div id="change-password-section" >
+    <div class="profile-card-pass" >
+        <div class="card-header">Change Password <div class="close-pass">&times;</div></div>
+        <div class="card-body">
+            <form id="change-password-form">
+                <div class="form-group">
+                    <label for="current_password">Current password</label>
+                    <input class="form-control poppins-regular" id="current_password" type="password" />
                 </div>
-                <div class="row">
-                    <label for="email">Email:</label>
-                    <input class="poppins-regular" type="email" id="email">
+                <div class="form-group">
+                    <label for="new_password">New Password</label>
+                    <input class="form-control poppins-regular" id="new_password" type="password" />
                 </div>
-                <div class="row">
-                    <label for="phone">Phone:</label>
-                    <input class="poppins-regular" type="tel" id="phone">
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input class="form-control poppins-regular" id="confirm-password" type="password" />
                 </div>
-            </div>
-            <div class="profile-section">
-                <h3>Address</h3>
-                <div class="row">
-                    <label for="address">Address:</label>
-                    <textarea id="address" class="poppins-regular" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="profile-section">
-                <h3>Payment Information</h3>
-                <div class="row">
-                    <label for="credit-card-number">Credit Card Number:</label>
-                    <input class="poppins-regular" type="text" id="credit-card-number">
-                </div>
-                <div class="row">
-                    <label for="credit-card-name">Name on Card:</label>
-                    <input class="poppins-regular" type="text" id="credit-card-name">
-                </div>
-                <div class="row">
-                    <label for="credit-card-expiry">Expiry Date:</label>
-                    <input class="poppins-regular" type="month" id="credit-card-expiry">
-                </div>
-                <div class="row">
-                    <label for="credit-card-cvv">CVV:</label>
-                    <input class="poppins-regular" type="text" id="credit-card-cvv">
-                </div>
-                <div class="row">
-                    <label for="billing-address">Billing Address:</label>
-                    <textarea id="billing-address" rows="3"></textarea>
-                </div>
-                <div class="row">
-                    <label for="paypal">PayPal Email:</label>
-                    <input class="poppins-regular" type="email" id="paypal">
-                </div>
-            </div>
-            <div class="profile-section">
-                <h3>Order History</h3>
-                <ul class="order-history" id="order-history">
-                    <li>Order #1234 - ₹45.67 - 01/01/2024</li>
-                    <li>Order #5678 - ₹89.23 - 02/02/2024</li>
-                    <!-- More order history items can be added here -->
-                </ul>
-            </div>
-            <div class="profile-section">
-                <h3>Favorite Restaurants</h3>
-                <ul class="favorite-restaurants" id="favorite-restaurants">
-                    <li>Restaurant A</li>
-                    <li>Restaurant B</li>
-                    <!-- More favorite restaurants can be added here -->
-                </ul>
-            </div>
-            <div class="profile-section">
-                <h3>Dietary Preferences</h3>
-                <div class="row">
-                    <label for="dietary-preferences">Preferences:</label>
-                    <select id="dietary-preferences" multiple>
-                        <option class="poppins-regular" value="vegetarian">Vegetarian</option>
-                        <option class="poppins-regular" value="vegan">Vegan</option>
-                        <option class="poppins-regular" value="gluten-free">Gluten-Free</option>
-                        <option class="poppins-regular" value="nut-free">Nut-Free</option>
-                        <!-- More dietary preferences can be added here -->
-                    </select>
-                </div>
-            </div>
-            <div class="profile-section">
-                <button onclick="saveProfile()">Save Profile</button>
-            </div>
-            <div id="logoutPopup" class="popup">
-                <div class="popup-content">
-                    <p>Do you really want to logout?</p>
-                    <button id="confirmLogout" class="poppins-regular">Yes</button>
-                    <button id="cancelLogout" class="poppins-regular">No</button>
-                </div>
-            </div>
-            <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
-        </section>
+                <br>
+                <button type="button" class="btn-pass poppins-regular" onclick="changePassword()">Save Password</button>
+            </form>
+        </div>
     </div>
+    <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
+</div>
 
-    <script src="js/auth.js"></script>
-    <script src="js/profile.js"></script>
-    <script>
-      
-    </script>
+    <div class="container main-content">
+        <!-- Logout  -->
+        <div id="logoutPopup" class="popup">
+            <div class="popup-content">
+                <p>Do you really want to logout?</p>
+                <button id="confirmLogout" class="poppins-regular">Yes</button>
+                <button id="cancelLogout" class="poppins-regular">No</button>
+            </div>
+        </div>
+        <!-- Sidebar Section -->
+        <section class="sidebar poppins-regular">
+           <div class="dp">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" />
+
+            <input class="form-control form-name poppins-regular" id="fullname" type="text" readonly
+                style="background-color: #16a290; border-color: #16a290; color: #fff; text-align: center; " />
+           
+           </div>
+                <!-- Options -->
+            <div class="options">
+                <button class="poppins-regular">Dashboard</button>
+                <button id="changePasswordButton" class="poppins-regular" type="button" onclick="togglePasswordChange()">Password</button>
+            </div>
+        </section>
+
+        <div class="form-section poppins-regular">
+            <!-- Sakshi Delivery Person Form  -->
+            <div class="profile-card restaurantlogin" id="profile-card">
+                <div class="card-header poppins-regular">Account Details</div>
+                <div class="card-body">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input class="form-control poppins-regular" id="username1" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input class="form-control poppins-regular" id="name1" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input class="form-control poppins-regular" id="email1" type="email" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input class="form-control poppins-regular" id="phone1" type="tel" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input class="form-control poppins-regular" id="address1" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="user_type">User Type</label>
+                            <input class="form-control poppins-regular" id="user_type1" type="text" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label for="aadhaar_card_number">Aadhaar Card Number</label>
+                            <input class="form-control poppins-regular" name="aadhaar_card_number" id="aadhaar_card_number1" type="text" readonly />
+                        </div>
+
+                        <button type="button" class="btn updatebtn poppins-regular" onclick="updateOwnerProfile()"
+                            style=" width: 200px;">Change Information</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Rahul Delivery Profile  -->
+            <div class="form-section2 deliverylogin poppins-regular" id="formSection">
+                <div class="card-header">Account Details</div>
+                <form id="userProfileForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="poppins-regular" name="username" placeholder="Username" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="poppins-regular" name="email" placeholder="Email" disabled />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user_type">User Type</label>
+                            <select id="user_type" class="poppins-regular" name="user_type" disabled>
+                                <option value="" disabled selected>User Type</option>
+                                <option value="delivery_person">Delivery Person</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="poppins-regular" name="name" placeholder="Full Name" disabled />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="tel" id="phone_number" class="poppins-regular" name="phone_number" placeholder="Phone Number"
+                                disabled />
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" class="poppins-regular" name="address" placeholder="Address" disabled />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="aadhaar_card_number">Aadhaar Card Number</label>
+                            <input type="text" id="aadhaar_card_number" class="poppins-regular" name="aadhaar_card_number"
+                                placeholder="Aadhaar Card Number" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicle_details">Vehicle Details</label>
+                            <input type="text" id="vehicle_details" class="poppins-regular" name="vehicle_details" placeholder="Vehicle Details"
+                                disabled />
+                        </div>
+                    </div>
+                    <div class="form-row poppins-regular">
+                        <div class="form-group">
+                            <label for="availability_status">Availability Status</label>
+                            <select id="availability_status" name="availability_status" disabled>
+                                <option value="" disabled selected>Availability Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Unavailable">Unavailable</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <input type="number" id="rating" class="poppins-regular" name="rating" step="0.1" placeholder="Rating" disabled />
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="saveButton" class="poppins-regular" type="button" onclick="updateDeliveryProfile()">Change
+                            Information</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Azim User Profile  -->
+            <div class="col-right-3 poppins-regular" id="customerLoginSection">
+                <!-- Account Details Form -->
+                <div id="accountDetails-3">
+                    <div class="card-3 details-card-3">
+                        <div class="card-header">Account Details</div>
+                        <div class="card-body-3">
+                            <form>
+                                <!-- Form Group (username)-->
+                                <div class="form-group-3 poppins-regular">
+                                    <label for="inputUsername ">Username</label>
+                                    <input class="big_input-3 poppins-regular" id="inputUsername-3" type="text"
+                                        placeholder="Enter your username" />
+                                </div>
+                                <!-- Form Row -->
+                                <div class="row-3">
+                                    <!-- Form Group (first name)-->
+                                    <div class="form-group-3 col-3">
+                                        <label for="inputFirstName">First name</label>
+                                        <input class="form-control-3 poppins-regular" id="inputFirstName-3" type="text"
+                                            placeholder="Enter your first name" />
+                                    </div>
+                                    <!-- Form Group (last name)-->
+                                    <div class="form-group-3 col-3">
+                                        <label for="inputLastName">Last name</label>
+                                        <input class="form-control-3 poppins-regular" id="inputLastName-3" type="text"
+                                            placeholder="Enter your last name" />
+                                    </div>
+                                </div>
+                                <!-- Form Group (location)-->
+                                <div class="form-group-3">
+                                    <label for="inputLocation">Location</label>
+                                    <input class="big_input-3 poppins-regular" id="inputLocation-3" type="text"
+                                        placeholder="Enter your location" />
+                                </div>
+                                <!-- Form Group (email address)-->
+                                <div class="form-group-3">
+                                    <label for="inputEmailAddress">Email address</label>
+                                    <input class="big_input-3 poppins-regular" id="inputEmailAddress-3" type="email"
+                                        placeholder="Enter your email address" disabled/>
+                                </div>
+                                <!-- Form Group (phone number)-->
+                                <div class="form-group-3">
+                                    <label for="inputPhone">Phone number</label>
+                                    <input class="big_input-3 poppins-regular" id="inputPhone-3" type="tel"
+                                        placeholder="Enter your phone number" />
+                                </div>
+                                <!-- Save changes and Edit buttons -->
+                                <button class="btn-3 save-edit-btn-3 poppins-regular" type="button" id="saveEditButton-3">
+                                    Edit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <script src="js/auth.js"></script>
+        <script src="js/profile2.js"></script>
+        <script>
+
+        </script>
 
 
 </body>

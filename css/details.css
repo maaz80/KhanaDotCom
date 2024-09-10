@@ -55,7 +55,24 @@ header {
     height: 500px;
     margin: auto;
 }
-
+.quantity{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+.quantity button{
+    background-color: #16a290;
+    border: none;
+    height: 30px;
+    font-size: 18px;
+    width: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
 .order {
     width: 94%;
     border: 1px solid gray;
@@ -73,7 +90,7 @@ header {
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     margin-top: -66px;
 }
 

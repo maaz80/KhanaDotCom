@@ -1,11 +1,11 @@
-let baseURL ='http://13.201.28.236:8000'
+let baseURL = 'http://13.201.28.236:8000'
 
 document.addEventListener('DOMContentLoaded', async function () {
     let URLParams = new URLSearchParams(window.location.search);
     let restaurant_id = URLParams.get('restaurant_id');
     let itemID = URLParams.get('itemID');
-    
-    
+
+
     if (restaurant_id && itemID) {
         await fetchMenu(restaurant_id, itemID);
     } else {
@@ -17,21 +17,21 @@ document.addEventListener('DOMContentLoaded', async function () {
 async function fetchMenu(restaurant_id, itemID) {
     try {
         let response = await fetch(`http://13.201.28.236:8000/api/restaurants/${restaurant_id}/menu/`);
-        
+
         if (!response.ok) {
             let errorText = await response.text();
             throw new Error('Fetch error: ' + errorText);
         }
-        
+
         let data = await response.json();
         console.log('Fetched Data:', data);
-        
+
         const itemIDNumber = Number(itemID);
         const itemData = data.find(item => item.id === itemIDNumber);
-        
+
         if (itemData) {
             const itemDetailsCont = document.getElementById('item-details');
-            
+
             let itemDetails = `
                 <div class="restaurant-item">
                     <img src="${baseURL + itemData.image}" alt="${itemData.name}" />
@@ -39,11 +39,17 @@ async function fetchMenu(restaurant_id, itemID) {
                         <h3>${itemData.name}</h3>
                         <p>${itemData.description}</p>
                         <p>Price: ₹${itemData.price}</p>
+                         <div class="quantity">
+                            <button id='minus'>-</button>
+                            <div id='count'>1</div>
+                            <button id='plus'>+</button>
+                        </div>
                     </div>
                 </div>
             `;
-            
+
             itemDetailsCont.innerHTML += itemDetails;
+            quantityControl()
         } else {
             console.error('Item not found');
             document.getElementById('item-details').innerText = 'Item not found';
@@ -53,9 +59,32 @@ async function fetchMenu(restaurant_id, itemID) {
         document.getElementById('item-details').innerText = 'An error occurred while fetching item details';
     }
 }
+// Quantity 
+function quantityControl() {
+    let quantityInput = document.getElementById('quantity-input')
+    let minus = document.getElementById('minus')
+    let plus = document.getElementById('plus')
+    let count = document.getElementById('count')
 
+    function updatedQuantity(newValue) {
+        count.innerText = newValue;
+        quantityInput.value = newValue;
+    }
+    plus.addEventListener('click', function () {
+        let currentvalue = parseInt(count.innerText)
+        updatedQuantity(currentvalue + 1)
+    })
+    minus.addEventListener('click', function () {
+        let currentvalue = parseInt(count.innerText)
+        if (currentvalue > 1) {
+            updatedQuantity(currentvalue - 1)
+        }
+    })
+    quantityInput.value = parseInt(count.innerHTML)
 
+}
 
+// Next button
 document.getElementById('next').addEventListener('click', function (event) {
     event.preventDefault();
     const orderForm = document.getElementById('orderForm');

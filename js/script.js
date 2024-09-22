@@ -96,7 +96,6 @@ function openModal(restaurant) {
   });
 
   // Submit rating
-
   async function submitRating(restaurant_id) {
     const rating = document.getElementById('rating').value;
     const comment = document.getElementById('comment').value;
@@ -133,7 +132,7 @@ function openModal(restaurant) {
     }
   }
 
-
+  // Model display 
   const modal = document.getElementById('restaurant-modal');
   modal.style.display = "block";
 
@@ -144,6 +143,7 @@ function openModal(restaurant) {
   };
 }
 
+// Close model
 let closebutton = document.querySelector('.close').addEventListener('click', () => {
   const modal = document.getElementById('restaurant-modal');
   modal.style.display = "none";

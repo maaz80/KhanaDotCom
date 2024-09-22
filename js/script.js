@@ -51,21 +51,103 @@ function openModal(restaurant) {
   document.getElementById('modal-restaurant-name').innerText = restaurant.name || 'N/A';
   document.getElementById('modal-restaurant-image').src = restaurant.image ? baseURL + restaurant.image : '';
   document.getElementById('modal-restaurant-description').innerText = `Description: ${restaurant.description || 'N/A'}`;
+  document.getElementById('rating-section').innerHTML = `
+                            <form id="rating-form">
+                            <label for="rating">Rate (1-5):</label>
+                              <div id="star-rating" class="stars">
+                                <i class="fa fa-star" data-value="1" width='100'></i>
+                                <i class="fa fa-star" data-value="2"></i>
+                                <i class="fa fa-star" data-value="3"></i>
+                                <i class="fa fa-star" data-value="4"></i>
+                                <i class="fa fa-star" data-value="5"></i>
+                              </div>
+                                <input type="number" id="rating" min="1" max="5" required />
+                                <label for="comment">Comment (optional):</label>
+                                <textarea id="comment" rows="3"></textarea>
+                                <button type="submit" class='poppins-regular'>Submit Rating</button>
+                            </form>
+                            <div id="rating-message"></div>
+                            <div id="rating-error"></div>
+`
+
+  // Fill rating input when a star is clicked
+  const stars = document.querySelectorAll('.fa-star')
+  const ratingInput = document.getElementById('rating')
+
+  stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+      const ratingValue = index + 1;
+      ratingInput.value = ratingValue;
+
+      // Highlight stars up to the clicked one
+      stars.forEach((s, i) => {
+        if (i < ratingValue) {
+          s.classList.add('highlighted');
+        } else {
+          s.classList.remove('highlighted');
+        }
+      });
+    });
+  });
+
+  document.getElementById('rating-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    submitRating(restaurant.id);
+  });
+
+  // Submit rating
+
+  async function submitRating(restaurant_id) {
+    const rating = document.getElementById('rating').value;
+    const comment = document.getElementById('comment').value;
+    const token = localStorage.getItem('accessToken');
+
+    if (!token) {
+      document.getElementById('rating-error').innerText = 'You must be logged in to rate this item.';
+      return;
+    }
+
+    try {
+      const response = await fetch(`${baseURL}/restaurants/${restaurant_id}/rate/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          rating: parseFloat(rating),
+          comment: comment
+        })
+      });
+
+      if (!response.ok) {
+        let errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit rating');
+      }
+
+      let result = await response.json();
+      document.getElementById('rating-message').innerText = `Success: ${result.success}. New average rating: ${result.restaurant_average_rating}`;
+      document.getElementById('rating-form').style.display = 'none'
+    } catch (error) {
+      document.getElementById('rating-error').innerText = 'Error: ' + error.message;
+    }
+  }
+
 
   const modal = document.getElementById('restaurant-modal');
   modal.style.display = "block";
 
-    // Handle "View Menu" button click
-    const viewMenuButton = document.getElementById('open-menu-button');
-    viewMenuButton.onclick = () => {
-      window.location.href=`menu.html?restaurant_id=${restaurant.id}`;
-    };
+  // Handle "View Menu" button click
+  const viewMenuButton = document.getElementById('open-menu-button');
+  viewMenuButton.onclick = () => {
+    window.location.href = `menu.html?restaurant_id=${restaurant.id}`;
+  };
 }
 
 let closebutton = document.querySelector('.close').addEventListener('click', () => {
-    const modal = document.getElementById('restaurant-modal');
-    modal.style.display = "none";
-  });
+  const modal = document.getElementById('restaurant-modal');
+  modal.style.display = "none";
+});
 
 window.onclick = function (event) {
   const modal = document.getElementById('restaurant-modal');
@@ -75,28 +157,6 @@ window.onclick = function (event) {
 };
 
 // Rating
-const stars = document.querySelectorAll('#star-rating .star');
-let selectedRating = 0;
-
-stars.forEach(star => {
-    star.addEventListener('click', () => {
-        selectedRating = star.getAttribute('data-value');
-        
-        // Reset star colors
-        stars.forEach(s => s.classList.remove('selected'));
-        
-        // Highlight selected stars
-        for (let i = 0; i < selectedRating; i++) {
-            stars[i].classList.add('selected');
-        }
-    });
-});
-
-document.getElementById('submitBtn').addEventListener('click', () => {
-    const reviewText = document.getElementById('review').value;
-    console.log(`Rating: ${selectedRating} stars`);
-    console.log(`Review: ${reviewText}`);
-});
 
 
 // index.html
@@ -183,77 +243,19 @@ document.addEventListener("DOMContentLoaded", () => {
 const filterMenu = document.getElementById('filter-menu');
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    filterMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-    ChatBot.classList.remove("show");
+  event.stopPropagation();
+  filterMenu.classList.toggle('show');
+  navMenu.classList.remove("show");
+  SignupMenu.classList.remove("show");
+  ChatBot.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
-        navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
-        ChatBot.classList.remove("show");
-    }
+  if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
+    navMenu.classList.remove("show");
+    filterMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+    ChatBot.classList.remove("show");
+  }
 });
 
-
-// Scroll restaurant by hand
-// const restaurantList = document.getElementById('restaurant-list');
-// let isDragging = false;
-// let startX;
-// let scrollLeft;
-
-// Mouse Down Event: When the user clicks to start dragging
-// restaurantList.addEventListener('mousedown', (e) => {
-//     isDragging = true;
-//     restaurantList.classList.add('active'); // Change cursor to grabbing
-//     startX = e.pageX - restaurantList.offsetLeft; // Get initial click position
-//     scrollLeft = restaurantList.scrollLeft; // Get current scroll position
-//     restaurantList.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
-// });
-
-// Mouse Up Event: When the user releases the mouse button
-// document.addEventListener('mouseup', () => {
-//     isDragging = false;
-//     restaurantList.classList.remove('active'); // Change cursor back to default
-//     restaurantList.style.scrollBehavior = 'smooth'; // Re-enable smooth scroll after drag
-// });
-
-// Mouse Leave Event: If the user drags the mouse out of the container
-// restaurantList.addEventListener('mouseleave', () => {
-//     isDragging = false;
-//     restaurantList.classList.remove('active');
-//     restaurantList.style.scrollBehavior = 'smooth';
-// });
-
-// Mouse Move Event: Move the list only if the mouse is clicked and held (dragging)
-// restaurantList.addEventListener('mousemove', (e) => {
-//     if (!isDragging) return; // Only execute if the mouse is clicked down
-//     e.preventDefault(); // Prevent default behavior (like text selection)
-//     const x = e.pageX - restaurantList.offsetLeft; // Current mouse position
-//     const walk = (x - startX) * 2; // Calculate how far the mouse moved
-//     restaurantList.scrollLeft = scrollLeft - walk; // Scroll based on movement
-// });
-
-// Handle touch events for mobile devices (similar to mouse events)
-// restaurantList.addEventListener('touchstart', (e) => {
-//     isDragging = true;
-//     startX = e.touches[0].pageX - restaurantList.offsetLeft;
-//     scrollLeft = restaurantList.scrollLeft;
-//     restaurantList.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
-// });
-
-// restaurantList.addEventListener('touchend', () => {
-//     isDragging = false;
-//     restaurantList.style.scrollBehavior = 'smooth'; // Re-enable smooth scroll
-// });
-
-// restaurantList.addEventListener('touchmove', (e) => {
-//     if (!isDragging) return;
-//     const x = e.touches[0].pageX - restaurantList.offsetLeft;
-//     const walk = (x - startX) * 2;
-//     restaurantList.scrollLeft = scrollLeft - walk;
-// });

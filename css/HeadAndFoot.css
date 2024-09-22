@@ -363,6 +363,7 @@ footer p {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 87%;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
@@ -484,6 +485,9 @@ footer p {
     .dropdown ul li {
         padding-left: 10px;
     }
+    .popup-content{
+        width: 21%;
+    }
 
     .filters ol {
         width: 170px;
@@ -521,7 +525,7 @@ footer p {
     }
 
     .signup-toggle {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .searchbar {

@@ -35,33 +35,85 @@ header {
     flex-direction: column;
     gap: 3px;
     padding: 10px 0;
-    margin-top: 100px;
+    margin-top: 57px;
+    height: -1px;
 }
-.restaurant-item{
+
+.restaurant-item {
     display: flex;
     justify-content: space-around;
     width: 95%;
     height: 100%;
-    align-items: center;
+    align-items: start;
+    margin-left: 10px;
+    flex-direction: column;
 }
-.restaurant-item img{
-    width: 400px;
+
+.restaurant-item img {
+    min-width: 75%;
     border-radius: 10px;
+    height: 100%;
+    object-fit: inherit;
 }
+
+.imgsCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 191px;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.imgsSubCont {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.img2,
+.img3 {
+    width: 100%;
+    height: 49%;
+    border: 1px solid gray;
+    border-radius: 7px;
+}
+
 .item-details {
     width: 94%;
     border: 1px solid gray;
     border-radius: 5px;
-    height: 500px;
+    height: 97%;
     margin: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
 }
-.quantity{
+
+.item-details::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Opera */
+}
+
+.item-data {
+    margin-top: 10px;
+}
+
+.quantity {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 10px;
 }
-.quantity button{
+
+.quantity button {
     background-color: #16a290;
     border: none;
     height: 30px;
@@ -73,16 +125,20 @@ header {
     align-items: center;
     color: white;
 }
+
 .order {
     width: 94%;
     border: 1px solid gray;
     border-radius: 5px;
-    height: 500px;
+    height: 77vh;
     margin: auto;
 }
 
 #orderForm {
     width: 100%;
+}
+.order h1{
+    font-size:40px;
 }
 
 .inputs {
@@ -91,7 +147,7 @@ header {
     width: 100%;
     gap: 10px;
     margin-bottom: 30px;
-    margin-top: -66px;
+    margin-top: -26px;
 }
 
 .Card {
@@ -200,14 +256,166 @@ h2 {
     margin-top: 40px;
 }
 
-@media screen and (min-width: 700px) {
+/* Rating css */
+.rating-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+
+#rating {
+    display: none;
+}
+
+#rating-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#rating-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+#rating-form input[type="number"],
+#rating-form textarea {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s;
+}
+
+#rating-form input[type="number"]:focus,
+#rating-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+#rating-form button {
+    align-self: flex-start;
+    background-color: #16a290;
+    ;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#rating-form button:hover {
+    background-color: #107567;
+    ;
+}
+
+#rating-message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #28a745;
+}
+#rating-error {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff0000;
+}
+
+/* Rating star*/
+.fa-star {
+    cursor: pointer;
+    color: gray;
+    font-size: 30px;
+}
+#comment {
+    resize: none; 
+    width: 100%; 
+    height: auto;
+}
+.highlighted {
+    color: gold;
+}
+
+.rating-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.rating-head {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+/* Mobile Devices */
+@media screen and (max-width: 480px) {
+    .rating-section {
+        padding: 10px;
+        margin-top: 15px;
+    }
+
+    #rating-form button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #rating-form input[type="number"],
+    #rating-form textarea {
+        font-size: 12px;
+    }
+
+    .rating-section h4 {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
     .Details {
         flex-direction: row;
-        margin-top: 138px;
+        margin-top: 68px;
+
+        height: 80vh;
+    }
+
+    .imgsCont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 315px;
+        margin-top: 20px;
+        gap: 10px;
     }
 
     .item-details {
         width: 67%;
+        height: -1px;
+    }
+
+    .restaurant-item img {
+        min-width: 50%;
+    }
+
+    .restaurant-item {
+        margin-left: 20px;
     }
 
     .order {
@@ -217,12 +425,18 @@ h2 {
     #orderForm {
         width: 100%;
     }
-
+    .order h1{
+        font-size: 50px;
+    }
     #paymentform {
         width: 100%;
         margin: auto;
     }
 
+    .img2,
+    .img3 {
+        width: 70%;
+    }
 
     .inputs {
         margin-top: -10px;
@@ -237,6 +451,24 @@ h2 {
         width: 95%;
     }
 
-   
-}
+    .rating-section {
+        padding: 15px;
+        max-width: 90%;
+    }
 
+    #rating-form button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    #rating-form input[type="number"],
+    #rating-form textarea {
+        font-size: 13px;
+    }
+
+    .rating-section h4 {
+        font-size: 18px;
+    }
+
+
+}

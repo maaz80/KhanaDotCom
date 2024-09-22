@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 function fetchProfileDataForOwner() {
     const token = localStorage.getItem("accessToken");
 
-    fetch('http://13.201.28.236:8000/profile-user/', {
+    fetch('http://13.201.28.236:8000/profile-owner/', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -73,6 +73,8 @@ function fetchProfileDataForOwner() {
         })
         .then(profileData => {
             populateProfile(profileData);
+            console.log(profileData);
+
         })
         .catch(error => {
             console.error('Error fetching profile data:', error);
@@ -90,6 +92,8 @@ function populateProfile(profileData) {
     document.getElementById("address1").value = profileData.address || '';
     document.getElementById("user_type1").value = profileData.user_type || '';
     document.getElementById("aadhaar_card_number1").value = profileData.aadhaar_card_number || '';
+    console.log(profileData.aadhaar_card_number);
+
 }
 
 // Update profile function
@@ -199,26 +203,32 @@ function fetchProfileDataForDeliveryPerson() {
 function togglePasswordChange() {
     const changePasswordSection = document.getElementById("change-password-section");
     let MainContent = document.querySelector('.main-content')
+    const formSection = document.querySelector('.form-section')
 
     if (changePasswordSection.style.display === "none") {
         changePasswordSection.style.display = "block";
+        formSection.style.display = 'none'
         MainContent.classList.add('blurred')
     } else {
         changePasswordSection.style.display = "none";
         MainContent.classList.remove('blurred')
+        formSection.style.display = 'block'
     }
 }
 
 let closepass = document.querySelector('.close-pass')
 closepass.addEventListener('click', function () {
     const changePasswordSection = document.getElementById("change-password-section");
-    let MainContent = document.querySelector('.main-content')
+    const MainContent = document.querySelector('.main-content')
+    const formSection = document.querySelector('.form-section')
+
     changePasswordSection.style.display = "none";
     MainContent.classList.remove('blurred')
+    formSection.style.display = 'block'
 
 })
 
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', function () {
     const changePasswordSection = document.getElementById("change-password-section");
     changePasswordSection.style.display = "none";
 })
@@ -244,7 +254,7 @@ function updateDeliveryProfile() {
             formData.forEach((value, key) => {
                 jsonData[key] = value;
             });
-
+            const token = localStorage.getItem('accessToken');
             // Perform the update API call
             fetch("http://13.201.28.236:8000/update-profile-delivery-person/", {
                 method: "PUT",
@@ -253,8 +263,10 @@ function updateDeliveryProfile() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(jsonData),
+
             })
                 .then((response) => {
+                    console.log("Sending data:", jsonData);
                     if (!response.ok) {
                         throw new Error("Failed to save user profile");
                     }
@@ -410,18 +422,18 @@ function changePassword() {
             new_password: new_Password
         })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Password change failed with status ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert('Password changed successfully!');
-        togglePasswordChange();  // Return to Account Details view
-    })
-    .catch(error => {
-        console.error('Error changing password:', error);
-        alert('Failed to change password.');
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Password change failed with status ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert('Password changed successfully!');
+            togglePasswordChange();  // Return to Account Details view
+        })
+        .catch(error => {
+            console.error('Error changing password:', error);
+            alert('Failed to change password.');
+        });
 }

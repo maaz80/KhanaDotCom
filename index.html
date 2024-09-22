@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Food Delivery</title>
+    <title>KhanaDotCom</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/HeadAndFoot.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="poppins-regular">
@@ -22,13 +22,13 @@
                 </div>
 
                 <div class="signlog">
-                    
+
                     <!-- Restaurant Owner Dashboard -->
                     <button class="restaurant-owner-links poppins-regular">Dashboard</button>
 
-                    <button class="login loginButton"><a href="login.html">LogIn</a></button>
-                    <div class="signupdrop">
-                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                    <button class="login loginButton poppins-regular"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop poppins-regular">
+                        <button class="signup-toggle poppins-regular" id="signup-toggle">SignUp</button>
                         <ul id="sign-menu" class="sign-menu">
                             <li><a href="customer.html">Customer</a></li>
                             <li><a href="deliverylogin.html">Delivery Person</a></li>
@@ -109,7 +109,7 @@
                 <div class="slides">
                     <!-- Slide 1 -->
                     <div class="slide">
-                        <a href="#"><img src="images/Banner1.jpg" alt="Offer 1" /></a>
+                        <a href="#"><img src="https://madhuratalks.com/wp-content/uploads/2024/02/Restaurants-in-Vijayawada.jpg" alt="Offer 1" /></a>
                     </div>
                     <!-- Slide 2 -->
                     <div class="slide">
@@ -120,14 +120,6 @@
                         <a href="#"><img src="images/Banner3.jpg" alt="Offer 3" /></a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Shipping BEnifits -->
-            <div class="shipping">
-                <div>24*7 Delivery</div>
-                <div>₹50 Delivery</div>
-                <div>Fast Delivery</div>
-                <div>24*7 Delivery</div>
             </div>
 
             <!-- Restaurant -->
@@ -144,38 +136,18 @@
                         <!-- Button to open the menu modal -->
                         <button id="open-menu-button">Menu</button>
                     </div>
-                    <div class="rating-container">
-                        <h2 class="rating-head">Give Your Rating</h2>
-                
-                        <!-- Stars for rating -->
-                        <div id="star-rating" class="stars">
-                            <svg class="star" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-value="1">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.27l4.15 2.18c.62.32 1.36-.06 1.36-.72V15.4l3.17-2.91c.56-.52.25-1.47-.52-1.57l-4.33-.63L12.79 6.4c-.29-.58-1.1-.58-1.39 0L8.47 10.3l-4.33.63c-.77.11-1.08 1.05-.52 1.57l3.17 2.91v3.33c0 .66.74 1.04 1.36.72L12 17.27z"></path>
-                            </svg>
-                            <svg class="star" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-value="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.27l4.15 2.18c.62.32 1.36-.06 1.36-.72V15.4l3.17-2.91c.56-.52.25-1.47-.52-1.57l-4.33-.63L12.79 6.4c-.29-.58-1.1-.58-1.39 0L8.47 10.3l-4.33.63c-.77.11-1.08 1.05-.52 1.57l3.17 2.91v3.33c0 .66.74 1.04 1.36.72L12 17.27z"></path>
-                            </svg>
-                            <svg class="star" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-value="3">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.27l4.15 2.18c.62.32 1.36-.06 1.36-.72V15.4l3.17-2.91c.56-.52.25-1.47-.52-1.57l-4.33-.63L12.79 6.4c-.29-.58-1.1-.58-1.39 0L8.47 10.3l-4.33.63c-.77.11-1.08 1.05-.52 1.57l3.17 2.91v3.33c0 .66.74 1.04 1.36.72L12 17.27z"></path>
-                            </svg>
-                            <svg class="star" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-value="4">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.27l4.15 2.18c.62.32 1.36-.06 1.36-.72V15.4l3.17-2.91c.56-.52.25-1.47-.52-1.57l-4.33-.63L12.79 6.4c-.29-.58-1.1-.58-1.39 0L8.47 10.3l-4.33.63c-.77.11-1.08 1.05-.52 1.57l3.17 2.91v3.33c0 .66.74 1.04 1.36.72L12 17.27z"></path>
-                            </svg>
-                            <svg class="star" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-value="5">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 17.27l4.15 2.18c.62.32 1.36-.06 1.36-.72V15.4l3.17-2.91c.56-.52.25-1.47-.52-1.57l-4.33-.63L12.79 6.4c-.29-.58-1.1-.58-1.39 0L8.47 10.3l-4.33.63c-.77.11-1.08 1.05-.52 1.57l3.17 2.91v3.33c0 .66.74 1.04 1.36.72L12 17.27z"></path>
-                            </svg>
-                        </div>
-                
-                        <!-- Comment box -->
-                        <textarea id="review" placeholder="Write your review here..."></textarea>
-                
-                        <!-- Submit button -->
-                        <button id="submitBtn">Submit Review</button>
-                    </div>
+                     <!-- Rating Form -->
+                     <div class="rating-section poppins-regular" id="rating-section"></div>
                 </div>
             </div>
 
-
+            <!-- Shipping BEnifits -->
+            <div class="shipping">
+                <div>24*7 Delivery</div>
+                <div>₹50 Delivery</div>
+                <div>Fast Delivery</div>
+                <div>24*7 Delivery</div>
+            </div>
 
             <!-- Categories -->
             <div class="category" id="category">

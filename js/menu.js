@@ -1,61 +1,60 @@
-    // Fetch Menu
-    const baseURL = 'https://52.66.205.5:8000';
-    document.addEventListener('DOMContentLoaded', function () {
-      let URLParams = new URLSearchParams(window.location.search)
-      let restaurant_id = URLParams.get('restaurant_id')
-      if (restaurant_id) {
-        fetchMenu(restaurant_id)
-      } else {
-        console.log('Restaurant id not found');
+// Fetch Menu
+const baseURL = 'https://khanadotcom.in';
+document.addEventListener('DOMContentLoaded', function () {
+  let URLParams = new URLSearchParams(window.location.search)
+  let restaurant_id = URLParams.get('restaurant_id')
+  if (restaurant_id) {
+    fetchMenu(restaurant_id)
+  } else {
+    console.log('Restaurant id not found');
 
-      }
-    })
+  }
+})
 
+async function fetchMenu(restaurant_id) {
+  localStorage.setItem('restaurant_id', restaurant_id)
+  console.log(restaurant_id);
 
-    async function fetchMenu(restaurant_id) {
-      localStorage.setItem('restaurant_id', restaurant_id)
-      console.log(restaurant_id);
+  try {
+    let responseMenu = await fetch(`https://khanadotcom.in/api/restaurants/${restaurant_id}/menu/`, {
+      method: 'GET'
+    });
 
-      try {
-        let responseMenu = await fetch(`https://52.66.205.5:8000/api/restaurants/${restaurant_id}/menu/`, {
-          method: 'GET'
-        });
-
-        if (!responseMenu.ok) {
-          let error = await responseMenu.text();
-          throw new Error(`The response was not okay: ${responseMenu.statusText} - ${error}`);
-        }
-
-        let menuItem = await responseMenu.json();
-        console.log(menuItem);
-
-        if (Array.isArray(menuItem) && menuItem.length > 0) {
-          displayMenu(menuItem);
-        } else {
-          console.error('Menu items not found or invalid data format');
-        }
-      } catch (error) {
-        console.error('There was a problem fetching the menu:', error.message);
-      }
+    if (!responseMenu.ok) {
+      let error = await responseMenu.text();
+      throw new Error(`The response was not okay: ${responseMenu.statusText} - ${error}`);
     }
 
-    function displayMenu(menuItem) {
-      const menuContainer = document.getElementById('menu-list');
-      if (!menuContainer) {
-        console.error('Menu container not found');
-        return;
-      }
-      menuContainer.innerHTML = '';
+    let menuItem = await responseMenu.json();
+    console.log(menuItem);
 
-      menuItem.forEach(item => {
-        let restaurant_id = localStorage.getItem('restaurant_id');
-        let menuItemDiv = document.createElement('div');
-        menuItemDiv.classList.add('menu-item');
+    if (Array.isArray(menuItem) && menuItem.length > 0) {
+      displayMenu(menuItem);
+    } else {
+      console.error('Menu items not found or invalid data format');
+    }
+  } catch (error) {
+    console.error('There was a problem fetching the menu:', error.message);
+  }
+}
 
-        // Check if the item is in the cart
-        let isInCart = isItemInCart(item.id);
+function displayMenu(menuItem) {
+  const menuContainer = document.getElementById('menu-list');
+  if (!menuContainer) {
+    console.error('Menu container not found');
+    return;
+  }
+  menuContainer.innerHTML = '';
 
-        menuItemDiv.innerHTML = `
+  menuItem.forEach(item => {
+    let restaurant_id = localStorage.getItem('restaurant_id');
+    let menuItemDiv = document.createElement('div');
+    menuItemDiv.classList.add('menu-item');
+
+    // Check if the item is in the cart
+    let isInCart = isItemInCart(item.id);
+
+    menuItemDiv.innerHTML = `
       <div class="restaurant-item">
         <img src="${baseURL + item.image}" alt="${item.name}" class="menu-item-image">
         <div class="restaurant-info">
@@ -73,53 +72,72 @@
         </div>
       </div>`;
 
-        menuContainer.appendChild(menuItemDiv);
-      });
+    menuContainer.appendChild(menuItemDiv);
+  });
 
-      // Add event listeners to the cart buttons
-      const cartButtons = document.querySelectorAll('.cart');
-      cartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const itemId = button.getAttribute('data-id');
-          const addedToCart = button.getAttribute('data-added-to-cart') === 'true';
+  // Add event listeners to the cart buttons
+  const cartButtons = document.querySelectorAll('.cart');
+  cartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const itemId = button.getAttribute('data-id');
+      const addedToCart = button.getAttribute('data-added-to-cart') === 'true';
 
-          if (!addedToCart) {
-            addToCart(itemId);
-            let rmv = button.textContent = 'Remove';
-            button.setAttribute('data-added-to-cart', 'true');
-          } else {
-            removeFromCart(itemId);
-            button.textContent = 'Cart';
-            button.setAttribute('data-added-to-cart', 'false');
-          }
+      if (!addedToCart) {
+        addToCart(itemId);
+        let rmv = button.textContent = 'Remove';
+        button.setAttribute('data-added-to-cart', 'true');
+      } else {
+        removeFromCart(itemId);
+        button.textContent = 'Cart';
+        button.setAttribute('data-added-to-cart', 'false');
+      }
 
-          updateCartCount();
-        });
-      });
-    }
+      updateCartCount();
+    });
+  });
+}
 
-    // Function to check if an item is in the cart
-    function isItemInCart(itemId) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      return cart.includes(itemId);
-    }
+// Function to check if an item is in the cart
+function isItemInCart(itemId) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  return cart.includes(itemId);
+}
 
-    // Filter Dropdown 
+// Filter Dropdown 
 const filterMenu = document.getElementById('filter-menu');
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    filterMenu.classList.toggle('show');
-    navMenu.classList.remove("show");
-    SignupMenu.classList.remove("show");
-    ChatBot.classList.remove("show");
+  event.stopPropagation();
+  filterMenu.classList.toggle('show');
+  navMenu.classList.remove("show");
+  SignupMenu.classList.remove("show");
+  ChatBot.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
-        navMenu.classList.remove("show");
-        filterMenu.classList.remove("show");
-        SignupMenu.classList.remove("show");
-        ChatBot.classList.remove("show");
-    }
+  if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
+    navMenu.classList.remove("show");
+    filterMenu.classList.remove("show");
+    SignupMenu.classList.remove("show");
+    ChatBot.classList.remove("show");
+  }
 });
+
+// Item added Modal 
+const addItemModalButton = document.getElementById('added-item-modal-button');
+const closeModalButton = document.getElementById('close-modal-button');
+
+addItemModalButton.addEventListener('click', function () {
+  const addItemModal = document.getElementById('added-item-modal')
+  addItemModal.style.marginTop = ' 64px'
+  closeModalButton.style.display='block'
+  addItemModalButton.style.display='none'
+})
+
+closeModalButton.addEventListener('click', function () {
+  const addItemModal = document.getElementById('added-item-modal')
+  addItemModal.style.marginTop = ' 660px'
+  closeModalButton.style.display='none'
+  addItemModalButton.style.display='block'
+
+})

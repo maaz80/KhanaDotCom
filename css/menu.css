@@ -181,6 +181,28 @@ strong {
   min-height: 630px;
 }
 
+/* Item added modal css  */
+#added-item-modal{
+  background-color: #16a290;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  margin-top: 660px;
+  margin-left: -20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display:flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#added-item-modal-button{
+  height: 20px;
+}
+#close-modal-button{
+  display: none;
+  height: 20px;
+}
 @keyframes view {
   from {
     opacity: 0.6;

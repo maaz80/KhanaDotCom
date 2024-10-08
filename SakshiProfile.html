@@ -397,7 +397,7 @@
             });
 
             function fetchUserProfile(token) {
-                fetch('http://52.66.205.5:8000/profile-user/', {
+                fetch('https://khanadotcom.in/profile-user/', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -461,12 +461,12 @@
                     };
 
                     if (userType === "restaurant_owner") {
-                        url = "https://52.66.205.5:8000/update-profile-owner/";
+                        url = "https://khanadotcom.in/update-profile-owner/";
                     } else if (userType === "delivery_person") {
-                        url = "https://52.66.205.5:8000/update-profile-delivery-person/";
+                        url = "https://khanadotcom.in/update-profile-delivery-person/";
                         requestBody.vehicle_details = document.getElementById("vehicle-details").value;
                     } else {
-                        url = "https://52.66.205.5:8000/update-profile-user/";
+                        url = "https://khanadotcom.in/update-profile-user/";
                     }
 
                     fetch(url, {

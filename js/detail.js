@@ -1,4 +1,4 @@
-let baseURL = 'http://13.201.28.236:8000';
+let baseURL = 'http://52.66.205.5:8000';
 
 document.addEventListener('DOMContentLoaded', async function () {
     let URLParams = new URLSearchParams(window.location.search);

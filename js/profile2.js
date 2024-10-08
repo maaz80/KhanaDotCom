@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    fetch('http://13.201.28.236:8000/profile-user/', {
+    fetch('http://52.66.205.5:8000/profile-user/', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 function fetchProfileDataForOwner() {
     const token = localStorage.getItem("accessToken");
 
-    fetch('http://13.201.28.236:8000/profile-owner/', {
+    fetch('http://52.66.205.5:8000/profile-owner/', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -125,12 +125,12 @@ function updateOwnerProfile() {
         };
 
         if (userType === "restaurant_owner") {
-            url = "http://13.201.28.236:8000/update-profile-owner/";
+            url = "http://52.66.205.5:8000/update-profile-owner/";
         } else if (userType === "delivery_person") {
-            url = "http://13.201.28.236:8000/update-profile-delivery-person/";
+            url = "http://52.66.205.5:8000/update-profile-delivery-person/";
             requestBody.vehicle_details = document.getElementById("vehicle-details").value;
         } else {
-            url = "http://13.201.28.236:8000/update-profile-user/";
+            url = "http://52.66.205.5:8000/update-profile-user/";
         }
 
         fetch(url, {
@@ -168,7 +168,7 @@ function updateOwnerProfile() {
 function fetchProfileDataForDeliveryPerson() {
     const token = localStorage.getItem("accessToken");
 
-    fetch("http://13.201.28.236:8000/profile-delivery-person/", {
+    fetch("http://52.66.205.5:8000/profile-delivery-person/", {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`,
@@ -256,7 +256,7 @@ function updateDeliveryProfile() {
             });
             const token = localStorage.getItem('accessToken');
             // Perform the update API call
-            fetch("http://13.201.28.236:8000/update-profile-delivery-person/", {
+            fetch("http://52.66.205.5:8000/update-profile-delivery-person/", {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -294,8 +294,8 @@ function updateDeliveryProfile() {
 }
 
 function fetchProfileDataForUser() {
-    const profileUrl = "http://13.201.28.236:8000/profile-user/";
-    const updateProfileUrl = "http://13.201.28.236:8000/update-profile-user/";
+    const profileUrl = "http://52.66.205.5:8000/profile-user/";
+    const updateProfileUrl = "http://52.66.205.5:8000/update-profile-user/";
     const token = localStorage.getItem('accessToken');
 
     // Fetch profile information on page load
@@ -411,7 +411,7 @@ function changePassword() {
         return;
     }
 
-    fetch("http://13.201.28.236:8000/change-password/", {
+    fetch("http://52.66.205.5:8000/change-password/", {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,

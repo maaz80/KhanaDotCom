@@ -112,7 +112,11 @@ header {
     align-items: center;
     gap: 10px;
 }
-
+.all-buttons{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 .quantity button {
     background-color: #16a290;
     border: none;
@@ -125,7 +129,16 @@ header {
     align-items: center;
     color: white;
 }
-
+.cart {
+    background-color: #16a290;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    width: 70px;
+  }
+  
 .order {
     width: 94%;
     border: 1px solid gray;

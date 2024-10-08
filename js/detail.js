@@ -44,11 +44,14 @@ async function fetchMenu(restaurant_id, itemID) {
                         <h3>${itemData.name}</h3>
                         <p>${itemData.description}</p>
                         <p class='price'>Price: ₹${itemData.price}</p>
+                        <div class= "all-buttons">
                          <div class="quantity">
                             <button id='minus'>-</button>
                             <div id='count'>1</div>
                             <button id='plus'>+</button>
-                        </div>
+                            </div>
+                            <button class="cart cart-count poppins-regular" >Cart</button>
+                            </div>
                         <!-- Rating Form -->
                         <div class="rating-section poppins-regular">
                             <form id="rating-form">
@@ -153,16 +156,16 @@ function quantityControl() {
     let plus = document.getElementById('plus');
     let count = document.getElementById('count');
     let price = document.querySelector('.price');
-    
+
     // Set initial quantity input value
     quantityInput.value = parseInt(count.innerText);
 
     // Extract the base price once
     let basePrice = parseFloat(price.innerText.replace('Price: ₹', ''));
-    
+
     function updatePrice(newValue) {
         let totalPrice = basePrice * newValue;
-        price.innerText = `Price: ₹${totalPrice.toFixed(2)}`; 
+        price.innerText = `Price: ₹${totalPrice.toFixed(2)}`;
     }
 
     function updatedQuantity(newValue) {
@@ -173,15 +176,15 @@ function quantityControl() {
 
     plus.addEventListener('click', function () {
         let currentValue = parseInt(count.innerText);
-        let newValue = currentValue + 1; 
-        updatedQuantity(newValue); 
+        let newValue = currentValue + 1;
+        updatedQuantity(newValue);
     });
 
     minus.addEventListener('click', function () {
         let currentValue = parseInt(count.innerText);
-        if (currentValue > 1) { 
+        if (currentValue > 1) {
             let newValue = currentValue - 1;
-            updatedQuantity(newValue); 
+            updatedQuantity(newValue);
         }
     });
 }

@@ -1,5 +1,5 @@
     // Fetch Menu
-    const baseURL = 'http://52.66.205.5:8000';
+    const baseURL = 'https://52.66.205.5:8000';
     document.addEventListener('DOMContentLoaded', function () {
       let URLParams = new URLSearchParams(window.location.search)
       let restaurant_id = URLParams.get('restaurant_id')
@@ -17,7 +17,7 @@
       console.log(restaurant_id);
 
       try {
-        let responseMenu = await fetch(`http://52.66.205.5:8000/api/restaurants/${restaurant_id}/menu/`, {
+        let responseMenu = await fetch(`https://52.66.205.5:8000/api/restaurants/${restaurant_id}/menu/`, {
           method: 'GET'
         });
 

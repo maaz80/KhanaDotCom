@@ -1,5 +1,5 @@
 //menupage
-const baseURL = 'http://52.66.205.5:8000';
+const baseURL = 'https://52.66.205.5:8000';
 document.addEventListener('DOMContentLoaded', () => {
   fetchRestaurants();
 });
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function fetchRestaurants() {
 
   try {
-    const response = await fetch('http://52.66.205.5:8000/api/restaurants/', {
+    const response = await fetch('https://52.66.205.5:8000/api/restaurants/', {
       method: 'GET'
     });
 

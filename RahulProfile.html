@@ -351,7 +351,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const token = getToken();
       if (token) {
-        fetch("http://52.66.205.5:8000/profile-delivery-person/", {
+        fetch("https://52.66.205.5:8000/profile-delivery-person/", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -412,7 +412,7 @@
             });
 
             fetch(
-              "http://52.66.205.5:8000/update-profile-delivery-person/",
+              "https://52.66.205.5:8000/update-profile-delivery-person/",
               {
                 method: "PUT",
                 headers: {
@@ -505,7 +505,7 @@
             new_password: newPassword,
           };
 
-          fetch("http://52.66.205.5:8000/change-password/", {
+          fetch("https://52.66.205.5:8000/change-password/", {
             method: "POST",
             headers: {
               Authorization: `Bearer ${token}`,

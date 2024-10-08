@@ -33,7 +33,11 @@ header {
 }
 .profile-form{
   width: 100%;
+  
 }
+/* #profile-form{
+  display: flex;
+} */
 .profile-card,
 .details-card {
   background: #fff;

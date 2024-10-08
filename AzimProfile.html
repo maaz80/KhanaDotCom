@@ -377,9 +377,9 @@
     <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-  const profileUrl = "http://52.66.205.5:8000/profile-user/";
-  const updateProfileUrl = "http://52.66.205.5:8000/update-profile-user/";
-  const changePasswordUrl = "http://52.66.205.5:8000/change-password/";
+  const profileUrl = "https://52.66.205.5:8000/profile-user/";
+  const updateProfileUrl = "https://52.66.205.5:8000/update-profile-user/";
+  const changePasswordUrl = "https://52.66.205.5:8000/change-password/";
   const token = localStorage.getItem('accessToken')
 
   // Fetch profile information on page load
@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`https error! status: ${response.status}`);
       }
       return response.json();
     })
@@ -464,7 +464,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`https error! status: ${response.status}`);
         }
         return response.json();
       })
@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json().then(errData => {
           console.error('Failed to change password:', errData);
           alert(errData.error || 'Failed to change password.');
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`https error! status: ${response.status}`);
         });
       }
       return response.json();

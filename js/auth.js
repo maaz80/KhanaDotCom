@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loginButton.innerHTML = '<a href="#" class="logoutLink">Logout</a>';
             Signuptoggle.style.display='none'
             try {
-                fetch('http://52.66.205.5:8000/profile-user/', {
+                fetch('https://52.66.205.5:8000/profile-user/', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`

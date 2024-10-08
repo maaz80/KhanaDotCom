@@ -50,7 +50,7 @@ async function fetchMenu(restaurant_id, itemID) {
                             <div id='count'>1</div>
                             <button id='plus'>+</button>
                             </div>
-                            <button class="cart cart-count poppins-regular" >Cart</button>
+                            <button class="cart cart-count poppins-regular" >Add</button>
                             </div>
                         <!-- Rating Form -->
                         <div class="rating-section poppins-regular">

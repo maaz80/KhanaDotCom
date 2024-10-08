@@ -65,7 +65,7 @@ function displayMenu(menuItem) {
         <div class="buttonCont">
           <button class="cart cart-count poppins-regular" 
                   data-id='${item.id}' 
-                  data-added-to-cart="${isInCart}">${isInCart ? 'Remove' : 'Cart'}</button>
+                  data-added-to-cart="${isInCart}">${isInCart ? 'Remove' : 'Add'}</button>
           <button class='detailsbutton poppins-regular'>
             <a href="details.html?restaurant_id=${restaurant_id}&itemID=${item.id}">Details</a>
           </button>
@@ -103,15 +103,30 @@ function isItemInCart(itemId) {
   return cart.includes(itemId);
 }
 
+
 // Filter Dropdown 
 const filterMenu = document.getElementById('filter-menu');
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
   event.stopPropagation();
   filterMenu.classList.toggle('show');
-  navMenu.classList.remove("show");
   SignupMenu.classList.remove("show");
   ChatBot.classList.remove("show");
+});
+
+document.getElementById('menu-toggle').addEventListener('click', function (event) {
+  event.stopPropagation();
+  filterMenu.classList.remove("show");
+});
+
+document.getElementById('signup-toggle').addEventListener('click', function (event) {
+  event.stopPropagation();
+  filterMenu.classList.remove("show");
+});
+
+document.getElementById('bot-toggle').addEventListener('click', function (event) {
+  event.stopPropagation();
+  filterMenu.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
@@ -123,13 +138,15 @@ document.addEventListener('click', function (event) {
   }
 });
 
+
+
 // Item added Modal 
 const addItemModalButton = document.getElementById('added-item-modal-button');
 const closeModalButton = document.getElementById('close-modal-button');
 
 addItemModalButton.addEventListener('click', function () {
   const addItemModal = document.getElementById('added-item-modal')
-  addItemModal.style.marginTop = ' 64px'
+  addItemModal.style.marginTop = ' -10px'
   closeModalButton.style.display='block'
   addItemModalButton.style.display='none'
 })

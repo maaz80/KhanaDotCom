@@ -243,9 +243,23 @@ const filterMenu = document.getElementById('filter-menu');
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
   event.stopPropagation();
   filterMenu.classList.toggle('show');
-  navMenu.classList.remove("show");
   SignupMenu.classList.remove("show");
   ChatBot.classList.remove("show");
+});
+
+document.getElementById('menu-toggle').addEventListener('click', function (event) {
+  event.stopPropagation();
+  filterMenu.classList.remove("show");
+});
+
+document.getElementById('signup-toggle').addEventListener('click', function (event) {
+  event.stopPropagation();
+  filterMenu.classList.remove("show");
+});
+
+document.getElementById('bot-toggle').addEventListener('click', function (event) {
+  event.stopPropagation();
+  filterMenu.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {

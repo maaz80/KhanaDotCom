@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/NoFilterHead.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+
 </head>
 
 <body class="poppins-regular">
@@ -29,9 +27,9 @@
                     <!-- Restaurant Owner Dashboard -->
                     <button class="restaurant-owner-links poppins-regular">Dashboard</button>
 
-                    <button class="login loginButton"><a href="login.html">LogIn</a></button>
+                    <button class="login loginButton poppins-regular"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
-                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <button class="signup-toggle poppins-regular" id="signup-toggle">SignUp</button>
                         <ul id="sign-menu" class="sign-menu">
                             <li><a href="customer.html">Customer</a></li>
                             <li><a href="deliverylogin.html">Delivery Person</a></li>
@@ -68,6 +66,15 @@
             </div>
         </nav>
     </header>
+
+       <!-- Logout Popup -->
+       <div id="logoutPopup" class="popup">
+        <div class="popup-content">
+            <p>Do you really want to logout?</p>
+            <button id="confirmLogout" class="poppins-regular">Yes</button>
+            <button id="cancelLogout" class="poppins-regular">No</button>
+        </div>
+    </div>
 
     <!-- Restaurant-Owner-Dashboard  -->
     <div class="restaurant-dashboard">

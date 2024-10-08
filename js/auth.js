@@ -77,7 +77,7 @@ const ChatBot = document.getElementById('ChatBot-Box');
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
     navMenu.classList.toggle('show');
-    filterMenu.classList.remove("show");
+    // filterMenu.classList.remove("show");
     SignupMenu.classList.remove("show");
     ChatBot.classList.remove("show");
 });

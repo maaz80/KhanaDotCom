@@ -1,15 +1,33 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+body{
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #16a290;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#ChatBot-Box {
+  visibility: hidden;
+}
+
   .form-container {
-    background-color: white;
+    background: #fff;
+    padding: 10px;
     border-radius: 8px;
-    width: 100%;
-    margin-top: 63px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 92%;
+    margin: 55px auto;
   }
   .form-container h2 {
     text-align: center;
@@ -30,11 +48,11 @@ body {
   .form-group input,
   .form-group select,
   .form-group textarea {
-    width: 95%;
+    width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
   }
   .form-group textarea {
     resize: vertical;
@@ -53,22 +71,6 @@ body {
     background-color: #126e62;
   }
   
-  
-header {
-  background-color: #16a290;
-  color: #fff;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  top: 0;
-}
-
-.heading {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 
 @media screen and (min-width: 700px) {  
   .form-container {
@@ -86,19 +88,4 @@ header {
   }
 }
   
-  @media (max-width: 480px) {
-    .form-container {
-      max-width: 100%;
-      padding: 10px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: 6px;
-    }
-    .form-group button {
-      padding: 8px;
-      font-size: 12px;
-    }
-  }
   

@@ -1,20 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('../images/KDCBG.jpg');
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.799); /* Adjust the color and opacity */
-  z-index: -1;
 }
 #ChatBot-Box{
 visibility: hidden;
@@ -73,7 +59,8 @@ main {
 
 .restaurant-item {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+  width: 100%;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
@@ -174,7 +161,7 @@ strong {
 
 .menu-container {
   gap: 10px;
-  margin-top: 75px;
+  margin-top: 78px;
   width: 100%;
   flex-direction: row;
   display: flex;

@@ -85,14 +85,14 @@
   </div>
 </div>
 
-    <div class="container">
+    <div class="container poppins-regular">
       <h2 class="h2">Delivery Person Registration</h2>
       <form id="registrationForm">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+        <input type="text" id="username" name="username" class="poppins-regular" required />
 
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" class="poppins-regular" required />
 
         <label for="phone_number">Phone Number:</label>
         <input
@@ -103,13 +103,13 @@
           pattern="[0-9]{10}" />
 
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required />
+        <input type="text" id="address" name="address" class="poppins-regular" required />
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" class="poppins-regular" required />
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <input type="password" id="password" name="password" class="poppins-regular" required />
 
         <label for="user_type">User Type:</label>
         <input
@@ -118,7 +118,7 @@
           name="user_type"
           required
           value="delivery_person"
-          readonly />
+          readonly  class="poppins-regular"/>
 
         <label for="aadhaar_number">Aadhaar Number:</label>
         <input
@@ -126,16 +126,16 @@
           id="aadhaar_number"
           name="aadhaar_number"
           required
-          pattern="[0-9]{12}" />
+          pattern="[0-9]{12}"  class="poppins-regular"/>
 
         <label for="vehicle_details">Vehicle Details:</label>
         <input
           type="text"
           id="vehicle_details"
           name="vehicle_details"
-          required />
+          required  class="poppins-regular"/>
 
-        <button class="registerButton" type="submit">Register</button>
+        <button class="registerButton poppins-regular" type="submit">Register</button>
       </form>
       <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
 

@@ -103,6 +103,7 @@ header {
 
 .item-data {
     margin-top: 10px;
+    width: 100%;
 }
 
 .quantity {
@@ -298,7 +299,7 @@ h2 {
 
 #rating-form input[type="number"],
 #rating-form textarea {
-    width: 94%;
+    width: 93%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;

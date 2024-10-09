@@ -245,6 +245,8 @@ document.getElementById('filter-toggle').addEventListener('click', function (eve
   filterMenu.classList.toggle('show');
   SignupMenu.classList.remove("show");
   ChatBot.classList.remove("show");
+  navMenu.classList.remove("show");
+
 });
 
 document.getElementById('menu-toggle').addEventListener('click', function (event) {

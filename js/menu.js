@@ -1,5 +1,5 @@
 // Fetch Menu
-const baseURL = 'https://khanadotcom.in';
+const baseURL = 'https://khanadotcom.in:8000';
 document.addEventListener('DOMContentLoaded', function () {
   let URLParams = new URLSearchParams(window.location.search)
   let restaurant_id = URLParams.get('restaurant_id')
@@ -16,7 +16,7 @@ async function fetchMenu(restaurant_id) {
   console.log(restaurant_id);
 
   try {
-    let responseMenu = await fetch(`https://khanadotcom.in/api/restaurants/${restaurant_id}/menu/`, {
+    let responseMenu = await fetch(`https://khanadotcom.in:8000/api/restaurants/${restaurant_id}/menu/`, {
       method: 'GET'
     });
 

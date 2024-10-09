@@ -1,4 +1,4 @@
-let baseURL = 'https://khanadotcom.in';
+let baseURL = 'https://khanadotcom.in:8000';
 
 document.addEventListener('DOMContentLoaded', async function () {
     let URLParams = new URLSearchParams(window.location.search);

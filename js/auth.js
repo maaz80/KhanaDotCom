@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loginButton.innerHTML = '<a href="#" class="logoutLink">Logout</a>';
             Signuptoggle.style.display='none'
             try {
-                fetch('https://khanadotcom.in/profile-user/', {
+                fetch('https://khanadotcom.in:8000/profile-user/', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`

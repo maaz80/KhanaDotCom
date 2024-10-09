@@ -1,5 +1,5 @@
 //menupage
-const baseURL = 'https://khanadotcom.in';
+const baseURL = 'https://khanadotcom.in:8000';
 document.addEventListener('DOMContentLoaded', () => {
   fetchRestaurants();
 });
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function fetchRestaurants() {
 
   try {
-    const response = await fetch('https://khanadotcom.in/api/restaurants/', {
+    const response = await fetch('https://khanadotcom.in:8000/api/restaurants/', {
       method: 'GET'
     });
 

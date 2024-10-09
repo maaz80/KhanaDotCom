@@ -193,7 +193,7 @@
             const message = document.getElementById('message').value;
 
             try {
-                const response = await fetch('https://khanadotcom.in/contact/', {
+                const response = await fetch('https://khanadotcom.in:8000/contact/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -127,9 +127,9 @@
       
 
             // API URLs
-            const loginApiUrl = 'https://khanadotcom.in/login/';
-            const passwordResetApiUrl = 'https://khanadotcom.in/password-reset/';
-            const passwordResetConfirmApiUrl = (uidb64, token) => `https://khanadotcom.in/password-reset-confirm/${uidb64}/${token}/`;
+            const loginApiUrl = 'https://khanadotcom.in:8000/login/';
+            const passwordResetApiUrl = 'https://khanadotcom.in:8000/password-reset/';
+            const passwordResetConfirmApiUrl = (uidb64, token) => `https://khanadotcom.in:8000/password-reset-confirm/${uidb64}/${token}/`;
 
             // Function to get and store tokens
             async function loginUser(email, password) {
@@ -176,7 +176,7 @@
                         console.log("Login successful, token:", token);
                         localStorage.setItem('isLoggedIn', 'true')
                         
-                        window.location.href = '/KhanaDotCom/index.html';
+                        window.location.href = '/index.html';
                     }
                 } catch (error) {
                     console.error("Login error:", error);

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    fetch('https://khanadotcom.in/profile-user/', {
+    fetch('https://khanadotcom.in:8000/profile-user/', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 function fetchProfileDataForOwner() {
     const token = localStorage.getItem("accessToken");
 
-    fetch('https://khanadotcom.in/profile-owner/', {
+    fetch('https://khanadotcom.in:8000/profile-owner/', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -125,12 +125,12 @@ function updateOwnerProfile() {
         };
 
         if (userType === "restaurant_owner") {
-            url = "https://khanadotcom.in/update-profile-owner/";
+            url = "https://khanadotcom.in:8000/update-profile-owner/";
         } else if (userType === "delivery_person") {
-            url = "https://khanadotcom.in/update-profile-delivery-person/";
+            url = "https://khanadotcom.in:8000/update-profile-delivery-person/";
             requestBody.vehicle_details = document.getElementById("vehicle-details").value;
         } else {
-            url = "https://khanadotcom.in/update-profile-user/";
+            url = "https://khanadotcom.in:8000/update-profile-user/";
         }
 
         fetch(url, {
@@ -168,7 +168,7 @@ function updateOwnerProfile() {
 function fetchProfileDataForDeliveryPerson() {
     const token = localStorage.getItem("accessToken");
 
-    fetch("https://khanadotcom.in/profile-delivery-person/", {
+    fetch("https://khanadotcom.in:8000/profile-delivery-person/", {
         method: "GET",
         headers: {
             Authorization: `Bearer ${token}`,
@@ -256,7 +256,7 @@ function updateDeliveryProfile() {
             });
             const token = localStorage.getItem('accessToken');
             // Perform the update API call
-            fetch("https://khanadotcom.in/update-profile-delivery-person/", {
+            fetch("https://khanadotcom.in:8000/update-profile-delivery-person/", {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -294,8 +294,8 @@ function updateDeliveryProfile() {
 }
 
 function fetchProfileDataForUser() {
-    const profileUrl = "https://khanadotcom.in/profile-user/";
-    const updateProfileUrl = "https://khanadotcom.in/update-profile-user/";
+    const profileUrl = "https://khanadotcom.in:8000/profile-user/";
+    const updateProfileUrl = "https://khanadotcom.in:8000/update-profile-user/";
     const token = localStorage.getItem('accessToken');
 
     // Fetch profile information on page load
@@ -411,7 +411,7 @@ function changePassword() {
         return;
     }
 
-    fetch("https://khanadotcom.in/change-password/", {
+    fetch("https://khanadotcom.in:8000/change-password/", {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,

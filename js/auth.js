@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loginButtons.forEach((loginButton) => {
         if (isLoggedIn === "true") {
             loginButton.innerHTML = '<a href="#" class="logoutLink">Logout</a>';
-            Signuptoggle.style.display='none'
+            Signuptoggle.style.display = 'none'
             try {
                 fetch('https://khanadotcom.in:8000/profile-user/', {
                     method: 'GET',
@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (userType === 'restaurant_owner') {
                             const restaurantOwnerLinks = document.querySelector('.restaurant-owner-links');
                             restaurantOwnerLinks.style.display = 'flex';
+                        }
+                        else if (userType === 'customer') {
+                            const cart = document.querySelector('.cartCont')
+                            cart.style.display = 'block'
                         }
                     })
                     .catch(error => {
@@ -70,31 +74,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Header Toggle Functionality
 const navMenu = document.getElementById('nav-menu');
-// const filterMenu = document.getElementById('filter-menu');
 const SignupMenu = document.getElementById('sign-menu');
 const ChatBot = document.getElementById('ChatBot-Box');
 
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
     navMenu.classList.toggle('show');
-    // filterMenu.classList.remove("show");
     SignupMenu.classList.remove("show");
     ChatBot.classList.remove("show");
 });
 
-// document.getElementById('filter-toggle').addEventListener('click', function (event) {
-//     event.stopPropagation();
-//     filterMenu.classList.toggle('show');
-//     navMenu.classList.remove("show");
-//     SignupMenu.classList.remove("show");
-//     ChatBot.classList.remove("show");
-// });
 
 document.getElementById('signup-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
     SignupMenu.classList.toggle('show');
     navMenu.classList.remove("show");
-    // filterMenu.classList.remove("show");
     ChatBot.classList.remove("show");
 });
 
@@ -103,7 +97,6 @@ document.getElementById('bot-toggle').addEventListener('click', function (event)
     ChatBot.classList.toggle("show");
     SignupMenu.classList.remove('show');
     navMenu.classList.remove("show");
-    // filterMenu.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
@@ -120,36 +113,36 @@ document.addEventListener('click', function (event) {
 function addToCart(itemId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (!cart.includes(itemId)) {
-      cart.push(itemId);
-      localStorage.setItem('cart', JSON.stringify(cart));
+        cart.push(itemId);
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
     updateCartCount();
-  }
-  
-  // Function to remove item from the cart
-  function removeFromCart(itemId) {
+}
+
+// Function to remove item from the cart
+function removeFromCart(itemId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart = cart.filter(id => id !== itemId);
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
-  }
-  
-  // Function to update the cart count
-  function updateCartCount() {
+}
+
+// Function to update the cart count
+function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartCountElement = document.querySelector('.cart-count-number');
     const itemInCartElement = document.getElementById('itemincart');
-    
+
     if (cartCountElement) {
-      cartCountElement.textContent = cart.length;
+        cartCountElement.textContent = cart.length;
     }
-  
+
     if (itemInCartElement) {
-      itemInCartElement.textContent = cart.length;
+        itemInCartElement.textContent = cart.length;
     }
-  }
-  document.addEventListener('DOMContentLoaded', updateCartCount);
-  
+}
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
 
 // Restaurant owner Dashboard toggle
 let Dashboard = document.querySelector('.restaurant-owner-links')
@@ -160,7 +153,7 @@ Dashboard.addEventListener('click', function () {
     DashboardPopup.style.display = 'block'
     MainContent.classList.add('blurred')
 })
-CloseDashboardPopup.addEventListener('click' , function(){
+CloseDashboardPopup.addEventListener('click', function () {
     DashboardPopup.style.display = 'none'
     MainContent.classList.remove('blurred')
 })

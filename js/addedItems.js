@@ -3,7 +3,7 @@ const addedItemsCont = document.querySelector('.addedItem');
 async function fetchAddedItem() {
     const token = localStorage.getItem('accessToken');
     try {
-        const response = await fetch(`https://khanadotcom.in:8000/cart`, {
+        const response = await fetch(`https://khanadotcom.in:8000/cart/`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,

@@ -171,6 +171,7 @@ strong {
 }
 /* Item added modal css */
 #added-item-modal {
+  display: none;
   background-color: #16a290;
   width: 98.5%;
   height: 100vh; 
@@ -271,7 +272,7 @@ strong {
 
   .restaurant-item img {
     width: 100px;
-    height: 100px;
+    height: 60px;
   }
 
   .restaurant-info h3 {

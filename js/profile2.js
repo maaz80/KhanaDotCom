@@ -92,7 +92,6 @@ function populateProfile(profileData) {
     document.getElementById("address1").value = profileData.address || '';
     document.getElementById("user_type1").value = profileData.user_type || '';
     document.getElementById("aadhaar_card_number1").value = profileData.aadhaar_card_number || '';
-    console.log(profileData.aadhaar_card_number);
 
 }
 

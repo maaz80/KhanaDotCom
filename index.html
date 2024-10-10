@@ -128,13 +128,16 @@
             <!-- Restaurant Modal HTML -->
             <div id="restaurant-modal" class="modal">
                 <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2 id="modal-restaurant-name"></h2>
+                   <div class="modal-head">
+                       <div id="modal-restaurant-name"></div>
+                       <span class="close">&times;</span>
+                   </div>
                     <div class="modal-details">
-                        <img id="modal-restaurant-image" src="" alt="Restaurant Image">
-                        <p id="modal-restaurant-description"></p>
-                        <!-- Button to open the menu modal -->
-                        <button id="open-menu-button">Menu</button>
+                        <img id="modal-restaurant-image"  alt="Restaurant Image">
+                        <div>
+                            <p id="modal-restaurant-description"></p>
+                        <button id="open-menu-button" class="poppins-regular">Menu</button>
+                        </div>
                     </div>
                      <!-- Rating Form -->
                      <div class="rating-section poppins-regular" id="rating-section"></div>

@@ -86,30 +86,22 @@ function displayMenu(menuItem) {
   cartButtons.forEach(button => {
       button.addEventListener('click', (event) => {
           const menuItemId = event.currentTarget.dataset.id;
-          console.log(menuItemId);
-          
           const isAddedToCart = event.currentTarget.dataset.addedToCart === 'true';
 
           if (isAddedToCart) {
-              removeFromCart(menuItemId);
-              event.currentTarget.innerText = 'Add';
+              addToCart(menuItemId);
+              event.currentTarget.innerText = 'Add +';
               event.currentTarget.dataset.addedToCart = 'false';
           } else {
               addToCart(menuItemId);
-              event.currentTarget.innerText = 'Remove';
+              event.currentTarget.innerText = 'Add +';
               event.currentTarget.dataset.addedToCart = 'true';
           }
       });
   });
 
-
-
-async function addToCart(menuItemId, quantity = 1) {
-  console.log(menuItemId);
-  
+async function addToCart(menuItemId, quantity = 1) {  
   const token = localStorage.getItem('accessToken');
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
 
   try {
       const response = await fetch(`${baseURL}/cart/`, {
@@ -129,13 +121,11 @@ async function addToCart(menuItemId, quantity = 1) {
 
       const data = await response.json();
       console.log('Item added to cart:', data);
+      fetchAddedItem();
   } catch (error) {
       console.error('Error adding item to cart:', error);
   }
 }
-
-
-
 
 function isItemInCart(itemId) {
     return false; 
@@ -151,7 +141,6 @@ document.getElementById('filter-toggle').addEventListener('click', function (eve
   SignupMenu.classList.remove("show");
   ChatBot.classList.remove("show");
   navMenu.classList.remove("show");
-
 });
 
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
@@ -186,15 +175,17 @@ const closeModalButton = document.getElementById('close-modal-button');
 
 addItemModalButton.addEventListener('click', function () {
   const addItemModal = document.getElementById('added-item-modal')
-  addItemModal.style.marginTop = ' -10px'
+  addItemModal.style.top = '3px'
+  addItemModal.style.transition= '0.5s';
   closeModalButton.style.display='block'
   addItemModalButton.style.display='none'
 })
 
 closeModalButton.addEventListener('click', function () {
-  const addItemModal = document.getElementById('added-item-modal')
-  addItemModal.style.marginTop = ' 660px'
+    const addItemModal = document.getElementById('added-item-modal')
+    addItemModal.style.top = ' 93%'
+    addItemModal.style.transition= '0.5s';
   closeModalButton.style.display='none'
-  addItemModalButton.style.display='block'
+  addItemModalButton.style.display='flex'
 
 })

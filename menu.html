@@ -140,10 +140,19 @@
         <button id="cancelLogout" class="poppins-regular">No</button>
       </div>
     </div>
-    
+
     <div id="added-item-modal">
-      <button id="added-item-modal-button">Open</button>
-      <button id="close-modal-button">X</button>
+      <div id="added-item-modal-button">
+        <div class="itemCount"></div>
+     <div>
+      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF"><path d="m296-345-56-56 240-240 240 240-56 56-184-183-184 183Z"/></svg>
+     </div>
+      </div>
+      <div class="cart-head">
+        <div class="heading-added">Added Items</div>
+        <div id="close-modal-button"><svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+      </div>
+      <div class="addedItem"></div>
     </div>
     <div id="ChatBot-Box"><button id="bot-toggle"></button></div> <!-- Not for use just to remove error -->
 
@@ -151,6 +160,7 @@
 
  
 
+  <script src="js/addedItems.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/auth.js"></script>
 </body>

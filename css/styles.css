@@ -64,31 +64,60 @@ header {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+#modal-restaurant-name{
+    font-weight: 700;
+    font-size: large;
+    color: gray;
+}
+
 .modal-content {
     background-color: #fefefe;
-    margin: 50% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     border-radius: 20px;
     position: fixed;
     left: 50%;
-    top: -100px;
-    translate: -50%;
+    top: 50%;
+    transform: translate(-50%, -32%);
 }
 
-.modal-content img {
-    width: 100px;
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: start;
 }
+
+#modal-restaurant-image {
+    height: 190px;
+    width: 284px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 
 #open-menu-button {
-    width: 80px;
-    margin: auto;
-    border-radius: 5px;
-    border: 1px solid gray;
-    font-size: 17px;
     background-color: #16a290;
     color: white;
+    font-size: 16px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#open-menu-button:hover {
+    background-color: #107567;
 }
 
 .close {
@@ -426,6 +455,7 @@ h2 {
     color: #333;
 }
 
+
 #restaurant-list {
     display: flex;
     justify-content: space-around;
@@ -486,16 +516,6 @@ h2 {
     object-fit: cover;
 }
 
-.modal-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-#modal-restaurant-image {
-    height: 140px;
-    width: 200px;
-}
 
 #confirmLogout {
     background-color: #76e1d3;
@@ -550,7 +570,6 @@ h2 {
 #rating-form button {
     align-self: flex-start;
     background-color: #16a290;
-    ;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
@@ -562,7 +581,6 @@ h2 {
 
 #rating-form button:hover {
     background-color: #107567;
-    ;
 }
 
 #rating-message {
@@ -570,6 +588,7 @@ h2 {
     font-size: 14px;
     color: #28a745;
 }
+
 #rating-error {
     margin-top: 15px;
     font-size: 14px;
@@ -582,11 +601,13 @@ h2 {
     color: gray;
     font-size: 30px;
 }
+
 #comment {
-    resize: none; 
-    width: 100%; 
+    resize: none;
+    width: 100%;
     height: auto;
 }
+
 .highlighted {
     color: gold;
 }
@@ -675,8 +696,8 @@ h2 {
     }
 
     .order-summary-container {
-        margin-top:70px;
-        margin-bottom:70px;
+        margin-top: 70px;
+        margin-bottom: 70px;
         padding-top: 20px;
     }
 
@@ -704,6 +725,7 @@ h2 {
         width: 240px;
         height: 200px;
     }
+
     .rating-section {
         padding: 15px;
         max-width: 90%;
@@ -722,10 +744,23 @@ h2 {
     .rating-section h4 {
         font-size: 18px;
     }
-    .modal-content {
-        margin: 15% auto;
-    }
-    .modal-details{
+    .modal-details {
         flex-direction: row;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .modal-content {
+        transform: translate(-50%, -37%);
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1900px) {
+    #modal-restaurant-name{
+        font-size: x-large;
+    }    
+    .modal-content {
+        transform: translate(-50%, -43%);
     }
 }

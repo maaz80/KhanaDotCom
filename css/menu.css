@@ -2,9 +2,11 @@ body {
   margin: 0;
   padding: 0;
 }
-#ChatBot-Box{
-visibility: hidden;
+
+#ChatBot-Box {
+  visibility: hidden;
 }
+
 main {
   display: flex;
   padding: 20px;
@@ -73,6 +75,7 @@ main {
   height: 130px;
   margin-right: 20px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .restaurant-info {
@@ -97,7 +100,6 @@ main {
 }
 
 .detailsbutton {
-
   color: white;
   border: none;
   height: 30px;
@@ -167,31 +169,88 @@ strong {
   display: flex;
   min-height: 630px;
 }
-
-/* Item added modal css  */
-#added-item-modal{
+/* Item added modal css */
+#added-item-modal {
   background-color: #16a290;
-  width: 100%;
-  height: 100vh;
+  width: 98.5%;
+  height: 100vh; 
   position: fixed;
-  margin-top: 660px;
-  margin-left: -20px;
+  top: 93%;
+  left: 0;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  display:flex;
-  justify-content: space-between;
   padding: 10px;
   z-index: 1000;
-  border: 1px solid white;
+  border: 2px solid white;
+  overflow-y: auto;
+}
+#added-item-modal-button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.itemCount{
+  font-size: 20px;
+  font-weight: 600;
+}
+#close-modal-button {
+  display: none;
+  text-align: end;
 }
 
-#added-item-modal-button{
-  height: 20px;
+.addedItem {
+  width: 98.5%;
+  border-radius: 20px;
+  background-color: white;
+  padding: 10px;
 }
-#close-modal-button{
-  display: none;
-  height: 20px;
+
+.cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.cartItemImage{
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+.heading-added {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.cart-list-item {
+  border: 2px solid grey;
+  padding: 10px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  line-height: 17px;
+  font-size: 20px;
+}
+.removeItem {
+  background-color: rgb(243, 0, 0);
+  color: white;
+  height: 30px;
+  width: 80px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.removeItem:hover {
+  background-color: rgb(224, 69, 69);
+}
+
 @keyframes view {
   from {
     opacity: 0.6;
@@ -263,11 +322,6 @@ strong {
     margin-bottom: 5px;
   }
 
-  .restaurant-item img {
-    width: 27%;
-    height: 50px;
-  }
-
   .restaurant-info {
     text-align: start;
     font-size: 7px;
@@ -286,6 +340,14 @@ strong {
     font-size: large;
   }
 
+  #added-item-modal {
+    width: 97.4%;
+    padding: 3px;
+  }
+
+  .addedItem {
+    width: 94.5%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -340,10 +402,44 @@ strong {
   .text {
     font-size: medium;
   }
+  .cart-list-item {
+    font-size: 12px;
+    line-height: 6px;
+    padding: 5px;
+  }
+  .cartItemImage{
+    width: 140px;
+    height: 110px;
+  }
+  .removeItem{
+    height: 25px;
+    width: 64px;
+    font-size: 12px;
+  }
 }
 
 .poppins-regular {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

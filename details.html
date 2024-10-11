@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/details.css">
     <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/Font.css" />
+    <link rel="stylesheet" href="css/Cart.css" />
     <link rel="stylesheet" href="css/NoFilterHead.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -67,14 +68,37 @@
         </nav>
     </header>
 
-       <!-- Logout Popup -->
-       <div id="logoutPopup" class="popup">
+    <!-- Logout Popup -->
+    <div id="logoutPopup" class="popup">
         <div class="popup-content">
             <p>Do you really want to logout?</p>
             <button id="confirmLogout" class="poppins-regular">Yes</button>
             <button id="cancelLogout" class="poppins-regular">No</button>
         </div>
     </div>
+
+    <!-- Add to cart Popup  -->
+    <div id="added-item-modal" class="cartCont">
+        <div id="added-item-modal-button">
+            <div class="itemCount"></div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="40px"
+                    fill="#FFFFFF">
+                    <path d="m296-345-56-56 240-240 240 240-56 56-184-183-184 183Z" />
+                </svg>
+            </div>
+        </div>
+        <div class="cart-head">
+            <div class="heading-added">Added Items</div>
+            <div id="close-modal-button"><svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960"
+                    width="30px" fill="#FFFFFF">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                </svg></div>
+        </div>
+        <div class="addedItem"></div>
+    </div>
+
 
     <!-- Restaurant-Owner-Dashboard  -->
     <div class="restaurant-dashboard">
@@ -116,7 +140,8 @@
                     </div>
                     <div class="input">
                         <div>Quantity</div>
-                        <input type="number" value="1" id="quantity-input" class="custdetails poppins-regular" disabled name="quantity">
+                        <input type="number" value="1" id="quantity-input" class="custdetails poppins-regular" disabled
+                            name="quantity">
                     </div>
                 </div>
                 <div class="nextcont">
@@ -161,6 +186,7 @@
         </div>
     </div>
     <script src="js/auth.js"></script>
+    <script src="js/addedItems.js"></script>
     <script src="js/detail.js"></script>
 </body>
 

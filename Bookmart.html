@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/Bookmark.css">
     <link rel="stylesheet" href="css/Font.css">
     <link rel="stylesheet" href="css/NoFilterHead.css">
     <!-- <link rel="stylesheet" href="css/HeadAndFoot.css"> -->
@@ -165,58 +165,6 @@
     </footer>
 </body>
 <script src="js/auth.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const cartItems = document.querySelectorAll('.cart-item');
-
-        cartItems.forEach((item, index) => {
-            // Create a unique ID 
-            const itemId = `cartItem_${index}`;
-            let quantity = parseInt(localStorage.getItem(itemId)) || 1;
-
-            const increaseBtn = item.querySelector('.increase');
-            const decreaseBtn = item.querySelector('.decrease');
-            const quantityDisplay = item.querySelector('.quantity');
-            const priceDisplay = item.querySelector('.details p:nth-child(3)');
-            const orderButton = item.querySelector('.order-button');
-
-            const unitPrice = parseFloat(priceDisplay.textContent.replace('Price: $', ''));
-            quantityDisplay.textContent = quantity;
-            updatePrice();
-
-            function updateQuantity(newQuantity) {
-                // Make sure the quantity is not less than 0
-                quantity = Math.max(newQuantity, 1);
-                quantityDisplay.textContent = quantity;
-                localStorage.setItem(itemId, quantity);
-                updatePrice();
-            }
-
-            // Function to calculate and update the price display
-            function updatePrice() {
-                const calculatedPrice = unitPrice * quantity;
-                priceDisplay.textContent = `Price: $${calculatedPrice.toFixed(2)}`;
-            }
-
-            if (increaseBtn) {
-                increaseBtn.addEventListener('click', () => {
-                    updateQuantity(quantity + 1);
-                });
-            }
-
-            if (decreaseBtn) {
-                decreaseBtn.addEventListener('click', () => {
-                    updateQuantity(quantity - 1);
-                });
-            }
-
-            if (orderButton) {
-                orderButton.addEventListener('click', () => {
-                });
-            }
-        });
-    });
-
-</script>
+<script src="js/Bookmark.js"></script>
 
 </html>

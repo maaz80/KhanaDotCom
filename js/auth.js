@@ -25,11 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         const userType = data.user_type;
                         if (userType === 'restaurant_owner') {
                             const restaurantOwnerLinks = document.querySelector('.restaurant-owner-links');
-                            restaurantOwnerLinks.style.display = 'flex';
+                            if (restaurantOwnerLinks) restaurantOwnerLinks.style.display = 'flex';
                         }
                         else if (userType === 'customer') {
-                            const cart = document.querySelector('.cartCont')
-                            cart.style.display = 'block'
+                            const cartPopup = document.querySelector('.cartCont')
+                            if (cartPopup) cartPopup.style.display = 'block'
+                            document.addEventListener("menuRendered", function () {
+                                const cartButtons = document.querySelectorAll('.cart');
+                                if (cartButtons.length > 0) {
+                                    cartButtons.forEach(button => {
+                                        button.style.display = 'block';  // Show cart buttons for customer
+                                    });
+                                }
+                            });
                         }
                     })
                     .catch(error => {

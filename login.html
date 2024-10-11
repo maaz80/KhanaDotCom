@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/Font.css" />
     <link rel="stylesheet" href="css/NoFilterHead.css" />
-    <style>#ChatBot-Box{
-        visibility: hidden;
-        }</style>
+    <style>
+        #ChatBot-Box {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body class="poppins-regular">
@@ -67,8 +69,8 @@
         </nav>
     </header>
 
-      <!-- Restaurant-Owner-Dashboard  -->
-      <div class="restaurant-dashboard">
+    <!-- Restaurant-Owner-Dashboard  -->
+    <div class="restaurant-dashboard">
         <div class="close-dash-cont">
             <div class="first">--</div>
             <div>Dashboard</div>
@@ -124,159 +126,158 @@
     </div>
     <script src="js/auth.js"></script>
     <script>
-      
 
-            // API URLs
-            const loginApiUrl = 'https://khanadotcom.in:8000/login/';
-            const passwordResetApiUrl = 'https://khanadotcom.in:8000/password-reset/';
-            const passwordResetConfirmApiUrl = (uidb64, token) => `https://khanadotcom.in:8000/password-reset-confirm/${uidb64}/${token}/`;
+        // API URLs
+        const loginApiUrl = 'https://khanadotcom.in:8000/login/';
+        const passwordResetApiUrl = 'https://khanadotcom.in:8000/password-reset/';
+        const passwordResetConfirmApiUrl = (uidb64, token) => `https://khanadotcom.in:8000/password-reset-confirm/${uidb64}/${token}/`;
 
-            // Function to get and store tokens
-            async function loginUser(email, password) {
-                try {
-                    const response = await fetch(loginApiUrl, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ email, password }),
-                    });
+        // Function to get and store tokens
+        async function loginUser(email, password) {
+            try {
+                const response = await fetch(loginApiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
 
-                    if (!response.ok) {
-                        const errorResponse = await response.text(); // Get detailed error message
-                        throw new Error(`Login API call failed: ${response.statusText}`);
-                    }
-
-                    const data = await response.json();
-                    if (data.success && data.access_token) {
-                        localStorage.setItem("accessToken", data.access_token);
-                        localStorage.setItem("userRole", data.user_type); // Save the user role
-                        return data.access_token;
-                    } else {
-                        throw new Error("Access token not found in login API response.");
-                    }
-                } catch (error) {
-                    console.error("Login error:", error);
-                    alert("Failed to log in. Please check your credentials and try again.");
+                if (!response.ok) {
+                    const errorResponse = await response.text(); // Get detailed error message
+                    throw new Error(`Login API call failed: ${response.statusText}`);
                 }
+
+                const data = await response.json();
+                if (data.success && data.access_token) {
+                    localStorage.setItem("accessToken", data.access_token);
+                    localStorage.setItem("userRole", data.user_type); // Save the user role
+                    return data.access_token;
+                } else {
+                    throw new Error("Access token not found in login API response.");
+                }
+            } catch (error) {
+                console.error("Login error:", error);
+                alert("Failed to log in. Please check your credentials and try again.");
             }
+        }
 
-            // Event listener for the login form submission
-            document.getElementById("login-form").addEventListener("submit", async function (event) {
-                event.preventDefault();
+        // Event listener for the login form submission
+        document.getElementById("login-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-                try {
-                    const token = await loginUser(email, password);
+            try {
+                const token = await loginUser(email, password);
 
-                    if (token) {
-                        // Use the token for authenticated requests
-                        console.log("Login successful, token:", token);
-                        localStorage.setItem('isLoggedIn', 'true')
-                        window.location.href = 'index.html';
-                    }
-                } catch (error) {
-                    console.error("Login error:", error);
-                    alert("Failed to log in. Please try again later.");
+                if (token) {
+                    // Use the token for authenticated requests
+                    console.log("Login successful, token:", token);
+                    localStorage.setItem('isLoggedIn', 'true')
+                    window.location.href = 'index.html';
                 }
-            });
-
-
-            // Event listener for the password reset form submission
-            document.getElementById("password-reset-form").addEventListener("submit", async function (event) {
-                event.preventDefault();
-
-                const email = document.getElementById("reset-email").value;
-
-                try {
-                    const response = await fetch(passwordResetApiUrl, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ email }),
-                    });
-
-                    if (!response.ok) {
-                        const responseText = await response.text();
-                        console.error("Password reset failed:", responseText);
-                        alert(`Password reset failed: ${responseText}`);
-                        return;
-                    }
-
-                    const data = await response.json();
-                    alert(data.success);
-                    document.querySelector(".password-reset-container").style.display = "none";
-                    document.querySelector(".login-container").style.display = "block";
-                } catch (error) {
-                    console.error("Password reset error:", error);
-                    alert("Failed to connect to the server. Please try again later.");
-                }
-            });
-
-            // Function to handle password reset confirmation
-            async function resetPasswordConfirm(uidb64, token, newPassword) {
-                try {
-                    const response = await fetch(passwordResetConfirmApiUrl(uidb64, token), {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ new_password: newPassword }),
-                    });
-
-                    if (!response.ok) {
-                        const responseText = await response.text();
-                        console.error("Password reset confirmation failed:", responseText);
-                        alert(`Password reset confirmation failed: ${responseText}`);
-                        return;
-                    }
-
-                    const data = await response.json();
-                    alert(data.message);
-                    window.location.href = '/login';
-                } catch (error) {
-                    console.error("Password reset confirmation error:", error);
-                    alert("Failed to connect to the server. Please try again later.");
-                }
+            } catch (error) {
+                console.error("Login error:", error);
+                alert("Failed to log in. Please try again later.");
             }
+        });
 
-            // Reset Confirmation
-            document.addEventListener("DOMContentLoaded", function () {
-                const urlParams = new URLSearchParams(window.location.search);
-                const uidb64 = urlParams.get('uidb64');
-                const token = urlParams.get('token');
 
-                if (uidb64 && token) {
-                    document.querySelector("#uidb64").value = uidb64;
-                    document.querySelector("#token").value = token;
+        // Event listener for the password reset form submission
+        document.getElementById("password-reset-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-                    document.querySelector(".login-container").style.display = "none";
-                    document.querySelector(".password-reset-confirm-container").style.display = "block";
+            const email = document.getElementById("reset-email").value;
 
-                    document.getElementById("password-reset-confirm-form").addEventListener("submit", async function (event) {
-                        event.preventDefault();
-                        const newPassword = document.getElementById("new-password").value;
-                        await resetPasswordConfirm(uidb64, token, newPassword);
-                    });
+            try {
+                const response = await fetch(passwordResetApiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email }),
+                });
+
+                if (!response.ok) {
+                    const responseText = await response.text();
+                    console.error("Password reset failed:", responseText);
+                    alert(`Password reset failed: ${responseText}`);
+                    return;
                 }
-            });
 
-            // Event listener for the forgot password link
-            document.getElementById("forgot-password").addEventListener("click", function (event) {
-                event.preventDefault();
-                document.querySelector(".login-container").style.display = "none";
-                document.querySelector(".password-reset-container").style.display = "block";
-            });
-
-            // Event listener for the back to login link
-            document.getElementById("back-to-login").addEventListener("click", function (event) {
-                event.preventDefault();
+                const data = await response.json();
+                alert(data.success);
                 document.querySelector(".password-reset-container").style.display = "none";
                 document.querySelector(".login-container").style.display = "block";
-            });
+            } catch (error) {
+                console.error("Password reset error:", error);
+                alert("Failed to connect to the server. Please try again later.");
+            }
+        });
+
+        // Function to handle password reset confirmation
+        async function resetPasswordConfirm(uidb64, token, newPassword) {
+            try {
+                const response = await fetch(passwordResetConfirmApiUrl(uidb64, token), {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ new_password: newPassword }),
+                });
+
+                if (!response.ok) {
+                    const responseText = await response.text();
+                    console.error("Password reset confirmation failed:", responseText);
+                    alert(`Password reset confirmation failed: ${responseText}`);
+                    return;
+                }
+
+                const data = await response.json();
+                alert(data.message);
+                window.location.href = '/login';
+            } catch (error) {
+                console.error("Password reset confirmation error:", error);
+                alert("Failed to connect to the server. Please try again later.");
+            }
+        }
+
+        // Reset Confirmation
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const uidb64 = urlParams.get('uidb64');
+            const token = urlParams.get('token');
+
+            if (uidb64 && token) {
+                document.querySelector("#uidb64").value = uidb64;
+                document.querySelector("#token").value = token;
+
+                document.querySelector(".login-container").style.display = "none";
+                document.querySelector(".password-reset-confirm-container").style.display = "block";
+
+                document.getElementById("password-reset-confirm-form").addEventListener("submit", async function (event) {
+                    event.preventDefault();
+                    const newPassword = document.getElementById("new-password").value;
+                    await resetPasswordConfirm(uidb64, token, newPassword);
+                });
+            }
+        });
+
+        // Event listener for the forgot password link
+        document.getElementById("forgot-password").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.querySelector(".login-container").style.display = "none";
+            document.querySelector(".password-reset-container").style.display = "block";
+        });
+
+        // Event listener for the back to login link
+        document.getElementById("back-to-login").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.querySelector(".password-reset-container").style.display = "none";
+            document.querySelector(".login-container").style.display = "block";
+        });
 
     </script>
 </body>

@@ -6,9 +6,6 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#ChatBot-Box {
-  visibility: hidden;
-}
 
 .container {
   width: 100%;
@@ -35,9 +32,7 @@ header {
   width: 100%;
   
 }
-/* #profile-form{
-  display: flex;
-} */
+
 .profile-card,
 .details-card {
   background: #fff;

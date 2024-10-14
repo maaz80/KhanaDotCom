@@ -21,7 +21,7 @@ header {
 
 .ChatBot {
     position: fixed;
-    bottom: 8px;
+    bottom: 50px;
     right: 8px;
     border-radius: 50%;
 }
@@ -675,7 +675,7 @@ h2 {
     }
 
     .ChatBot {
-        bottom: 20px;
+        bottom: 65px;
         right: 20px;
         border-radius: 50%;
     }

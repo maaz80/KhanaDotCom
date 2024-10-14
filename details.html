@@ -97,6 +97,7 @@
                 </svg></div>
         </div>
         <div class="addedItem"></div>
+        <div class="totalAmountCont"></div>
     </div>
 
 
@@ -115,68 +116,7 @@
 
     <div class="Details main-content">
         <div class="item-details" id="item-details"></div>
-        <div class="order">
-            <form id="orderForm">
-                <div class="inputs">
-                    <h1>Order Details</h1>
-                    <div class="input">
-                        <div>Name</div>
-                        <input type="text" placeholder="Full Name" id="name" class="custdetails poppins-regular"
-                            required>
-                    </div>
-                    <div class="input">
-                        <div>Email ID</div>
-                        <input type="email" placeholder="Email" id="email" class="custdetails poppins-regular" required>
-                    </div>
-                    <div class="input">
-                        <div>Number</div>
-                        <input type="number" placeholder="Phone Number" id="number" class="custdetails poppins-regular"
-                            required>
-                    </div>
-                    <div class="input">
-                        <div>Address</div>
-                        <input type="text" placeholder="Address" id="address" class="custdetails poppins-regular"
-                            required>
-                    </div>
-                    <div class="input">
-                        <div>Quantity</div>
-                        <input type="number" value="1" id="quantity-input" class="custdetails poppins-regular" disabled
-                            name="quantity">
-                    </div>
-                </div>
-                <div class="nextcont">
-                    <button type="submit" id="next" class="nextbutton poppins-regular">Next</button>
-                </div>
-            </form>
-            <form id="paymentform" style="display: none;">
-                <div class="paymentInputs poppins-regular">
-                    <h1>Payment Details</h1>
-                    <div class="paymentDetails">
-                        <div>Credit/Debit Card</div>
-                        <div class="cardInput">
-                            <input id="Card" class="Card poppins-regular" type="number" placeholder="Card Number">
-                            <input id="Expiry" class="Expiry poppins-regular" type="number" placeholder="D.O.E">
-                            <input id="cvv" class="cvv poppins-regular" type="number" placeholder="CVV">
-                        </div>
-                    </div>
-                    <h2>OR</h2>
-                    <div class="paymentInput">
-                        <div>UPI</div>
-                        <input id="upi" class="upi poppins-regular" type="text" placeholder="UPI ID">
-                    </div>
-                    <h2>OR</h2>
-                    <div class="paymentInput">
-                        <div>Cash On Delivery</div>
-                        <input id="Cod" type="checkbox" class="poppins-regular">
-                    </div>
-                    <div class="ordercont">
-                        <button type="submit" class="orderbutton poppins-regular">Order</button>
-                    </div>
-                    <div id="ChatBot-Box"><button id="bot-toggle"></button></div>
-                    <!-- Not for use just to remove error -->
-                </div>
-            </form>
-        </div>
+        <!-- Logout Popup  -->
         <div id="logoutPopup" class="popup">
             <div class="popup-content">
                 <p>Do you really want to logout?</p>
@@ -185,8 +125,9 @@
             </div>
         </div>
     </div>
+
     <script src="js/auth.js"></script>
-    <script src="js/addedItems.js"></script>
+    <script src="js/Cart/Cart-NonMenu.js"></script>
     <script src="js/detail.js"></script>
 </body>
 

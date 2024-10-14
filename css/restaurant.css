@@ -17,9 +17,6 @@ header {
   gap: 5px;
 }
 
-#ChatBot-Box {
-  visibility: hidden;
-}
 
   .form-container {
     background-color: white;

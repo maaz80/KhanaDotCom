@@ -5,10 +5,6 @@ body {
     padding: 0;
 }
 
-#ChatBot-Box{
-    visibility: hidden;
-}
-
 .poll {
     padding-top: 18px;
     padding-bottom: 9px;
@@ -71,6 +67,7 @@ body {
     margin: auto;
     gap: 6px;
 }
+
 .pagination button {
     background-color: #16a290;
     color: #fff;
@@ -78,13 +75,17 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .pagination button:disabled {
     background-color: #ccc;
 }
+
 .pagination button:hover:not(:disabled) {
     background-color: #76e1d3;
 }
-#previous-page , #next-page{
+
+#previous-page,
+#next-page {
     width: 63%;
 }
 
@@ -104,7 +105,9 @@ header {
 }
 
 @media screen and (min-width: 700px) {
-    #previous-page , #next-page{
+
+    #previous-page,
+    #next-page {
         width: 14%;
     }
 }

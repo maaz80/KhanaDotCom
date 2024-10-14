@@ -1,20 +1,52 @@
-// Fetch Menu
 const baseURL = 'https://khanadotcom.in:8000';
 
 document.addEventListener('DOMContentLoaded', async function () {
     let URLParams = new URLSearchParams(window.location.search);
     let restaurant_id = URLParams.get('restaurant_id');
-    if (restaurant_id) {
-        const cartItemIds = await fetchAddedItemForButton();
-        fetchMenu(restaurant_id, cartItemIds);
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const token = localStorage.getItem("accessToken");
+    if (isLoggedIn === "true") {
+        try {
+            // Fetch user profile to get user type
+            const response = await fetch(`${baseURL}/profile-user/`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to fetch user profile: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            const userType = data.user_type;
+
+            if (restaurant_id) {
+                if (userType === 'customer') {
+                    const cartItemIds = await fetchAddedItemForButton();
+                    await fetchMenuForCustomer(restaurant_id, cartItemIds);
+                    fetchAddedItem();
+                    fetchAddedItemForButton()
+                } else {
+                    await fetchMenu(restaurant_id);
+                }
+            } else {
+                console.log('Restaurant id not found');
+            }
+        } catch (error) {
+            console.error('Error occurred:', error);
+        }
     } else {
-        console.log('Restaurant id not found');
+        await fetchMenu(restaurant_id);
+        console.log('Please login first');
+
     }
 });
 
 
-
-async function fetchMenu(restaurant_id, cartItemIds) {
+// Fetch menu for customer 
+async function fetchMenuForCustomer(restaurant_id, cartItemIds) {
     localStorage.setItem('restaurant_id', restaurant_id);
     console.log(restaurant_id);
 
@@ -31,7 +63,7 @@ async function fetchMenu(restaurant_id, cartItemIds) {
         let menuItem = await responseMenu.json();
 
         if (Array.isArray(menuItem) && menuItem.length > 0) {
-            displayMenu(menuItem, cartItemIds);
+            displayMenuForCustomer(menuItem, cartItemIds);
         } else {
             console.error('Menu items not found or invalid data format');
         }
@@ -39,9 +71,8 @@ async function fetchMenu(restaurant_id, cartItemIds) {
         console.error('There was a problem fetching the menu:', error.message);
     }
 }
-
 // Display menu 
-function displayMenu(menuItem, cartItemIds) {
+function displayMenuForCustomer(menuItem, cartItemIds) {
     const menuContainer = document.getElementById('menu-list');
     if (!menuContainer) {
         console.error('Menu container not found');
@@ -133,6 +164,74 @@ function displayMenu(menuItem, cartItemIds) {
     }
 }
 
+// Fetch menu other than customer 
+async function fetchMenu(restaurant_id) {
+    localStorage.setItem('restaurant_id', restaurant_id);
+    console.log(restaurant_id);
+
+    try {
+        let responseMenu = await fetch(`https://khanadotcom.in:8000/api/restaurants/${restaurant_id}/menu/`, {
+            method: 'GET'
+        });
+
+        if (!responseMenu.ok) {
+            let error = await responseMenu.text();
+            throw new Error(`The response was not okay: ${responseMenu.statusText} - ${error}`);
+        }
+
+        let menuItem = await responseMenu.json();
+        console.log(menuItem);
+
+        if (Array.isArray(menuItem) && menuItem.length > 0) {
+            displayMenu(menuItem);
+        } else {
+            console.error('Menu items not found or invalid data format');
+        }
+    } catch (error) {
+        console.error('There was a problem fetching the menu:', error.message);
+    }
+}
+
+function displayMenu(menuItem) {
+    const menuContainer = document.getElementById('menu-list');
+    if (!menuContainer) {
+        console.error('Menu container not found');
+        return;
+    }
+    menuContainer.innerHTML = '';
+
+    menuItem.forEach(item => {
+        console.log('Processing menu item:', item); // Log item being processed
+        if (!item.id || !item.image || !item.name || !item.price) {
+            console.error('Invalid menu item structure:', item);
+            return; // Skip this item if it's not valid
+        }
+
+        let restaurant_id = localStorage.getItem('restaurant_id');
+        let menuItemDiv = document.createElement('div');
+        menuItemDiv.classList.add('menu-item');
+
+
+        menuItemDiv.innerHTML = `
+             <div class="restaurant-item">
+              <img src="${baseURL + item.image}" alt="${item.name}" class="menu-item-image">
+              <div class="restaurant-info">
+                  <h3>${item.name}</h3>
+                  <p>Description: ${item.description}</p>
+                  <div>Price: <span>₹${item.price}</span></div>
+                  <div class="buttonCont">
+                      <button class='detailsbutton poppins-regular'>
+                          <a href="details.html?restaurant_id=${restaurant_id}&itemID=${item.id}">Details</a>
+                      </button>
+                  </div>
+              </div>
+          </div>`;
+
+        menuContainer.appendChild(menuItemDiv);
+    });
+
+}
+
 
 // Filter Dropdown 
 const filterMenu = document.getElementById('filter-menu');
@@ -141,7 +240,6 @@ document.getElementById('filter-toggle').addEventListener('click', function (eve
     event.stopPropagation();
     filterMenu.classList.toggle('show');
     SignupMenu.classList.remove("show");
-    ChatBot.classList.remove("show");
     navMenu.classList.remove("show");
 });
 
@@ -155,17 +253,12 @@ document.getElementById('signup-toggle').addEventListener('click', function (eve
     filterMenu.classList.remove("show");
 });
 
-document.getElementById('bot-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    filterMenu.classList.remove("show");
-});
 
 document.addEventListener('click', function (event) {
-    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
+    if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
         navMenu.classList.remove("show");
         filterMenu.classList.remove("show");
         SignupMenu.classList.remove("show");
-        ChatBot.classList.remove("show");
     }
 });
 

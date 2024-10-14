@@ -1,110 +1,190 @@
-
 /* Item added modal css */
 #added-item-modal {
-    display: none;
-    background-color: #16a290;
-    width: 98.5%;
-    height: 100vh; 
-    position: fixed;
-    top: 93%;
-    left: 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    padding: 10px;
-    z-index: 1000;
-    border: 2px solid white;
-    overflow-y: hidden;
-  }
-  #added-item-modal-button{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-  }
-  .itemCount{
-    font-size: 20px;
-    font-weight: 600;
-  }
-  #close-modal-button {
-    display: none;
-    text-align: end;
-  }
-  
-  .addedItem {
-    width: 98.5%;
-    border-radius: 20px;
-    background-color: white;
-    padding: 10px;
-  }
-  
-  .cart-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .cartItemImage{
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-  }
-  .heading-added {
-    text-align: center;
-    color: white;
-    font-weight: 700;
-    padding: 10px;
-    font-size: 22px;
-  }
-  
-  .cart-list-item {
-    border: 2px solid grey;
-    padding: 10px;
-    display: flex;
-    justify-content: start;
-    gap: 20px;
-    border-radius: 10px;
-    margin: 10px 0px;
-    line-height: 17px;
-    font-size: 20px;
-  }
-  .removeItem {
-    background-color: rgb(243, 0, 0);
-    color: white;
-    height: 30px;
-    width: 80px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .removeItem:hover {
-    background-color: #106d61;
+  display: none;
+  background-color: #16a290;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  padding-top: 10px;
+  top: 93%;
+  left: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: 1000;
+  border-top: 2px solid white;
+  overflow-y: hidden;
+}
+
+#added-item-modal-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.itemCount {
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+#close-modal-button {
+  display: none;
+  text-align: end;
+}
+
+.addedItem {
+  width: 98.5%;
+  border-radius: 20px;
+  background-color: white;
+  padding: 10px;
+}
+
+.cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cartItemImage {
+  width: 290px;
+  height: 180px;
+  border-radius: 10px;
+}
+
+.heading-added {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.cart-list-item {
+  border: 2px solid grey;
+  padding: 10px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  line-height: 17px;
+  font-size: 20px;
+}
+
+.totalAmountCont {
+  height: 40px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #16a290;
+  border: 2px solid white;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  position: static;
+  bottom: 0;
+  left: 0;
+}
+
+.amount {
+  margin-right: 10px;
+}
+
+.removeItem {
+  background-color: rgb(243, 0, 0);
+  color: white;
+  height: 30px;
+  width: 80px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.removeItem:hover {
+  background-color: #106d61;
+}
+
+.PaymentContainer {
+  border: 2px solid white;
+  border-radius: 6px;
+  width: 165px;
+  text-align: center;
+  height: 26px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.list {
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  border-radius: 15px;
+  list-style: none;
+  text-align: start;
+  display: none; 
+   opacity: 0;
+  transition: opacity 0.3s;
+}
+.list.show {
+  display: block;
+  opacity: 1;
+}
+.list li {
+  width: 155px;
+  display: flex;
+  align-items: center;
+  background-color: #16a290;
+  height: 30px;
+  padding-left: 10px;
+  border-bottom: 1px solid white;
+}
+.list li:hover{
+  background-color: #1bb5a0;
+
+}
+.list li:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  #added-item-modal {
+    padding-top: 3px;
   }
 
-  @media (max-width: 768px) {
-    #added-item-modal {
-      width: 97.4%;
-      padding: 3px;
-    }
-    .addedItem {
-      width: 94.5%;
-    }
+  .addedItem {
+    width: 94.5%;
   }
-  
-  @media (max-width: 480px) {
-    .cart-list-item {
-      font-size: 12px;
-      line-height: 6px;
-      padding: 5px;
-    }
-    .cartItemImage{
-      width: 140px;
-      height: 110px;
-    }
-    .removeItem{
-      height: 25px;
-      width: 64px;
-      font-size: 12px;
-    }
+
+  .totalAmountCont {
+    width: 99.1%;
   }
+  .cart-list-item {
+    font-size: 12px;
+    line-height: 6px;
+    padding: 5px;
+  }
+  .cart-list-item h3 {
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;  
+    width: 100%;              
+}
+
+  .cartItemImage {
+    width: 140px;
+    height: 110px;
+  }
+
+  .removeItem {
+    height: 25px;
+    width: 64px;
+    font-size: 12px;
+  }
+
+}

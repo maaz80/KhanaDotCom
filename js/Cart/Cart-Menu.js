@@ -1,5 +1,4 @@
-
-    let cartItems = []; // Initialize cartItems as an empty array
+let cartItems = [];
 
 const addedItemsCont = document.querySelector('.addedItem');
 async function fetchAddedItem() {
@@ -19,7 +18,21 @@ async function fetchAddedItem() {
 
         // Cart Count 
         const ItemCount = document.querySelector('.itemCount')
+        const totalAmountCont = document.querySelector('.totalAmountCont')
         ItemCount.innerHTML = `${data.items.length} Items added in cart.`
+        totalAmountCont.innerHTML = `
+        <div class="PaymentContainer">
+            <div class='PaymentOptionsButton'>Payment Options </div>
+               <div class="list">
+                   <li>Credit/Debit Card</li>
+                   <li>PayPal</li>
+                   <li>UPI</li>
+                   <li>COD</li>
+               </div>
+        </div>
+       <div class='amount'>Total: ₹${data.total_amount}</div> `
+        console.log(data);
+
         addedItemsCont.innerHTML = '';
 
         // Access the items array in the data object
@@ -49,6 +62,22 @@ async function fetchAddedItem() {
         } else {
             addedItemsCont.innerHTML = '<p>No items found in the cart.</p>';
         }
+        // Payment option button listener
+        const PaymentOptionsButton = document.querySelector('.PaymentOptionsButton');
+        PaymentOptionsButton.addEventListener('click', function () {
+            const list = document.querySelector('.list');
+            if (list.classList.contains('show')) {
+                list.classList.remove('show');
+                setTimeout(() => {
+                    list.style.display = 'none'; 
+                }, 500);
+            } else {
+                list.style.display = 'block'; 
+                setTimeout(() => {
+                    list.classList.add('show');
+                }, 10); 
+            }
+        });
 
     } catch (error) {
         console.error('Error fetching added items:', error);
@@ -92,7 +121,7 @@ async function removeItem(cartId) {
         // Fetching menu on remove item 
         const restaurant_id = localStorage.getItem('restaurant_id');
         const cartItemIds = await fetchAddedItemForButton();
-        fetchMenu(restaurant_id, cartItemIds);
+        fetchMenuForCustomer(restaurant_id, cartItemIds);
 
     } catch (error) {
         throw new Error('Error removing the item.')
@@ -115,15 +144,14 @@ async function fetchAddedItemForButton() {
         }
         const data = await response.json();
 
-        const cartItemIds = data.items.map(item => item.menu_item.menu_item_id); 
-        return cartItemIds; 
-        
+        const cartItemIds = data.items.map(item => item.menu_item.menu_item_id);
+        return cartItemIds;
+
     } catch (error) {
         console.error('Error fetching added items:', error);
     }
 }
-fetchAddedItem();
-fetchAddedItemForButton()
+
 
 
 
@@ -131,6 +159,8 @@ fetchAddedItemForButton()
 const addItemModalButton = document.getElementById('added-item-modal-button');
 const closeModalButton = document.getElementById('close-modal-button');
 const addItemModal = document.getElementById('added-item-modal')
+const totalAmountCont = document.querySelector('.totalAmountCont')
+
 
 addItemModalButton.addEventListener('click', function () {
     addItemModal.style.top = '3px'
@@ -138,6 +168,7 @@ addItemModalButton.addEventListener('click', function () {
     closeModalButton.style.display = 'block'
     addItemModalButton.style.display = 'none'
     addItemModal.style.overflowY = 'auto'
+    totalAmountCont.style.position = 'fixed'
 })
 
 closeModalButton.addEventListener('click', function () {
@@ -146,5 +177,6 @@ closeModalButton.addEventListener('click', function () {
     closeModalButton.style.display = 'none'
     addItemModalButton.style.display = 'flex'
     addItemModal.style.overflowY = 'hidden'
+    totalAmountCont.style.position = 'static'
 
 })

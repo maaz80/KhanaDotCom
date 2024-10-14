@@ -8,10 +8,6 @@ body {
     background-color: white;
 }
 
-#ChatBot-Box{
-    visibility: hidden;
-    }
-
 /* Header */
 header {
     background-color: #16a290;

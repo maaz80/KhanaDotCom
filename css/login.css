@@ -12,9 +12,7 @@ body {
     align-items: center;
     height: 85%;
 }
-#ChatBot-Box{
-    visibility: hidden;
-}
+
 .login-container {
     background: white;
     padding: 20px;

@@ -1,8 +1,42 @@
-//menupage
 const baseURL = 'https://khanadotcom.in:8000';
-document.addEventListener('DOMContentLoaded', () => {
-  fetchRestaurants();
+
+document.addEventListener('DOMContentLoaded', async function () {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const token = localStorage.getItem("accessToken");
+  if (isLoggedIn === "true") {
+    try {
+      // Fetch user profile to get user type
+      const response = await fetch(`${baseURL}/profile-user/`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch user profile: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      const userType = data.user_type;
+
+      if (userType === 'customer') {
+        fetchAddedItem();
+        fetchRestaurants()
+      } else {
+        console.log('Login as customer first');
+        fetchRestaurants()
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+    }
+  } else {
+    await fetchRestaurants()
+
+
+  }
 });
+
 
 async function fetchRestaurants() {
 
@@ -134,7 +168,10 @@ function openModal(restaurant) {
 
   // Model display 
   const modal = document.getElementById('restaurant-modal');
+  let MainContent = document.querySelector('.main-content')
   modal.style.display = "block";
+  MainContent.classList.add('blurred')
+
 
   // Handle "View Menu" button click
   const viewMenuButton = document.getElementById('open-menu-button');
@@ -146,7 +183,10 @@ function openModal(restaurant) {
 // Close model
 let closebutton = document.querySelector('.close').addEventListener('click', () => {
   const modal = document.getElementById('restaurant-modal');
+  let MainContent = document.querySelector('.main-content')
   modal.style.display = "none";
+  MainContent.classList.remove('blurred')
+
 });
 
 window.onclick = function (event) {
@@ -156,9 +196,7 @@ window.onclick = function (event) {
   }
 };
 
-
-// index.html
-
+// Load more items 
 document.addEventListener("DOMContentLoaded", () => {
   const categoryContainer = document.getElementById("category");
   const loader = document.getElementById("loader");
@@ -219,7 +257,7 @@ function startAutoScroll() {
   intervalId = setInterval(() => {
     currentIndex = (currentIndex + 1) % slideCount;
     updateSlider();
-  }, 2000); // Changes slide every 5 seconds
+  }, 2000);
 }
 
 function pauseAutoScroll() {
@@ -239,6 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Filter Dropdown 
 const filterMenu = document.getElementById('filter-menu');
+const ChatBot = document.getElementById('ChatBot-Box');
+
 
 document.getElementById('filter-toggle').addEventListener('click', function (event) {
   event.stopPropagation();
@@ -252,16 +292,22 @@ document.getElementById('filter-toggle').addEventListener('click', function (eve
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
   event.stopPropagation();
   filterMenu.classList.remove("show");
+  ChatBot.classList.remove("show");
+
 });
 
 document.getElementById('signup-toggle').addEventListener('click', function (event) {
   event.stopPropagation();
   filterMenu.classList.remove("show");
+  ChatBot.classList.remove("show");
+
 });
 
 document.getElementById('bot-toggle').addEventListener('click', function (event) {
   event.stopPropagation();
   filterMenu.classList.remove("show");
+  ChatBot.classList.toggle("show");
+
 });
 
 document.addEventListener('click', function (event) {

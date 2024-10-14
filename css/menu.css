@@ -3,10 +3,6 @@ body {
   padding: 0;
 }
 
-#ChatBot-Box {
-  display: none;
-}
-
 main {
   display: flex;
   padding: 20px;
@@ -74,6 +70,7 @@ main {
   width: 200px;
   height: 130px;
   margin-right: 20px;
+  margin-left: 10px;
   border-radius: 5px;
   object-fit: cover;
 }
@@ -96,6 +93,10 @@ main {
 
 .restaurant-info p {
   margin: 5px 0;
+  width: 94%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .buttonCont {
@@ -254,7 +255,8 @@ strong {
     font-size: 14px;
     line-height: 1;
     margin-left: -15px;
-    width: 66%;
+    width: 60%;
+
   }
   .restaurant-info span{
     font-size: 16px;

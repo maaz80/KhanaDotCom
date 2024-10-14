@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         else if (userType === 'customer') {
                             const cartPopup = document.querySelector('.cartCont')
                             if (cartPopup) cartPopup.style.display = 'block'
+                           
                             document.addEventListener("menuRendered", function () {
                                 const cartButtons = document.querySelectorAll('.cart');
                                 if (cartButtons.length > 0) {
@@ -83,13 +84,11 @@ document.addEventListener("DOMContentLoaded", function () {
 // Header Toggle Functionality
 const navMenu = document.getElementById('nav-menu');
 const SignupMenu = document.getElementById('sign-menu');
-const ChatBot = document.getElementById('ChatBot-Box');
 
 document.getElementById('menu-toggle').addEventListener('click', function (event) {
     event.stopPropagation();
     navMenu.classList.toggle('show');
     SignupMenu.classList.remove("show");
-    ChatBot.classList.remove("show");
 });
 
 
@@ -97,21 +96,12 @@ document.getElementById('signup-toggle').addEventListener('click', function (eve
     event.stopPropagation();
     SignupMenu.classList.toggle('show');
     navMenu.classList.remove("show");
-    ChatBot.classList.remove("show");
-});
-
-document.getElementById('bot-toggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    ChatBot.classList.toggle("show");
-    SignupMenu.classList.remove('show');
-    navMenu.classList.remove("show");
 });
 
 document.addEventListener('click', function (event) {
-    if (!navMenu.contains(event.target) && !SignupMenu.contains(event.target) && !ChatBot.contains(event.target)) {
+    if (!navMenu.contains(event.target) && !SignupMenu.contains(event.target) ) {
         navMenu.classList.remove("show");
         SignupMenu.classList.remove("show");
-        ChatBot.classList.remove("show");
     }
 });
 

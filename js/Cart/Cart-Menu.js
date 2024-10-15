@@ -96,7 +96,7 @@ function addRemoveEventListener() {
             button.addEventListener('click', (event) => {
                 const cartId = event.currentTarget.dataset.cartId;
                 removeItem(cartId)
-            MultiPopup('Item removed', 1500)
+                MultiPopup('Item removed', 1500)
                 fetchAddedItem()
                 fetchAddedItemForButton()
             })

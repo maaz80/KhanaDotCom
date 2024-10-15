@@ -249,6 +249,31 @@ async function fetchMenu(restaurant_id, itemID) {
             itemDetailsCont.innerHTML += itemDetails;
             quantityControl();
 
+            // Fill rating input when a star is clicked
+            const stars = document.querySelectorAll('.fa-star')
+            const ratingInput = document.getElementById('rating')
+
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    const ratingValue = index + 1;
+                    ratingInput.value = ratingValue;
+
+                    // Highlight stars up to the clicked one
+                    stars.forEach((s, i) => {
+                        if (i < ratingValue) {
+                            s.classList.add('highlighted');
+                        } else {
+                            s.classList.remove('highlighted');
+                        }
+                    });
+                });
+            });
+
+            document.getElementById('rating-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                submitRating(itemIDNumber);
+            });
+
         } else {
             console.error('Item not found');
             document.getElementById('item-details').innerText = 'Item not found';
@@ -265,7 +290,7 @@ async function submitRating(menuItemId) {
     const token = localStorage.getItem('accessToken');
 
     if (!token) {
-        document.getElementById('rating-error').innerText = 'You must be logged in to rate this item.';
+        document.getElementById('rating-error').innerText = 'You must be logged in as a customer to rate this item.';
         return;
     }
 

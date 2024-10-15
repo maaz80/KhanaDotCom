@@ -117,10 +117,10 @@ async function removeItem(cartId) {
             throw new Error('Error is response')
         }
         MultiPopup('Item Removed', 1500)
-        const cart = document.querySelector('.cart')
-        cart.innerText = 'Add'
         await fetchAddedItem()
         await fetchAddedItemForButton()
+        const cart = document.querySelector('.Detailscart')
+        cart.innerText = 'Add'
 
     } catch (error) {
         throw new Error('Error removing the item.')

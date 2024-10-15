@@ -47,7 +47,7 @@ header {
     min-width: 68%;
     border-radius: 10px;
     height: 100%;
-    object-fit: inherit;
+    object-fit: cover;
 }
 
 .imgsCont {
@@ -74,10 +74,11 @@ header {
 .restaurant-item .Secondary-Image {
     width: 100%;
     border-radius: 10px;
-    height: 100%;
+    background-color: lightgray;
+    border: 1px solid gray;
+    height: 48%;
     object-fit: inherit;
     filter: blur(2px);
-    filter: grayscale(50px);
 }
 
 .item-details {
@@ -426,6 +427,7 @@ h2 {
 
     .restaurant-item .Secondary-Image {
         width: 50%;
+        height: 100%;
     }
 
     .restaurant-item .Main-image {

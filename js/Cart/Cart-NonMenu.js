@@ -75,7 +75,7 @@ async function fetchAddedItem() {
                 list.style.display = 'block';
                 setTimeout(() => {
                     list.classList.add('show');
-                }, 10); 
+                }, 10);
             }
         });
 
@@ -95,6 +95,7 @@ function addRemoveEventListener() {
                 const cartId = event.currentTarget.dataset.cartId;
                 removeItem(cartId)
                 fetchAddedItem()
+                fetchAddedItemForButton()
             })
         })
     } else {
@@ -115,9 +116,39 @@ async function removeItem(cartId) {
         if (!response.ok) {
             throw new Error('Error is response')
         }
-        fetchAddedItem()
+        MultiPopup('Item Removed', 1500)
+        const cart = document.querySelector('.cart')
+        cart.innerText = 'Add'
+        await fetchAddedItem()
+        await fetchAddedItemForButton()
+
     } catch (error) {
         throw new Error('Error removing the item.')
+    }
+
+}
+async function fetchAddedItemForButton() {
+    const token = localStorage.getItem('accessToken');
+    try {
+        const response = await fetch(`https://khanadotcom.in:8000/cart/`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) {
+            throw new Error('Response was not ok');
+        }
+        const data = await response.json();
+
+        const cartItemIds = data.items.map(item => item.menu_item.menu_item_id);
+        console.log(cartItemIds);
+
+        return cartItemIds;
+
+    } catch (error) {
+        console.error('Error fetching added items:', error);
     }
 }
 

@@ -474,7 +474,7 @@ footer p {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 1px;
+    width: 0px;
 }
 
 /* Track */

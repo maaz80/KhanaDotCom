@@ -48,9 +48,11 @@ async function fetchAddedItem() {
                 <img src='${imageUrl}' alt='Item Pic' class='cartItemImage'/>
                 <div class='cart-list-item-details'>
                 <h3>${item.menu_item.name}</h3>
-                <p>Quantity: ${item.quantity}</p>
-                <p>Total Price: ₹${item.total_price}</p>
-                <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
+                <div>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Total Price: ₹${item.total_price}</p>
+                    <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
+                </div>
                 </div>
                 </div>
                 `;
@@ -69,13 +71,13 @@ async function fetchAddedItem() {
             if (list.classList.contains('show')) {
                 list.classList.remove('show');
                 setTimeout(() => {
-                    list.style.display = 'none'; 
+                    list.style.display = 'none';
                 }, 500);
             } else {
-                list.style.display = 'block'; 
+                list.style.display = 'block';
                 setTimeout(() => {
                     list.classList.add('show');
-                }, 10); 
+                }, 10);
             }
         });
 
@@ -94,6 +96,7 @@ function addRemoveEventListener() {
             button.addEventListener('click', (event) => {
                 const cartId = event.currentTarget.dataset.cartId;
                 removeItem(cartId)
+            MultiPopup('Item removed', 1500)
                 fetchAddedItem()
                 fetchAddedItemForButton()
             })

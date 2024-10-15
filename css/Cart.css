@@ -47,9 +47,10 @@
 }
 
 .cartItemImage {
-  width: 290px;
+  width: 26%;
   height: 180px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .heading-added {
@@ -70,6 +71,9 @@
   margin: 10px 0px;
   line-height: 17px;
   font-size: 20px;
+}
+.cart-list-item-details{
+  width: 70%;
 }
 
 .totalAmountCont {
@@ -170,10 +174,13 @@
     padding: 5px;
   }
   .cart-list-item h3 {
-    white-space: nowrap;      
-    overflow: hidden;         
-    text-overflow: ellipsis;  
-    width: 100%;              
+    width: 94%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-top: 3px;
+    text-overflow: ellipsis;
+    padding-bottom: 5px;
+    
 }
 
   .cartItemImage {

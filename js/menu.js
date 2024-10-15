@@ -101,7 +101,7 @@ function displayMenuForCustomer(menuItem, cartItemIds) {
                   <p>Description: ${item.description}</p>
                   <div>Price: <span>₹${item.price}</span></div>
                   <div class="buttonCont">
-                      <button class="cart cart-count poppins-regular" 
+                      <button class="Menucart cart-count poppins-regular" 
                               data-id='${item.id}' 
                               data-added-to-cart="${isInCart}">${isInCart ? 'Add +' : 'Add'}</button>
                       <button class='detailsbutton poppins-regular'>
@@ -117,7 +117,7 @@ function displayMenuForCustomer(menuItem, cartItemIds) {
     document.dispatchEvent(event);
 
     // Add event listeners to the cart buttons
-    const cartButtons = document.querySelectorAll('.cart');
+    const cartButtons = document.querySelectorAll('.Menucart');
     cartButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             const menuItemId = event.currentTarget.dataset.id;
@@ -155,6 +155,7 @@ function displayMenuForCustomer(menuItem, cartItemIds) {
             }
 
             const data = await response.json();
+            MultiPopup(`Item added ` , 1500)
             console.log('Item added to cart:', data);
             fetchAddedItem();
             fetchAddedItemForButton()

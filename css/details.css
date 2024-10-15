@@ -44,7 +44,7 @@ header {
 }
 
 .restaurant-item .Main-image {
-    min-width: 75%;
+    min-width: 68%;
     border-radius: 10px;
     height: 100%;
     object-fit: inherit;
@@ -72,13 +72,14 @@ header {
 }
 
 .restaurant-item .Secondary-Image {
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
     height: 100%;
     object-fit: inherit;
     filter: blur(2px);
     filter: grayscale(50px);
 }
+
 .item-details {
     width: 94%;
     border-radius: 5px;
@@ -105,11 +106,13 @@ header {
     align-items: center;
     gap: 10px;
 }
-.all-buttons{
+
+.all-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 .quantity button {
     background-color: #16a290;
     border: none;
@@ -122,7 +125,8 @@ header {
     align-items: center;
     color: white;
 }
-.cart {
+
+.Detailscart {
     background-color: #16a290;
     color: white;
     border: none;
@@ -130,8 +134,8 @@ header {
     cursor: pointer;
     height: 30px;
     width: 70px;
-  }
-  
+}
+
 .order {
     width: 94%;
     border: 1px solid gray;
@@ -143,8 +147,9 @@ header {
 #orderForm {
     width: 100%;
 }
-.order h1{
-    font-size:40px;
+
+.order h1 {
+    font-size: 40px;
 }
 
 .inputs {
@@ -331,6 +336,7 @@ h2 {
     font-size: 14px;
     color: #28a745;
 }
+
 #rating-error {
     margin-top: 15px;
     font-size: 14px;
@@ -343,11 +349,13 @@ h2 {
     color: gray;
     font-size: 30px;
 }
+
 #comment {
-    resize: none; 
-    width: 100%; 
+    resize: none;
+    width: 100%;
     height: auto;
 }
+
 .highlighted {
     color: gold;
 }
@@ -410,9 +418,18 @@ h2 {
         margin-top: 20px;
         gap: 10px;
     }
+
     .imgsSubCont {
         flex-direction: row;
-    
+
+    }
+
+    .restaurant-item .Secondary-Image {
+        width: 50%;
+    }
+
+    .restaurant-item .Main-image {
+        min-width: 75%;
     }
 
     .restaurant-item .Main-image {
@@ -430,9 +447,11 @@ h2 {
     #orderForm {
         width: 100%;
     }
-    .order h1{
+
+    .order h1 {
         font-size: 50px;
     }
+
     #paymentform {
         width: 100%;
         margin: auto;

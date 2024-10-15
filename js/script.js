@@ -97,7 +97,7 @@ function openModal(restaurant) {
                               </div>
                                 <input type="number" id="rating" min="1" max="5" required />
                                 <label for="comment">Comment (optional):</label>
-                                <textarea id="comment" rows="3"></textarea>
+                                <textarea id="comment" rows="3" class='poppins-regular'></textarea>
                                 <button type="submit" class='poppins-regular'>Submit Rating</button>
                             </form>
                             <div id="rating-message"></div>

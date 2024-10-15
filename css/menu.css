@@ -122,7 +122,7 @@ main {
   color: white;
 }
 
-.cart {
+.Menucart {
   display: none;
   background-color: #5ab3a7;
   color: white;
@@ -262,7 +262,7 @@ strong {
     font-size: 16px;
   }
   .detailsbutton,
-  .cart {
+  .Menucart {
     width: 50px;
     height: 20px;
     font-size: 10px;

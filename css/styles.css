@@ -713,7 +713,10 @@ h2 {
     .slide img {
         height: 200px;
     }
-
+    #modal-restaurant-image {
+        width: 50%;
+        
+    }
     .restaurant-item {
         height: 246px;
     }

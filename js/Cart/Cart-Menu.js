@@ -48,17 +48,45 @@ async function fetchAddedItem() {
                 <img src='${imageUrl}' alt='Item Pic' class='cartItemImage'/>
                 <div class='cart-list-item-details'>
                 <h3>${item.menu_item.name}</h3>
-                <div>
-                    <p>Quantity: ${item.quantity}</p>
-                    <p>Total Price: ₹${item.total_price}</p>
-                    <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
+                <div class='quantityContainer'>
+                <div>Quantity:</div> 
+                 <div class='quantity'>
+                  <button class='minus poppins-regular' data-id='${item.id}' id='minus-${item.id}'>-</button>
+                  ${item.quantity}
+                  <button class='plus poppins-regular' data-id='${item.id}' id='plus-${item.id}'>+</button>
+                 </div>
                 </div>
+                <p>Price: ₹${item.menu_item.price}</p>
+                   <div class='ItemTotalPrice'>
+                    <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
+                    <p>Total: ₹${item.total_price}</p>
                 </div>
                 </div>
                 `;
 
                 // Append the item to the container
+
                 addedItemsCont.appendChild(itemDiv);
+
+                // Increasing quantity in cart 
+                document.getElementById(`plus-${item.id}`).addEventListener('click', () => {
+                    const cartId = item.id;
+                    const currentQuantity = item.quantity;
+                    const newQuantity = currentQuantity + 1;
+                    const menuItemId = item.menu_item.menu_item_id;
+                    changeQuantity(cartId, menuItemId, newQuantity);
+                    MultiPopup('Quantity Increased', 1500);
+                });
+
+                // Decreasing quantity in cart 
+                document.getElementById(`minus-${item.id}`).addEventListener('click', () => {
+                    const cartId = item.id;
+                    const currentQuantity = item.quantity;
+                    const newQuantity = currentQuantity - 1;
+                    const menuItemId = item.menu_item.menu_item_id;
+                    changeQuantity(cartId, menuItemId, newQuantity);
+                    MultiPopup('Quantity Decreased', 1500);
+                });
             });
             addRemoveEventListener()
         } else {
@@ -155,7 +183,28 @@ async function fetchAddedItemForButton() {
     }
 }
 
+// Change Quantity in cart function 
+async function changeQuantity(cartId, menuItemId, newQuantity) {
+    const token = localStorage.getItem('accessToken')
+    try {
+        const response = await fetch(`https://khanadotcom.in:8000/cart/item/${cartId}/`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ menu_item_id: menuItemId, quantity: newQuantity })
+        })
 
+        if (!response.ok) {
+            throw new Error('There was an issue in response')
+        }
+        await fetchAddedItem();
+        await fetchAddedItemForButton()
+    } catch (error) {
+        throw new Error('Error in fetching the item', error)
+    }
+}
 
 
 // Item added Modal 

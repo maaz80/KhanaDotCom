@@ -131,6 +131,7 @@ function displayMenuForCustomer(menuItem, cartItemIds) {
         });
     });
 
+
     // Helper function to check if the item is already in the cart
     function isItemInCart(itemId) {
         return cartItems.includes(itemId);
@@ -155,7 +156,7 @@ function displayMenuForCustomer(menuItem, cartItemIds) {
             }
 
             const data = await response.json();
-            MultiPopup(`Item added ` , 1500)
+            MultiPopup(`Item added `, 1500)
             console.log('Item added to cart:', data);
             fetchAddedItem();
             fetchAddedItemForButton()

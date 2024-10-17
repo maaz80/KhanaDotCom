@@ -30,9 +30,9 @@
                     <!-- Restaurant Owner Dashboard -->
                     <button class="restaurant-owner-links poppins-regular">Dashboard</button>
 
-                    <button class="login loginButton"><a href="login.html">LogIn</a></button>
+                    <button class="login loginButton poppins-regular"><a href="login.html">LogIn</a></button>
                     <div class="signupdrop">
-                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <button class="signup-toggle poppins-regular" id="signup-toggle">SignUp</button>
                         <ul id="sign-menu" class="sign-menu">
                             <li><a href="customer.html">Customer</a></li>
                             <li><a href="deliverylogin.html">Delivery Person</a></li>
@@ -117,7 +117,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" r class="poppins-regular"equired />
+                <input type="password" id="password" name="password"  class="poppins-regular" required />
             </div>
             <div class="form-group">
                 <div class="form-group">
@@ -131,6 +131,11 @@
                     readonly />
                   </div>
             </div>
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" class="poppins-regular" required />
+            </div>
+            
             <div class="form-group">
                 <button type="submit" class="poppins-regular">Submit</button>
             </div>
@@ -148,11 +153,12 @@
             const data = {
                 username: formData.get('username'),
                 name: formData.get('name'),
+                phone_number: formData.get('phone_number'),
                 address: formData.get('address'),
                 email: formData.get('email'),
-                phone_number: formData.get('phone_number'),
                 password: formData.get('password'),
-                user_type: formData.get('user_type')
+                user_type: formData.get('user_type'),
+                 date_of_birth: formData.get('date_of_birth')
             };
 
             try {

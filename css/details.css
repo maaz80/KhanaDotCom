@@ -101,7 +101,7 @@ header {
     width: 100%;
 }
 
-.quantity {
+.quantityInDetails {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -114,7 +114,7 @@ header {
     gap: 10px;
 }
 
-.quantity button {
+.quantityInDetails button {
     background-color: #16a290;
     border: none;
     height: 30px;

@@ -75,7 +75,7 @@ async function fetchMenuForCustomer(restaurant_id, itemID, cartItemId =[] ) {
                         <p>${itemData.description}</p>
                         <p class='price'>Price: ₹${itemData.price}</p>
                         <div class= "all-buttons">
-                         <div class="quantity">
+                         <div class="quantityInDetails">
                             <button id='minus'>-</button>
                             <div id='count'>1</div>
                             <button id='plus'>+</button>

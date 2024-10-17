@@ -44,19 +44,19 @@ async function fetchAddedItem() {
                 itemDiv.classList.add('cart-item');
                 const imageUrl = `https://khanadotcom.in:8000${item.menu_item.menu_item_pic}`
                 itemDiv.innerHTML = `
-                <div class='cart-list-item'>
-                <img src='${imageUrl}' alt='Item Pic' class='cartItemImage'/>
+                <div class='cart-list-item ' id='detailsPage-${item.id}'>
+                 <img src='${imageUrl}' alt='Item Pic' class='cartItemImage'/>
                 <div class='cart-list-item-details'>
-                <h3>${item.menu_item.name}</h3>
-                <div class='quantityContainer'>
-                <div>Quantity:</div> 
-                 <div class='quantity'>
-                  <button class='minus poppins-regular' data-id='${item.id}' id='minus-${item.id}'>-</button>
-                  ${item.quantity}
-                  <button class='plus poppins-regular' data-id='${item.id}' id='plus-${item.id}'>+</button>
-                 </div>
-                </div>
-                <p>Total Price: ₹${item.total_price}</p>
+                  <h3>${item.menu_item.name}</h3>
+                  <div class='quantityContainer'>
+                    <div>Quantity:</div> 
+                     <div class='quantity'>
+                      <button class='minus poppins-regular' data-id='${item.id}' id='minus-${item.id}'>-</button>
+                      ${item.quantity}
+                      <button class='plus poppins-regular' data-id='${item.id}' id='plus-${item.id}'>+</button>
+                     </div>
+                    </div>
+                    <p>Total Price: ₹${item.total_price}</p>
                     <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
                 </div>
                 </div>
@@ -65,18 +65,25 @@ async function fetchAddedItem() {
                 // Append the item to the container
                 addedItemsCont.appendChild(itemDiv);
 
+                // Event Listener for details page from cart 
+                document.getElementById(`detailsPage-${item.id}`).addEventListener('click',()=>{
+                    window.location.href=`details.html?restaurant_id=${item.menu_item.restaurant}&itemID=${item.menu_item.menu_item_id}`
+                })
+
                 // Increasing quantity in cart 
-                document.getElementById(`plus-${item.id}`).addEventListener('click', () => {
+                document.getElementById(`plus-${item.id}`).addEventListener('click', (e) => {
                     const cartId = item.id;
                     const currentQuantity = item.quantity;
                     const newQuantity = currentQuantity + 1;
                     const menuItemId = item.menu_item.menu_item_id;
                     changeQuantity(cartId, menuItemId, newQuantity);
+                    e.stopPropagation();
                     MultiPopup('Quantity Increased', 1500);
                 });
 
                 // Decreasing quantity in cart 
-                document.getElementById(`minus-${item.id}`).addEventListener('click', () => {
+                document.getElementById(`minus-${item.id}`).addEventListener('click', (e) => {
+                    e.stopPropagation();
                     const cartId = item.id;
                     const currentQuantity = item.quantity;
                     const newQuantity = currentQuantity - 1;
@@ -119,6 +126,7 @@ function addRemoveEventListener() {
     if (removeButton.length > 0) {
         removeButton.forEach(button => {
             button.addEventListener('click', (event) => {
+                event.stopPropagation();
                 const cartId = event.currentTarget.dataset.cartId;
                 removeItem(cartId)
                 fetchAddedItem()

@@ -61,6 +61,8 @@ async function fetchMenuForCustomer(restaurant_id, cartItemIds) {
         }
 
         let menuItem = await responseMenu.json();
+        console.log(menuItem);
+        
 
         if (Array.isArray(menuItem) && menuItem.length > 0) {
             displayMenuForCustomer(menuItem, cartItemIds);
